@@ -34,6 +34,8 @@ To replace a photo, put the new file in `public/assets/media/` and change its im
 
 Section names follow the reference. Framer's generated CSS classes are retained to preserve the visual design, while editable content and complete sections are separated. These are HTML components, not React components or an editable Framer project.
 
+The statement size is controlled by `--quote-font-size` (30px) in `src/styles/custom.css`. That file also holds readable body sizes, the expanding navigation, centered sliding icons, and testimonial flip styles. `setupScrollMotion` in `src/interactions.js` controls the desktop portrait's growth and rotation; it respects reduced-motion preferences and keeps the reference's static portrait on smaller screens.
+
 ## Forms
 
 The contact form validates required fields and opens an email draft to `contactEmail`. It does not send mail automatically. Set `contactEndpoint` to an HTTPS service that accepts JSON to enable submission. The request contains `Name`, `Email`, and `Project`.

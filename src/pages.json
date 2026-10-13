@@ -28,7 +28,7 @@
   {
     "route": "/blog",
     "slug": "blog",
-    "title": "Projects - Majd",
+    "title": "Thoughts - Majd",
     "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
     "components": [
       "blog--0--projects-section",

@@ -6,11 +6,9 @@
   "contactEndpoint": "",
   "newsletterEndpoint": "",
   "navigation": [
-    {"label": "Home", "href": "/#hero-section"},
     {"label": "About Me", "href": "/#bio-section"},
     {"label": "Services", "href": "/#services"},
-    {"label": "Works", "href": "/work"},
-    {"label": "Thoughts", "href": "/blog"},
+    {"label": "Projects", "href": "/work"},
     {"label": "Contact", "href": "/#contact"}
   ]
 }

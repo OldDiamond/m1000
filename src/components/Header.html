@@ -1,4 +1,11 @@
 <nav class="portfolio-nav" aria-label="Portfolio">
-  <a class="portfolio-logo" href="/#hero-section">{{displayName}}</a>
-  <button class="portfolio-toggle" type="button" aria-label="Toggle navigation" aria-controls="portfolio-menu" aria-expanded="false"><span aria-hidden="true">•••</span></button>
+  <div class="portfolio-nav-bar">
+    <a class="portfolio-logo" href="/#hero-section">{{displayName}}</a>
+    <button class="portfolio-toggle" type="button" aria-label="Open navigation" aria-controls="portfolio-menu" aria-expanded="false">
+      <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+    </button>
+  </div>
+  <div class="portfolio-menu-reveal">
+    <div class="portfolio-menu" id="portfolio-menu" inert aria-hidden="true"></div>
+  </div>
 </nav>
