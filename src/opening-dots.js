@@ -16,7 +16,7 @@ async function startOpening(layer) {
   const page = document.getElementById('main');
   const previousInert = page?.inert;
   let frame = 0, previousTime = 0, elapsed = 0, finished = false;
-  let width, height, side, columns, particles, headingMask, portrait, heroCaptured = false;
+  let width, height, side, columns, particles, headingMask, headingDots, portrait, heroCaptured = false;
   const clamp = value => Math.max(0, Math.min(1, value));
   const smooth = value => { const t = clamp(value); return t * t * t * (t * (t * 6 - 15) + 10); };
   const random = seed => { const value = Math.sin(seed * 127.1 + 311.7) * 43758.5453; return value - Math.floor(value); };
@@ -54,7 +54,9 @@ async function startOpening(layer) {
   if (page) page.inert = true;
 
   function resize() {
-    width = innerWidth; height = innerHeight;
+    // The stable scrollbar gutter can make this layer narrower than the
+    // viewport. Match its real size so masks do not scale away from the DOM.
+    width = canvas.clientWidth; height = canvas.clientHeight;
     const scale = Math.min(devicePixelRatio || 1, 2);
     canvas.width = Math.round(width * scale); canvas.height = Math.round(height * scale);
     context.setTransform(scale, 0, 0, scale, 0, 0);
@@ -105,6 +107,21 @@ async function startOpening(layer) {
       dot.heroX = dot.isPortrait ? portrait.x + ((cell % 8) + .5) * portrait.width / 8 : point?.x ?? width / 2;
       dot.heroY = dot.isPortrait ? portrait.y + (Math.floor(cell / 8) + .5) * portrait.height / 8 : point?.y ?? height / 2;
     });
+    // Keep settled text dots inside the actual letters, including their edges.
+    headingDots = document.createElement('canvas');
+    headingDots.width = canvas.width; headingDots.height = canvas.height;
+    const ctx = headingDots.getContext('2d');
+    ctx.setTransform(canvas.width / width, 0, 0, canvas.height / height, 0, 0);
+    ctx.fillStyle = '#111';
+    ctx.beginPath();
+    for (const dot of particles) {
+      if (dot.isPortrait) continue;
+      ctx.moveTo(dot.heroX + dot.radius, dot.heroY);
+      ctx.arc(dot.heroX, dot.heroY, dot.radius, 0, Math.PI * 2);
+    }
+    ctx.fill();
+    ctx.globalCompositeOperation = 'destination-in';
+    ctx.drawImage(headingMask, 0, 0);
   }
 
   function heroTargets() {
@@ -183,12 +200,23 @@ async function startOpening(layer) {
       // The portrait hole already dissolves its dots. Fading them separately
       // exposes the paper between the dots and image, causing a bright flash.
       context.globalAlpha = smooth(phase / .05) * (isPortrait ? 1 : 1 - headingReveal);
+      if (!isPortrait && phase >= .845) {
+        context.drawImage(headingDots, 0, 0, width, height);
+        continue;
+      }
+      context.save();
+      if (isPortrait && portrait && phase >= .845) {
+        // Land first, then expand inside the photograph's clean outline.
+        context.beginPath();
+        context.roundRect(portrait.x, portrait.y, portrait.width, portrait.height, portrait.radius);
+        context.clip();
+      }
       context.beginPath();
       for (const dot of particles) {
         if (dot.isPortrait !== isPortrait) continue;
         const gather = smooth((phase - .04 - dot.delay * .1) / .2);
         const spread = smooth((phase - .44 - dot.delay * .08) / .16);
-        const blend = smooth((phase - .72 - dot.delay * .035) / .14);
+        const blend = smooth((phase - .72 - dot.delay * .02) / .105);
         const nameX = dot.startX * side + (dot.textX - dot.startX * side) * gather;
         const nameY = dot.startY * side + (dot.textY - dot.startY * side) * gather;
         const gridX = width / 2 + nameX + (dot.gridX * side - nameX) * spread;
@@ -196,12 +224,13 @@ async function startOpening(layer) {
         const x = gridX + (dot.heroX - gridX) * blend;
         const y = gridY + (dot.heroY - gridY) * blend;
         const targetRadius = isPortrait ? Math.max(portrait.width, portrait.height) / 8 * .74 : dot.radius;
-        const grow = smooth((phase - .82 - dot.delay * .025) / .07);
+        const grow = smooth((phase - .845) / .035);
         const radius = dot.radius + (targetRadius - dot.radius) * grow;
         context.moveTo(x + radius, y);
         context.arc(x, y, radius, 0, Math.PI * 2);
       }
       context.fill();
+      context.restore();
     }
     context.restore();
     // Open the canvas onto the actual DOM, so the photograph and typography
