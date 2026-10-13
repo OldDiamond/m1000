@@ -100,9 +100,10 @@ function setupScrollMotion(settings) {
     progress = animated ? progress + (target - progress) * .18 : 1;
     if (Math.abs(target - progress) < .0005 && animated) progress = target;
     if (front && back) {
-      const scale = animated ? .5 + progress * .5 : 1;
-      const y = animated ? avatar.offsetHeight * .25 * (1 - progress) : 0;
-      const angle = animated ? progress * 180 : 180;
+      const desktop = innerWidth >= 1280;
+      const scale = desktop ? .5 + (animated ? progress * .5 : 0) : 1;
+      const y = desktop ? avatar.offsetHeight * .25 * (animated ? 1 - progress : 1) : 0;
+      const angle = animated ? progress * 180 : 0;
       const base = `perspective(1200px) translateY(${y}px) scale(${scale})`;
       front.style.transform = `${base} rotateY(${angle}deg)`;
       back.style.transform = `${base} rotateY(${angle - 180}deg)`;

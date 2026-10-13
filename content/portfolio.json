@@ -313,14 +313,14 @@
     "image-76": {
       "type": "image",
       "label": "Portrait of portfolio creator – back view",
-      "value": "https://framerusercontent.com/images/haSjyjpt7FyCjJUBvXtmzCMSEQg.png?width=800&height=1072",
-      "alt": "Portrait of portfolio creator – back view"
+      "value": "/assets/media/portrait-red.png",
+      "alt": "Portrait of the portfolio creator against a red background"
     },
     "image-77": {
       "type": "image",
       "label": "Portrait of portfolio creator – front view",
-      "value": "https://framerusercontent.com/images/haSjyjpt7FyCjJUBvXtmzCMSEQg.png?width=800&height=1072",
-      "alt": "Portrait of portfolio creator – front view"
+      "value": "/assets/media/portrait-grayscale.png",
+      "alt": "Grayscale portrait of the portfolio creator"
     },
     "image-78": {
       "type": "image",

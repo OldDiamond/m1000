@@ -34,6 +34,8 @@ The `/about` page has two education entries and three work experience entries wi
 
 To replace a photo, put the new file in `public/assets/media/` and change its image value to `/assets/media/your-photo.jpg`. The two portrait entries represent front and back views; update both. The original source asset URLs are mapped to downloaded files by `content/assets.json` at build time.
 
+The current hero uses `portrait-grayscale.png` on the front and `portrait-red.png` on the back, cropped from the supplied portraits without their white borders. Edit `home.image-77` and `home.image-76` in `content/portfolio.json` to replace them. The grayscale view stays visible on smaller screens and for reduced motion; the desktop scroll rotation reveals the red view.
+
 Section names follow the reference. Framer's generated CSS classes are retained to preserve the visual design, while editable content and complete sections are separated. These are HTML components, not React components or an editable Framer project.
 
 The statement size is controlled by `--quote-font-size` (30px) in `src/styles/custom.css`. That file also holds readable body sizes, the expanding navigation, and centered sliding icons. `setupScrollMotion` in `src/interactions.js` controls the desktop portrait's growth and rotation; it respects reduced-motion preferences and keeps the reference's static portrait on smaller screens.
