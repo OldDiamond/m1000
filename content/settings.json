@@ -1,0 +1,16 @@
+{
+  "displayName": "Majd",
+  "contactEmail": "mejed@templyo.io",
+  "copyrightYear": "2026",
+  "quote": "From idea to launch. Clean, scalable digital products built to move fast, stay simple, and perform in real-world use, driven by clarity, structured systems, and intentional design.",
+  "contactEndpoint": "",
+  "newsletterEndpoint": "",
+  "navigation": [
+    {"label": "Home", "href": "/#hero-section"},
+    {"label": "About Me", "href": "/#bio-section"},
+    {"label": "Services", "href": "/#services"},
+    {"label": "Works", "href": "/work"},
+    {"label": "Thoughts", "href": "/blog"},
+    {"label": "Contact", "href": "/#contact"}
+  ]
+}

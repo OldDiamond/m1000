@@ -1,0 +1,181 @@
+[
+  {
+    "route": "/",
+    "slug": "home",
+    "title": "Majd",
+    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
+    "components": [
+      "home--0--hero-bio-sections",
+      "home--1--quote-section",
+      "home--2--services-section",
+      "home--3--projects-section",
+      "home--4--testimonials-section",
+      "home--5--thoughts-section",
+      "home--6--contact-section",
+      "home--7--phone"
+    ]
+  },
+  {
+    "route": "/work",
+    "slug": "work",
+    "title": "Projects - Majd",
+    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
+    "components": [
+      "work--0--projects-section",
+      "work--1--phone"
+    ]
+  },
+  {
+    "route": "/blog",
+    "slug": "blog",
+    "title": "Projects - Majd",
+    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
+    "components": [
+      "blog--0--projects-section",
+      "blog--1--phone"
+    ]
+  },
+  {
+    "route": "/work/damas",
+    "slug": "work--damas",
+    "title": "Damas - Majd",
+    "description": "Damas is a modern creative agency template built for bold visuals, smooth interactions, and standout storytelling. Perfect for agencies, studios, and creators who want a polished, high impact online presence without starting from scratch.",
+    "components": [
+      "work--damas--0--work-section",
+      "work--damas--1--more-projects",
+      "work--damas--2--phone"
+    ]
+  },
+  {
+    "route": "/work/najm",
+    "slug": "work--najm",
+    "title": "Najm - Majd",
+    "description": "A beautifully crafted Framer website template perfect for AI SaaS businesses looking to showcase their innovative products and services.",
+    "components": [
+      "work--najm--0--work-section",
+      "work--najm--1--more-projects",
+      "work--najm--2--phone"
+    ]
+  },
+  {
+    "route": "/work/kavi",
+    "slug": "work--kavi",
+    "title": "Kavi - Majd",
+    "description": "Kavi is a bold and modern website template made for SaaS and AI startups looking to launch fast and scale smarter with clean design and intuitive customization.",
+    "components": [
+      "work--kavi--0--work-section",
+      "work--kavi--1--more-projects",
+      "work--kavi--2--phone"
+    ]
+  },
+  {
+    "route": "/work/sham",
+    "slug": "work--sham",
+    "title": "Sham - Majd",
+    "description": "A clean, modern Framer template designed for creative studios and businesses. Built with flexible sections, smooth interactions, and fully editable components so you can launch a professional agency site quickly and for free.",
+    "components": [
+      "work--sham--0--work-section",
+      "work--sham--1--more-projects",
+      "work--sham--2--phone"
+    ]
+  },
+  {
+    "route": "/blog/how-can-designers-prepare-for-the-future",
+    "slug": "blog--how-can-designers-prepare-for-the-future",
+    "title": "Building Trust Through Clear Design - Majd",
+    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
+    "components": [
+      "blog--how-can-designers-prepare-for-the-future--0--article-section",
+      "blog--how-can-designers-prepare-for-the-future--1--more-articles",
+      "blog--how-can-designers-prepare-for-the-future--2--phone"
+    ]
+  },
+  {
+    "route": "/blog/why-every-business-needs-a-professional-website-in-2025",
+    "slug": "blog--why-every-business-needs-a-professional-website-in-2025",
+    "title": "The Role of Art Direction in Branding - Majd",
+    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
+    "components": [
+      "blog--why-every-business-needs-a-professional-website-in-2025--0--article-section",
+      "blog--why-every-business-needs-a-professional-website-in-2025--1--more-articles",
+      "blog--why-every-business-needs-a-professional-website-in-2025--2--phone"
+    ]
+  },
+  {
+    "route": "/work/abjad",
+    "slug": "work--abjad",
+    "title": "Abjad - Majd",
+    "description": "Olive Living is a slow-living lifestyle brand that creates products for mindful homes. Their philosophy centers on intentional living, warm textures, and everyday rituals that bring comfort and clarity.",
+    "components": [
+      "work--abjad--0--work-section",
+      "work--abjad--1--more-projects",
+      "work--abjad--2--phone"
+    ]
+  },
+  {
+    "route": "/work/fasselh",
+    "slug": "work--fasselh",
+    "title": "Faseelh - Majd",
+    "description": "Faseelh is a sleek, nature-inspired Framer template built for environmental projects, nonprofits, and sustainability-driven brands. It features immersive visuals, smooth animations, and flexible sections that make storytelling effortless.",
+    "components": [
+      "work--fasselh--0--work-section",
+      "work--fasselh--1--more-projects",
+      "work--fasselh--2--phone"
+    ]
+  },
+  {
+    "route": "/blog/how-creative-teams-build-strong-brand-systems",
+    "slug": "blog--how-creative-teams-build-strong-brand-systems",
+    "title": "How Creative Teams Build Brand Systems - Majd",
+    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
+    "components": [
+      "blog--how-creative-teams-build-strong-brand-systems--0--article-section",
+      "blog--how-creative-teams-build-strong-brand-systems--1--more-articles",
+      "blog--how-creative-teams-build-strong-brand-systems--2--phone"
+    ]
+  },
+  {
+    "route": "/blog/the-rise-of-modern-tech-startup-websites",
+    "slug": "blog--the-rise-of-modern-tech-startup-websites",
+    "title": "The Rise of Modern Tech Startup Websites - Majd",
+    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
+    "components": [
+      "blog--the-rise-of-modern-tech-startup-websites--0--article-section",
+      "blog--the-rise-of-modern-tech-startup-websites--1--more-articles",
+      "blog--the-rise-of-modern-tech-startup-websites--2--phone"
+    ]
+  },
+  {
+    "route": "/blog/top-web-design-trends-to-watch-in-2025",
+    "slug": "blog--top-web-design-trends-to-watch-in-2025",
+    "title": "Top Web Design Trends to Watch in 2025 - Majd",
+    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
+    "components": [
+      "blog--top-web-design-trends-to-watch-in-2025--0--article-section",
+      "blog--top-web-design-trends-to-watch-in-2025--1--more-articles",
+      "blog--top-web-design-trends-to-watch-in-2025--2--phone"
+    ]
+  },
+  {
+    "route": "/blog/designing-products-with-purpose",
+    "slug": "blog--designing-products-with-purpose",
+    "title": "Designing Products with Clear Purpose - Majd",
+    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
+    "components": [
+      "blog--designing-products-with-purpose--0--article-section",
+      "blog--designing-products-with-purpose--1--more-articles",
+      "blog--designing-products-with-purpose--2--phone"
+    ]
+  },
+  {
+    "route": "/blog/starting-and-growing-a-career-in-web-design",
+    "slug": "blog--starting-and-growing-a-career-in-web-design",
+    "title": "Starting and Growing a Career in Web Design - Majd",
+    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
+    "components": [
+      "blog--starting-and-growing-a-career-in-web-design--0--article-section",
+      "blog--starting-and-growing-a-career-in-web-design--1--more-articles",
+      "blog--starting-and-growing-a-career-in-web-design--2--phone"
+    ]
+  }
+]

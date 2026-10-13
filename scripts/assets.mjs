@@ -1,0 +1,7 @@
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+const files=[];const walk=dir=>{for(const e of fs.readdirSync(dir,{withFileTypes:true})){const p=dir+'/'+e.name;e.isDirectory()?walk(p):files.push(p)}};walk('src');files.push('content/portfolio.json');
+const urls=new Set();for(const p of files){if(!/\.(html|css|json)$/.test(p))continue;for(const m of fs.readFileSync(p,'utf8').matchAll(/https:\/\/(?:framerusercontent\.com\/(?:images|assets)\/|fonts\.gstatic\.com\/)[^"'\s<>\\)]+/g))urls.add(m[0].replaceAll('&amp;','&'))}
+fs.mkdirSync('public/assets/media',{recursive:true});const mapping={};const queue=[...urls];let count=0;
+async function worker(){while(queue.length){const url=queue.shift();const u=new URL(url);const ext=u.pathname.split('.').at(-1);const name=crypto.createHash('sha256').update(u.origin+u.pathname).digest('hex').slice(0,16)+'.'+ext;const local='public/assets/media/'+name;if(fs.existsSync(local)){mapping[url]='/assets/media/'+name;continue}try{const r=await fetch(url,{signal:AbortSignal.timeout(45000)});if(!r.ok)throw Error(r.status);fs.writeFileSync(local,Buffer.from(await r.arrayBuffer()));mapping[url]='/assets/media/'+name;console.log('Asset',++count,'of',urls.size)}catch(e){console.log('External asset retained:',u.pathname,e.message)}}}
+await Promise.all(Array.from({length:4},worker));fs.writeFileSync('content/assets.json',JSON.stringify(mapping,null,2));console.log('Cached',Object.keys(mapping).length,'asset references.');
