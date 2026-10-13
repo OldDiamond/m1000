@@ -42,8 +42,14 @@ async function startOpening(layer) {
     else if (!finished && !frame) frame = requestAnimationFrame(paint);
   }
 
-  // Bound font waiting so a slow font cannot keep visitors behind the intro.
-  await Promise.race([document.fonts.load('500 100px Archivo').catch(() => {}), new Promise(resolve => setTimeout(resolve, 700))]);
+  // Decode the hero photograph while preparing the dots, before the reveal.
+  // Bound waiting so unavailable assets cannot hold visitors behind the intro.
+  const portraitImages = [...document.querySelectorAll('[data-framer-name="Avatar - Front"] img, [data-framer-name="Avatar - Back"] img')];
+  const assetsReady = Promise.allSettled([
+    document.fonts.load('500 100px Archivo'),
+    ...portraitImages.map(image => { image.loading = 'eager'; return image.decode(); })
+  ]);
+  await Promise.race([assetsReady, new Promise(resolve => setTimeout(resolve, 700))]);
   if (!layer.isConnected || reduce.matches) { finish(); return; }
   if (page) page.inert = true;
 
@@ -76,24 +82,28 @@ async function startOpening(layer) {
     }
     if (!targets.length) { finish(); return; }
     const textScale = Math.min(width * (width <= 600 ? .8 : .36), 440, side * .95) / mask.width;
-    const hero = heroTargets();
-    const portraitCount = hero.portrait ? 64 : 0;
-    const headingCount = count - portraitCount;
     particles = Array.from({length: count}, (_, index) => {
       const target = targets[index % targets.length];
-      const isPortrait = index >= headingCount;
-      const cell = index - headingCount;
-      const headingTarget = hero.points[Math.floor(index * hero.points.length / headingCount) % hero.points.length];
       return {
         startX: random(index + 1) - .5, startY: random(index + 907) - .5,
         textX: target.x * textScale, textY: target.y * textScale,
         gridX: ((index % columns) + .5) / columns - .5,
         gridY: (Math.floor(index / columns) + .5) / columns - .5,
-        delay: random(index + 2017), radius: .8 + random(index + 4099) * .35,
-        isPortrait,
-        heroX: isPortrait ? portrait.x + ((cell % 8) + .5) * portrait.width / 8 : headingTarget?.x ?? width / 2,
-        heroY: isPortrait ? portrait.y + (Math.floor(cell / 8) + .5) * portrait.height / 8 : headingTarget?.y ?? height / 2
+        delay: random(index + 2017), radius: .8 + random(index + 4099) * .35
       };
+    });
+    assignHeroTargets();
+  }
+
+  function assignHeroTargets() {
+    const hero = heroTargets();
+    const headingCount = particles.length - (hero.portrait ? 64 : 0);
+    particles.forEach((dot, index) => {
+      dot.isPortrait = index >= headingCount;
+      const cell = index - headingCount;
+      const point = hero.points[Math.floor(index * hero.points.length / headingCount) % hero.points.length];
+      dot.heroX = dot.isPortrait ? portrait.x + ((cell % 8) + .5) * portrait.width / 8 : point?.x ?? width / 2;
+      dot.heroY = dot.isPortrait ? portrait.y + (Math.floor(cell / 8) + .5) * portrait.height / 8 : point?.y ?? height / 2;
     });
   }
 
@@ -153,7 +163,7 @@ async function startOpening(layer) {
     if (phase >= 1) { finish(); return; }
     // Other hero interactions and font loading can settle after startup.
     // Measure again at the handoff so the dots meet their final positions.
-    if (phase >= .72 && !heroCaptured) { resize(); heroCaptured = true; }
+    if (phase >= .72 && !heroCaptured) { assignHeroTargets(); heroCaptured = true; }
     layer.dataset.phase = phase < .44 ? 'name' : phase < .72 ? 'grid' : phase < .94 ? 'blend' : 'reveal';
     layer.style.opacity = String(1 - smooth((phase - .94) / .06));
     context.clearRect(0, 0, width, height);
@@ -170,7 +180,9 @@ async function startOpening(layer) {
     const headingReveal = smooth((phase - .85) / .1);
     const portraitReveal = smooth((phase - .88) / .08);
     for (const isPortrait of [false, true]) {
-      context.globalAlpha = smooth(phase / .05) * (1 - (isPortrait ? portraitReveal : headingReveal));
+      // The portrait hole already dissolves its dots. Fading them separately
+      // exposes the paper between the dots and image, causing a bright flash.
+      context.globalAlpha = smooth(phase / .05) * (isPortrait ? 1 : 1 - headingReveal);
       context.beginPath();
       for (const dot of particles) {
         if (dot.isPortrait !== isPortrait) continue;
