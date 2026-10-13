@@ -78,19 +78,21 @@ export function setupCurtain(options = {}) {
   gl.uniform1f(gl.getUniformLocation(program, 'u_strength'), strength);
   layer.dataset.renderer = 'webgl';
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
-  let frame = 0, lastRender = -Infinity, elapsed = 0, previousTime = 0, contextAvailable = true;
+  let frame = 0, lastRender = -Infinity, elapsed = 0, previousTime = 0, contextAvailable = true, inView = true;
   const draw = () => { if (contextAvailable) { gl.uniform1f(timeUniform, elapsed * speed); gl.drawArrays(gl.TRIANGLES, 0, 6); } };
   function resize() {
     if (!contextAvailable) return;
-    const ratio = Math.min(devicePixelRatio || 1, 1.5, 1600 / innerWidth);
-    canvas.width = Math.round(innerWidth * ratio);
-    canvas.height = Math.round(innerHeight * ratio);
+    const width = layer.clientWidth || innerWidth;
+    const height = layer.clientHeight || innerHeight;
+    const ratio = Math.min(devicePixelRatio || 1, 1.5, 1600 / width);
+    canvas.width = Math.round(width * ratio);
+    canvas.height = Math.round(height * ratio);
     gl.viewport(0, 0, canvas.width, canvas.height);
     draw();
   }
   function animate(time) {
     frame = 0;
-    if (document.hidden || reduce.matches || !speed || !contextAvailable) { previousTime = 0; return; }
+    if (document.hidden || reduce.matches || !speed || !contextAvailable || !inView) { previousTime = 0; return; }
     if (previousTime) elapsed += Math.min((time - previousTime) / 1000, .1);
     previousTime = time;
     if (time - lastRender >= 1000 / 30) { draw(); lastRender = time; }
@@ -99,11 +101,16 @@ export function setupCurtain(options = {}) {
   function restart() {
     cancelAnimationFrame(frame); frame = 0; previousTime = 0;
     draw();
-    if (!document.hidden && !reduce.matches && speed && contextAvailable) frame = requestAnimationFrame(animate);
+    if (!document.hidden && !reduce.matches && speed && contextAvailable && inView) frame = requestAnimationFrame(animate);
   }
   window.addEventListener('resize', resize, { passive: true });
   document.addEventListener('visibilitychange', restart);
   reduce.addEventListener('change', restart);
+  const observer = new IntersectionObserver(([entry]) => {
+    inView = entry.isIntersecting;
+    restart();
+  });
+  observer.observe(layer);
   canvas.addEventListener('webglcontextlost', event => {
     event.preventDefault(); contextAvailable = false; cancelAnimationFrame(frame); frame = 0; layer.dataset.renderer = 'css';
   });

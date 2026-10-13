@@ -4,11 +4,20 @@
   --motion-ease: cubic-bezier(.22, 1, .36, 1);
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+  scrollbar-width: thin;
+  scrollbar-color: #bdb5ca #faf7f3;
+}
+html::-webkit-scrollbar { width: 10px; height: 10px; }
+html::-webkit-scrollbar-track { background: #faf7f3; }
+html::-webkit-scrollbar-thumb { background: #bdb5ca; border: 2px solid #faf7f3; border-radius: 10px; }
+html::-webkit-scrollbar-thumb:hover { background: #a798bf; }
 body { margin: 0; background: #f5f3ef; }
 .curtain-background {
   --curtain-blue: #3c5cff; --curtain-violet: #8b42f5; --curtain-intensity: .62;
-  position: fixed; inset: 0; z-index: 0;
+  position: absolute; top: 0; left: 0; right: 0; z-index: 0;
   width: 100%; height: 100vh; height: 100svh;
   pointer-events: none; overflow: hidden; contain: strict;
 }
