@@ -17,6 +17,7 @@ html::-webkit-scrollbar-thumb:hover { background: #a798bf; }
 body { margin: 0; background: #f5f3ef; }
 .opening-dots { position: fixed; inset: 0; z-index: 2000; background: #faf7f3; overflow: hidden; }
 .opening-dots[hidden] { display: none; }
+.opening-dots[data-renderer="canvas"] { background: transparent; }
 .opening-dots-canvas { display: block; width: 100%; height: 100%; }
 html.opening-dots-active { overflow: hidden; scrollbar-gutter: stable; }
 html.opening-dots-active body { touch-action: none; }
