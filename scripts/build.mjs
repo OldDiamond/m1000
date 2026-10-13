@@ -11,6 +11,7 @@ if(fs.existsSync('public'))fs.cpSync('public','dist',{recursive:true});
 fs.copyFileSync('src/styles/custom.css','dist/assets/custom.css');
 fs.copyFileSync('src/interactions.js','dist/assets/interactions.js');
 fs.copyFileSync('src/curtain.js','dist/assets/curtain.js');
+fs.copyFileSync('src/footer-hands.js','dist/assets/footer-hands.js');
 fs.writeFileSync('dist/assets/settings.json',JSON.stringify(settings));
 for(const page of pages){
  let html=fs.readFileSync('src/pages/'+page.slug+'.html','utf8');
@@ -23,6 +24,7 @@ for(const page of pages){
  const dir=path.join('dist',page.route);fs.mkdirSync(dir,{recursive:true});
  fs.writeFileSync('dist/assets/'+page.slug+'.css',localize(fs.readFileSync('src/styles/'+page.slug+'.css','utf8')));
  html=localize(html);
+ html=html.replace(/(<footer\b[^>]*>)/g, '$1'+fs.readFileSync('src/components/FooterHands.html','utf8'));
  html=html.replace(/(<div\b[^>]*class="[^"]*\bframer-zpn31\b[^"]*"[^>]*>)/, '$1'+fs.readFileSync('src/components/CurtainBackground.html','utf8'));
  html=html.replaceAll('href="./','href="/');
  html=html.replace(/href="(\/[^"#]+)(#[^"]*)?"/g,(match,target,hash='')=>{if(pages.some(p=>p.route===target))return match;const found=pages.find(p=>p.route.split('/').at(-1)===target.slice(1));return found?'href="'+found.route+hash+'"':match});

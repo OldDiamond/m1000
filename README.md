@@ -42,6 +42,8 @@ Service descriptions sit beside their headings on desktop and tablet, and stack 
 
 The blue-violet curtain background is anchored to the top of each page and scrolls out of view after the first viewport. Edit `backgroundCurtains` in `content/settings.json` to adjust its two hex colors, intensity (0–1), speed, or enabled state. `src/curtain.js` renders the folds at up to 30 fps, pauses while offscreen or the tab is hidden, and stays still for reduced motion. A CSS fallback is available when WebGL is unsupported. The center and lower background fade into the original paper color; navigation, text, cards, and footer retain their colors. The page scrollbar uses a light paper track and a muted violet-gray thumb.
 
+The footer's ASCII hands approach from both sides as you scroll to the footer, behind the copy and above the large name. There is no mouse tracking, hover scrambling, or hover movement. Edit `footerHands` in `content/settings.json` for color, opacity, character density, or visibility. `src/footer-hands.js` converts local hand silhouettes into text; reduced motion displays their final positions. The silhouettes come from the user-supplied [Luke Baffait footer reference](https://lukebaffait.fr/), and are stored in `public/assets/hands/`.
+
 ## Forms
 
 The contact form validates required fields and opens an email draft to `contactEmail`. It does not send mail automatically. Set `contactEndpoint` to an HTTPS service that accepts JSON to enable submission. The request contains `Name`, `Email`, and `Project`.

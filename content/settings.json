@@ -17,5 +17,11 @@
     {"label": "Services", "href": "/#services"},
     {"label": "Projects", "href": "/work"},
     {"label": "Contact", "href": "/#contact"}
-  ]
+  ],
+  "footerHands": {
+    "enabled": true,
+    "color": "#ff3b14",
+    "opacity": 0.45,
+    "columns": 80
+  }
 }
