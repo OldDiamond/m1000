@@ -47,8 +47,8 @@
     },
     "text-10": {
       "type": "text",
-      "label": "Get Started",
-      "value": "Get Started"
+      "label": "About",
+      "value": "About"
     },
     "text-11": {
       "type": "text",
@@ -387,8 +387,8 @@
     },
     "link-97": {
       "type": "link",
-      "label": "Get Started",
-      "value": "https://framer.link/nnhGcWR"
+      "label": "About",
+      "value": "/about"
     },
     "link-98": {
       "type": "link",
@@ -458,7 +458,7 @@
     "link-111": {
       "type": "link",
       "label": "About Me\n    .rolling-text-inner-r17 {\n      --font-size: 16px;\n      --text: va",
-      "value": "/#bio-section"
+      "value": "/about"
     },
     "link-112": {
       "type": "link",
@@ -706,7 +706,7 @@
     "link-44": {
       "type": "link",
       "label": "About Me\n    .rolling-text-inner-rr {\n      --font-size: 16px;\n      --text: var",
-      "value": "/#bio-section"
+      "value": "/about"
     },
     "link-45": {
       "type": "link",
@@ -1010,7 +1010,7 @@
     "link-55": {
       "type": "link",
       "label": "About Me\n    .rolling-text-inner-r1j {\n      --font-size: 16px;\n      --text: va",
-      "value": "/#bio-section"
+      "value": "/about"
     },
     "link-56": {
       "type": "link",
@@ -1328,7 +1328,7 @@
     "link-58": {
       "type": "link",
       "label": "About Me\n    .rolling-text-inner-rp {\n      --font-size: 16px;\n      --text: var",
-      "value": "../#bio-section"
+      "value": "/about"
     },
     "link-59": {
       "type": "link",
@@ -1651,7 +1651,7 @@
     "link-59": {
       "type": "link",
       "label": "About Me\n    .rolling-text-inner-rq {\n      --font-size: 16px;\n      --text: var",
-      "value": "../#bio-section"
+      "value": "/about"
     },
     "link-60": {
       "type": "link",
@@ -1969,7 +1969,7 @@
     "link-58": {
       "type": "link",
       "label": "About Me\n    .rolling-text-inner-rr {\n      --font-size: 16px;\n      --text: var",
-      "value": "../#bio-section"
+      "value": "/about"
     },
     "link-59": {
       "type": "link",
@@ -2292,7 +2292,7 @@
     "link-59": {
       "type": "link",
       "label": "About Me\n    .rolling-text-inner-rp {\n      --font-size: 16px;\n      --text: var",
-      "value": "../#bio-section"
+      "value": "/about"
     },
     "link-60": {
       "type": "link",
@@ -2683,7 +2683,7 @@
     "link-73": {
       "type": "link",
       "label": "About Me\n    .rolling-text-inner-r15 {\n      --font-size: 16px;\n      --text: va",
-      "value": "../#bio-section"
+      "value": "/about"
     },
     "link-74": {
       "type": "link",
@@ -3199,7 +3199,7 @@
     "link-98": {
       "type": "link",
       "label": "About Me\n    .rolling-text-inner-r13 {\n      --font-size: 16px;\n      --text: va",
-      "value": "../#bio-section"
+      "value": "/about"
     },
     "link-99": {
       "type": "link",
@@ -3527,7 +3527,7 @@
     "link-60": {
       "type": "link",
       "label": "About Me\n    .rolling-text-inner-rq {\n      --font-size: 16px;\n      --text: var",
-      "value": "../#bio-section"
+      "value": "/about"
     },
     "link-61": {
       "type": "link",
@@ -3850,7 +3850,7 @@
     "link-59": {
       "type": "link",
       "label": "About Me\n    .rolling-text-inner-rs {\n      --font-size: 16px;\n      --text: var",
-      "value": "../#bio-section"
+      "value": "/about"
     },
     "link-60": {
       "type": "link",
@@ -4266,7 +4266,7 @@
     "link-78": {
       "type": "link",
       "label": "About Me\n    .rolling-text-inner-r15 {\n      --font-size: 16px;\n      --text: va",
-      "value": "../#bio-section"
+      "value": "/about"
     },
     "link-79": {
       "type": "link",
@@ -4657,7 +4657,7 @@
     "link-73": {
       "type": "link",
       "label": "About Me\n    .rolling-text-inner-r17 {\n      --font-size: 16px;\n      --text: va",
-      "value": "../#bio-section"
+      "value": "/about"
     },
     "link-74": {
       "type": "link",
@@ -5088,7 +5088,7 @@
     "link-81": {
       "type": "link",
       "label": "About Me\n    .rolling-text-inner-ru {\n      --font-size: 16px;\n      --text: var",
-      "value": "../#bio-section"
+      "value": "/about"
     },
     "link-82": {
       "type": "link",
@@ -5474,7 +5474,7 @@
     "link-72": {
       "type": "link",
       "label": "About Me\n    .rolling-text-inner-rt {\n      --font-size: 16px;\n      --text: var",
-      "value": "../#bio-section"
+      "value": "/about"
     },
     "link-73": {
       "type": "link",
@@ -5860,7 +5860,7 @@
     "link-72": {
       "type": "link",
       "label": "About Me\n    .rolling-text-inner-rr {\n      --font-size: 16px;\n      --text: var",
-      "value": "../#bio-section"
+      "value": "/about"
     },
     "link-73": {
       "type": "link",
@@ -5881,6 +5881,208 @@
       "type": "link",
       "label": "Mejed@Templyo.io",
       "value": "mailto:mejed@templyo.io"
+    }
+  },
+  "about": {
+    "text-18": {
+      "type": "html",
+      "label": "Scaling Start-ups for Growth.",
+      "value": "<span class=\"framer-text\" style=\"--framer-text-color:var(--extracted-1qn201a, var(--token-2fcd1089-c4fe-44ec-8e47-1defe3c9bd50, rgb(250, 247, 243)))\"><span style=\"display: inline-block; opacity: 1; filter: none; transform: translateX(0px) translateY(10px) scale(1) rotate(0deg) skewX(0deg) skewY(0deg);\">Scaling</span> <span style=\"display: inline-block; opacity: 1; filter: none; transform: translateX(0px) translateY(10px) scale(1) rotate(0deg) skewX(0deg) skewY(0deg);\"></span></span><br class=\"framer-text\"><span class=\"framer-text\" style=\"--framer-text-color:var(--extracted-g1tnir, var(--token-2fcd1089-c4fe-44ec-8e47-1defe3c9bd50, rgb(250, 247, 243)))\"><span style=\"display: inline-block; opacity: 1; filter: none; transform: translateX(0px) translateY(10px) scale(1) rotate(0deg) skewX(0deg) skewY(0deg);\">Start-ups</span> <span style=\"display: inline-block; opacity: 1; filter: none; transform: translateX(0px) translateY(10px) scale(1) rotate(0deg) skewX(0deg) skewY(0deg);\">for</span> <span style=\"display: inline-block; opacity: 1; filter: none; transform: translateX(0px) translateY(10px) scale(1) rotate(0deg) skewX(0deg) skewY(0deg);\">Growth.</span></span>"
+    },
+    "text-19": {
+      "type": "text",
+      "label": "/Quick links",
+      "value": "/Quick links"
+    },
+    "link-43": {
+      "type": "link",
+      "label": "Home\n    .rolling-text-inner-rn {\n      --font-size: 16px;\n      --text: var(--t",
+      "value": "/#hero-section"
+    },
+    "text-20": {
+      "type": "text",
+      "label": "Home",
+      "value": "Home"
+    },
+    "link-44": {
+      "type": "link",
+      "label": "About Me\n    .rolling-text-inner-rr {\n      --font-size: 16px;\n      --text: var",
+      "value": "/about"
+    },
+    "text-21": {
+      "type": "text",
+      "label": "About Me",
+      "value": "About Me"
+    },
+    "link-45": {
+      "type": "link",
+      "label": "Services\n    .rolling-text-inner-ru {\n      --font-size: 16px;\n      --text: var",
+      "value": "/#services"
+    },
+    "text-22": {
+      "type": "text",
+      "label": "Services",
+      "value": "Services"
+    },
+    "link-46": {
+      "type": "link",
+      "label": "Works\n    .rolling-text-inner-r10 {\n      --font-size: 16px;\n      --text: var(-",
+      "value": "/work#hero-section"
+    },
+    "text-23": {
+      "type": "text",
+      "label": "Works",
+      "value": "Works"
+    },
+    "link-47": {
+      "type": "link",
+      "label": "Contact\n    .rolling-text-inner-r13 {\n      --font-size: 16px;\n      --text: var",
+      "value": "/#contact"
+    },
+    "text-24": {
+      "type": "text",
+      "label": "Contact",
+      "value": "Contact"
+    },
+    "text-25": {
+      "type": "text",
+      "label": "/Contact",
+      "value": "/Contact"
+    },
+    "text-26": {
+      "type": "html",
+      "label": "Mejed@Templyo.io",
+      "value": "<a class=\"framer-text framer-styles-preset-lfjhkq\" data-styles-preset=\"yaETO81Ao\" href=\"mailto:mejed@templyo.io\" target=\"_blank\" rel=\"\">Mejed@Templyo.io</a><!--/$-->"
+    },
+    "link-48": {
+      "type": "link",
+      "label": "Mejed@Templyo.io",
+      "value": "mailto:mejed@templyo.io"
+    },
+    "text-27": {
+      "type": "text",
+      "label": "MAJD",
+      "value": "MAJD"
+    },
+    "about-title": {
+      "type": "text",
+      "label": "about-title",
+      "value": "About"
+    },
+    "about-intro": {
+      "type": "text",
+      "label": "about-intro",
+      "value": "Education, experience, and the milestones along the way."
+    },
+    "education-title": {
+      "type": "text",
+      "label": "education-title",
+      "value": "Education"
+    },
+    "education-1-years": {
+      "type": "text",
+      "label": "education-1-years",
+      "value": "Year – Year"
+    },
+    "education-1-title": {
+      "type": "text",
+      "label": "education-1-title",
+      "value": "Degree / Qualification"
+    },
+    "education-1-organization": {
+      "type": "text",
+      "label": "education-1-organization",
+      "value": "School / University"
+    },
+    "education-1-description": {
+      "type": "text",
+      "label": "education-1-description",
+      "value": "Field of study and key achievements."
+    },
+    "education-2-years": {
+      "type": "text",
+      "label": "education-2-years",
+      "value": "Year – Year"
+    },
+    "education-2-title": {
+      "type": "text",
+      "label": "education-2-title",
+      "value": "Course / Certification"
+    },
+    "education-2-organization": {
+      "type": "text",
+      "label": "education-2-organization",
+      "value": "Institution / Provider"
+    },
+    "education-2-description": {
+      "type": "text",
+      "label": "education-2-description",
+      "value": "Skills learned and areas of focus."
+    },
+    "experience-title": {
+      "type": "text",
+      "label": "experience-title",
+      "value": "Work Experience"
+    },
+    "experience-1-years": {
+      "type": "text",
+      "label": "experience-1-years",
+      "value": "Year – Present"
+    },
+    "experience-1-title": {
+      "type": "text",
+      "label": "experience-1-title",
+      "value": "Current Role / Job Title"
+    },
+    "experience-1-organization": {
+      "type": "text",
+      "label": "experience-1-organization",
+      "value": "Company / Organization"
+    },
+    "experience-1-description": {
+      "type": "text",
+      "label": "experience-1-description",
+      "value": "Responsibilities and key contributions."
+    },
+    "experience-2-years": {
+      "type": "text",
+      "label": "experience-2-years",
+      "value": "Year – Year"
+    },
+    "experience-2-title": {
+      "type": "text",
+      "label": "experience-2-title",
+      "value": "Previous Role / Job Title"
+    },
+    "experience-2-organization": {
+      "type": "text",
+      "label": "experience-2-organization",
+      "value": "Company / Organization"
+    },
+    "experience-2-description": {
+      "type": "text",
+      "label": "experience-2-description",
+      "value": "Projects, responsibilities, and achievements."
+    },
+    "experience-3-years": {
+      "type": "text",
+      "label": "experience-3-years",
+      "value": "Year – Year"
+    },
+    "experience-3-title": {
+      "type": "text",
+      "label": "experience-3-title",
+      "value": "Earlier Role / Internship"
+    },
+    "experience-3-organization": {
+      "type": "text",
+      "label": "experience-3-organization",
+      "value": "Company / Organization"
+    },
+    "experience-3-description": {
+      "type": "text",
+      "label": "experience-3-description",
+      "value": "Experience gained and work completed."
     }
   }
 }

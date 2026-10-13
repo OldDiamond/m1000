@@ -1,6 +1,6 @@
 # Editable portfolio
 
-Recreation of the supplied [Majd reference](https://majd-portfolio.framer.website/), with its home sections, six projects, seven articles, imagery, typography, and responsive styles. No framework installation or package dependencies are required.
+Recreation of the supplied [Majd reference](https://majd-portfolio.framer.website/), with its home sections, six projects, seven articles, imagery, typography, and responsive styles, plus an editable About page. No framework installation or package dependencies are required.
 
 ## Run locally
 
@@ -30,6 +30,8 @@ Open `http://localhost:3000`. After changing source or content, rebuild and refr
 
 `portfolio.json` is grouped by page. Entries have a readable `label` and an editable `value`. `text` fields contain plain text; `html` fields retain article links and formatting. `image` fields also expose `alt`. Keep entry keys intact: they bind content to `data-edit`, `data-edit-image`, or `data-edit-link` attributes in the components. Only use trusted HTML in rich text fields.
 
+The `/about` page has two education entries and three work experience entries with placeholders, ready for your real details. Edit the `about` group in `content/portfolio.json`: each entry has years, a degree or role title, an institution or company, and a short description. Keep the latest entry first. Add or remove rows in `src/components/about--1--education.html` and `src/components/about--2--experience.html`; new rows need unique `data-edit` keys and matching content entries. `src/styles/about.css` reuses the Projects page's typography and footer styles, then defines the year and details columns. On phones, the year sits above the details.
+
 To replace a photo, put the new file in `public/assets/media/` and change its image value to `/assets/media/your-photo.jpg`. The two portrait entries represent front and back views; update both. The original source asset URLs are mapped to downloaded files by `content/assets.json` at build time.
 
 Section names follow the reference. Framer's generated CSS classes are retained to preserve the visual design, while editable content and complete sections are separated. These are HTML components, not React components or an editable Framer project.
@@ -55,6 +57,7 @@ Article newsletter forms need `newsletterEndpoint`, accepting JSON with the sour
 ## Routes
 
 - `/` — hero, biography, quote, services, featured projects, thoughts, contact, footer.
+- `/about` — education and work experience arranged by year.
 - `/work` — project collection.
 - `/work/damas`, `/work/najm`, `/work/kavi`, `/work/sham`, `/work/abjad`, `/work/fasselh` — project details. `fasselh` preserves the reference URL spelling.
 - `/blog` — article collection.

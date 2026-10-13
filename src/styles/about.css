@@ -1,0 +1,39 @@
+/* Reuse the existing page typography, paper texture, and footer theme. */
+@import url("/assets/work.css");
+
+.about-page {
+  position: relative; width: calc(100% - 60px); max-width: 1180px;
+  margin: 0 auto; padding: 180px 0 120px;
+  font-family: var(--portfolio-font); color: #111;
+}
+.about-intro { margin-bottom: 90px; }
+.about-intro > p { margin-top: 16px; max-width: 660px; }
+.about-history + .about-history { margin-top: 90px; }
+.about-history > h2 { font-size: 48px; font-weight: 500; letter-spacing: -1.8px; line-height: 1.1; margin-bottom: 36px; }
+.about-timeline { list-style: none; padding: 0; margin: 0; }
+.about-entry { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 60px; padding: 36px 0; border-top: 1px solid #0000001a; }
+.about-entry:last-child { border-bottom: 1px solid #0000001a; }
+.about-year { font-size: 20px; font-weight: 400; line-height: 1.45; letter-spacing: -.4px; color: #777; padding-top: 5px; }
+.about-entry-content { min-width: 0; }
+.about-entry-content > h3 { font-size: 32px; font-weight: 500; letter-spacing: -1px; line-height: 1.2; }
+.about-organization { font-size: 20px; line-height: 1.45; letter-spacing: -.4px; color: #777; margin-top: 10px; }
+.about-description { font-size: 20px; line-height: 1.45; letter-spacing: -.4px; margin-top: 14px; max-width: 700px; }
+
+@media (max-width: 1279px) {
+  .about-page { max-width: 840px; padding-top: 160px; padding-bottom: 100px; }
+  .about-entry { grid-template-columns: 150px minmax(0, 1fr); gap: 40px; }
+  .about-history > h2 { font-size: 42px; }
+}
+@media (max-width: 809px) {
+  .about-page { width: calc(100% - 40px); padding-top: 140px; padding-bottom: 80px; }
+  .about-intro { margin-bottom: 60px; }
+  .about-history + .about-history { margin-top: 60px; }
+  .about-history > h2 { font-size: 36px; letter-spacing: -1.2px; margin-bottom: 28px; }
+  .about-entry { grid-template-columns: 110px minmax(0, 1fr); gap: 24px; padding: 28px 0; }
+  .about-entry-content > h3 { font-size: 28px; }
+  .about-year, .about-organization, .about-description { font-size: 18px; }
+}
+@media (max-width: 600px) {
+  .about-entry { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .about-year { padding-top: 0; }
+}

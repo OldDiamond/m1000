@@ -15,6 +15,18 @@
     ]
   },
   {
+    "route": "/about",
+    "slug": "about",
+    "title": "About - Majd",
+    "description": "Education, work experience, and milestones.",
+    "components": [
+      "about--0--intro",
+      "about--1--education",
+      "about--2--experience",
+      "work--1--phone"
+    ]
+  },
+  {
     "route": "/work",
     "slug": "work",
     "title": "Projects - Majd",

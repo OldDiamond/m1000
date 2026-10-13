@@ -19,10 +19,22 @@
     "speed": 0.35
   },
   "navigation": [
-    {"label": "About Me", "href": "/#bio-section"},
-    {"label": "Services", "href": "/#services"},
-    {"label": "Projects", "href": "/work"},
-    {"label": "Contact", "href": "/#contact"}
+    {
+      "label": "About Me",
+      "href": "/about"
+    },
+    {
+      "label": "Services",
+      "href": "/#services"
+    },
+    {
+      "label": "Projects",
+      "href": "/work"
+    },
+    {
+      "label": "Contact",
+      "href": "/#contact"
+    }
   ],
   "footerHands": {
     "enabled": true,
