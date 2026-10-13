@@ -172,7 +172,7 @@ footer a { color: inherit; text-decoration: none; }
 footer { isolation: isolate; }
 footer > [data-framer-name="Container"] { z-index: 2; }
 .footer-hands {
-  --hands-color: #ff3b14; --hands-opacity: .45; --hands-offset: 105%; --hand-cell: 7px;
+  --hands-color: #ff603b; --hands-opacity: .8; --hands-offset: 105%; --hand-cell: 7px;
   position: absolute; top: 0; left: 0; width: 100%; height: 360px;
   z-index: 0; pointer-events: none; user-select: none; overflow: hidden;
   opacity: var(--hands-enter-opacity, 0);

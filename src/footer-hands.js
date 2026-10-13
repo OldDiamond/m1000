@@ -42,11 +42,13 @@ export async function setupFooterHands(options = {}) {
   catch { layers.forEach(layer => layer.hidden = true); return; }
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   layers.forEach(layer => {
-    layer.style.setProperty('--hands-color', options.color || '#ff3b14');
-    layer.style.setProperty('--hands-opacity', Math.max(0, Math.min(1, Number(options.opacity ?? .45))));
+    layer.style.setProperty('--hands-color', options.color || '#ff603b');
+    layer.style.setProperty('--hands-opacity', Math.max(0, Math.min(1, Number(options.opacity ?? .8))));
     layer.querySelectorAll('pre').forEach((pre, index) => pre.textContent = shapes[index].text);
     layer.dataset.ready = 'true';
   });
+  const motion = layers.map(layer => ({ layer, progress: 0, target: 0 }));
+  let frame = 0, previousTime = 0;
   function layout() {
     layers.forEach(layer => {
       const footer = layer.closest('footer');
@@ -56,24 +58,47 @@ export async function setupFooterHands(options = {}) {
       const cell = Math.min(layer.clientWidth * .44 / columns, layer.clientHeight / (Math.max(...shapes.map(s => s.rows)) * 1.25));
       layer.style.setProperty('--hand-cell', cell + 'px');
     });
-    paint();
+    updateTargets();
   }
-  let frame = 0;
-  function paint() {
+  function paint(time) {
     frame = 0;
-    layers.forEach(layer => {
+    const elapsed = previousTime ? Math.min(64, time - previousTime) : 1000 / 60;
+    previousTime = time;
+    // Time-based damping keeps the same soft movement across refresh rates.
+    const blend = 1 - Math.exp(-elapsed / 160);
+    let moving = false;
+    motion.forEach(state => {
+      state.progress = reduce.matches ? state.target : state.progress + (state.target - state.progress) * blend;
+      if (Math.abs(state.target - state.progress) < .0005) state.progress = state.target;
+      else moving = true;
+      // Ease both ends so hands arrive and leave without an abrupt stop.
+      const progress = state.progress * state.progress * (3 - 2 * state.progress);
+      state.layer.style.setProperty('--hands-offset', ((1 - progress) * 105) + '%');
+      state.layer.style.setProperty('--hands-enter-opacity', Math.min(1, progress * 2));
+    });
+    if (moving && !document.hidden) frame = requestAnimationFrame(paint);
+    else previousTime = 0;
+  }
+  function schedule() {
+    if (!frame && !document.hidden) frame = requestAnimationFrame(paint);
+  }
+  function updateTargets() {
+    motion.forEach(state => {
+      const { layer } = state;
       const footer = layer.closest('footer');
       const rect = footer.getBoundingClientRect();
       const distance = Math.min(innerHeight * .65, footer.clientHeight * .8);
-      const progress = reduce.matches ? 1 : Math.max(0, Math.min(1, (innerHeight - rect.top) / distance));
-      layer.style.setProperty('--hands-offset', ((1 - progress) * 105) + '%');
-      layer.style.setProperty('--hands-enter-opacity', Math.min(1, progress * 2));
+      state.target = reduce.matches ? 1 : Math.max(0, Math.min(1, (innerHeight - rect.top) / distance));
     });
+    schedule();
   }
-  const schedule = () => { if (!frame) frame = requestAnimationFrame(paint); };
-  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('scroll', updateTargets, { passive: true });
   window.addEventListener('resize', layout, { passive: true });
-  reduce.addEventListener('change', schedule);
+  reduce.addEventListener('change', updateTargets);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { cancelAnimationFrame(frame); frame = 0; previousTime = 0; }
+    else updateTargets();
+  });
   document.fonts.ready.then(layout);
   layout();
 }

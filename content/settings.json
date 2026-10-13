@@ -20,8 +20,8 @@
   ],
   "footerHands": {
     "enabled": true,
-    "color": "#ff3b14",
-    "opacity": 0.45,
+    "color": "#ff603b",
+    "opacity": 0.8,
     "columns": 80
   }
 }
