@@ -34,7 +34,7 @@ To replace a photo, put the new file in `public/assets/media/` and change its im
 
 Section names follow the reference. Framer's generated CSS classes are retained to preserve the visual design, while editable content and complete sections are separated. These are HTML components, not React components or an editable Framer project.
 
-The statement size is controlled by `--quote-font-size` (30px) in `src/styles/custom.css`. That file also holds readable body sizes, the expanding navigation, centered sliding icons, and testimonial flip styles. `setupScrollMotion` in `src/interactions.js` controls the desktop portrait's growth and rotation; it respects reduced-motion preferences and keeps the reference's static portrait on smaller screens.
+The statement size is controlled by `--quote-font-size` (30px) in `src/styles/custom.css`. That file also holds readable body sizes, the expanding navigation, and centered sliding icons. `setupScrollMotion` in `src/interactions.js` controls the desktop portrait's growth and rotation; it respects reduced-motion preferences and keeps the reference's static portrait on smaller screens.
 
 The statement reveal starts when the top of its text reaches 85% of the viewport and continues through the first half viewport of scrolling, reading from the first word in order even while the text is pinned at the center. `setupDecorations` restores dragging and release momentum for the hero's metallic shapes. Focus a shape and use arrow keys to move it; Escape resets its position. Reduced motion disables release momentum.
 
@@ -52,7 +52,7 @@ Article newsletter forms need `newsletterEndpoint`, accepting JSON with the sour
 
 ## Routes
 
-- `/` — hero, biography, quote, services, featured projects, testimonials, thoughts, contact, footer.
+- `/` — hero, biography, quote, services, featured projects, thoughts, contact, footer.
 - `/work` — project collection.
 - `/work/damas`, `/work/najm`, `/work/kavi`, `/work/sham`, `/work/abjad`, `/work/fasselh` — project details. `fasselh` preserves the reference URL spelling.
 - `/blog` — article collection.
@@ -62,7 +62,7 @@ Article newsletter forms need `newsletterEndpoint`, accepting JSON with the sour
 
 ## Review notes
 
-See `REFERENCE-REVIEW.md` for the reference's components, existing content issues, and fidelity limits. Replace the reference's identity, testimonials, sample project content, email, and social destinations when personalizing it.
+See `REFERENCE-REVIEW.md` for the reference's components, existing content issues, and fidelity limits. Replace the reference's identity, sample project content, email, and social destinations when personalizing it.
 
 ## Validation and deployment
 

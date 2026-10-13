@@ -244,39 +244,6 @@ function setupForms(settings) {
   });
 }
 
-function setupTestimonials() {
-  const cards = [...document.querySelectorAll('[data-framer-name="Testimonials Cards"] .framer-oiibR')];
-  if (!cards.length) return;
-  cards.forEach((card, index) => {
-    card.classList.add('testimonial-card');
-    card.style.setProperty('--card-index', index);
-    card.tabIndex = 0;
-    card.setAttribute('role', 'group');
-    const author = card.querySelector('[data-framer-name="Name & Role"] p')?.textContent.trim();
-    card.setAttribute('aria-label', 'Testimonial' + (author ? ' from ' + author : ''));
-  });
-  function sizeCards() {
-    const height = Math.max(340, ...cards.map(card => {
-      const quote = card.querySelector('[data-framer-name="Front Face"] p');
-      const author = card.querySelector('[data-framer-name="Author"]');
-      return Math.ceil((quote?.scrollHeight || 0) + (author?.offsetHeight || 0) + 64);
-    }));
-    cards.forEach(card => card.style.setProperty('--testimonial-height', height + 'px'));
-  }
-  sizeCards();
-  document.fonts.ready.then(sizeCards);
-  window.addEventListener('resize', sizeCards, { passive: true });
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-revealed');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: .15 });
-  cards.forEach(card => observer.observe(card));
-}
-
 async function setup() {
   const settings = await fetch('/assets/settings.json').then(response => response.json());
   setupCurtain(settings.backgroundCurtains);
@@ -285,7 +252,6 @@ async function setup() {
   setupFooterHands(settings.footerHands);
   setupScrollMotion(settings);
   setupDecorations();
-  setupTestimonials();
   setupForms(settings);
   const socialNames = ['X', 'Instagram', 'LinkedIn', 'YouTube'];
   document.querySelectorAll('[data-framer-name="Social Media Icons"] a').forEach((link, index) => {

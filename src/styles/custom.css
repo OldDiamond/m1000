@@ -166,18 +166,6 @@ a:is(:hover, :focus-visible) [data-framer-name="Arrow Button"] > [data-framer-na
   width: calc(100% + 8px) !important; height: calc(100% + 8px) !important;
 }
 [data-framer-name="Logo"] img { object-fit: contain !important; object-position: center !important; }
-.testimonial-card { height: var(--testimonial-height, 340px) !important; }
-.testimonial-card > [data-framer-name="Front Face"], .testimonial-card > [data-framer-name="Back Face"] {
-  left: 0 !important; backface-visibility: hidden;
-  transition: transform .8s var(--motion-ease) !important;
-  transition-delay: calc(var(--card-index) * 90ms) !important;
-}
-.testimonial-card > [data-framer-name="Front Face"] { transform: perspective(1200px) rotateY(180deg) !important; }
-.testimonial-card > [data-framer-name="Back Face"] { transform: perspective(1200px) rotateY(0deg) !important; }
-.testimonial-card.is-revealed > [data-framer-name="Front Face"] { transform: perspective(1200px) rotateY(0deg) !important; }
-.testimonial-card.is-revealed > [data-framer-name="Back Face"] { transform: perspective(1200px) rotateY(-180deg) !important; }
-.testimonial-card.is-revealed:is(:hover, :focus-visible) > [data-framer-name="Front Face"] { transform: perspective(1200px) rotateY(180deg) !important; transition-delay: 0s !important; }
-.testimonial-card.is-revealed:is(:hover, :focus-visible) > [data-framer-name="Back Face"] { transform: perspective(1200px) rotateY(0deg) !important; transition-delay: 0s !important; }
 [data-framer-name="Image Wrap"] img { transition: transform .45s ease; }
 [data-framer-name="Project Card"]:hover img { transform: scale(1.025); }
 footer a { color: inherit; text-decoration: none; }
@@ -218,8 +206,6 @@ footer svg[data-framer-component-type="RichTextContainer"] { transform: translat
   *, *::before, *::after { animation: none !important; transition: none !important; }
   [data-framer-name="Arrow Button"] svg,
   [data-framer-name="Arrow Button"] > [data-framer-name="BG"],
-  [data-framer-name="Social Media Icons"] a svg,
-  .testimonial-card > [data-framer-name="Front Face"],
-  .testimonial-card > [data-framer-name="Back Face"] { transition: none !important; }
+  [data-framer-name="Social Media Icons"] a svg { transition: none !important; }
   .rolling-label > span { transform: none !important; text-shadow: none; }
 }
