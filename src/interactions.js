@@ -57,14 +57,32 @@ function setupNavigation(settings) {
 
 function setupFooter(settings) {
   const footers = document.querySelectorAll('footer');
+  const measure = document.createElement('canvas').getContext('2d');
+  function fitWordmarks() {
+    footers.forEach(footer => {
+      const word = footer.querySelector('[data-brand-wordmark]');
+      const label = word?.querySelector('p');
+      if (!label || !measure) return;
+      const style = getComputedStyle(label);
+      measure.font = `${style.fontWeight} 100px ${style.fontFamily}`;
+      const tracking = parseFloat(style.letterSpacing) / parseFloat(style.fontSize) || 0;
+      const width = measure.measureText(label.textContent).width + Math.max(0, label.textContent.length - 1) * tracking * 100;
+      const size = Math.min(416.95, 1180 / Math.max(1, width) * 100);
+      label.style.setProperty('--framer-font-size', size + 'px');
+      word.setAttribute('viewBox', `0 0 1200 ${size * .9}`);
+      footer.style.paddingBottom = Math.ceil(word.getBoundingClientRect().height + 64) + 'px';
+    });
+  }
   const layout = () => {
     const variant = innerWidth >= 1280 ? '788ly6' : innerWidth >= 810 ? '1w2xgsd' : '1s9g854';
     footers.forEach(footer => {
       footer.classList.remove('framer-v-788ly6', 'framer-v-1w2xgsd', 'framer-v-1s9g854');
       footer.classList.add('framer-v-' + variant);
     });
+    fitWordmarks();
   };
   layout();
+  document.fonts.ready.then(fitWordmarks);
   window.addEventListener('resize', layout, { passive: true });
   footers.forEach(footer => footer.querySelectorAll('a[href^="mailto:"]').forEach(link => {
     link.href = 'mailto:' + settings.contactEmail;

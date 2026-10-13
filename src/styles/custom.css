@@ -198,6 +198,9 @@ footer > [data-framer-name="Container"] { z-index: 2; }
 .footer-hand-left pre { left: 0; }
 .footer-hand-right pre { right: 0; top: 22%; }
 footer svg[data-framer-component-type="RichTextContainer"] { transform: translateX(-50%) !important; }
+footer [data-brand-wordmark] { bottom: 0 !important; }
+footer [data-brand-wordmark] foreignObject { white-space: normal; }
+footer [data-brand-wordmark] p { white-space: nowrap; }
 
 @media (max-width: 809px) {
   .footer-hand-left pre { top: auto; bottom: 8%; }
