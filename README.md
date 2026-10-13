@@ -36,6 +36,8 @@ Section names follow the reference. Framer's generated CSS classes are retained 
 
 The statement size is controlled by `--quote-font-size` (30px) in `src/styles/custom.css`. That file also holds readable body sizes, the expanding navigation, centered sliding icons, and testimonial flip styles. `setupScrollMotion` in `src/interactions.js` controls the desktop portrait's growth and rotation; it respects reduced-motion preferences and keeps the reference's static portrait on smaller screens.
 
+The statement reveal starts when the top of its text reaches 85% of the viewport and continues through the first half viewport of scrolling, reading from the first word in order even while the text is pinned at the center. `setupDecorations` restores dragging and release momentum for the hero's metallic shapes. Focus a shape and use arrow keys to move it; Escape resets its position. Reduced motion disables release momentum.
+
 ## Forms
 
 The contact form validates required fields and opens an email draft to `contactEmail`. It does not send mail automatically. Set `contactEndpoint` to an HTTPS service that accepts JSON to enable submission. The request contains `Name`, `Email`, and `Project`.

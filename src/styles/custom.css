@@ -8,6 +8,10 @@ html { scroll-behavior: smooth; }
 body { margin: 0; background: #f5f3ef; }
 * { box-sizing: border-box; }
 a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline: 2px solid #7756dd; outline-offset: 5px; }
+.draggable-decoration:focus-visible { outline: 2px solid #7756dd; outline-offset: 5px; border-radius: 12px; }
+.draggable-decoration { cursor: grab !important; touch-action: none; user-select: none; }
+.draggable-decoration.is-dragging { cursor: grabbing !important; }
+.draggable-decoration img { pointer-events: none; }
 section[id] { scroll-margin-top: 110px; }
 
 /* The reference menu expands as part of the same black panel. */
