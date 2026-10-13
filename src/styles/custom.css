@@ -15,6 +15,11 @@ html::-webkit-scrollbar-track { background: #faf7f3; }
 html::-webkit-scrollbar-thumb { background: #bdb5ca; border: 2px solid #faf7f3; border-radius: 10px; }
 html::-webkit-scrollbar-thumb:hover { background: #a798bf; }
 body { margin: 0; background: #f5f3ef; }
+.opening-dots { position: fixed; inset: 0; z-index: 2000; background: #faf7f3; overflow: hidden; }
+.opening-dots[hidden] { display: none; }
+.opening-dots-canvas { display: block; width: 100%; height: 100%; }
+html.opening-dots-active { overflow: hidden; scrollbar-gutter: stable; }
+html.opening-dots-active body { touch-action: none; }
 .curtain-background {
   --curtain-blue: #3c5cff; --curtain-violet: #8b42f5; --curtain-intensity: .62;
   position: absolute; top: 0; left: 0; right: 0; z-index: 0;

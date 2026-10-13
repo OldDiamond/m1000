@@ -1,0 +1,24 @@
+<div id="portfolio-opening" class="opening-dots" data-text="{{openingText}}" data-duration="{{openingDuration}}" data-once="{{openingOnce}}" hidden aria-hidden="true">
+  <canvas class="opening-dots-canvas"></canvas>
+</div>
+<script>
+(() => {
+  const layer = document.getElementById('portfolio-opening');
+  const navigation = performance.getEntriesByType('navigation')[0];
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || navigation?.type === 'back_forward') return;
+  const key = 'portfolio-opening:' + layer.dataset.text;
+  try {
+    if (layer.dataset.once === 'true' && sessionStorage.getItem(key) && navigation?.type !== 'reload') return;
+    sessionStorage.setItem(key, 'seen');
+  } catch {}
+  layer.hidden = false;
+  document.documentElement.classList.add('opening-dots-active');
+  // Release the page even if the animation module cannot load.
+  layer.failsafe = setTimeout(() => {
+    layer.finish?.();
+    document.documentElement.classList.remove('opening-dots-active');
+    layer.remove();
+  }, Number(layer.dataset.duration) + 2000);
+})();
+</script>
+<script type="module" src="/assets/opening-dots.js"></script>

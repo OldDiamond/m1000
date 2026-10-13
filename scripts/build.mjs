@@ -12,6 +12,7 @@ fs.copyFileSync('src/styles/custom.css','dist/assets/custom.css');
 fs.copyFileSync('src/interactions.js','dist/assets/interactions.js');
 fs.copyFileSync('src/curtain.js','dist/assets/curtain.js');
 fs.copyFileSync('src/footer-hands.js','dist/assets/footer-hands.js');
+fs.copyFileSync('src/opening-dots.js','dist/assets/opening-dots.js');
 fs.writeFileSync('dist/assets/settings.json',JSON.stringify(settings));
 for(const page of pages){
  let html=fs.readFileSync('src/pages/'+page.slug+'.html','utf8');
@@ -30,7 +31,8 @@ for(const page of pages){
  html=html.replace(/href="(\/[^"#]+)(#[^"]*)?"/g,(match,target,hash='')=>{if(pages.some(p=>p.route===target))return match;const found=pages.find(p=>p.route.split('/').at(-1)===target.slice(1));return found?'href="'+found.route+hash+'"':match});
  if(page.slug==='home')html=html.replace('data-framer-name="Hero Section" id="hero-section">','data-framer-name="Hero Section" id="hero-section"><span class="hero-copyright">©'+settings.copyrightYear+'</span>');
  const icons=fs.readFileSync('src/components/Icons.html','utf8');
- const doc=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}"><link rel="stylesheet" href="/assets/${page.slug}.css"><link rel="stylesheet" href="/assets/custom.css"></head><body>${icons}${html}<script type="module" src="/assets/interactions.js"></script></body></html>`;
+ const opening=page.slug==='home'&&settings.openingDots?.enabled!==false?fs.readFileSync('src/components/OpeningDots.html','utf8').replaceAll('{{openingText}}',escape(String(settings.openingDots?.text||'[m1000z]').slice(0,32))).replaceAll('{{openingDuration}}',String(Math.max(2500,Math.min(10000,Number(settings.openingDots?.duration)||5600)))).replaceAll('{{openingOnce}}',String(settings.openingDots?.oncePerSession!==false)):'';
+ const doc=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}"><link rel="stylesheet" href="/assets/${page.slug}.css"><link rel="stylesheet" href="/assets/custom.css"></head><body>${opening}${icons}${html}<script type="module" src="/assets/interactions.js"></script></body></html>`;
  fs.writeFileSync(path.join(dir,'index.html'),doc);
 }
 console.log('Built '+pages.length+' pages into dist/.');

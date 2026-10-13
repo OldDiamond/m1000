@@ -44,6 +44,8 @@ The blue-violet curtain background is anchored to the top of each page and scrol
 
 The footer's ASCII hands approach from both sides as you scroll to the footer, behind the copy and above the large name. The brighter coral-orange characters use 80% opacity. Their scroll movement eases at both ends and follows scrolling with 160ms damping; rendering stops once they settle. There is no mouse tracking, hover scrambling, or hover movement. Edit `footerHands` in `content/settings.json` for color, opacity, character density, or visibility. `src/footer-hands.js` converts local hand silhouettes into text; reduced motion displays their final positions. The silhouettes come from the user-supplied [Luke Baffait footer reference](https://lukebaffait.fr/), and are stored in `public/assets/hands/`.
 
+The homepage opens with black dots gathering into `[m1000z]`, spreading into a square grid, expanding, and fading into the site. Edit `openingDots` in `content/settings.json` to change the name, duration in milliseconds (default 5600), or visibility. It plays on the first homepage visit per tab; refreshing replays it, while internal return visits skip it. Set `oncePerSession` to `false` to play on every homepage visit. Reduced motion skips the intro, Escape dismisses it, and other routes open directly. `src/components/OpeningDots.html` and `src/opening-dots.js` contain the component and animation; no reference-site runtime or media is required.
+
 ## Forms
 
 The contact form validates required fields and opens an email draft to `contactEmail`. It does not send mail automatically. Set `contactEndpoint` to an HTTPS service that accepts JSON to enable submission. The request contains `Name`, `Email`, and `Project`.
