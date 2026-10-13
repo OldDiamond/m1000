@@ -1,3 +1,5 @@
+import { setupCurtain } from './curtain.js';
+
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 function rollingLabel(text) {
@@ -276,6 +278,7 @@ function setupTestimonials() {
 
 async function setup() {
   const settings = await fetch('/assets/settings.json').then(response => response.json());
+  setupCurtain(settings.backgroundCurtains);
   setupNavigation(settings);
   setupFooter(settings);
   setupScrollMotion(settings);

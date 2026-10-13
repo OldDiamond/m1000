@@ -40,6 +40,8 @@ The statement reveal starts when the top of its text reaches 85% of the viewport
 
 Service descriptions sit beside their headings on desktop and tablet, and stack on phones. All arrow buttons share a diagonal slide and growing circular fill on hover or keyboard focus, defined by the `Arrow Button` selectors in `src/styles/custom.css`.
 
+The blue-violet curtain background is a transparent animation behind the existing theme. Edit `backgroundCurtains` in `content/settings.json` to adjust its two hex colors, intensity (0–1), speed, or enabled state. `src/curtain.js` renders the folds at up to 30 fps, pauses while the tab is hidden, and stays still for reduced motion. A CSS fallback is available when WebGL is unsupported. The center and lower background fade into the original paper color; navigation, text, cards, and footer retain their colors.
+
 ## Forms
 
 The contact form validates required fields and opens an email draft to `contactEmail`. It does not send mail automatically. Set `contactEndpoint` to an HTTPS service that accepts JSON to enable submission. The request contains `Name`, `Email`, and `Project`.

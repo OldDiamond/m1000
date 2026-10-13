@@ -6,6 +6,27 @@
 
 html { scroll-behavior: smooth; }
 body { margin: 0; background: #f5f3ef; }
+.curtain-background {
+  --curtain-blue: #3c5cff; --curtain-violet: #8b42f5; --curtain-intensity: .62;
+  position: fixed; inset: 0; z-index: 0;
+  width: 100%; height: 100vh; height: 100svh;
+  pointer-events: none; overflow: hidden; contain: strict;
+}
+.curtain-background[hidden] { display: none; }
+.curtain-canvas { display: block; width: 100%; height: 100%; }
+.curtain-background::before {
+  content: ''; position: absolute; inset: -6%;
+  background:
+    repeating-linear-gradient(92deg, transparent 0 28px, color-mix(in srgb, var(--curtain-violet) 28%, transparent) 35px, transparent 48px),
+    radial-gradient(ellipse at 0% 0%, var(--curtain-blue), transparent 52%),
+    radial-gradient(ellipse at 100% 0%, var(--curtain-violet), transparent 52%);
+  opacity: calc(var(--curtain-intensity) * .6);
+  mask-image: linear-gradient(to bottom, #000, transparent 88%);
+  animation: curtain-fallback 18s ease-in-out infinite alternate;
+}
+.curtain-background[data-renderer="webgl"]::before { display: none; }
+.curtain-background[data-renderer="css"] .curtain-canvas { display: none; }
+@keyframes curtain-fallback { from { transform: translateX(-1.5%) skewX(-1deg); } to { transform: translateX(1.5%) skewX(1deg); } }
 * { box-sizing: border-box; }
 a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline: 2px solid #7756dd; outline-offset: 5px; }
 .draggable-decoration:focus-visible { outline: 2px solid #7756dd; outline-offset: 5px; border-radius: 12px; }
