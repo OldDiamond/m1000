@@ -78,20 +78,63 @@ form button[type="submit"] { min-height: 44px; }
 .form-feedback { font: 16px/1.5 var(--portfolio-font); margin: 12px 0; color: #333; }
 .portfolio-form-busy { opacity: .6; pointer-events: none; }
 
-/* Restore centering offsets and the reference's sliding icon hover. */
+/* Service titles and descriptions share a row on wider screens. */
+@media (min-width: 810px) {
+  [data-framer-name="Services Cards"] .framer-4gO8g {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+    align-items: center !important;
+    gap: 32px !important;
+    min-height: 136px;
+    padding: 24px 0 !important;
+  }
+  [data-framer-name="Services Cards"] .framer-4gO8g > [data-framer-component-type="RichTextContainer"] {
+    width: 100% !important; white-space: normal !important;
+  }
+  [data-framer-name="Services Cards"] [data-framer-name="Categories"] {
+    width: 100% !important; justify-content: flex-end !important;
+    flex-wrap: wrap !important; align-items: center;
+  }
+}
+
+/* Restore centering offsets and the reference's sliding social icons. */
 [data-framer-name="Social Media Icons"] a { position: relative; overflow: hidden; }
-[data-framer-name="Social Media Icons"] a svg, [data-framer-name="Arrow Button"] svg {
+[data-framer-name="Social Media Icons"] a svg {
   position: absolute !important; width: 20px !important; height: 20px !important;
   left: 50% !important; top: 50% !important; bottom: auto !important;
   transform: translate(-50%, -50%) !important; transition: top .4s var(--motion-ease) !important;
 }
-[data-framer-name="Social Media Icons"] a svg:nth-of-type(2), [data-framer-name="Arrow Button"] svg:nth-of-type(2) { top: 150% !important; }
+[data-framer-name="Social Media Icons"] a svg:nth-of-type(2) { top: 150% !important; }
 [data-framer-name="Social Media Icons"] a:hover svg:first-of-type,
-[data-framer-name="Social Media Icons"] a:focus-visible svg:first-of-type,
-a:hover [data-framer-name="Arrow Button"] svg:first-of-type { top: -50% !important; }
+[data-framer-name="Social Media Icons"] a:focus-visible svg:first-of-type { top: -50% !important; }
 [data-framer-name="Social Media Icons"] a:hover svg:nth-of-type(2),
-[data-framer-name="Social Media Icons"] a:focus-visible svg:nth-of-type(2),
-a:hover [data-framer-name="Arrow Button"] svg:nth-of-type(2) { top: 50% !important; }
+[data-framer-name="Social Media Icons"] a:focus-visible svg:nth-of-type(2) { top: 50% !important; }
+
+/* Every arrow button uses the diagonal slide and growing circular fill. */
+[data-framer-name="Arrow Button"] { position: relative; overflow: hidden; }
+[data-framer-name="Arrow Button"] svg {
+  position: absolute !important; width: 20px !important; height: 20px !important;
+  left: 50% !important; top: 50% !important; bottom: auto !important; right: auto !important;
+  transform: translate(-50%, -50%) rotate(-45deg) !important;
+  transition: left .5s var(--motion-ease), top .5s var(--motion-ease) !important;
+}
+[data-framer-name="Arrow Button"] svg:nth-of-type(2) {
+  left: calc(50% - 21px) !important; top: calc(50% + 21px) !important;
+}
+[data-framer-name="Arrow Button"] > [data-framer-name="BG"] {
+  width: 1px !important; height: 1px !important;
+  left: -4px !important; bottom: -4px !important;
+  transition: width .5s var(--motion-ease), height .5s var(--motion-ease) !important;
+}
+a:is(:hover, :focus-visible) [data-framer-name="Arrow Button"] svg:first-of-type {
+  left: calc(50% + 21px) !important; top: calc(50% - 21px) !important;
+}
+a:is(:hover, :focus-visible) [data-framer-name="Arrow Button"] svg:nth-of-type(2) {
+  left: 50% !important; top: 50% !important;
+}
+a:is(:hover, :focus-visible) [data-framer-name="Arrow Button"] > [data-framer-name="BG"] {
+  width: calc(100% + 8px) !important; height: calc(100% + 8px) !important;
+}
 [data-framer-name="Logo"] img { object-fit: contain !important; object-position: center !important; }
 .testimonial-card { height: var(--testimonial-height, 340px) !important; }
 .testimonial-card > [data-framer-name="Front Face"], .testimonial-card > [data-framer-name="Back Face"] {
@@ -119,5 +162,10 @@ footer svg[data-framer-component-type="RichTextContainer"] { transform: translat
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
+  [data-framer-name="Arrow Button"] svg,
+  [data-framer-name="Arrow Button"] > [data-framer-name="BG"],
+  [data-framer-name="Social Media Icons"] a svg,
+  .testimonial-card > [data-framer-name="Front Face"],
+  .testimonial-card > [data-framer-name="Back Face"] { transition: none !important; }
   .rolling-label > span { transform: none !important; text-shadow: none; }
 }
