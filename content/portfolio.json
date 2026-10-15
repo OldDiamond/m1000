@@ -16,9 +16,9 @@
       "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"./#hero-section\">m1000z</a><!--/$-->"
     },
     "text-4": {
-      "type": "text",
-      "label": "SOFTWARE ENGINEER",
-      "value": "SOFTWARE ENGINEER"
+      "type": "html",
+      "label": "Hero title: Web Security Specialist",
+      "value": "<span class=\"hero-title-line\">WEB SECURITY</span> <span class=\"hero-title-line\">SPECIALIST</span>"
     },
     "text-5": {
       "type": "text",

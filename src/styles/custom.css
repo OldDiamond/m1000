@@ -101,6 +101,10 @@ footer .footer-link-label > span { transition-duration: .55s; transition-delay: 
 [data-framer-name="Avatar - Front"] { filter: grayscale(1); }
 [data-framer-name="Hero Section"] [data-framer-name="Text"] { justify-content: flex-end !important; }
 .hero-copyright { position: absolute; bottom: 20px; left: max(30px, calc((100% - 1180px)/2)); font: 500 64px/1.1 var(--portfolio-font); letter-spacing: -4px; }
+/* Fit the two explicit title lines to the available hero width. */
+#hero-section [data-framer-component-type="RichTextContainer"]:has(> h1) { container-type: inline-size; }
+#hero-section h1:has(> .hero-title-line) { font-size: min(174px, 13cqw); }
+.hero-title-line { display: block; white-space: nowrap; }
 
 /* Quote, body, metadata, and headings keep separate type sizes. */
 [data-framer-name="Quote Section"] [data-code-component-plugin-id] > .ssr-variant > div {
