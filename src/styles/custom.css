@@ -42,7 +42,7 @@ body { margin: 0; background: #f5f3ef; }
 html.opening-dots-active { overflow: hidden; scrollbar-gutter: stable; }
 html.opening-dots-active body { touch-action: none; }
 .curtain-background {
-  --curtain-primary: #c01624; --curtain-secondary: #c01624; --curtain-intensity: .82;
+  --curtain-primary: #c74747; --curtain-secondary: #c74747; --curtain-intensity: .82;
   position: absolute; top: 0; left: 0; right: 0; z-index: 0;
   width: 100%; height: 100vh; height: 100svh;
   pointer-events: none; overflow: hidden; contain: strict;
