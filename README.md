@@ -1,6 +1,6 @@
 # Editable portfolio
 
-The current site name is **m1000z**, used in navigation, page titles, the footer, and the opening animation. Footer names fit the available width and show their upper half at the bottom edge.
+The current site name is **m1000z**, used in navigation, page titles, the footer, and the opening animation. Footer names fit the available width and show their upper three quarters at the bottom edge.
 
 Recreation of the supplied [Majd reference](https://majd-portfolio.framer.website/), customized for a web security portfolio with NetNeedle, seven articles, and an editable About page. No framework installation or package dependencies are required.
 

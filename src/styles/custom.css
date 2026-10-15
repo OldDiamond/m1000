@@ -212,7 +212,7 @@ footer > [data-framer-name="Container"] { z-index: 2; }
 }
 .footer-hand-left pre { left: 0; }
 .footer-hand-right pre { right: 0; top: 22%; }
-/* Let the footer edge crop the lower half of the large name. */
+/* Raise the large name and leave only its lower quarter below the footer edge. */
 footer h2:has(> .footer-security-headline) {
   font-family: var(--portfolio-font); font-weight: 700;
   letter-spacing: -.06em; line-height: .98; color: #faf7f3;
@@ -221,7 +221,7 @@ footer h2:has(> .footer-security-headline) {
 @media (min-width: 1280px) {
   footer h2:has(> .footer-security-headline) { font-size: 60px; }
 }
-footer [data-brand-wordmark] { bottom: 0 !important; transform: translate(-50%, 50%) !important; }
+footer [data-brand-wordmark] { bottom: 0 !important; transform: translate(-50%, 25%) !important; }
 footer [data-brand-wordmark] foreignObject { white-space: normal; }
 footer [data-brand-wordmark] p { white-space: nowrap; }
 
