@@ -1,5 +1,6 @@
 import { setupCurtain } from './curtain.js';
 import { setupFooterHands } from './footer-hands.js';
+import { setupFooterMark } from './footer-mark.js';
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
@@ -279,6 +280,7 @@ async function setup() {
   setupCurtain(settings.backgroundCurtains);
   setupNavigation(settings);
   setupFooter(settings);
+  setupFooterMark();
   setupFooterHands(settings.footerHands);
   setupScrollMotion(settings);
   setupDecorations();

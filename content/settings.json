@@ -42,5 +42,9 @@
     "opacity": 0.8,
     "columns": 80
   },
-  "cvUrl": ""
+  "cvUrl": "",
+  "footerMark": {
+    "enabled": true,
+    "color": "#c74747"
+  }
 }

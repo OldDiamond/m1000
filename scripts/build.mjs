@@ -12,6 +12,7 @@ fs.copyFileSync('src/styles/custom.css','dist/assets/custom.css');
 fs.copyFileSync('src/interactions.js','dist/assets/interactions.js');
 fs.copyFileSync('src/curtain.js','dist/assets/curtain.js');
 fs.copyFileSync('src/footer-hands.js','dist/assets/footer-hands.js');
+fs.copyFileSync('src/footer-mark.js','dist/assets/footer-mark.js');
 fs.copyFileSync('src/opening-dots.js','dist/assets/opening-dots.js');
 fs.writeFileSync('dist/assets/settings.json',JSON.stringify(settings));
 for(const page of pages){
@@ -35,6 +36,7 @@ for(const page of pages){
   return open+body+'</svg>';
  });
  html=html.replace(/(<footer\b[^>]*>)/g, '$1'+fs.readFileSync('src/components/FooterHands.html','utf8'));
+ if(settings.footerMark?.enabled!==false)html=html.replace(/(<div\b[^>]*data-framer-name="Quick Links"[^>]*>)/g,(_,open)=>open+fs.readFileSync('src/components/FooterMark.html','utf8').replaceAll('{{footerMarkColor}}',escape(settings.footerMark?.color||'#c74747')));
  html=html.replace(/(<div\b[^>]*class="[^"]*\bframer-zpn31\b[^"]*"[^>]*>)/, '$1'+fs.readFileSync('src/components/CurtainBackground.html','utf8'));
  html=html.replaceAll('href="./','href="/');
  html=html.replace(/href="(\/[^"#]+)(#[^"]*)?"/g,(match,target,hash='')=>{if(pages.some(p=>p.route===target))return match;const found=pages.find(p=>p.route.split('/').at(-1)===target.slice(1));return found?'href="'+found.route+hash+'"':match});
