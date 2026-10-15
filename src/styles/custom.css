@@ -248,7 +248,7 @@ footer [data-brand-wordmark] p { white-space: nowrap; }
 /* Original looping arch, recolored red and placed above the Quick links. */
 footer [data-framer-name="Quick Links"] { position: relative; }
 .footer-mark {
-  position: absolute; left: 0; bottom: calc(100% + 65px);
+  position: absolute; left: 50%; bottom: calc(100% + 65px); transform: translateX(-50%);
   width: 160px; height: 160px; pointer-events: none; user-select: none;
 }
 .footer-mark-definitions { position: absolute; width: 0; height: 0; }
@@ -258,7 +258,7 @@ footer [data-framer-name="Quick Links"] { position: relative; }
 }
 .footer-mark > [hidden] { display: none !important; }
 @media (max-width: 1279px) {
-  .footer-mark { position: relative; bottom: auto; width: 140px; height: 100px; flex: none; }
+  .footer-mark { position: relative; left: auto; bottom: auto; transform: none; margin-inline: auto; width: 140px; height: 100px; flex: none; }
   .footer-mark > img, .footer-mark > canvas { position: absolute; top: -20px; width: 140px; height: 140px; }
 }
 @media (prefers-reduced-motion: reduce) {
