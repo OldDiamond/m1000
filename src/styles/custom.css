@@ -237,7 +237,7 @@ footer h2:has(> .footer-security-headline) {
   font-family: var(--portfolio-font); font-weight: 700;
   letter-spacing: -.06em; line-height: .98; color: #faf7f3;
 }
-.footer-security-headline em { color: #ff5b2b; font-style: italic; font-weight: inherit; white-space: nowrap; }
+.footer-security-headline em { color: #c74747; font-style: italic; font-weight: inherit; white-space: nowrap; }
 @media (min-width: 1280px) {
   footer h2:has(> .footer-security-headline) { font-size: 60px; }
 }
