@@ -313,14 +313,14 @@
     "image-76": {
       "type": "image",
       "label": "Portrait of portfolio creator – back view",
-      "value": "/assets/media/portrait-red.png",
-      "alt": "Portrait of the portfolio creator against a red background"
+      "value": "/assets/media/portrait-red-v2.png",
+      "alt": "Portrait of BeriContraster against a red background"
     },
     "image-77": {
       "type": "image",
       "label": "Portrait of portfolio creator – front view",
-      "value": "/assets/media/portrait-grayscale.png",
-      "alt": "Grayscale portrait of the portfolio creator"
+      "value": "/assets/media/portrait-grayscale-v2.png",
+      "alt": "Grayscale portrait of BeriContraster"
     },
     "image-78": {
       "type": "image",
