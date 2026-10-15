@@ -2,7 +2,7 @@
   {
     "route": "/",
     "slug": "home",
-    "title": "BeriContraster",
+    "title": "m1000z",
     "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
     "components": [
       "home--0--hero-bio-sections",
@@ -17,7 +17,7 @@
   {
     "route": "/about",
     "slug": "about",
-    "title": "About - BeriContraster",
+    "title": "About - m1000z",
     "description": "Education, work experience, and milestones.",
     "components": [
       "about--0--intro",
@@ -29,7 +29,7 @@
   {
     "route": "/work",
     "slug": "work",
-    "title": "Projects - BeriContraster",
+    "title": "Projects - m1000z",
     "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
     "components": [
       "work--0--projects-section",
@@ -39,7 +39,7 @@
   {
     "route": "/blog",
     "slug": "blog",
-    "title": "Thoughts - BeriContraster",
+    "title": "Thoughts - m1000z",
     "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
     "components": [
       "blog--0--projects-section",
@@ -49,7 +49,7 @@
   {
     "route": "/work/damas",
     "slug": "work--damas",
-    "title": "Damas - BeriContraster",
+    "title": "Damas - m1000z",
     "description": "Damas is a modern creative agency template built for bold visuals, smooth interactions, and standout storytelling. Perfect for agencies, studios, and creators who want a polished, high impact online presence without starting from scratch.",
     "components": [
       "work--damas--0--work-section",
@@ -60,7 +60,7 @@
   {
     "route": "/work/najm",
     "slug": "work--najm",
-    "title": "Najm - BeriContraster",
+    "title": "Najm - m1000z",
     "description": "A beautifully crafted Framer website template perfect for AI SaaS businesses looking to showcase their innovative products and services.",
     "components": [
       "work--najm--0--work-section",
@@ -71,7 +71,7 @@
   {
     "route": "/work/kavi",
     "slug": "work--kavi",
-    "title": "Kavi - BeriContraster",
+    "title": "Kavi - m1000z",
     "description": "Kavi is a bold and modern website template made for SaaS and AI startups looking to launch fast and scale smarter with clean design and intuitive customization.",
     "components": [
       "work--kavi--0--work-section",
@@ -82,7 +82,7 @@
   {
     "route": "/work/sham",
     "slug": "work--sham",
-    "title": "Sham - BeriContraster",
+    "title": "Sham - m1000z",
     "description": "A clean, modern Framer template designed for creative studios and businesses. Built with flexible sections, smooth interactions, and fully editable components so you can launch a professional agency site quickly and for free.",
     "components": [
       "work--sham--0--work-section",
@@ -93,7 +93,7 @@
   {
     "route": "/blog/how-can-designers-prepare-for-the-future",
     "slug": "blog--how-can-designers-prepare-for-the-future",
-    "title": "Building Trust Through Clear Design - BeriContraster",
+    "title": "Building Trust Through Clear Design - m1000z",
     "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
     "components": [
       "blog--how-can-designers-prepare-for-the-future--0--article-section",
@@ -104,7 +104,7 @@
   {
     "route": "/blog/why-every-business-needs-a-professional-website-in-2025",
     "slug": "blog--why-every-business-needs-a-professional-website-in-2025",
-    "title": "The Role of Art Direction in Branding - BeriContraster",
+    "title": "The Role of Art Direction in Branding - m1000z",
     "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
     "components": [
       "blog--why-every-business-needs-a-professional-website-in-2025--0--article-section",
@@ -115,7 +115,7 @@
   {
     "route": "/work/abjad",
     "slug": "work--abjad",
-    "title": "Abjad - BeriContraster",
+    "title": "Abjad - m1000z",
     "description": "Olive Living is a slow-living lifestyle brand that creates products for mindful homes. Their philosophy centers on intentional living, warm textures, and everyday rituals that bring comfort and clarity.",
     "components": [
       "work--abjad--0--work-section",
@@ -126,7 +126,7 @@
   {
     "route": "/work/fasselh",
     "slug": "work--fasselh",
-    "title": "Faseelh - BeriContraster",
+    "title": "Faseelh - m1000z",
     "description": "Faseelh is a sleek, nature-inspired Framer template built for environmental projects, nonprofits, and sustainability-driven brands. It features immersive visuals, smooth animations, and flexible sections that make storytelling effortless.",
     "components": [
       "work--fasselh--0--work-section",
@@ -137,7 +137,7 @@
   {
     "route": "/blog/how-creative-teams-build-strong-brand-systems",
     "slug": "blog--how-creative-teams-build-strong-brand-systems",
-    "title": "How Creative Teams Build Brand Systems - BeriContraster",
+    "title": "How Creative Teams Build Brand Systems - m1000z",
     "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
     "components": [
       "blog--how-creative-teams-build-strong-brand-systems--0--article-section",
@@ -148,7 +148,7 @@
   {
     "route": "/blog/the-rise-of-modern-tech-startup-websites",
     "slug": "blog--the-rise-of-modern-tech-startup-websites",
-    "title": "The Rise of Modern Tech Startup Websites - BeriContraster",
+    "title": "The Rise of Modern Tech Startup Websites - m1000z",
     "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
     "components": [
       "blog--the-rise-of-modern-tech-startup-websites--0--article-section",
@@ -159,7 +159,7 @@
   {
     "route": "/blog/top-web-design-trends-to-watch-in-2025",
     "slug": "blog--top-web-design-trends-to-watch-in-2025",
-    "title": "Top Web Design Trends to Watch in 2025 - BeriContraster",
+    "title": "Top Web Design Trends to Watch in 2025 - m1000z",
     "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
     "components": [
       "blog--top-web-design-trends-to-watch-in-2025--0--article-section",
@@ -170,7 +170,7 @@
   {
     "route": "/blog/designing-products-with-purpose",
     "slug": "blog--designing-products-with-purpose",
-    "title": "Designing Products with Clear Purpose - BeriContraster",
+    "title": "Designing Products with Clear Purpose - m1000z",
     "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
     "components": [
       "blog--designing-products-with-purpose--0--article-section",
@@ -181,7 +181,7 @@
   {
     "route": "/blog/starting-and-growing-a-career-in-web-design",
     "slug": "blog--starting-and-growing-a-career-in-web-design",
-    "title": "Starting and Growing a Career in Web Design - BeriContraster",
+    "title": "Starting and Growing a Career in Web Design - m1000z",
     "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
     "components": [
       "blog--starting-and-growing-a-career-in-web-design--0--article-section",
