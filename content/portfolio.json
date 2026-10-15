@@ -57,83 +57,83 @@
     },
     "text-12": {
       "type": "text",
-      "label": "Website Migration",
-      "value": "Website Migration"
+      "label": "Web Application Penetration Testing",
+      "value": "Web Application Penetration Testing"
     },
     "text-13": {
       "type": "text",
-      "label": "Web Migration",
-      "value": "Web Migration"
+      "label": "OWASP Top 10",
+      "value": "OWASP Top 10"
     },
     "text-14": {
       "type": "text",
-      "label": "Optimization",
-      "value": "Optimization"
+      "label": "Security Testing",
+      "value": "Security Testing"
     },
     "text-15": {
       "type": "text",
-      "label": "Framer Rebuild",
-      "value": "Framer Rebuild"
+      "label": "Vulnerability Exploitation",
+      "value": "Vulnerability Exploitation"
     },
     "text-16": {
       "type": "text",
-      "label": "Framer Templates",
-      "value": "Framer Templates"
+      "label": "API Security Testing",
+      "value": "API Security Testing"
     },
     "text-17": {
       "type": "text",
-      "label": "Startup",
-      "value": "Startup"
+      "label": "REST API Testing",
+      "value": "REST API Testing"
     },
     "text-18": {
       "type": "text",
-      "label": "Agency",
-      "value": "Agency"
+      "label": "Authentication",
+      "value": "Authentication"
     },
     "text-19": {
       "type": "text",
-      "label": "SaaS",
-      "value": "SaaS"
+      "label": "Access Control",
+      "value": "Access Control"
     },
     "text-20": {
       "type": "text",
-      "label": "Frontend Development",
-      "value": "Frontend Development"
+      "label": "Vulnerability Assessment",
+      "value": "Vulnerability Assessment"
     },
     "text-21": {
       "type": "text",
-      "label": "UI Dev",
-      "value": "UI Dev"
+      "label": "Security Scanning",
+      "value": "Security Scanning"
     },
     "text-22": {
       "type": "text",
-      "label": "Responsive Layouts",
-      "value": "Responsive Layouts"
+      "label": "Risk Analysis",
+      "value": "Risk Analysis"
     },
     "text-23": {
       "type": "text",
-      "label": "Web Performance",
-      "value": "Web Performance"
+      "label": "Remediation Reports",
+      "value": "Remediation Reports"
     },
     "text-24": {
       "type": "text",
-      "label": "Product Consulting",
-      "value": "Product Consulting"
+      "label": "Security Automation",
+      "value": "Security Automation"
     },
     "text-25": {
       "type": "text",
-      "label": "Product Direction",
-      "value": "Product Direction"
+      "label": "Python Automation",
+      "value": "Python Automation"
     },
     "text-26": {
       "type": "text",
-      "label": "Web Strategy",
-      "value": "Web Strategy"
+      "label": "Custom Security Tools",
+      "value": "Custom Security Tools"
     },
     "text-27": {
       "type": "text",
-      "label": "Technical Guidance",
-      "value": "Technical Guidance"
+      "label": "AI-Powered Reporting",
+      "value": "AI-Powered Reporting"
     },
     "text-28": {
       "type": "text",
