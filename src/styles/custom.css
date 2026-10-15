@@ -4,6 +4,26 @@
   --motion-ease: cubic-bezier(.22, 1, .36, 1);
 }
 
+@view-transition { navigation: auto; }
+::view-transition-old(root) {
+  animation: portfolio-page-out 200ms cubic-bezier(.27, 0, .51, 1) 200ms both;
+  mix-blend-mode: normal;
+}
+::view-transition-new(root) {
+  animation: portfolio-page-in 200ms cubic-bezier(.27, 0, .51, 1) both;
+  mix-blend-mode: normal;
+}
+@keyframes portfolio-page-out { to { opacity: 0; } }
+@keyframes portfolio-page-in { from { opacity: 0; } to { opacity: 1; } }
+[data-reveal-word] { display: inline-block; }
+.page-motion-enabled [data-page-reveal]:not([data-reveal-played]) [data-reveal-word] {
+  opacity: .001; filter: blur(10px); transform: translateY(10px);
+}
+.page-motion-enabled [data-page-reveal="hero"]:not([data-reveal-played]) [data-reveal-word] { filter: blur(2px); }
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+}
+
 html {
   scroll-behavior: smooth;
   color-scheme: light;

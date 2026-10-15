@@ -60,6 +60,8 @@ The homepage opens with black dots gathering into `[m1000z]`, spreading into a s
 
 ## Forms
 
+Page navigation follows the Majd reference's 200 ms crossfade with `cubic-bezier(.27, 0, .51, 1)` easing. Headings rise 10 px while sharpening word by word from a 10 px blur over a 1.8 second spring; the home hero uses the reference's softer 2 px blur, 2.8 second spring, and 250 ms word stagger. Intro descriptions use an 800 ms spring with a 200 ms start delay. `src/page-motion.js` handles reveals, browser history, and a navigation fallback for browsers without document transitions. The first home visit keeps the existing dot intro; returning home plays the blur reveal. Reduced motion skips both effects, and text remains visible without JavaScript.
+
 The contact form validates required fields and opens an email draft to `contactEmail`. It does not send mail automatically. Set `contactEndpoint` to an HTTPS service that accepts JSON to enable submission. The request contains `Name`, `Email`, and `Project`.
 
 Article newsletter forms need `newsletterEndpoint`, accepting JSON with the source form's email field. Until connected, they explicitly report that signup is unavailable. No fake success state is displayed. Your form service must allow requests from the final website domain.

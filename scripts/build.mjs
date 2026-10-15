@@ -13,6 +13,7 @@ fs.copyFileSync('src/interactions.js','dist/assets/interactions.js');
 fs.copyFileSync('src/curtain.js','dist/assets/curtain.js');
 fs.copyFileSync('src/footer-hands.js','dist/assets/footer-hands.js');
 fs.copyFileSync('src/footer-mark.js','dist/assets/footer-mark.js');
+fs.copyFileSync('src/page-motion.js','dist/assets/page-motion.js');
 fs.copyFileSync('src/opening-dots.js','dist/assets/opening-dots.js');
 fs.writeFileSync('dist/assets/settings.json',JSON.stringify(settings));
 for(const page of pages){
@@ -43,7 +44,20 @@ for(const page of pages){
  if(page.slug==='home')html=html.replace('data-framer-name="Hero Section" id="hero-section">','data-framer-name="Hero Section" id="hero-section"><span class="hero-copyright">©'+settings.copyrightYear+'</span>');
  const icons=fs.readFileSync('src/components/Icons.html','utf8');
  const opening=page.slug==='home'&&settings.openingDots?.enabled!==false?fs.readFileSync('src/components/OpeningDots.html','utf8').replaceAll('{{openingText}}',escape(String(settings.openingDots?.text||'['+settings.displayName+']').slice(0,32))).replaceAll('{{openingDuration}}',String(Math.max(2500,Math.min(10000,Number(settings.openingDots?.duration)||5600)))).replaceAll('{{openingOnce}}',String(settings.openingDots?.oncePerSession!==false)):'';
- const doc=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}"><link rel="stylesheet" href="/assets/${page.slug}.css"><link rel="stylesheet" href="/assets/custom.css"></head><body>${opening}${icons}${html}<script type="module" src="/assets/interactions.js"></script></body></html>`;
+ // Keep the original heading markup and line breaks; only words receive motion.
+ let introPending=false;
+ html=html.replace(/<(h[12]|p)\b([^>]*)>([\s\S]*?)<\/\1>/g,(match,tag,attrs,body,offset)=>{
+  if(html.lastIndexOf('<footer',offset)>html.lastIndexOf('</footer',offset)||body.includes('data-brand-wordmark')||/^\s*(?:©|&copy;)/.test(body))return match;
+  if(tag==='p'&&!introPending)return match;
+  const intro=tag==='p';
+  if(intro)introPending=false;
+  if(tag==='h1'&&page.slug!=='home')introPending=true;
+  const hero=page.slug==='home'&&tag==='h1';
+  const words=body.split(/(<[^>]+>)/g).map(part=>part.startsWith('<')?part:part.replace(/\S+/g,word=>'<span data-reveal-word>'+word+'</span>')).join('');
+  return '<'+tag+attrs+' data-page-reveal="'+(hero?'hero':intro?'intro':'heading')+'">'+words+'</'+tag+'>';
+ });
+ const motionBoot=`<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('page-motion-enabled');setTimeout(()=>{if(!window.__pageMotionReady)document.documentElement.classList.remove('page-motion-enabled')},4000)}</script>`;
+ const doc=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}"><link rel="stylesheet" href="/assets/${page.slug}.css"><link rel="stylesheet" href="/assets/custom.css">${motionBoot}</head><body>${opening}${icons}${html}<script type="module" src="/assets/interactions.js"></script></body></html>`;
  fs.writeFileSync(path.join(dir,'index.html'),doc);
 }
 console.log('Built '+pages.length+' pages into dist/.');

@@ -1,6 +1,9 @@
 import { setupCurtain } from './curtain.js';
 import { setupFooterHands } from './footer-hands.js';
 import { setupFooterMark } from './footer-mark.js';
+import { setupPageMotion } from './page-motion.js';
+
+setupPageMotion();
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
