@@ -197,8 +197,8 @@ footer > [data-framer-name="Container"] { z-index: 2; }
 }
 .footer-hand-left pre { left: 0; }
 .footer-hand-right pre { right: 0; top: 22%; }
-footer svg[data-framer-component-type="RichTextContainer"] { transform: translateX(-50%) !important; }
-footer [data-brand-wordmark] { bottom: 0 !important; }
+/* Let the footer edge crop the lower half of the large name. */
+footer [data-brand-wordmark] { bottom: 0 !important; transform: translate(-50%, 50%) !important; }
 footer [data-brand-wordmark] foreignObject { white-space: normal; }
 footer [data-brand-wordmark] p { white-space: nowrap; }
 

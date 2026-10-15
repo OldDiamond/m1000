@@ -70,7 +70,8 @@ function setupFooter(settings) {
       const size = Math.min(416.95, 1180 / Math.max(1, width) * 100);
       label.style.setProperty('--framer-font-size', size + 'px');
       word.setAttribute('viewBox', `0 0 1200 ${size * .9}`);
-      footer.style.paddingBottom = Math.ceil(word.getBoundingClientRect().height + 64) + 'px';
+      // Reserve only the visible upper half of the oversized footer name.
+      footer.style.paddingBottom = Math.ceil(word.getBoundingClientRect().height * .5 + 64) + 'px';
     });
   }
   const layout = () => {
