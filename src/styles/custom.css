@@ -99,6 +99,7 @@ footer .footer-link-label > span { transition-duration: .55s; transition-delay: 
 [data-framer-name="Avatar Wrap"] { transform: none !important; }
 [data-framer-name="Avatar - Front"], [data-framer-name="Avatar - Back"] { backface-visibility: hidden; transform-origin: center; will-change: transform; }
 [data-framer-name="Avatar - Front"] { filter: grayscale(1); }
+[data-portrait-photo] { transform: scale(1.08); transform-origin: center; }
 [data-framer-name="Hero Section"] [data-framer-name="Text"] { justify-content: flex-end !important; }
 .hero-copyright { position: absolute; bottom: 20px; left: max(30px, calc((100% - 1180px)/2)); font: 500 64px/1.1 var(--portfolio-font); letter-spacing: -4px; }
 /* Fit the two explicit title lines to the available hero width. */

@@ -40,7 +40,7 @@ The About page's **Download CV** button stays inactive until a CV is supplied. P
 
 To replace a photo, put the new file in `public/assets/media/` and change its image value to `/assets/media/your-photo.jpg`. The two portrait entries represent front and back views; update both. The original source asset URLs are mapped to downloaded files by `content/assets.json` at build time.
 
-The current hero uses the supplied original `portrait-grayscale-v2.png` on the front and `portrait-red-v2.png` on the back. The existing portrait frame crops them to fit; the red image is aligned toward the top to keep the hair in view. Edit `home.image-77` and `home.image-76` in `content/portfolio.json` to replace them. The grayscale view stays visible on smaller screens and for reduced motion; the desktop scroll rotation reveals the red view.
+The current hero uses the supplied original `portrait-grayscale-v3.png` on the front and `portrait-red-v3.png` on the back. Both use the supplied original files, aligned toward the top to keep the hair in view. A small CSS zoom inside the existing frame hides the uploaded white borders. Edit `home.image-77` and `home.image-76` in `content/portfolio.json` to replace them. The grayscale view stays visible on smaller screens and for reduced motion; the desktop scroll rotation reveals the red view.
 
 Section names follow the reference. Framer's generated CSS classes are retained to preserve the visual design, while editable content and complete sections are separated. These are HTML components, not React components or an editable Framer project.
 

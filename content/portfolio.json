@@ -282,15 +282,15 @@
     },
     "image-76": {
       "type": "image",
-      "label": "Portrait of portfolio creator – back view",
-      "value": "/assets/media/portrait-red-v2.png",
-      "alt": "Portrait of m1000z against a red background"
+      "label": "Red portrait of Mohammad Yasin",
+      "value": "/assets/media/portrait-red-v3.png",
+      "alt": "Red portrait of Mohammad Yasin"
     },
     "image-77": {
       "type": "image",
-      "label": "Portrait of portfolio creator – front view",
-      "value": "/assets/media/portrait-grayscale-v2.png",
-      "alt": "Grayscale portrait of m1000z"
+      "label": "Black-and-white portrait of Mohammad Yasin",
+      "value": "/assets/media/portrait-grayscale-v3.png",
+      "alt": "Black-and-white portrait of Mohammad Yasin"
     },
     "image-78": {
       "type": "image",
