@@ -90,6 +90,8 @@ section[id] { scroll-margin-top: 110px; }
 .rolling-label { display: inline-flex; overflow: hidden; line-height: 1.2; vertical-align: middle; }
 .rolling-label > span { display: inline-block; white-space: pre; text-shadow: 0 1.2em currentColor; transition: transform .4s var(--motion-ease); transition-delay: calc(var(--letter-index) * 12ms); }
 a:hover .rolling-label > span, a:focus-visible .rolling-label > span { transform: translateY(-100%); }
+footer .footer-link-label { font-weight: 500; letter-spacing: -.02em; color: var(--text, #111); }
+footer .footer-link-label > span { transition-duration: .55s; transition-delay: calc(var(--letter-index) * 50ms); }
 @keyframes nav-enter { from { opacity: 0; transform: translate(-50%, -12px); } to { opacity: 1; transform: translate(-50%, 0); } }
 [class$="-container"]:has(> .portfolio-nav) { position: static !important; will-change: auto !important; transform: none !important; }
 

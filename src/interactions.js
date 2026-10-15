@@ -57,6 +57,16 @@ function setupNavigation(settings) {
 
 function setupFooter(settings) {
   const footers = document.querySelectorAll('footer');
+  footers.forEach(footer => {
+    footer.querySelectorAll('a p[class*="rolling-text-inner-"]').forEach(label => {
+      const text = label.textContent.trim();
+      const link = label.closest('a');
+      link.setAttribute('aria-label', text);
+      label.setAttribute('aria-hidden', 'true');
+      label.classList.add('rolling-label', 'footer-link-label');
+      label.replaceChildren(...rollingLabel(text).childNodes);
+    });
+  });
   const measure = document.createElement('canvas').getContext('2d');
   function fitWordmarks() {
     footers.forEach(footer => {
