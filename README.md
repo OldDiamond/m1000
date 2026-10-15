@@ -46,7 +46,7 @@ Section names follow the reference. Framer's generated CSS classes are retained 
 
 The statement size is controlled by `--quote-font-size` (30px) in `src/styles/custom.css`. That file also holds readable body sizes, the expanding navigation, and centered sliding icons. `setupScrollMotion` in `src/interactions.js` controls the desktop portrait's growth and rotation; it respects reduced-motion preferences and keeps the reference's static portrait on smaller screens.
 
-The statement reveal starts when the top of its text reaches 85% of the viewport and continues through the first half viewport of scrolling, reading from the first word in order even while the text is pinned at the center. `setupDecorations` restores dragging and release momentum for the hero's metallic shapes. Focus a shape and use arrow keys to move it; Escape resets its position. Reduced motion disables release momentum.
+The statement stays muted while entering the viewport. Its reveal begins with the first word once the paragraph is centered and pinned, then progresses across the full sticky scrolling distance. Scrolling back reverses the same word order. `setupDecorations` restores dragging and release momentum for the hero's metallic shapes. Focus a shape and use arrow keys to move it; Escape resets its position. Reduced motion disables release momentum.
 
 Service descriptions sit beside their headings on desktop and tablet, and stack on phones. All arrow buttons share a diagonal slide and growing circular fill on hover or keyboard focus, defined by the `Arrow Button` selectors in `src/styles/custom.css`.
 

@@ -138,13 +138,13 @@ function setupScrollMotion(settings) {
       back.style.transform = `${base} rotateY(${angle - 180}deg)`;
     }
     if (quoteSection && words.length) {
-      const rect = quoteParent.getBoundingClientRect();
-      // Start at the text's first line, rather than at the oversized section.
-      const start = innerHeight * .85;
-      const end = innerHeight * .35;
-      // The text stays centered while its sticky container continues scrolling.
-      const pinnedTravel = quoteSticky ? Math.max(0, quoteSticky.getBoundingClientRect().top - quoteSticky.parentElement.getBoundingClientRect().top) : 0;
-      const reveal = reducedMotion.matches ? 1 : clamp((start - rect.top + pinnedTravel) / (start - end));
+      const stickyRect = quoteSticky?.getBoundingClientRect();
+      const containerRect = quoteSticky?.parentElement.getBoundingClientRect();
+      // Begin at the first word only once the paragraph is centered and pinned.
+      // Use the full sticky distance so it cannot finish while entering view.
+      const pinnedTravel = stickyRect ? Math.max(0, stickyRect.top - containerRect.top) : 0;
+      const revealDistance = stickyRect ? Math.max(1, containerRect.height - stickyRect.height) : 1;
+      const reveal = reducedMotion.matches ? 1 : clamp(pinnedTravel / revealDistance);
       words.forEach((word, index) => {
         const color = index / words.length < reveal ? '#111' : 'rgba(0,0,0,.14)';
         if (word.dataset.revealed !== color) {
