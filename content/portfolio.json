@@ -32,18 +32,18 @@
     },
     "text-7": {
       "type": "text",
-      "label": "I’m m1000z, a builder based in Syria, currently working on Templyo, a platform for high-quality Framer",
-      "value": "I’m m1000z, a builder based in Syria, currently working on Templyo, a platform for high-quality Framer templates."
+      "label": "Biography introduction",
+      "value": "I’m Mohammad Yasin, a cybersecurity enthusiast based in Zurich, Switzerland, specializing in web application security and penetration testing."
     },
     "text-8": {
       "type": "text",
-      "label": "I’m a software engineer and Framer creator with a strong focus on building modern, scalable, and con",
-      "value": "I’m a software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences."
+      "label": "Web security specialism",
+      "value": "I’m a Junior Web Security Specialist with a strong focus on identifying vulnerabilities, securing web applications, and building automated security solutions."
     },
     "text-9": {
       "type": "text",
-      "label": "Over the years, I’ve created and shipped multiple SaaS products and Framer templates used by global ",
-      "value": "Over the years, I’ve created and shipped multiple SaaS products and Framer templates used by global customers, helping them launch faster."
+      "label": "Security experience and NetNeedle",
+      "value": "Over the years, I’ve gained hands-on experience in penetration testing, security automation, and vulnerability assessment. I also developed NetNeedle, a cloud-based web vulnerability scanner with AI-assisted remediation reports."
     },
     "text-10": {
       "type": "text",
