@@ -18,7 +18,7 @@
     "route": "/about",
     "slug": "about",
     "title": "About - m1000z",
-    "description": "Education, work experience, and milestones.",
+    "description": "Education, professional experience, and milestones along my journey in cybersecurity, ethical hacking, and security automation.",
     "components": [
       "about--0--intro",
       "about--1--education",

@@ -6,8 +6,17 @@
   margin: 0 auto; padding: 180px 0 120px;
   font-family: var(--portfolio-font); color: #111;
 }
-.about-intro { margin-bottom: 90px; }
+.about-intro { margin-bottom: 90px; display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 40px; }
 .about-intro > p { margin-top: 16px; max-width: 660px; }
+.about-cv-button {
+  grid-column: 2; grid-row: 1; align-self: center; justify-self: end;
+  display: inline-flex; align-items: center; gap: 12px;
+  font: 400 20px/1.45 var(--portfolio-font); letter-spacing: -.4px;
+  color: #111; text-decoration: none; cursor: pointer; white-space: nowrap;
+}
+.about-cv-button[aria-disabled="true"] { cursor: default; }
+.about-cv-arrow { display: block; flex: none; width: 42px; height: 42px; border: 1px solid currentColor; border-radius: 8px; }
+.about-cv-arrow > [data-framer-name="BG"] { position: absolute; background: #111; border-radius: 100%; }
 .about-history + .about-history { margin-top: 90px; }
 .about-history > h2 { font-size: 48px; font-weight: 500; letter-spacing: -1.8px; line-height: 1.1; margin-bottom: 36px; }
 .about-timeline { list-style: none; padding: 0; margin: 0; }
@@ -34,6 +43,8 @@
   .about-year, .about-organization, .about-description { font-size: 18px; }
 }
 @media (max-width: 600px) {
+  .about-intro { grid-template-columns: minmax(0, 1fr); }
+  .about-cv-button { grid-column: 1; grid-row: 3; justify-self: start; margin-top: 24px; }
   .about-entry { grid-template-columns: minmax(0, 1fr); gap: 12px; }
   .about-year { padding-top: 0; }
 }

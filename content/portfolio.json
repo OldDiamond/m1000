@@ -3871,7 +3871,7 @@
     "about-intro": {
       "type": "text",
       "label": "about-intro",
-      "value": "Education, experience, and the milestones along the way."
+      "value": "Education, professional experience, and milestones along my journey in cybersecurity, ethical hacking, and security automation."
     },
     "education-title": {
       "type": "text",
@@ -3881,42 +3881,42 @@
     "education-1-years": {
       "type": "text",
       "label": "education-1-years",
-      "value": "Year – Year"
+      "value": "01. November 2026"
     },
     "education-1-title": {
       "type": "text",
       "label": "education-1-title",
-      "value": "Degree / Qualification"
+      "value": "Bachelor of Science in Computer Science (BSCS)"
     },
     "education-1-organization": {
       "type": "text",
       "label": "education-1-organization",
-      "value": "School / University"
+      "value": "International Institute of Science, Art and Technology (IISAT)"
     },
     "education-1-description": {
       "type": "text",
       "label": "education-1-description",
-      "value": "Field of study and key achievements."
+      "value": "Completed my Bachelor's degree in Computer Science, building a strong foundation in programming, networking, software development, and computer systems, with a particular focus on cybersecurity and offensive security."
     },
     "education-2-years": {
       "type": "text",
       "label": "education-2-years",
-      "value": "Year – Year"
+      "value": "02. July 2025"
     },
     "education-2-title": {
       "type": "text",
       "label": "education-2-title",
-      "value": "Course / Certification"
+      "value": "Certified Web Exploitation Specialist (CWES)"
     },
     "education-2-organization": {
       "type": "text",
       "label": "education-2-organization",
-      "value": "Institution / Provider"
+      "value": "Hack The Box (HTB)"
     },
     "education-2-description": {
       "type": "text",
       "label": "education-2-description",
-      "value": "Skills learned and areas of focus."
+      "value": "Developed practical skills in web application penetration testing, vulnerability discovery, exploitation techniques, and authentication security, with a strong focus on real-world web security assessments."
     },
     "experience-title": {
       "type": "text",
@@ -3926,62 +3926,42 @@
     "experience-1-years": {
       "type": "text",
       "label": "experience-1-years",
-      "value": "Year – Present"
+      "value": "01. January 2026 – October 2026"
     },
     "experience-1-title": {
       "type": "text",
       "label": "experience-1-title",
-      "value": "Current Role / Job Title"
+      "value": "Web Security Automation Expert"
     },
     "experience-1-organization": {
       "type": "text",
       "label": "experience-1-organization",
-      "value": "Company / Organization"
+      "value": "NetNeedle"
     },
     "experience-1-description": {
       "type": "text",
       "label": "experience-1-description",
-      "value": "Responsibilities and key contributions."
+      "value": "Designed and developed an automated, cloud-based web vulnerability scanner using Python and FastAPI. Built custom security testing modules for web applications and REST APIs, integrated offensive security tools, and implemented AI-assisted vulnerability reporting with actionable remediation guidance."
     },
     "experience-2-years": {
       "type": "text",
       "label": "experience-2-years",
-      "value": "Year – Year"
+      "value": "02. May 2023 – August 2024"
     },
     "experience-2-title": {
       "type": "text",
       "label": "experience-2-title",
-      "value": "Previous Role / Job Title"
+      "value": "Systems & Infrastructure Technician"
     },
     "experience-2-organization": {
       "type": "text",
       "label": "experience-2-organization",
-      "value": "Company / Organization"
+      "value": "11ven Tech Yards · Remote"
     },
     "experience-2-description": {
       "type": "text",
       "label": "experience-2-description",
-      "value": "Projects, responsibilities, and achievements."
-    },
-    "experience-3-years": {
-      "type": "text",
-      "label": "experience-3-years",
-      "value": "Year – Year"
-    },
-    "experience-3-title": {
-      "type": "text",
-      "label": "experience-3-title",
-      "value": "Earlier Role / Internship"
-    },
-    "experience-3-organization": {
-      "type": "text",
-      "label": "experience-3-organization",
-      "value": "Company / Organization"
-    },
-    "experience-3-description": {
-      "type": "text",
-      "label": "experience-3-description",
-      "value": "Experience gained and work completed."
+      "value": "Administered and secured Linux production servers, implemented system hardening techniques, and maintained reliable infrastructure operations. Developed Python and PowerShell automation tools for system diagnostics, troubleshooting, and security monitoring, strengthening my foundation in infrastructure security and system administration."
     }
   },
   "work--netneedle": {
