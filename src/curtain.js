@@ -3,8 +3,8 @@ export function setupCurtain(options = {}) {
   const layer = document.querySelector('.curtain-background');
   if (!layer) return;
   if (options.enabled === false) { layer.hidden = true; return; }
-  const primary = options.primaryColor || options.blue || '#800020';
-  const secondary = options.secondaryColor || options.violet || '#a32948';
+  const primary = options.primaryColor || options.blue || '#7a2222';
+  const secondary = options.secondaryColor || options.violet || '#7a2222';
   const strength = Math.max(0, Math.min(1, Number(options.intensity ?? .62)));
   const speed = Math.max(0, Math.min(2, Number(options.speed ?? .35)));
   layer.style.setProperty('--curtain-primary', primary);
@@ -70,7 +70,7 @@ export function setupCurtain(options = {}) {
   const timeUniform = gl.getUniformLocation(program, 'u_time');
   const rgb = hex => {
     const match = /^#([0-9a-f]{6})$/i.exec(hex);
-    const value = parseInt(match ? match[1] : '800020', 16);
+    const value = parseInt(match ? match[1] : '7a2222', 16);
     return [(value >> 16 & 255)/255, (value >> 8 & 255)/255, (value & 255)/255];
   };
   gl.uniform3fv(gl.getUniformLocation(program, 'u_primary'), rgb(primary));

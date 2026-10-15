@@ -15,8 +15,8 @@
     "enabled": true,
     "intensity": 0.62,
     "speed": 0.35,
-    "primaryColor": "#800020",
-    "secondaryColor": "#a32948"
+    "primaryColor": "#7a2222",
+    "secondaryColor": "#7a2222"
   },
   "navigation": [
     {
