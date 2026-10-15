@@ -30,10 +30,20 @@
     "route": "/work",
     "slug": "work",
     "title": "Projects - m1000z",
-    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
+    "description": "NetNeedle: cybersecurity assessment, security automation, and evidence-led reporting.",
     "components": [
       "work--0--projects-section",
       "work--1--phone"
+    ]
+  },
+  {
+    "route": "/work/netneedle",
+    "slug": "work--netneedle",
+    "title": "NetNeedle - m1000z",
+    "description": "NetNeedle maps external attack surfaces, reviews web security findings, and turns scan evidence into actionable reports.",
+    "components": [
+      "work--netneedle--0--work-section",
+      "work--netneedle--1--phone"
     ]
   },
   {
@@ -44,50 +54,6 @@
     "components": [
       "blog--0--projects-section",
       "blog--1--phone"
-    ]
-  },
-  {
-    "route": "/work/damas",
-    "slug": "work--damas",
-    "title": "Damas - m1000z",
-    "description": "Damas is a modern creative agency template built for bold visuals, smooth interactions, and standout storytelling. Perfect for agencies, studios, and creators who want a polished, high impact online presence without starting from scratch.",
-    "components": [
-      "work--damas--0--work-section",
-      "work--damas--1--more-projects",
-      "work--damas--2--phone"
-    ]
-  },
-  {
-    "route": "/work/najm",
-    "slug": "work--najm",
-    "title": "Najm - m1000z",
-    "description": "A beautifully crafted Framer website template perfect for AI SaaS businesses looking to showcase their innovative products and services.",
-    "components": [
-      "work--najm--0--work-section",
-      "work--najm--1--more-projects",
-      "work--najm--2--phone"
-    ]
-  },
-  {
-    "route": "/work/kavi",
-    "slug": "work--kavi",
-    "title": "Kavi - m1000z",
-    "description": "Kavi is a bold and modern website template made for SaaS and AI startups looking to launch fast and scale smarter with clean design and intuitive customization.",
-    "components": [
-      "work--kavi--0--work-section",
-      "work--kavi--1--more-projects",
-      "work--kavi--2--phone"
-    ]
-  },
-  {
-    "route": "/work/sham",
-    "slug": "work--sham",
-    "title": "Sham - m1000z",
-    "description": "A clean, modern Framer template designed for creative studios and businesses. Built with flexible sections, smooth interactions, and fully editable components so you can launch a professional agency site quickly and for free.",
-    "components": [
-      "work--sham--0--work-section",
-      "work--sham--1--more-projects",
-      "work--sham--2--phone"
     ]
   },
   {
@@ -110,28 +76,6 @@
       "blog--why-every-business-needs-a-professional-website-in-2025--0--article-section",
       "blog--why-every-business-needs-a-professional-website-in-2025--1--more-articles",
       "blog--why-every-business-needs-a-professional-website-in-2025--2--phone"
-    ]
-  },
-  {
-    "route": "/work/abjad",
-    "slug": "work--abjad",
-    "title": "Abjad - m1000z",
-    "description": "Olive Living is a slow-living lifestyle brand that creates products for mindful homes. Their philosophy centers on intentional living, warm textures, and everyday rituals that bring comfort and clarity.",
-    "components": [
-      "work--abjad--0--work-section",
-      "work--abjad--1--more-projects",
-      "work--abjad--2--phone"
-    ]
-  },
-  {
-    "route": "/work/fasselh",
-    "slug": "work--fasselh",
-    "title": "Faseelh - m1000z",
-    "description": "Faseelh is a sleek, nature-inspired Framer template built for environmental projects, nonprofits, and sustainability-driven brands. It features immersive visuals, smooth animations, and flexible sections that make storytelling effortless.",
-    "components": [
-      "work--fasselh--0--work-section",
-      "work--fasselh--1--more-projects",
-      "work--fasselh--2--phone"
     ]
   },
   {

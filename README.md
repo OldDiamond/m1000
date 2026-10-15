@@ -1,8 +1,8 @@
 # Editable portfolio
 
-The current site name is **m1000z**, used in the navigation, biography, page titles, footer, and opening animation. Footer names automatically fit the available width without clipping.
+The current site name is **m1000z**, used in navigation, page titles, the footer, and the opening animation. Footer names fit the available width and show their upper half at the bottom edge.
 
-Recreation of the supplied [Majd reference](https://majd-portfolio.framer.website/), with its home sections, six projects, seven articles, imagery, typography, and responsive styles, plus an editable About page. No framework installation or package dependencies are required.
+Recreation of the supplied [Majd reference](https://majd-portfolio.framer.website/), customized for a web security portfolio with NetNeedle, seven articles, and an editable About page. No framework installation or package dependencies are required.
 
 ## Run locally
 
@@ -31,6 +31,8 @@ Open `http://localhost:3000`. After changing source or content, rebuild and refr
 | Local images and fonts | `public/assets/media/` |
 
 `portfolio.json` is grouped by page. Entries have a readable `label` and an editable `value`. `text` fields contain plain text; `html` fields retain article links and formatting. `image` fields also expose `alt`. Keep entry keys intact: they bind content to `data-edit`, `data-edit-image`, or `data-edit-link` attributes in the components. Only use trusted HTML in rich text fields.
+
+NetNeedle is the single project on the homepage and `/work`, with its detail page at `/work/netneedle`. Edit its cards in the `home` and `work` groups and its case study in `work--netneedle`. Product facts and original screenshots come from the [NetNeedle repository](https://github.com/OldDiamond/NetNeedle). The four local screenshots are in `public/assets/netneedle/`; they display without cropping. The previous template project pages have been removed.
 
 The `/about` page has two education entries and three work experience entries with placeholders, ready for your real details. Edit the `about` group in `content/portfolio.json`: each entry has years, a degree or role title, an institution or company, and a short description. Keep the latest entry first. Add or remove rows in `src/components/about--1--education.html` and `src/components/about--2--experience.html`; new rows need unique `data-edit` keys and matching content entries. `src/styles/about.css` reuses the Projects page's typography and footer styles, then defines the year and details columns. On phones, the year sits above the details.
 

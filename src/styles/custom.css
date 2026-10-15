@@ -106,6 +106,15 @@ footer .footer-link-label > span { transition-duration: .55s; transition-delay: 
 #hero-section h1:has(> .hero-title-line) { font-size: min(174px, 13cqw); white-space: normal; }
 .hero-title-line { display: block; white-space: nowrap; }
 
+/* A single project uses the full grid and displays its real screenshots uncropped. */
+[data-project-grid="netneedle"] { display: grid !important; grid-template-columns: minmax(0, 1fr) !important; }
+[data-project-grid="netneedle"] > .ssr-variant > div { width: 100% !important; }
+[data-project="netneedle"] [data-framer-name="Image Wrap"] { aspect-ratio: 2511 / 1121; height: auto !important; }
+[data-project="netneedle"] img,
+[data-project-detail="netneedle"] img { object-fit: contain !important; object-position: center !important; }
+[data-project-detail="netneedle"] [data-netneedle-screenshot] { aspect-ratio: var(--screenshot-ratio); height: auto !important; }
+[data-project-detail="netneedle"] [data-netneedle-screenshot="exec-report.png"] { max-width: 719px; align-self: center; }
+
 /* Quote, body, metadata, and headings keep separate type sizes. */
 [data-framer-name="Quote Section"] [data-code-component-plugin-id] > .ssr-variant > div {
   font-family: var(--portfolio-font) !important; font-size: var(--quote-font-size) !important;

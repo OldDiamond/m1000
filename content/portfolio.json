@@ -147,43 +147,13 @@
     },
     "text-30": {
       "type": "text",
-      "label": "Damas",
-      "value": "Damas"
+      "label": "NetNeedle",
+      "value": "NetNeedle"
     },
     "text-31": {
       "type": "text",
-      "label": "Agency Framer Template",
-      "value": "Agency Framer Template"
-    },
-    "text-32": {
-      "type": "text",
-      "label": "Najm",
-      "value": "Najm"
-    },
-    "text-33": {
-      "type": "text",
-      "label": "SaaS Framer Template",
-      "value": "SaaS Framer Template"
-    },
-    "text-34": {
-      "type": "text",
-      "label": "Kavi",
-      "value": "Kavi"
-    },
-    "text-35": {
-      "type": "text",
-      "label": "AI Framer Template",
-      "value": "AI Framer Template"
-    },
-    "text-36": {
-      "type": "text",
-      "label": "Sham",
-      "value": "Sham"
-    },
-    "text-37": {
-      "type": "text",
-      "label": "Studio Framer Template",
-      "value": "Studio Framer Template"
+      "label": "Cybersecurity Assessment Platform",
+      "value": "Cybersecurity Assessment Platform"
     },
     "text-51": {
       "type": "text",
@@ -336,27 +306,9 @@
     },
     "image-80": {
       "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/VNXQLcPHw9VbVzy6BDpZ8pUsaU.png?width=1160&height=800",
-      "alt": ""
-    },
-    "image-81": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/WgEHVRrQs62rgxlzrnXJJ8rr4.png?width=1160&height=800",
-      "alt": ""
-    },
-    "image-82": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/I3azeVtkvdKBGl9TX38tUdXEb0.png?width=1160&height=800",
-      "alt": ""
-    },
-    "image-83": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/e3DxUGJWqt7CIVVQIA0VZoy09FQ.png?width=1160&height=800",
-      "alt": ""
+      "label": "NetNeedle landing page",
+      "value": "/assets/netneedle/dashboard.png",
+      "alt": "NetNeedle cybersecurity assessment platform landing page"
     },
     "image-92": {
       "type": "image",
@@ -397,23 +349,8 @@
     },
     "link-99": {
       "type": "link",
-      "label": "DamasAgency Framer Template",
-      "value": "/work/damas#work-section"
-    },
-    "link-100": {
-      "type": "link",
-      "label": "NajmSaaS Framer Template",
-      "value": "/work/najm#work-section"
-    },
-    "link-101": {
-      "type": "link",
-      "label": "KaviAI Framer Template",
-      "value": "/work/kavi#work-section"
-    },
-    "link-102": {
-      "type": "link",
-      "label": "ShamStudio Framer Template",
-      "value": "/work/sham#work-section"
+      "label": "NetNeedle project page",
+      "value": "/work/netneedle#work-section"
     },
     "link-103": {
       "type": "link",
@@ -499,73 +436,23 @@
     },
     "text-4": {
       "type": "text",
-      "label": "My Brightest Creations",
-      "value": "My Brightest Creations"
+      "label": "Projects",
+      "value": "Projects"
     },
     "text-5": {
       "type": "text",
-      "label": "A showcase of my latest projects, highlighting thoughtful design, clear strategy, and impactful resu",
-      "value": "A showcase of my latest projects, highlighting thoughtful design, clear strategy, and impactful results."
+      "label": "Security engineering, automated assessment, and evidence-led reporting.",
+      "value": "Security engineering, automated assessment, and evidence-led reporting."
     },
     "text-6": {
       "type": "text",
-      "label": "Damas",
-      "value": "Damas"
+      "label": "NetNeedle",
+      "value": "NetNeedle"
     },
     "text-7": {
       "type": "text",
-      "label": "Agency Framer Template",
-      "value": "Agency Framer Template"
-    },
-    "text-8": {
-      "type": "text",
-      "label": "Najm",
-      "value": "Najm"
-    },
-    "text-9": {
-      "type": "text",
-      "label": "SaaS Framer Template",
-      "value": "SaaS Framer Template"
-    },
-    "text-10": {
-      "type": "text",
-      "label": "Kavi",
-      "value": "Kavi"
-    },
-    "text-11": {
-      "type": "text",
-      "label": "AI Framer Template",
-      "value": "AI Framer Template"
-    },
-    "text-12": {
-      "type": "text",
-      "label": "Sham",
-      "value": "Sham"
-    },
-    "text-13": {
-      "type": "text",
-      "label": "Studio Framer Template",
-      "value": "Studio Framer Template"
-    },
-    "text-14": {
-      "type": "text",
-      "label": "Abjad",
-      "value": "Abjad"
-    },
-    "text-15": {
-      "type": "text",
-      "label": "AI Framer Template",
-      "value": "AI Framer Template"
-    },
-    "text-16": {
-      "type": "text",
-      "label": "Faseelh",
-      "value": "Faseelh"
-    },
-    "text-17": {
-      "type": "text",
-      "label": "Environmental Framer Template",
-      "value": "Environmental Framer Template"
+      "label": "Cybersecurity Assessment Platform",
+      "value": "Cybersecurity Assessment Platform"
     },
     "text-18": {
       "type": "html",
@@ -619,39 +506,9 @@
     },
     "image-28": {
       "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/VNXQLcPHw9VbVzy6BDpZ8pUsaU.png?width=1160&height=800",
-      "alt": ""
-    },
-    "image-29": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/WgEHVRrQs62rgxlzrnXJJ8rr4.png?width=1160&height=800",
-      "alt": ""
-    },
-    "image-30": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/I3azeVtkvdKBGl9TX38tUdXEb0.png?width=1160&height=800",
-      "alt": ""
-    },
-    "image-31": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/e3DxUGJWqt7CIVVQIA0VZoy09FQ.png?width=1160&height=800",
-      "alt": ""
-    },
-    "image-32": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/l08IN6OxWS7DxFD28fNZXjCT4.png?width=1160&height=800",
-      "alt": ""
-    },
-    "image-33": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/IBHqRDPghoZPLzWsGC2SWmPo.png?width=1160&height=800",
-      "alt": ""
+      "label": "NetNeedle landing page",
+      "value": "/assets/netneedle/dashboard.png",
+      "alt": "NetNeedle cybersecurity assessment platform landing page"
     },
     "link-34": {
       "type": "link",
@@ -670,33 +527,8 @@
     },
     "link-37": {
       "type": "link",
-      "label": "DamasAgency Framer Template",
-      "value": "/work/damas#work-section"
-    },
-    "link-38": {
-      "type": "link",
-      "label": "NajmSaaS Framer Template",
-      "value": "/work/najm#work-section"
-    },
-    "link-39": {
-      "type": "link",
-      "label": "KaviAI Framer Template",
-      "value": "/work/kavi#work-section"
-    },
-    "link-40": {
-      "type": "link",
-      "label": "ShamStudio Framer Template",
-      "value": "/work/sham#work-section"
-    },
-    "link-41": {
-      "type": "link",
-      "label": "AbjadAI Framer Template",
-      "value": "/work/abjad#work-section"
-    },
-    "link-42": {
-      "type": "link",
-      "label": "Faseelh Environmental Framer Template",
-      "value": "/work/fasselh#work-section"
+      "label": "NetNeedle project page",
+      "value": "/work/netneedle#work-section"
     },
     "link-43": {
       "type": "link",
@@ -1028,1288 +860,6 @@
       "value": "/#contact"
     },
     "link-59": {
-      "type": "link",
-      "label": "Mejed@Templyo.io",
-      "value": "mailto:mejed@templyo.io"
-    }
-  },
-  "work--damas": {
-    "text-1": {
-      "type": "text",
-      "label": "Use for Free",
-      "value": "Use for Free"
-    },
-    "text-2": {
-      "type": "text",
-      "label": "More Templates",
-      "value": "More Templates"
-    },
-    "text-3": {
-      "type": "html",
-      "label": "m1000z",
-      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"../#hero-section\">m1000z</a><!--/$-->"
-    },
-    "text-4": {
-      "type": "text",
-      "label": "Damas",
-      "value": "Damas"
-    },
-    "text-5": {
-      "type": "text",
-      "label": "Category",
-      "value": "Category"
-    },
-    "text-6": {
-      "type": "text",
-      "label": "Free Framer Template",
-      "value": "Free Framer Template"
-    },
-    "text-7": {
-      "type": "text",
-      "label": "/",
-      "value": "/"
-    },
-    "text-8": {
-      "type": "text",
-      "label": "Year",
-      "value": "Year"
-    },
-    "text-9": {
-      "type": "text",
-      "label": "2025",
-      "value": "2025"
-    },
-    "text-10": {
-      "type": "text",
-      "label": "/",
-      "value": "/"
-    },
-    "text-11": {
-      "type": "text",
-      "label": "Live Link",
-      "value": "Live Link"
-    },
-    "text-12": {
-      "type": "text",
-      "label": "Damas is a modern creative agency template built for bold visuals, smooth interactions, and standout",
-      "value": "Damas is a modern creative agency template built for bold visuals, smooth interactions, and standout storytelling. Perfect for agencies, studios, and creators who want a polished, high impact online presence without starting from scratch."
-    },
-    "text-13": {
-      "type": "text",
-      "label": "About the Template",
-      "value": "About the Template"
-    },
-    "text-14": {
-      "type": "text",
-      "label": "Damas is a refined digital template crafted for modern brands that value clarity, elegance, and stro",
-      "value": "Damas is a refined digital template crafted for modern brands that value clarity, elegance, and strong visual presence. Built with versatility in mind, it adapts seamlessly across industries—whether for studios, agencies, or product-focused businesses looking to elevate their online identity."
-    },
-    "text-15": {
-      "type": "text",
-      "label": "At its core, Damas is about balance. It blends bold structure with subtle sophistication, creating a",
-      "value": "At its core, Damas is about balance. It blends bold structure with subtle sophistication, creating a foundation that feels both contemporary and timeless."
-    },
-    "text-16": {
-      "type": "html",
-      "label": "Designing for Impact,Built for Flexibility",
-      "value": "Designing for Impact,<br class=\"framer-text\">Built for Flexibility"
-    },
-    "text-17": {
-      "type": "text",
-      "label": "The goal behind Damas was to create a system that doesn’t just look good, but performs. Every sectio",
-      "value": "The goal behind Damas was to create a system that doesn’t just look good, but performs. Every section is intentionally structured to guide attention, highlight key content, and support storytelling without overwhelming the user. The result is a template that feels confident, clean, and highly adaptable."
-    },
-    "text-18": {
-      "type": "text",
-      "label": "Visual Language",
-      "value": "Visual Language"
-    },
-    "text-19": {
-      "type": "text",
-      "label": "Damas uses a minimal yet striking visual approach. Strong typography anchors the layout, while gener",
-      "value": "Damas uses a minimal yet striking visual approach. Strong typography anchors the layout, while generous spacing and structured grids create rhythm and clarity. The color system is intentionally restrained, allowing brands to easily customize while maintaining a polished and cohesive look."
-    },
-    "text-20": {
-      "type": "text",
-      "label": "Subtle contrasts and refined alignments bring a sense of precision, helping content stand out withou",
-      "value": "Subtle contrasts and refined alignments bring a sense of precision, helping content stand out without unnecessary decoration."
-    },
-    "text-21": {
-      "type": "text",
-      "label": "Structured Storytelling",
-      "value": "Structured Storytelling"
-    },
-    "text-22": {
-      "type": "text",
-      "label": "The layout is designed to flow naturally—from introduction to deeper engagement. Each section builds",
-      "value": "The layout is designed to flow naturally—from introduction to deeper engagement. Each section builds on the previous one, making it easy to present services, showcase work, or communicate brand values in a clear and compelling way."
-    },
-    "text-23": {
-      "type": "text",
-      "label": "This structure ensures that users not only explore, but understand and connect with the content.",
-      "value": "This structure ensures that users not only explore, but understand and connect with the content."
-    },
-    "text-24": {
-      "type": "text",
-      "label": "Built for Real Use",
-      "value": "Built for Real Use"
-    },
-    "text-25": {
-      "type": "text",
-      "label": "Beyond aesthetics, Damas is highly practical. It’s optimized for performance, responsiveness, and ea",
-      "value": "Beyond aesthetics, Damas is highly practical. It’s optimized for performance, responsiveness, and ease of editing inside Framer. Every component is reusable and scalable, allowing creators to expand pages, adjust layouts, and maintain consistency without friction."
-    },
-    "text-26": {
-      "type": "text",
-      "label": "A Foundation for Growth",
-      "value": "A Foundation for Growth"
-    },
-    "text-27": {
-      "type": "text",
-      "label": "Damas is more than a template—it’s a system designed to evolve with the brand using it. Whether expa",
-      "value": "Damas is more than a template—it’s a system designed to evolve with the brand using it. Whether expanding content, launching new services, or refining positioning, the structure supports growth without losing visual integrity."
-    },
-    "text-28": {
-      "type": "text",
-      "label": "Clarity that Scales with You",
-      "value": "Clarity that Scales with You"
-    },
-    "text-29": {
-      "type": "text",
-      "label": "Every element within Damas is crafted to serve a purpose—bringing together design and function in a ",
-      "value": "Every element within Damas is crafted to serve a purpose—bringing together design and function in a way that feels effortless. It empowers brands to present themselves with confidence, precision, and lasting impact."
-    },
-    "text-30": {
-      "type": "text",
-      "label": "More Projects",
-      "value": "More Projects"
-    },
-    "text-31": {
-      "type": "text",
-      "label": "Najm",
-      "value": "Najm"
-    },
-    "text-32": {
-      "type": "text",
-      "label": "SaaS Framer Template",
-      "value": "SaaS Framer Template"
-    },
-    "text-33": {
-      "type": "text",
-      "label": "Kavi",
-      "value": "Kavi"
-    },
-    "text-34": {
-      "type": "text",
-      "label": "AI Framer Template",
-      "value": "AI Framer Template"
-    },
-    "text-35": {
-      "type": "html",
-      "label": "Footer security headline",
-      "value": "<span class=\"footer-security-headline\">Securing products before <em>attackers do.</em></span>"
-    },
-    "text-36": {
-      "type": "text",
-      "label": "/Quick links",
-      "value": "/Quick links"
-    },
-    "text-37": {
-      "type": "text",
-      "label": "Home",
-      "value": "Home"
-    },
-    "text-38": {
-      "type": "text",
-      "label": "About Me",
-      "value": "About Me"
-    },
-    "text-39": {
-      "type": "text",
-      "label": "Services",
-      "value": "Services"
-    },
-    "text-40": {
-      "type": "text",
-      "label": "Works",
-      "value": "Works"
-    },
-    "text-41": {
-      "type": "text",
-      "label": "Contact",
-      "value": "Contact"
-    },
-    "text-42": {
-      "type": "text",
-      "label": "/Contact",
-      "value": "/Contact"
-    },
-    "text-43": {
-      "type": "html",
-      "label": "Mejed@Templyo.io",
-      "value": "<a class=\"framer-text framer-styles-preset-lfjhkq\" data-styles-preset=\"yaETO81Ao\" href=\"mailto:mejed@templyo.io\" target=\"_blank\" rel=\"\">Mejed@Templyo.io</a><!--/$-->"
-    },
-    "text-44": {
-      "type": "text",
-      "label": "m1000z",
-      "value": "m1000z"
-    },
-    "image-45": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/VNXQLcPHw9VbVzy6BDpZ8pUsaU.png?width=1160&height=800",
-      "alt": ""
-    },
-    "image-46": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/173P7WbvHMc1Z9lNpSNy6GIYif8.png?width=1066&height=800",
-      "alt": ""
-    },
-    "image-47": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/UmXfpYfVhYqoqb1DnbFpIC98OIo.png?width=1066&height=800",
-      "alt": ""
-    },
-    "image-48": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/rRp1KaDwStpJ6Pxo05Doj1IjSU.png?width=1066&height=800",
-      "alt": ""
-    },
-    "image-49": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/WgEHVRrQs62rgxlzrnXJJ8rr4.png?width=1160&height=800",
-      "alt": ""
-    },
-    "image-50": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/I3azeVtkvdKBGl9TX38tUdXEb0.png?width=1160&height=800",
-      "alt": ""
-    },
-    "link-51": {
-      "type": "link",
-      "label": "Use for Free\n    .rolling-text-inner-r8 {\n      --font-size: 16px;\n      --text:",
-      "value": "https://framer.link/bsFvFjY"
-    },
-    "link-52": {
-      "type": "link",
-      "label": "More Templates\n    .rolling-text-inner-r9 {\n      --font-size: 16px;\n      --tex",
-      "value": "https://framer.link/5Wi1vkP"
-    },
-    "link-53": {
-      "type": "link",
-      "label": "m1000z",
-      "value": "../#hero-section"
-    },
-    "link-54": {
-      "type": "link",
-      "label": "Live Link",
-      "value": "https://framer.link/KhRj2A5?duplicateType=siteTemplate"
-    },
-    "link-55": {
-      "type": "link",
-      "label": "NajmSaaS Framer Template",
-      "value": "/najm#work-section"
-    },
-    "link-56": {
-      "type": "link",
-      "label": "KaviAI Framer Template",
-      "value": "/kavi#work-section"
-    },
-    "link-57": {
-      "type": "link",
-      "label": "Home\n    .rolling-text-inner-ro {\n      --font-size: 16px;\n      --text: var(--t",
-      "value": "../#hero-section"
-    },
-    "link-58": {
-      "type": "link",
-      "label": "About Me\n    .rolling-text-inner-rp {\n      --font-size: 16px;\n      --text: var",
-      "value": "/about"
-    },
-    "link-59": {
-      "type": "link",
-      "label": "Services\n    .rolling-text-inner-rv {\n      --font-size: 16px;\n      --text: var",
-      "value": "../#services"
-    },
-    "link-60": {
-      "type": "link",
-      "label": "Works\n    .rolling-text-inner-r13 {\n      --font-size: 16px;\n      --text: var(-",
-      "value": "../work#hero-section"
-    },
-    "link-61": {
-      "type": "link",
-      "label": "Contact\n    .rolling-text-inner-r15 {\n      --font-size: 16px;\n      --text: var",
-      "value": "../#contact"
-    },
-    "link-62": {
-      "type": "link",
-      "label": "Mejed@Templyo.io",
-      "value": "mailto:mejed@templyo.io"
-    }
-  },
-  "work--najm": {
-    "text-1": {
-      "type": "text",
-      "label": "Use for Free",
-      "value": "Use for Free"
-    },
-    "text-2": {
-      "type": "text",
-      "label": "More Templates",
-      "value": "More Templates"
-    },
-    "text-3": {
-      "type": "html",
-      "label": "m1000z",
-      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"../#hero-section\">m1000z</a><!--/$-->"
-    },
-    "text-4": {
-      "type": "text",
-      "label": "Najm",
-      "value": "Najm"
-    },
-    "text-5": {
-      "type": "text",
-      "label": "Category",
-      "value": "Category"
-    },
-    "text-6": {
-      "type": "text",
-      "label": "Free Framer Template",
-      "value": "Free Framer Template"
-    },
-    "text-7": {
-      "type": "text",
-      "label": "/",
-      "value": "/"
-    },
-    "text-8": {
-      "type": "text",
-      "label": "Year",
-      "value": "Year"
-    },
-    "text-9": {
-      "type": "text",
-      "label": "2024",
-      "value": "2024"
-    },
-    "text-10": {
-      "type": "text",
-      "label": "/",
-      "value": "/"
-    },
-    "text-11": {
-      "type": "text",
-      "label": "Live Link",
-      "value": "Live Link"
-    },
-    "text-12": {
-      "type": "text",
-      "label": "A beautifully crafted Framer website template perfect for AI SaaS businesses looking to showcase the",
-      "value": "A beautifully crafted Framer website template perfect for AI SaaS businesses looking to showcase their innovative products and services."
-    },
-    "text-13": {
-      "type": "text",
-      "label": "About the Template",
-      "value": "About the Template"
-    },
-    "text-14": {
-      "type": "text",
-      "label": "Najm is a bold, forward-looking digital template designed for brands that want to stand out with cla",
-      "value": "Najm is a bold, forward-looking digital template designed for brands that want to stand out with clarity and presence. Inspired by the idea of a “guiding star,” it focuses on strong visual direction, confident layouts, and a sense of movement that naturally draws attention."
-    },
-    "text-15": {
-      "type": "text",
-      "label": "Built for modern creators, studios, and startups, Najm provides a foundation that feels dynamic yet ",
-      "value": "Built for modern creators, studios, and startups, Najm provides a foundation that feels dynamic yet controlled—allowing brands to communicate their identity with precision and energy."
-    },
-    "text-16": {
-      "type": "html",
-      "label": "A Guiding Presence,Designed to Stand Out",
-      "value": "A Guiding Presence,<br class=\"framer-text\">Designed to Stand Out"
-    },
-    "text-17": {
-      "type": "text",
-      "label": "The concept behind Najm was to create a template that leads rather than follows. Every layout decisi",
-      "value": "The concept behind Najm was to create a template that leads rather than follows. Every layout decision is intentional, guiding users through content in a way that feels natural and engaging. It balances bold expression with thoughtful structure, resulting in an experience that is both impactful and easy to navigate."
-    },
-    "text-18": {
-      "type": "text",
-      "label": "Visual Language",
-      "value": "Visual Language"
-    },
-    "text-19": {
-      "type": "text",
-      "label": "Najm embraces contrast and depth. Strong typography, layered compositions, and carefully used spacin",
-      "value": "Najm embraces contrast and depth. Strong typography, layered compositions, and carefully used spacing create a sense of hierarchy and motion. The design system allows for expressive visuals while maintaining a clean and organized framework."
-    },
-    "text-20": {
-      "type": "text",
-      "label": "Light and dark interplay, combined with sharp alignments, gives the template a modern, almost cinema",
-      "value": "Light and dark interplay, combined with sharp alignments, gives the template a modern, almost cinematic feel—perfect for brands that want a striking digital presence."
-    },
-    "text-21": {
-      "type": "text",
-      "label": "Dynamic Storytelling",
-      "value": "Dynamic Storytelling"
-    },
-    "text-22": {
-      "type": "text",
-      "label": "The flow of Najm is built to capture attention and maintain it. Sections transition smoothly, encour",
-      "value": "The flow of Najm is built to capture attention and maintain it. Sections transition smoothly, encouraging users to explore further while keeping the experience intuitive. It supports a wide range of content—from portfolios to product highlights—without losing clarity."
-    },
-    "text-23": {
-      "type": "text",
-      "label": "This approach helps transform static content into a narrative that feels alive and engaging.",
-      "value": "This approach helps transform static content into a narrative that feels alive and engaging."
-    },
-    "text-24": {
-      "type": "text",
-      "label": "Built for Creators",
-      "value": "Built for Creators"
-    },
-    "text-25": {
-      "type": "text",
-      "label": "Najm is designed with flexibility at its core. Fully responsive and easy to customize in Framer, it ",
-      "value": "Najm is designed with flexibility at its core. Fully responsive and easy to customize in Framer, it allows creators to adapt layouts, experiment with visuals, and scale their content effortlessly."
-    },
-    "text-26": {
-      "type": "text",
-      "label": "Each component is built to be modular and reusable, making it simple to maintain consistency while e",
-      "value": "Each component is built to be modular and reusable, making it simple to maintain consistency while evolving the design."
-    },
-    "text-27": {
-      "type": "text",
-      "label": "A System That Evolves",
-      "value": "A System That Evolves"
-    },
-    "text-28": {
-      "type": "text",
-      "label": "Najm is not just about making a strong first impression—it’s about sustaining it. As brands grow and",
-      "value": "Najm is not just about making a strong first impression—it’s about sustaining it. As brands grow and their needs expand, the template continues to support new ideas, content, and directions without losing its identity."
-    },
-    "text-29": {
-      "type": "text",
-      "label": "Designed to Guide, Built to Last",
-      "value": "Designed to Guide, Built to Last"
-    },
-    "text-30": {
-      "type": "text",
-      "label": "Every element in Najm works together to create a clear, confident presence. It gives brands the tool",
-      "value": "Every element in Najm works together to create a clear, confident presence. It gives brands the tools to express themselves boldly while staying grounded in structure—resulting in a digital experience that feels both powerful and refined."
-    },
-    "text-31": {
-      "type": "text",
-      "label": "More Projects",
-      "value": "More Projects"
-    },
-    "text-32": {
-      "type": "text",
-      "label": "Damas",
-      "value": "Damas"
-    },
-    "text-33": {
-      "type": "text",
-      "label": "Agency Framer Template",
-      "value": "Agency Framer Template"
-    },
-    "text-34": {
-      "type": "text",
-      "label": "Kavi",
-      "value": "Kavi"
-    },
-    "text-35": {
-      "type": "text",
-      "label": "AI Framer Template",
-      "value": "AI Framer Template"
-    },
-    "text-36": {
-      "type": "html",
-      "label": "Footer security headline",
-      "value": "<span class=\"footer-security-headline\">Securing products before <em>attackers do.</em></span>"
-    },
-    "text-37": {
-      "type": "text",
-      "label": "/Quick links",
-      "value": "/Quick links"
-    },
-    "text-38": {
-      "type": "text",
-      "label": "Home",
-      "value": "Home"
-    },
-    "text-39": {
-      "type": "text",
-      "label": "About Me",
-      "value": "About Me"
-    },
-    "text-40": {
-      "type": "text",
-      "label": "Services",
-      "value": "Services"
-    },
-    "text-41": {
-      "type": "text",
-      "label": "Works",
-      "value": "Works"
-    },
-    "text-42": {
-      "type": "text",
-      "label": "Contact",
-      "value": "Contact"
-    },
-    "text-43": {
-      "type": "text",
-      "label": "/Contact",
-      "value": "/Contact"
-    },
-    "text-44": {
-      "type": "html",
-      "label": "Mejed@Templyo.io",
-      "value": "<a class=\"framer-text framer-styles-preset-lfjhkq\" data-styles-preset=\"yaETO81Ao\" href=\"mailto:mejed@templyo.io\" target=\"_blank\" rel=\"\">Mejed@Templyo.io</a><!--/$-->"
-    },
-    "text-45": {
-      "type": "text",
-      "label": "m1000z",
-      "value": "m1000z"
-    },
-    "image-46": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/WgEHVRrQs62rgxlzrnXJJ8rr4.png?width=1160&height=800",
-      "alt": ""
-    },
-    "image-47": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/ujTNOAyihWs0g4ns3ZEmKQBW6M.jpeg?width=1400&height=950",
-      "alt": ""
-    },
-    "image-48": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/v1SmiICbdgfuSlTYmhS054D8sI.jpeg?width=1400&height=950",
-      "alt": ""
-    },
-    "image-49": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/ixj3l3ntKSbk66sf6KZmqHxXWi0.jpeg?width=1400&height=950",
-      "alt": ""
-    },
-    "image-50": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/VNXQLcPHw9VbVzy6BDpZ8pUsaU.png?width=1160&height=800",
-      "alt": ""
-    },
-    "image-51": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/I3azeVtkvdKBGl9TX38tUdXEb0.png?width=1160&height=800",
-      "alt": ""
-    },
-    "link-52": {
-      "type": "link",
-      "label": "Use for Free\n    .rolling-text-inner-r7 {\n      --font-size: 16px;\n      --text:",
-      "value": "https://framer.link/bsFvFjY"
-    },
-    "link-53": {
-      "type": "link",
-      "label": "More Templates\n    .rolling-text-inner-r8 {\n      --font-size: 16px;\n      --tex",
-      "value": "https://framer.link/5Wi1vkP"
-    },
-    "link-54": {
-      "type": "link",
-      "label": "m1000z",
-      "value": "../#hero-section"
-    },
-    "link-55": {
-      "type": "link",
-      "label": "Live Link",
-      "value": "https://framer.link/iij2V3q?duplicateType=siteTemplate"
-    },
-    "link-56": {
-      "type": "link",
-      "label": "DamasAgency Framer Template",
-      "value": "/damas#work-section"
-    },
-    "link-57": {
-      "type": "link",
-      "label": "KaviAI Framer Template",
-      "value": "/kavi#work-section"
-    },
-    "link-58": {
-      "type": "link",
-      "label": "Home\n    .rolling-text-inner-rl {\n      --font-size: 16px;\n      --text: var(--t",
-      "value": "../#hero-section"
-    },
-    "link-59": {
-      "type": "link",
-      "label": "About Me\n    .rolling-text-inner-rq {\n      --font-size: 16px;\n      --text: var",
-      "value": "/about"
-    },
-    "link-60": {
-      "type": "link",
-      "label": "Services\n    .rolling-text-inner-rt {\n      --font-size: 16px;\n      --text: var",
-      "value": "../#services"
-    },
-    "link-61": {
-      "type": "link",
-      "label": "Works\n    .rolling-text-inner-r10 {\n      --font-size: 16px;\n      --text: var(-",
-      "value": "../work#hero-section"
-    },
-    "link-62": {
-      "type": "link",
-      "label": "Contact\n    .rolling-text-inner-r12 {\n      --font-size: 16px;\n      --text: var",
-      "value": "../#contact"
-    },
-    "link-63": {
-      "type": "link",
-      "label": "Mejed@Templyo.io",
-      "value": "mailto:mejed@templyo.io"
-    }
-  },
-  "work--kavi": {
-    "text-1": {
-      "type": "text",
-      "label": "Use for Free",
-      "value": "Use for Free"
-    },
-    "text-2": {
-      "type": "text",
-      "label": "More Templates",
-      "value": "More Templates"
-    },
-    "text-3": {
-      "type": "html",
-      "label": "m1000z",
-      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"../#hero-section\">m1000z</a><!--/$-->"
-    },
-    "text-4": {
-      "type": "text",
-      "label": "Kavi",
-      "value": "Kavi"
-    },
-    "text-5": {
-      "type": "text",
-      "label": "Category",
-      "value": "Category"
-    },
-    "text-6": {
-      "type": "text",
-      "label": "Free Framer Template",
-      "value": "Free Framer Template"
-    },
-    "text-7": {
-      "type": "text",
-      "label": "/",
-      "value": "/"
-    },
-    "text-8": {
-      "type": "text",
-      "label": "Year",
-      "value": "Year"
-    },
-    "text-9": {
-      "type": "text",
-      "label": "2024",
-      "value": "2024"
-    },
-    "text-10": {
-      "type": "text",
-      "label": "/",
-      "value": "/"
-    },
-    "text-11": {
-      "type": "text",
-      "label": "Live Link",
-      "value": "Live Link"
-    },
-    "text-12": {
-      "type": "text",
-      "label": "Kavi is a bold and modern website template made for SaaS and AI startups looking to launch fast and ",
-      "value": "Kavi is a bold and modern website template made for SaaS and AI startups looking to launch fast and scale smarter with clean design and intuitive customization."
-    },
-    "text-13": {
-      "type": "text",
-      "label": "About the Brand",
-      "value": "About the Brand"
-    },
-    "text-14": {
-      "type": "text",
-      "label": "Kavi is a refined, expressive digital template inspired by creativity, rhythm, and artistic flow. De",
-      "value": "Kavi is a refined, expressive digital template inspired by creativity, rhythm, and artistic flow. Designed for brands that value storytelling and visual emotion, it creates a space where content feels curated rather than simply arranged."
-    },
-    "text-15": {
-      "type": "text",
-      "label": "Built for creatives, studios, and personal brands, Kavi blends structure with artistic freedom—allow",
-      "value": "Built for creatives, studios, and personal brands, Kavi blends structure with artistic freedom—allowing each project to feel distinctive while maintaining a cohesive identity."
-    },
-    "text-16": {
-      "type": "html",
-      "label": "An Artistic Flow,Designed to Inspire",
-      "value": "An Artistic Flow,<br class=\"framer-text\">Designed to Inspire"
-    },
-    "text-17": {
-      "type": "text",
-      "label": "The vision behind Kavi was to craft a template that feels less rigid and more intuitive. It embraces",
-      "value": "The vision behind Kavi was to craft a template that feels less rigid and more intuitive. It embraces movement, pacing, and composition to guide users through content in a way that feels natural and engaging."
-    },
-    "text-18": {
-      "type": "text",
-      "label": "Visual Language",
-      "value": "Visual Language"
-    },
-    "text-19": {
-      "type": "text",
-      "label": "Kavi uses a soft yet expressive visual system. Layered compositions, balanced whitespace, and elegan",
-      "value": "Kavi uses a soft yet expressive visual system. Layered compositions, balanced whitespace, and elegant typography create a sense of rhythm across the layout. The design allows for visual experimentation while maintaining harmony and clarity."
-    },
-    "text-20": {
-      "type": "text",
-      "label": "Subtle contrasts and refined details give each section depth, making the overall experience feel ric",
-      "value": "Subtle contrasts and refined details give each section depth, making the overall experience feel rich without being overwhelming."
-    },
-    "text-21": {
-      "type": "text",
-      "label": "Narrative-Driven Design",
-      "value": "Narrative-Driven Design"
-    },
-    "text-22": {
-      "type": "text",
-      "label": "The structure of Kavi is built around storytelling. Content flows in a way that encourages explorati",
-      "value": "The structure of Kavi is built around storytelling. Content flows in a way that encourages exploration, allowing each section to reveal itself gradually. This creates a more engaging and memorable journey for the user."
-    },
-    "text-23": {
-      "type": "text",
-      "label": "It’s especially effective for showcasing portfolios, creative work, and brands that rely on emotion ",
-      "value": "It’s especially effective for showcasing portfolios, creative work, and brands that rely on emotion and identity."
-    },
-    "text-24": {
-      "type": "text",
-      "label": "Built for Creative Freedom",
-      "value": "Built for Creative Freedom"
-    },
-    "text-25": {
-      "type": "text",
-      "label": "Kavi is designed to be flexible and easy to customize in Framer. Its modular components allow creato",
-      "value": "Kavi is designed to be flexible and easy to customize in Framer. Its modular components allow creators to rearrange layouts, adapt styles, and expand content without losing consistency."
-    },
-    "text-26": {
-      "type": "text",
-      "label": "A Canvas for Growth",
-      "value": "A Canvas for Growth"
-    },
-    "text-27": {
-      "type": "text",
-      "label": "Kavi is more than a template—it’s a creative framework that evolves with the work it presents. As pr",
-      "value": "Kavi is more than a template—it’s a creative framework that evolves with the work it presents. As projects grow and ideas expand, it continues to support new expressions and directions."
-    },
-    "text-28": {
-      "type": "text",
-      "label": "Design that Moves with You",
-      "value": "Design that Moves with You"
-    },
-    "text-29": {
-      "type": "text",
-      "label": "Every element in Kavi is crafted to enhance creativity and storytelling. It gives brands the ability",
-      "value": "Every element in Kavi is crafted to enhance creativity and storytelling. It gives brands the ability to present their work with depth, emotion, and clarity—creating a digital presence that feels both personal and impactful."
-    },
-    "text-30": {
-      "type": "text",
-      "label": "More Projects",
-      "value": "More Projects"
-    },
-    "text-31": {
-      "type": "text",
-      "label": "Damas",
-      "value": "Damas"
-    },
-    "text-32": {
-      "type": "text",
-      "label": "Agency Framer Template",
-      "value": "Agency Framer Template"
-    },
-    "text-33": {
-      "type": "text",
-      "label": "Najm",
-      "value": "Najm"
-    },
-    "text-34": {
-      "type": "text",
-      "label": "SaaS Framer Template",
-      "value": "SaaS Framer Template"
-    },
-    "text-35": {
-      "type": "html",
-      "label": "Footer security headline",
-      "value": "<span class=\"footer-security-headline\">Securing products before <em>attackers do.</em></span>"
-    },
-    "text-36": {
-      "type": "text",
-      "label": "/Quick links",
-      "value": "/Quick links"
-    },
-    "text-37": {
-      "type": "text",
-      "label": "Home",
-      "value": "Home"
-    },
-    "text-38": {
-      "type": "text",
-      "label": "About Me",
-      "value": "About Me"
-    },
-    "text-39": {
-      "type": "text",
-      "label": "Services",
-      "value": "Services"
-    },
-    "text-40": {
-      "type": "text",
-      "label": "Works",
-      "value": "Works"
-    },
-    "text-41": {
-      "type": "text",
-      "label": "Contact",
-      "value": "Contact"
-    },
-    "text-42": {
-      "type": "text",
-      "label": "/Contact",
-      "value": "/Contact"
-    },
-    "text-43": {
-      "type": "html",
-      "label": "Mejed@Templyo.io",
-      "value": "<a class=\"framer-text framer-styles-preset-lfjhkq\" data-styles-preset=\"yaETO81Ao\" href=\"mailto:mejed@templyo.io\" target=\"_blank\" rel=\"\">Mejed@Templyo.io</a><!--/$-->"
-    },
-    "text-44": {
-      "type": "text",
-      "label": "m1000z",
-      "value": "m1000z"
-    },
-    "image-45": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/I3azeVtkvdKBGl9TX38tUdXEb0.png?width=1160&height=800",
-      "alt": ""
-    },
-    "image-46": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/J0VwtYHHXMhL1FV3jH8iWEtAVk.webp?width=1600&height=1200",
-      "alt": ""
-    },
-    "image-47": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/8UEzK68Cuo7xH5PuKC44uAV0ckY.webp?width=1600&height=1200",
-      "alt": ""
-    },
-    "image-48": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/Ks48TT9awwpT9gdcWgZd8ev1WY.webp?width=1600&height=1200",
-      "alt": ""
-    },
-    "image-49": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/VNXQLcPHw9VbVzy6BDpZ8pUsaU.png?width=1160&height=800",
-      "alt": ""
-    },
-    "image-50": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/WgEHVRrQs62rgxlzrnXJJ8rr4.png?width=1160&height=800",
-      "alt": ""
-    },
-    "link-51": {
-      "type": "link",
-      "label": "Use for Free\n    .rolling-text-inner-r7 {\n      --font-size: 16px;\n      --text:",
-      "value": "https://framer.link/bsFvFjY"
-    },
-    "link-52": {
-      "type": "link",
-      "label": "More Templates\n    .rolling-text-inner-r8 {\n      --font-size: 16px;\n      --tex",
-      "value": "https://framer.link/5Wi1vkP"
-    },
-    "link-53": {
-      "type": "link",
-      "label": "m1000z",
-      "value": "../#hero-section"
-    },
-    "link-54": {
-      "type": "link",
-      "label": "Live Link",
-      "value": "https://kavi-template.framer.website/"
-    },
-    "link-55": {
-      "type": "link",
-      "label": "DamasAgency Framer Template",
-      "value": "/damas#work-section"
-    },
-    "link-56": {
-      "type": "link",
-      "label": "NajmSaaS Framer Template",
-      "value": "/najm#work-section"
-    },
-    "link-57": {
-      "type": "link",
-      "label": "Home\n    .rolling-text-inner-ro {\n      --font-size: 16px;\n      --text: var(--t",
-      "value": "../#hero-section"
-    },
-    "link-58": {
-      "type": "link",
-      "label": "About Me\n    .rolling-text-inner-rr {\n      --font-size: 16px;\n      --text: var",
-      "value": "/about"
-    },
-    "link-59": {
-      "type": "link",
-      "label": "Services\n    .rolling-text-inner-rs {\n      --font-size: 16px;\n      --text: var",
-      "value": "../#services"
-    },
-    "link-60": {
-      "type": "link",
-      "label": "Works\n    .rolling-text-inner-r15 {\n      --font-size: 16px;\n      --text: var(-",
-      "value": "../work#hero-section"
-    },
-    "link-61": {
-      "type": "link",
-      "label": "Contact\n    .rolling-text-inner-r16 {\n      --font-size: 16px;\n      --text: var",
-      "value": "../#contact"
-    },
-    "link-62": {
-      "type": "link",
-      "label": "Mejed@Templyo.io",
-      "value": "mailto:mejed@templyo.io"
-    }
-  },
-  "work--sham": {
-    "text-1": {
-      "type": "text",
-      "label": "Use for Free",
-      "value": "Use for Free"
-    },
-    "text-2": {
-      "type": "text",
-      "label": "More Templates",
-      "value": "More Templates"
-    },
-    "text-3": {
-      "type": "html",
-      "label": "m1000z",
-      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"../#hero-section\">m1000z</a><!--/$-->"
-    },
-    "text-4": {
-      "type": "text",
-      "label": "Sham",
-      "value": "Sham"
-    },
-    "text-5": {
-      "type": "text",
-      "label": "Category",
-      "value": "Category"
-    },
-    "text-6": {
-      "type": "text",
-      "label": "Free Framer Template",
-      "value": "Free Framer Template"
-    },
-    "text-7": {
-      "type": "text",
-      "label": "/",
-      "value": "/"
-    },
-    "text-8": {
-      "type": "text",
-      "label": "Year",
-      "value": "Year"
-    },
-    "text-9": {
-      "type": "text",
-      "label": "2024",
-      "value": "2024"
-    },
-    "text-10": {
-      "type": "text",
-      "label": "/",
-      "value": "/"
-    },
-    "text-11": {
-      "type": "text",
-      "label": "Live Link",
-      "value": "Live Link"
-    },
-    "text-12": {
-      "type": "text",
-      "label": "A clean, modern Framer template designed for creative studios and businesses. Built with flexible se",
-      "value": "A clean, modern Framer template designed for creative studios and businesses. Built with flexible sections, smooth interactions, and fully editable components so you can launch a professional agency site quickly and for free."
-    },
-    "text-13": {
-      "type": "text",
-      "label": "About the Brand",
-      "value": "About the Brand"
-    },
-    "text-14": {
-      "type": "text",
-      "label": "Sham is a warm, expressive digital template inspired by culture, light, and storytelling. Rooted in ",
-      "value": "Sham is a warm, expressive digital template inspired by culture, light, and storytelling. Rooted in a sense of familiarity and depth, it’s designed for brands that want to feel human, grounded, and visually rich without losing clarity."
-    },
-    "text-15": {
-      "type": "text",
-      "label": "Whether used for creative studios, personal brands, or cultural projects, Sham creates an atmosphere",
-      "value": "Whether used for creative studios, personal brands, or cultural projects, Sham creates an atmosphere that feels inviting and memorable—where content is not just presented, but experienced."
-    },
-    "text-16": {
-      "type": "html",
-      "label": "Where Warmth Meets Expression,Designed to Feel Alive",
-      "value": "Where Warmth Meets Expression,<br class=\"framer-text\">Designed to Feel Alive"
-    },
-    "text-17": {
-      "type": "text",
-      "label": "The idea behind Sham was to move beyond purely minimal design and introduce emotion into the experie",
-      "value": "The idea behind Sham was to move beyond purely minimal design and introduce emotion into the experience. It blends structure with softness, allowing visuals, typography, and spacing to work together in a way that feels natural and fluid."
-    },
-    "text-18": {
-      "type": "text",
-      "label": "Visual Language",
-      "value": "Visual Language"
-    },
-    "text-19": {
-      "type": "text",
-      "label": "Sham leans into warm tones, soft contrasts, and expressive layouts. The design system balances edito",
-      "value": "Sham leans into warm tones, soft contrasts, and expressive layouts. The design system balances editorial-style typography with relaxed spacing, creating a rhythm that feels both intentional and effortless."
-    },
-    "text-20": {
-      "type": "text",
-      "label": "Subtle layering and organic flow give the interface a sense of depth, making each section feel conne",
-      "value": "Subtle layering and organic flow give the interface a sense of depth, making each section feel connected rather than isolated."
-    },
-    "text-21": {
-      "type": "text",
-      "label": "Emotional Storytelling",
-      "value": "Emotional Storytelling"
-    },
-    "text-22": {
-      "type": "text",
-      "label": "More than just structure, Sham is built to convey feeling. It encourages the use of imagery, narrati",
-      "value": "More than just structure, Sham is built to convey feeling. It encourages the use of imagery, narrative, and pacing to create a deeper connection with the audience. Sections unfold naturally, allowing stories to breathe while maintaining clarity."
-    },
-    "text-23": {
-      "type": "text",
-      "label": "This makes it especially effective for brands that rely on narrative, identity, and personal touch.",
-      "value": "This makes it especially effective for brands that rely on narrative, identity, and personal touch."
-    },
-    "text-24": {
-      "type": "text",
-      "label": "Crafted for Flexibility",
-      "value": "Crafted for Flexibility"
-    },
-    "text-25": {
-      "type": "text",
-      "label": "Despite its expressive nature, Sham remains highly functional. Fully responsive and easy to customiz",
-      "value": "Despite its expressive nature, Sham remains highly functional. Fully responsive and easy to customize in Framer, it allows creators to adapt the mood, colors, and layouts to match their vision."
-    },
-    "text-26": {
-      "type": "text",
-      "label": "Components are designed to be flexible and reusable, supporting both simple pages and more layered s",
-      "value": "Components are designed to be flexible and reusable, supporting both simple pages and more layered storytelling."
-    },
-    "text-27": {
-      "type": "text",
-      "label": "A Living System",
-      "value": "A Living System"
-    },
-    "text-28": {
-      "type": "text",
-      "label": "Sham is designed to grow alongside the brand it represents. As content evolves and stories expand, t",
-      "value": "Sham is designed to grow alongside the brand it represents. As content evolves and stories expand, the template provides a consistent yet flexible foundation to build on."
-    },
-    "text-29": {
-      "type": "text",
-      "label": "Design that Connects and Lasts",
-      "value": "Design that Connects and Lasts"
-    },
-    "text-30": {
-      "type": "text",
-      "label": "Every element in Sham works to create a sense of connection—between brand and audience, structure an",
-      "value": "Every element in Sham works to create a sense of connection—between brand and audience, structure and emotion. It’s a system that doesn’t just showcase content, but brings it to life with warmth, depth, and intention."
-    },
-    "text-31": {
-      "type": "text",
-      "label": "More Projects",
-      "value": "More Projects"
-    },
-    "text-32": {
-      "type": "text",
-      "label": "Damas",
-      "value": "Damas"
-    },
-    "text-33": {
-      "type": "text",
-      "label": "Agency Framer Template",
-      "value": "Agency Framer Template"
-    },
-    "text-34": {
-      "type": "text",
-      "label": "Najm",
-      "value": "Najm"
-    },
-    "text-35": {
-      "type": "text",
-      "label": "SaaS Framer Template",
-      "value": "SaaS Framer Template"
-    },
-    "text-36": {
-      "type": "html",
-      "label": "Footer security headline",
-      "value": "<span class=\"footer-security-headline\">Securing products before <em>attackers do.</em></span>"
-    },
-    "text-37": {
-      "type": "text",
-      "label": "/Quick links",
-      "value": "/Quick links"
-    },
-    "text-38": {
-      "type": "text",
-      "label": "Home",
-      "value": "Home"
-    },
-    "text-39": {
-      "type": "text",
-      "label": "About Me",
-      "value": "About Me"
-    },
-    "text-40": {
-      "type": "text",
-      "label": "Services",
-      "value": "Services"
-    },
-    "text-41": {
-      "type": "text",
-      "label": "Works",
-      "value": "Works"
-    },
-    "text-42": {
-      "type": "text",
-      "label": "Contact",
-      "value": "Contact"
-    },
-    "text-43": {
-      "type": "text",
-      "label": "/Contact",
-      "value": "/Contact"
-    },
-    "text-44": {
-      "type": "html",
-      "label": "Mejed@Templyo.io",
-      "value": "<a class=\"framer-text framer-styles-preset-lfjhkq\" data-styles-preset=\"yaETO81Ao\" href=\"mailto:mejed@templyo.io\" target=\"_blank\" rel=\"\">Mejed@Templyo.io</a><!--/$-->"
-    },
-    "text-45": {
-      "type": "text",
-      "label": "m1000z",
-      "value": "m1000z"
-    },
-    "image-46": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/e3DxUGJWqt7CIVVQIA0VZoy09FQ.png?width=1160&height=800",
-      "alt": ""
-    },
-    "image-47": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/TYjXSgMIzqcCLynoQQYhbF7aeM.webp?width=1600&height=1200",
-      "alt": ""
-    },
-    "image-48": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/AmqdjgheRojNIWusBddw5GXHErc.webp?width=1600&height=1200",
-      "alt": ""
-    },
-    "image-49": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/Kwfcsb5AKYGhAjNC9ZFvtVn7cU.webp?width=1600&height=1200",
-      "alt": ""
-    },
-    "image-50": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/VNXQLcPHw9VbVzy6BDpZ8pUsaU.png?width=1160&height=800",
-      "alt": ""
-    },
-    "image-51": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/WgEHVRrQs62rgxlzrnXJJ8rr4.png?width=1160&height=800",
-      "alt": ""
-    },
-    "link-52": {
-      "type": "link",
-      "label": "Use for Free\n    .rolling-text-inner-r7 {\n      --font-size: 16px;\n      --text:",
-      "value": "https://framer.link/bsFvFjY"
-    },
-    "link-53": {
-      "type": "link",
-      "label": "More Templates\n    .rolling-text-inner-r8 {\n      --font-size: 16px;\n      --tex",
-      "value": "https://framer.link/5Wi1vkP"
-    },
-    "link-54": {
-      "type": "link",
-      "label": "m1000z",
-      "value": "../#hero-section"
-    },
-    "link-55": {
-      "type": "link",
-      "label": "Live Link",
-      "value": "https://framer.link/Kf2Jejr?duplicateType=siteTemplate"
-    },
-    "link-56": {
-      "type": "link",
-      "label": "DamasAgency Framer Template",
-      "value": "/damas#work-section"
-    },
-    "link-57": {
-      "type": "link",
-      "label": "NajmSaaS Framer Template",
-      "value": "/najm#work-section"
-    },
-    "link-58": {
-      "type": "link",
-      "label": "Home\n    .rolling-text-inner-ro {\n      --font-size: 16px;\n      --text: var(--t",
-      "value": "../#hero-section"
-    },
-    "link-59": {
-      "type": "link",
-      "label": "About Me\n    .rolling-text-inner-rp {\n      --font-size: 16px;\n      --text: var",
-      "value": "/about"
-    },
-    "link-60": {
-      "type": "link",
-      "label": "Services\n    .rolling-text-inner-rv {\n      --font-size: 16px;\n      --text: var",
-      "value": "../#services"
-    },
-    "link-61": {
-      "type": "link",
-      "label": "Works\n    .rolling-text-inner-r12 {\n      --font-size: 16px;\n      --text: var(-",
-      "value": "../work#hero-section"
-    },
-    "link-62": {
-      "type": "link",
-      "label": "Contact\n    .rolling-text-inner-r14 {\n      --font-size: 16px;\n      --text: var",
-      "value": "../#contact"
-    },
-    "link-63": {
       "type": "link",
       "label": "Mejed@Templyo.io",
       "value": "mailto:mejed@templyo.io"
@@ -3217,657 +1767,6 @@
       "value": "../#contact"
     },
     "link-102": {
-      "type": "link",
-      "label": "Mejed@Templyo.io",
-      "value": "mailto:mejed@templyo.io"
-    }
-  },
-  "work--abjad": {
-    "text-1": {
-      "type": "text",
-      "label": "Use for Free",
-      "value": "Use for Free"
-    },
-    "text-2": {
-      "type": "text",
-      "label": "More Templates",
-      "value": "More Templates"
-    },
-    "text-3": {
-      "type": "html",
-      "label": "m1000z",
-      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"../#hero-section\">m1000z</a><!--/$-->"
-    },
-    "text-4": {
-      "type": "text",
-      "label": "Abjad",
-      "value": "Abjad"
-    },
-    "text-5": {
-      "type": "text",
-      "label": "Category",
-      "value": "Category"
-    },
-    "text-6": {
-      "type": "text",
-      "label": "Free Framer Template",
-      "value": "Free Framer Template"
-    },
-    "text-7": {
-      "type": "text",
-      "label": "/",
-      "value": "/"
-    },
-    "text-8": {
-      "type": "text",
-      "label": "Year",
-      "value": "Year"
-    },
-    "text-9": {
-      "type": "text",
-      "label": "2025",
-      "value": "2025"
-    },
-    "text-10": {
-      "type": "text",
-      "label": "/",
-      "value": "/"
-    },
-    "text-11": {
-      "type": "text",
-      "label": "Live Link",
-      "value": "Live Link"
-    },
-    "text-12": {
-      "type": "text",
-      "label": "Olive Living is a slow-living lifestyle brand that creates products for mindful homes. Their philoso",
-      "value": "Olive Living is a slow-living lifestyle brand that creates products for mindful homes. Their philosophy centers on intentional living, warm textures, and everyday rituals that bring comfort and clarity."
-    },
-    "text-13": {
-      "type": "text",
-      "label": "About the Brand",
-      "value": "About the Brand"
-    },
-    "text-14": {
-      "type": "text",
-      "label": "Abjad is a typography-driven digital template built for brands that see words as their strongest vis",
-      "value": "Abjad is a typography-driven digital template built for brands that see words as their strongest visual asset. Inspired by language, rhythm, and editorial design, it focuses on clarity of message while turning content into a compelling visual experience."
-    },
-    "text-15": {
-      "type": "text",
-      "label": "Designed for studios, writers, and modern brands, Abjad creates a space where typography leads and d",
-      "value": "Designed for studios, writers, and modern brands, Abjad creates a space where typography leads and design supports—resulting in a presence that feels intelligent, expressive, and intentional."
-    },
-    "text-16": {
-      "type": "html",
-      "label": "Where Words Become Visual,Designed with Purpose",
-      "value": "Where Words Become Visual,<br class=\"framer-text\">Designed with Purpose"
-    },
-    "text-17": {
-      "type": "text",
-      "label": "The idea behind Abjad was to elevate text from simple communication to a central design element. Eve",
-      "value": "The idea behind Abjad was to elevate text from simple communication to a central design element. Every layout is crafted to highlight hierarchy, pacing, and readability, allowing content to naturally guide the user’s attention."
-    },
-    "text-18": {
-      "type": "text",
-      "label": "It’s a system that feels calm yet confident, minimal yet deeply expressive.",
-      "value": "It’s a system that feels calm yet confident, minimal yet deeply expressive."
-    },
-    "text-19": {
-      "type": "text",
-      "label": "Visual Language",
-      "value": "Visual Language"
-    },
-    "text-20": {
-      "type": "text",
-      "label": "Abjad centers around strong typographic hierarchy. Carefully selected font pairings, balanced line l",
-      "value": "Abjad centers around strong typographic hierarchy. Carefully selected font pairings, balanced line lengths, and intentional spacing create a rhythm that feels editorial and refined."
-    },
-    "text-21": {
-      "type": "text",
-      "label": "The design is intentionally minimal, using subtle accents and structure to support the content witho",
-      "value": "The design is intentionally minimal, using subtle accents and structure to support the content without distracting from it. This allows brands to communicate clearly while maintaining a sophisticated visual identity."
-    },
-    "text-22": {
-      "type": "text",
-      "label": "Editorial Storytelling",
-      "value": "Editorial Storytelling"
-    },
-    "text-23": {
-      "type": "text",
-      "label": "The layout is designed to read like a well-crafted publication. Sections flow smoothly, encouraging ",
-      "value": "The layout is designed to read like a well-crafted publication. Sections flow smoothly, encouraging users to move through content at a natural pace. Headlines, paragraphs, and visual breaks work together to create a narrative that feels both engaging and easy to digest."
-    },
-    "text-24": {
-      "type": "text",
-      "label": "This makes Abjad ideal for brands that rely on storytelling, thought leadership, or content-driven e",
-      "value": "This makes Abjad ideal for brands that rely on storytelling, thought leadership, or content-driven experiences."
-    },
-    "text-25": {
-      "type": "text",
-      "label": "Built for Expression",
-      "value": "Built for Expression"
-    },
-    "text-26": {
-      "type": "text",
-      "label": "Despite its focus on typography, Abjad remains flexible and highly customizable in Framer. Creators ",
-      "value": "Despite its focus on typography, Abjad remains flexible and highly customizable in Framer. Creators can adapt styles, adjust layouts, and experiment with content while maintaining a consistent and polished system."
-    },
-    "text-27": {
-      "type": "text",
-      "label": "Each component is designed to scale, supporting everything from simple pages to rich, content-heavy ",
-      "value": "Each component is designed to scale, supporting everything from simple pages to rich, content-heavy experiences."
-    },
-    "text-28": {
-      "type": "text",
-      "label": "A System That Speaks Clearly",
-      "value": "A System That Speaks Clearly"
-    },
-    "text-29": {
-      "type": "text",
-      "label": "Abjad is more than a template—it’s a platform for expression. As content grows and evolves, it conti",
-      "value": "Abjad is more than a template—it’s a platform for expression. As content grows and evolves, it continues to provide a structured yet flexible foundation that keeps everything clear and cohesive."
-    },
-    "text-30": {
-      "type": "text",
-      "label": "Clarity Through Design",
-      "value": "Clarity Through Design"
-    },
-    "text-31": {
-      "type": "text",
-      "label": "Every element in Abjad works to amplify the message. It allows brands to communicate with precision ",
-      "value": "Every element in Abjad works to amplify the message. It allows brands to communicate with precision and confidence, turning words into a powerful visual language that resonates and lasts."
-    },
-    "text-32": {
-      "type": "text",
-      "label": "More Projects",
-      "value": "More Projects"
-    },
-    "text-33": {
-      "type": "text",
-      "label": "Damas",
-      "value": "Damas"
-    },
-    "text-34": {
-      "type": "text",
-      "label": "Agency Framer Template",
-      "value": "Agency Framer Template"
-    },
-    "text-35": {
-      "type": "text",
-      "label": "Najm",
-      "value": "Najm"
-    },
-    "text-36": {
-      "type": "text",
-      "label": "SaaS Framer Template",
-      "value": "SaaS Framer Template"
-    },
-    "text-37": {
-      "type": "html",
-      "label": "Footer security headline",
-      "value": "<span class=\"footer-security-headline\">Securing products before <em>attackers do.</em></span>"
-    },
-    "text-38": {
-      "type": "text",
-      "label": "/Quick links",
-      "value": "/Quick links"
-    },
-    "text-39": {
-      "type": "text",
-      "label": "Home",
-      "value": "Home"
-    },
-    "text-40": {
-      "type": "text",
-      "label": "About Me",
-      "value": "About Me"
-    },
-    "text-41": {
-      "type": "text",
-      "label": "Services",
-      "value": "Services"
-    },
-    "text-42": {
-      "type": "text",
-      "label": "Works",
-      "value": "Works"
-    },
-    "text-43": {
-      "type": "text",
-      "label": "Contact",
-      "value": "Contact"
-    },
-    "text-44": {
-      "type": "text",
-      "label": "/Contact",
-      "value": "/Contact"
-    },
-    "text-45": {
-      "type": "html",
-      "label": "Mejed@Templyo.io",
-      "value": "<a class=\"framer-text framer-styles-preset-lfjhkq\" data-styles-preset=\"yaETO81Ao\" href=\"mailto:mejed@templyo.io\" target=\"_blank\" rel=\"\">Mejed@Templyo.io</a><!--/$-->"
-    },
-    "text-46": {
-      "type": "text",
-      "label": "m1000z",
-      "value": "m1000z"
-    },
-    "image-47": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/l08IN6OxWS7DxFD28fNZXjCT4.png?width=1160&height=800",
-      "alt": ""
-    },
-    "image-48": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/N7dtL6bcw7MBEpYrA8GCYU1bIY.webp?width=1600&height=1200",
-      "alt": ""
-    },
-    "image-49": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/HGArSkPIhysxjkfAUbQ7UBw5EcQ.webp?width=1600&height=1200",
-      "alt": ""
-    },
-    "image-50": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/f5mIs8ybPXTLDkmTnN1bJL3xaU.webp?width=1600&height=1200",
-      "alt": ""
-    },
-    "image-51": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/VNXQLcPHw9VbVzy6BDpZ8pUsaU.png?width=1160&height=800",
-      "alt": ""
-    },
-    "image-52": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/WgEHVRrQs62rgxlzrnXJJ8rr4.png?width=1160&height=800",
-      "alt": ""
-    },
-    "link-53": {
-      "type": "link",
-      "label": "Use for Free\n    .rolling-text-inner-r7 {\n      --font-size: 16px;\n      --text:",
-      "value": "https://framer.link/bsFvFjY"
-    },
-    "link-54": {
-      "type": "link",
-      "label": "More Templates\n    .rolling-text-inner-r8 {\n      --font-size: 16px;\n      --tex",
-      "value": "https://framer.link/5Wi1vkP"
-    },
-    "link-55": {
-      "type": "link",
-      "label": "m1000z",
-      "value": "../#hero-section"
-    },
-    "link-56": {
-      "type": "link",
-      "label": "Live Link",
-      "value": "https://framer.link/7SZ272J?duplicateType=siteTemplate"
-    },
-    "link-57": {
-      "type": "link",
-      "label": "DamasAgency Framer Template",
-      "value": "/damas#work-section"
-    },
-    "link-58": {
-      "type": "link",
-      "label": "NajmSaaS Framer Template",
-      "value": "/najm#work-section"
-    },
-    "link-59": {
-      "type": "link",
-      "label": "Home\n    .rolling-text-inner-ro {\n      --font-size: 16px;\n      --text: var(--t",
-      "value": "../#hero-section"
-    },
-    "link-60": {
-      "type": "link",
-      "label": "About Me\n    .rolling-text-inner-rq {\n      --font-size: 16px;\n      --text: var",
-      "value": "/about"
-    },
-    "link-61": {
-      "type": "link",
-      "label": "Services\n    .rolling-text-inner-r10 {\n      --font-size: 16px;\n      --text: va",
-      "value": "../#services"
-    },
-    "link-62": {
-      "type": "link",
-      "label": "Works\n    .rolling-text-inner-r15 {\n      --font-size: 16px;\n      --text: var(-",
-      "value": "../work#hero-section"
-    },
-    "link-63": {
-      "type": "link",
-      "label": "Contact\n    .rolling-text-inner-r16 {\n      --font-size: 16px;\n      --text: var",
-      "value": "../#contact"
-    },
-    "link-64": {
-      "type": "link",
-      "label": "Mejed@Templyo.io",
-      "value": "mailto:mejed@templyo.io"
-    }
-  },
-  "work--fasselh": {
-    "text-1": {
-      "type": "text",
-      "label": "Use for Free",
-      "value": "Use for Free"
-    },
-    "text-2": {
-      "type": "text",
-      "label": "More Templates",
-      "value": "More Templates"
-    },
-    "text-3": {
-      "type": "html",
-      "label": "m1000z",
-      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"../#hero-section\">m1000z</a><!--/$-->"
-    },
-    "text-4": {
-      "type": "text",
-      "label": "Faseelh",
-      "value": "Faseelh"
-    },
-    "text-5": {
-      "type": "text",
-      "label": "Category",
-      "value": "Category"
-    },
-    "text-6": {
-      "type": "text",
-      "label": "Free Framer Template",
-      "value": "Free Framer Template"
-    },
-    "text-7": {
-      "type": "text",
-      "label": "/",
-      "value": "/"
-    },
-    "text-8": {
-      "type": "text",
-      "label": "Year",
-      "value": "Year"
-    },
-    "text-9": {
-      "type": "text",
-      "label": "2025",
-      "value": "2025"
-    },
-    "text-10": {
-      "type": "text",
-      "label": "/",
-      "value": "/"
-    },
-    "text-11": {
-      "type": "text",
-      "label": "Live Link",
-      "value": "Live Link"
-    },
-    "text-12": {
-      "type": "text",
-      "label": "Faseelh is a sleek, nature-inspired Framer template built for environmental projects, nonprofits, an",
-      "value": "Faseelh is a sleek, nature-inspired Framer template built for environmental projects, nonprofits, and sustainability-driven brands. It features immersive visuals, smooth animations, and flexible sections that make storytelling effortless."
-    },
-    "text-13": {
-      "type": "text",
-      "label": "About the Brand",
-      "value": "About the Brand"
-    },
-    "text-14": {
-      "type": "text",
-      "label": "Faseelh is a clean, modular digital template built around clarity, structure, and precision. Designe",
-      "value": "Faseelh is a clean, modular digital template built around clarity, structure, and precision. Designed for modern brands that value organization and scalability, it offers a system that feels solid, reliable, and effortlessly adaptable across different use cases."
-    },
-    "text-15": {
-      "type": "text",
-      "label": "From agencies to product-focused startups, Faseelh provides a strong foundation where content is cle",
-      "value": "From agencies to product-focused startups, Faseelh provides a strong foundation where content is clearly structured and easy to navigate—without sacrificing visual appeal."
-    },
-    "text-16": {
-      "type": "html",
-      "label": "Built on Structure,Designed for Clarity",
-      "value": "Built on Structure,<br class=\"framer-text\">Designed for Clarity"
-    },
-    "text-17": {
-      "type": "text",
-      "label": "The core idea behind Faseelh was to create a template that simplifies complexity. Every section is t",
-      "value": "The core idea behind Faseelh was to create a template that simplifies complexity. Every section is thoughtfully organized, allowing information to be presented in a way that feels intuitive and easy to follow."
-    },
-    "text-18": {
-      "type": "text",
-      "label": "Visual Language",
-      "value": "Visual Language"
-    },
-    "text-19": {
-      "type": "text",
-      "label": "Faseelh uses a structured grid system combined with clean typography and balanced spacing. The visua",
-      "value": "Faseelh uses a structured grid system combined with clean typography and balanced spacing. The visual approach is minimal yet purposeful, ensuring that every element has a clear role within the layout."
-    },
-    "text-20": {
-      "type": "text",
-      "label": "A neutral, adaptable color system allows brands to customize the look while preserving consistency a",
-      "value": "A neutral, adaptable color system allows brands to customize the look while preserving consistency and professionalism across all pages."
-    },
-    "text-21": {
-      "type": "text",
-      "label": "Logical Storytelling",
-      "value": "Logical Storytelling"
-    },
-    "text-22": {
-      "type": "text",
-      "label": "The layout is designed to guide users step by step. Each section builds logically on the previous on",
-      "value": "The layout is designed to guide users step by step. Each section builds logically on the previous one, making it ideal for presenting services, workflows, or detailed product information."
-    },
-    "text-23": {
-      "type": "text",
-      "label": "This clarity helps users quickly understand the content, reducing friction and improving overall eng",
-      "value": "This clarity helps users quickly understand the content, reducing friction and improving overall engagement."
-    },
-    "text-24": {
-      "type": "text",
-      "label": "Built for Scalability",
-      "value": "Built for Scalability"
-    },
-    "text-25": {
-      "type": "text",
-      "label": "Faseelh is designed with growth in mind. Its modular components can be easily reused and rearranged,",
-      "value": "Faseelh is designed with growth in mind. Its modular components can be easily reused and rearranged, making it simple to expand pages or introduce new content without breaking the structure."
-    },
-    "text-26": {
-      "type": "text",
-      "label": "Optimized for performance and fully responsive in Framer, it ensures a smooth experience across all ",
-      "value": "Optimized for performance and fully responsive in Framer, it ensures a smooth experience across all devices."
-    },
-    "text-27": {
-      "type": "text",
-      "label": "A System That Scales",
-      "value": "A System That Scales"
-    },
-    "text-28": {
-      "type": "text",
-      "label": "Faseelh goes beyond being just a template—it’s a framework that supports long-term growth. As brands",
-      "value": "Faseelh goes beyond being just a template—it’s a framework that supports long-term growth. As brands evolve, it adapts effortlessly, maintaining clarity and consistency at every stage."
-    },
-    "text-29": {
-      "type": "text",
-      "label": "Precision that Powers Growth",
-      "value": "Precision that Powers Growth"
-    },
-    "text-30": {
-      "type": "text",
-      "label": "Every detail in Faseelh is designed to bring order and focus to digital experiences. It empowers bra",
-      "value": "Every detail in Faseelh is designed to bring order and focus to digital experiences. It empowers brands to communicate with confidence, delivering content in a way that is clear, structured, and built to last."
-    },
-    "text-31": {
-      "type": "text",
-      "label": "More Projects",
-      "value": "More Projects"
-    },
-    "text-32": {
-      "type": "text",
-      "label": "Damas",
-      "value": "Damas"
-    },
-    "text-33": {
-      "type": "text",
-      "label": "Agency Framer Template",
-      "value": "Agency Framer Template"
-    },
-    "text-34": {
-      "type": "text",
-      "label": "Najm",
-      "value": "Najm"
-    },
-    "text-35": {
-      "type": "text",
-      "label": "SaaS Framer Template",
-      "value": "SaaS Framer Template"
-    },
-    "text-36": {
-      "type": "html",
-      "label": "Footer security headline",
-      "value": "<span class=\"footer-security-headline\">Securing products before <em>attackers do.</em></span>"
-    },
-    "text-37": {
-      "type": "text",
-      "label": "/Quick links",
-      "value": "/Quick links"
-    },
-    "text-38": {
-      "type": "text",
-      "label": "Home",
-      "value": "Home"
-    },
-    "text-39": {
-      "type": "text",
-      "label": "About Me",
-      "value": "About Me"
-    },
-    "text-40": {
-      "type": "text",
-      "label": "Services",
-      "value": "Services"
-    },
-    "text-41": {
-      "type": "text",
-      "label": "Works",
-      "value": "Works"
-    },
-    "text-42": {
-      "type": "text",
-      "label": "Contact",
-      "value": "Contact"
-    },
-    "text-43": {
-      "type": "text",
-      "label": "/Contact",
-      "value": "/Contact"
-    },
-    "text-44": {
-      "type": "html",
-      "label": "Mejed@Templyo.io",
-      "value": "<a class=\"framer-text framer-styles-preset-lfjhkq\" data-styles-preset=\"yaETO81Ao\" href=\"mailto:mejed@templyo.io\" target=\"_blank\" rel=\"\">Mejed@Templyo.io</a><!--/$-->"
-    },
-    "text-45": {
-      "type": "text",
-      "label": "m1000z",
-      "value": "m1000z"
-    },
-    "image-46": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/IBHqRDPghoZPLzWsGC2SWmPo.png?width=1160&height=800",
-      "alt": ""
-    },
-    "image-47": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/YT4HqGR2CJLRQpCrIlsUf8crU.webp?width=1600&height=1200",
-      "alt": ""
-    },
-    "image-48": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/lSXxeEVPppxwb724jqEYgrTtv8.webp?width=1600&height=1200",
-      "alt": ""
-    },
-    "image-49": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/iTQWsWIUAn02uPq2Xa9LxHOoZY.webp?width=1600&height=1200",
-      "alt": ""
-    },
-    "image-50": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/VNXQLcPHw9VbVzy6BDpZ8pUsaU.png?width=1160&height=800",
-      "alt": ""
-    },
-    "image-51": {
-      "type": "image",
-      "label": "Image",
-      "value": "https://framerusercontent.com/images/WgEHVRrQs62rgxlzrnXJJ8rr4.png?width=1160&height=800",
-      "alt": ""
-    },
-    "link-52": {
-      "type": "link",
-      "label": "Use for Free\n    .rolling-text-inner-r6 {\n      --font-size: 16px;\n      --text:",
-      "value": "https://framer.link/bsFvFjY"
-    },
-    "link-53": {
-      "type": "link",
-      "label": "More Templates\n    .rolling-text-inner-r7 {\n      --font-size: 16px;\n      --tex",
-      "value": "https://framer.link/5Wi1vkP"
-    },
-    "link-54": {
-      "type": "link",
-      "label": "m1000z",
-      "value": "../#hero-section"
-    },
-    "link-55": {
-      "type": "link",
-      "label": "Live Link",
-      "value": "https://framer.link/QI5toer?duplicateType=siteTemplate"
-    },
-    "link-56": {
-      "type": "link",
-      "label": "DamasAgency Framer Template",
-      "value": "/damas#work-section"
-    },
-    "link-57": {
-      "type": "link",
-      "label": "NajmSaaS Framer Template",
-      "value": "/najm#work-section"
-    },
-    "link-58": {
-      "type": "link",
-      "label": "Home\n    .rolling-text-inner-rm {\n      --font-size: 16px;\n      --text: var(--t",
-      "value": "../#hero-section"
-    },
-    "link-59": {
-      "type": "link",
-      "label": "About Me\n    .rolling-text-inner-rs {\n      --font-size: 16px;\n      --text: var",
-      "value": "/about"
-    },
-    "link-60": {
-      "type": "link",
-      "label": "Services\n    .rolling-text-inner-r11 {\n      --font-size: 16px;\n      --text: va",
-      "value": "../#services"
-    },
-    "link-61": {
-      "type": "link",
-      "label": "Works\n    .rolling-text-inner-r12 {\n      --font-size: 16px;\n      --text: var(-",
-      "value": "../work#hero-section"
-    },
-    "link-62": {
-      "type": "link",
-      "label": "Contact\n    .rolling-text-inner-r14 {\n      --font-size: 16px;\n      --text: var",
-      "value": "../#contact"
-    },
-    "link-63": {
       "type": "link",
       "label": "Mejed@Templyo.io",
       "value": "mailto:mejed@templyo.io"
@@ -6083,6 +3982,277 @@
       "type": "text",
       "label": "experience-3-description",
       "value": "Experience gained and work completed."
+    }
+  },
+  "work--netneedle": {
+    "text-1": {
+      "type": "text",
+      "label": "Use for Free",
+      "value": "Use for Free"
+    },
+    "text-2": {
+      "type": "text",
+      "label": "More Templates",
+      "value": "More Templates"
+    },
+    "text-3": {
+      "type": "html",
+      "label": "m1000z",
+      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"../#hero-section\">m1000z</a><!--/$-->"
+    },
+    "text-4": {
+      "type": "text",
+      "label": "NetNeedle",
+      "value": "NetNeedle"
+    },
+    "text-5": {
+      "type": "text",
+      "label": "Category",
+      "value": "Category"
+    },
+    "text-6": {
+      "type": "text",
+      "label": "Cybersecurity",
+      "value": "Cybersecurity"
+    },
+    "text-7": {
+      "type": "text",
+      "label": "/",
+      "value": "/"
+    },
+    "text-8": {
+      "type": "text",
+      "label": "Stack",
+      "value": "Stack"
+    },
+    "text-9": {
+      "type": "text",
+      "label": "Python & FastAPI",
+      "value": "Python & FastAPI"
+    },
+    "text-10": {
+      "type": "text",
+      "label": "/",
+      "value": "/"
+    },
+    "text-11": {
+      "type": "text",
+      "label": "View on GitHub",
+      "value": "View on GitHub"
+    },
+    "text-12": {
+      "type": "text",
+      "label": "NetNeedle maps external attack surfaces, reviews web security findings, and turns scan evidence into actionable reports.",
+      "value": "NetNeedle maps external attack surfaces, reviews web security findings, and turns scan evidence into actionable reports."
+    },
+    "text-13": {
+      "type": "text",
+      "label": "About the Project",
+      "value": "About the Project"
+    },
+    "text-14": {
+      "type": "text",
+      "label": "Configure network, web, or advanced web assessments from one workspace.",
+      "value": "Configure network, web, or advanced web assessments from one workspace."
+    },
+    "text-15": {
+      "type": "text",
+      "label": "Track scan progress, review evidence, and return to persisted results.",
+      "value": "Track scan progress, review evidence, and return to persisted results."
+    },
+    "text-16": {
+      "type": "text",
+      "label": "From Assessment to Action",
+      "value": "From Assessment to Action"
+    },
+    "text-17": {
+      "type": "text",
+      "label": "Scope targets, run controlled checks, and review findings by severity and confirmation status.",
+      "value": "Scope targets, run controlled checks, and review findings by severity and confirmation status."
+    },
+    "text-18": {
+      "type": "text",
+      "label": "Evidence-led Reporting",
+      "value": "Evidence-led Reporting"
+    },
+    "text-19": {
+      "type": "text",
+      "label": "Export executive and technical reports as HTML or PDF, with risk summaries and remediation guidance.",
+      "value": "Export executive and technical reports as HTML or PDF, with risk summaries and remediation guidance."
+    },
+    "text-20": {
+      "type": "text",
+      "label": "AI-assisted narratives use validated evidence and deterministic fallbacks.",
+      "value": "AI-assisted narratives use validated evidence and deterministic fallbacks."
+    },
+    "text-21": {
+      "type": "text",
+      "label": "Built for Background Work",
+      "value": "Built for Background Work"
+    },
+    "text-22": {
+      "type": "text",
+      "label": "FastAPI serves the application while Celery and Redis manage long-running jobs.",
+      "value": "FastAPI serves the application while Celery and Redis manage long-running jobs."
+    },
+    "text-23": {
+      "type": "text",
+      "label": "PostgreSQL stores assessment state; scans and reports run in separate workers.",
+      "value": "PostgreSQL stores assessment state; scans and reports run in separate workers."
+    },
+    "text-24": {
+      "type": "text",
+      "label": "Security Tooling",
+      "value": "Security Tooling"
+    },
+    "text-25": {
+      "type": "text",
+      "label": "Integrates Nmap, Masscan, Nuclei, WhatWeb, Nikto, and testssl.sh.",
+      "value": "Integrates Nmap, Masscan, Nuclei, WhatWeb, Nikto, and testssl.sh."
+    },
+    "text-26": {
+      "type": "text",
+      "label": "Technology Stack",
+      "value": "Technology Stack"
+    },
+    "text-27": {
+      "type": "text",
+      "label": "Python, FastAPI, PostgreSQL, Celery, Redis, React, Vite, Three.js, Ollama, Docker, and Nginx.",
+      "value": "Python, FastAPI, PostgreSQL, Celery, Redis, React, Vite, Three.js, Ollama, Docker, and Nginx."
+    },
+    "text-28": {
+      "type": "text",
+      "label": "Explore the Source",
+      "value": "Explore the Source"
+    },
+    "text-29": {
+      "type": "html",
+      "label": "View the implementation, product tour, and deployment documentation on GitHub.",
+      "value": "<a href=\"https://github.com/OldDiamond/NetNeedle\">View the implementation, product tour, and deployment documentation on GitHub.</a>"
+    },
+    "text-35": {
+      "type": "html",
+      "label": "Footer security headline",
+      "value": "<span class=\"footer-security-headline\">Securing products before <em>attackers do.</em></span>"
+    },
+    "text-36": {
+      "type": "text",
+      "label": "/Quick links",
+      "value": "/Quick links"
+    },
+    "text-37": {
+      "type": "text",
+      "label": "Home",
+      "value": "Home"
+    },
+    "text-38": {
+      "type": "text",
+      "label": "About Me",
+      "value": "About Me"
+    },
+    "text-39": {
+      "type": "text",
+      "label": "Services",
+      "value": "Services"
+    },
+    "text-40": {
+      "type": "text",
+      "label": "Works",
+      "value": "Works"
+    },
+    "text-41": {
+      "type": "text",
+      "label": "Contact",
+      "value": "Contact"
+    },
+    "text-42": {
+      "type": "text",
+      "label": "/Contact",
+      "value": "/Contact"
+    },
+    "text-43": {
+      "type": "html",
+      "label": "Mejed@Templyo.io",
+      "value": "<a class=\"framer-text framer-styles-preset-lfjhkq\" data-styles-preset=\"yaETO81Ao\" href=\"mailto:mejed@templyo.io\" target=\"_blank\" rel=\"\">Mejed@Templyo.io</a><!--/$-->"
+    },
+    "text-44": {
+      "type": "text",
+      "label": "m1000z",
+      "value": "m1000z"
+    },
+    "image-45": {
+      "type": "image",
+      "label": "NetNeedle landing page",
+      "value": "/assets/netneedle/dashboard.png",
+      "alt": "NetNeedle landing page"
+    },
+    "image-46": {
+      "type": "image",
+      "label": "NetNeedle assessment dashboard with vulnerability severity and risk overview",
+      "value": "/assets/netneedle/scanner-dashboard.png",
+      "alt": "NetNeedle assessment dashboard with vulnerability severity and risk overview"
+    },
+    "image-47": {
+      "type": "image",
+      "label": "NetNeedle scan configuration and assessment scope",
+      "value": "/assets/netneedle/scan-configuration.png",
+      "alt": "NetNeedle scan configuration and assessment scope"
+    },
+    "image-48": {
+      "type": "image",
+      "label": "NetNeedle executive assessment report",
+      "value": "/assets/netneedle/exec-report.png",
+      "alt": "NetNeedle executive assessment report"
+    },
+    "link-51": {
+      "type": "link",
+      "label": "Use for Free\n    .rolling-text-inner-r8 {\n      --font-size: 16px;\n      --text:",
+      "value": "https://framer.link/bsFvFjY"
+    },
+    "link-52": {
+      "type": "link",
+      "label": "More Templates\n    .rolling-text-inner-r9 {\n      --font-size: 16px;\n      --tex",
+      "value": "https://framer.link/5Wi1vkP"
+    },
+    "link-53": {
+      "type": "link",
+      "label": "m1000z",
+      "value": "../#hero-section"
+    },
+    "link-54": {
+      "type": "link",
+      "label": "NetNeedle GitHub repository",
+      "value": "https://github.com/OldDiamond/NetNeedle"
+    },
+    "link-57": {
+      "type": "link",
+      "label": "/#hero-section",
+      "value": "/#hero-section"
+    },
+    "link-58": {
+      "type": "link",
+      "label": "/about",
+      "value": "/about"
+    },
+    "link-59": {
+      "type": "link",
+      "label": "/#services",
+      "value": "/#services"
+    },
+    "link-60": {
+      "type": "link",
+      "label": "/work#hero-section",
+      "value": "/work#hero-section"
+    },
+    "link-61": {
+      "type": "link",
+      "label": "/#contact",
+      "value": "/#contact"
+    },
+    "link-62": {
+      "type": "link",
+      "label": "Mejed@Templyo.io",
+      "value": "mailto:mejed@templyo.io"
     }
   }
 }
