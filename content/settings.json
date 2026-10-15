@@ -13,10 +13,10 @@
   },
   "backgroundCurtains": {
     "enabled": true,
-    "intensity": 0.62,
+    "intensity": 0.82,
     "speed": 0.35,
-    "primaryColor": "#7a2222",
-    "secondaryColor": "#7a2222"
+    "primaryColor": "#c01624",
+    "secondaryColor": "#c01624"
   },
   "navigation": [
     {
