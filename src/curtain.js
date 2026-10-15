@@ -3,12 +3,12 @@ export function setupCurtain(options = {}) {
   const layer = document.querySelector('.curtain-background');
   if (!layer) return;
   if (options.enabled === false) { layer.hidden = true; return; }
-  const blue = options.blue || '#3c5cff';
-  const violet = options.violet || '#8b42f5';
+  const primary = options.primaryColor || options.blue || '#800020';
+  const secondary = options.secondaryColor || options.violet || '#a32948';
   const strength = Math.max(0, Math.min(1, Number(options.intensity ?? .62)));
   const speed = Math.max(0, Math.min(2, Number(options.speed ?? .35)));
-  layer.style.setProperty('--curtain-blue', blue);
-  layer.style.setProperty('--curtain-violet', violet);
+  layer.style.setProperty('--curtain-primary', primary);
+  layer.style.setProperty('--curtain-secondary', secondary);
   layer.style.setProperty('--curtain-intensity', strength);
   const canvas = layer.querySelector('canvas');
   const gl = canvas.getContext('webgl', { alpha: true, antialias: false, depth: false, premultipliedAlpha: false, powerPreference: 'low-power' });
@@ -20,8 +20,8 @@ export function setupCurtain(options = {}) {
     varying vec2 v_uv;
     uniform float u_time;
     uniform float u_strength;
-    uniform vec3 u_blue;
-    uniform vec3 u_violet;
+    uniform vec3 u_primary;
+    uniform vec3 u_secondary;
     void main() {
       float down = 1. - v_uv.y;
       float sway = .014 * sin(down * 4.5 + u_time * .6)
@@ -36,7 +36,7 @@ export function setupCurtain(options = {}) {
       float fade = (1. - smoothstep(.15, .92, down)) * exp(-down * .6);
       float halo = .13 * exp(-down * 5.);
       float alpha = u_strength * (light * edges + halo) * fade;
-      vec3 color = mix(u_blue, u_violet, .5 + .5 * sin(v_uv.x * 5. + u_time * .12));
+      vec3 color = mix(u_primary, u_secondary, .5 + .5 * sin(v_uv.x * 5. + u_time * .12));
       gl_FragColor = vec4(color, alpha);
     }`;
   function compile(type, source) {
@@ -70,11 +70,11 @@ export function setupCurtain(options = {}) {
   const timeUniform = gl.getUniformLocation(program, 'u_time');
   const rgb = hex => {
     const match = /^#([0-9a-f]{6})$/i.exec(hex);
-    const value = parseInt(match ? match[1] : '6157ef', 16);
+    const value = parseInt(match ? match[1] : '800020', 16);
     return [(value >> 16 & 255)/255, (value >> 8 & 255)/255, (value & 255)/255];
   };
-  gl.uniform3fv(gl.getUniformLocation(program, 'u_blue'), rgb(blue));
-  gl.uniform3fv(gl.getUniformLocation(program, 'u_violet'), rgb(violet));
+  gl.uniform3fv(gl.getUniformLocation(program, 'u_primary'), rgb(primary));
+  gl.uniform3fv(gl.getUniformLocation(program, 'u_secondary'), rgb(secondary));
   gl.uniform1f(gl.getUniformLocation(program, 'u_strength'), strength);
   layer.dataset.renderer = 'webgl';
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
