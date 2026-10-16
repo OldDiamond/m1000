@@ -10,6 +10,7 @@ fs.mkdirSync('dist/assets',{recursive:true});
 if(fs.existsSync('public'))fs.cpSync('public','dist',{recursive:true});
 fs.copyFileSync('src/styles/custom.css','dist/assets/custom.css');
 fs.copyFileSync('src/styles/theme.css','dist/assets/theme.css');
+fs.copyFileSync('src/styles/responsive.css','dist/assets/responsive.css');
 fs.copyFileSync('src/interactions.js','dist/assets/interactions.js');
 fs.copyFileSync('src/curtain.js','dist/assets/curtain.js');
 fs.copyFileSync('src/footer-hands.js','dist/assets/footer-hands.js');
@@ -59,7 +60,7 @@ for(const page of pages){
   return '<'+tag+attrs+' data-page-reveal="'+(hero?'hero':intro?'intro':'heading')+'">'+words+'</'+tag+'>';
  });
  const motionBoot=`<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('page-motion-enabled');setTimeout(()=>{if(!window.__pageMotionReady)document.documentElement.classList.remove('page-motion-enabled')},4000)}</script>`;
- const doc=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101315"><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}"><link rel="stylesheet" href="/assets/${page.slug}.css"><link rel="stylesheet" href="/assets/custom.css"><link rel="stylesheet" href="/assets/theme.css">${motionBoot}</head><body>${opening}${icons}${html}<script type="module" src="/assets/interactions.js"></script></body></html>`;
+ const doc=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101315"><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}"><link rel="stylesheet" href="/assets/${page.slug}.css"><link rel="stylesheet" href="/assets/custom.css"><link rel="stylesheet" href="/assets/theme.css"><link rel="stylesheet" href="/assets/responsive.css">${motionBoot}</head><body>${opening}${icons}${html}<script type="module" src="/assets/interactions.js"></script></body></html>`;
  fs.writeFileSync(path.join(dir,'index.html'),doc);
 }
 console.log('Built '+pages.length+' pages into dist/.');

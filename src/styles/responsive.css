@@ -1,0 +1,114 @@
+/* Small-screen layout corrections; the laptop and desktop layout stays intact. */
+@media (max-width: 1279px) {
+  [data-framer-name="Hero & Bio Sections"] {
+    --compact-portrait-width: clamp(180px, 26vw, 260px);
+    --compact-portrait-height: calc(var(--compact-portrait-width) * 1.14);
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  [data-framer-name="Hero & Bio Sections"] > [data-framer-name="Content"] { display: contents !important; }
+  [data-framer-name="Sticky Avatar Wrap"] {
+    grid-area: 1 / 1; align-self: end;
+    position: relative !important; inset: auto !important;
+    height: auto !important; min-height: 0 !important;
+    margin-bottom: 82px; z-index: 2;
+  }
+  [data-framer-name="Sticky Container"] {
+    position: relative !important; top: auto !important;
+    height: auto !important; padding: 0 !important;
+  }
+  [data-framer-name="Avatar Wrap"],
+  [data-framer-name="Avatar - Front"], [data-framer-name="Avatar - Back"] {
+    width: var(--compact-portrait-width) !important;
+    height: var(--compact-portrait-height) !important;
+  }
+  #hero-section {
+    grid-area: 1 / 1;
+    height: auto !important; min-height: 0 !important;
+    padding: clamp(166px, 20svh, 220px) 24px calc(var(--compact-portrait-height) + 130px) !important;
+  }
+  #hero-section > [data-framer-name="Container"] {
+    display: block !important; position: static !important;
+    width: 100% !important; max-width: 1000px !important;
+    height: auto !important; padding: 0 !important;
+  }
+  #hero-section [data-framer-name="Title"] { width: 100% !important; max-width: none !important; }
+  #hero-section [data-framer-name="Text"] {
+    top: auto !important; bottom: 28px !important; left: 50% !important;
+    width: calc(100% - 48px) !important;
+    transform: translateX(-50%) !important; justify-content: center !important;
+  }
+  .hero-copyright { display: none; }
+  [data-framer-name="Bio Section"] {
+    grid-area: 2 / 1; height: auto !important; min-height: 0 !important;
+    padding: 64px 24px 0 !important;
+  }
+  [data-framer-name="Bio Section"] > [data-framer-name="Container"] {
+    display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    width: 100% !important; max-width: 1000px !important;
+    padding: 0 !important; gap: 36px !important; align-items: start !important;
+  }
+  [data-framer-name="Bio Section"] [data-framer-name="Title & Description"] {
+    width: 100% !important; gap: 24px !important; align-items: flex-start !important;
+  }
+  [data-framer-name="Bio Section"] [data-framer-name="Paragraphs"] { width: 100% !important; min-width: 0; }
+  [data-framer-name="Bio Section"] [data-framer-component-type="RichTextContainer"] { width: 100% !important; }
+  [data-framer-name="Quote Section"], [data-framer-name="Quote Section"] > [data-framer-name="Container"] { height: 150svh !important; }
+  [data-framer-name="Quote Section"] [data-framer-name="Content"] { height: 100svh !important; padding-block: 100px 32px !important; }
+  [data-framer-name="Thoughts Section"] [data-framer-name="All Posts Card"] { min-height: 240px !important; height: auto !important; gap: 32px !important; }
+  footer > [data-framer-name="Container"] { width: 100% !important; max-width: 1000px !important; }
+  footer [data-framer-name="Columns"] { width: 100% !important; min-width: 0; gap: 32px !important; }
+  footer [data-framer-name="Contact"] { min-width: 0; max-width: 100%; }
+  footer a[href^="mailto:"] { overflow-wrap: anywhere; }
+  .portfolio-toggle { min-height: 44px; }
+  .portfolio-menu a { min-height: 44px; }
+  [data-framer-name="Social Media Icons"] a { min-width: 44px; min-height: 44px; }
+}
+
+@media (max-width: 809px) {
+  .portfolio-nav { top: max(16px, env(safe-area-inset-top)); width: calc(100% - 32px); }
+  .portfolio-menu { max-height: calc(100svh - 100px); overflow-y: auto; }
+  #hero-section h1:has(> .hero-title-line) { font-size: clamp(30px, 8.8vw, 68px); line-height: 1.02; }
+  #hero-section [data-hero-decoration="star"] {
+    width: clamp(52px, 10vw, 78px) !important; height: clamp(52px, 10vw, 78px) !important;
+    left: max(calc((100% - 100vw) / 2 + 12px), calc(50% - var(--hero-first-half-width) - var(--hero-star-width) - 12px)) !important;
+    bottom: calc(100% - 8px) !important;
+  }
+  #hero-section [data-hero-decoration="lightning"] {
+    width: clamp(56px, 11vw, 90px) !important; height: clamp(56px, 11vw, 90px) !important;
+    left: min(calc((100% + 100vw) / 2 - var(--hero-lightning-width) - 12px), calc(50% + var(--hero-last-half-width) + 8px)) !important;
+    bottom: -36px !important;
+  }
+  [data-framer-name="Quote Section"] { --quote-font-size: clamp(22px, 3.65vw, 28px); }
+  [data-framer-name="Quote Section"] [data-code-component-plugin-id] > .ssr-variant > div { line-height: 1.45 !important; }
+  [data-framer-name="Thoughts Section"] .framer-6Ku2B { height: auto !important; min-height: 320px !important; aspect-ratio: 1.2; }
+  [data-framer-name="Thoughts Section"] [data-framer-name="All Posts Card"] { min-height: 220px !important; }
+  [data-framer-name="All Posts Card"] > [data-framer-component-type="RichTextContainer"] > p { font-size: clamp(24px, 4.2vw, 32px); line-height: 1.25; }
+  [data-project-detail] [data-framer-name="Project Details"] { flex-wrap: wrap !important; gap: 16px !important; }
+  .about-entry-content > h3 { font-size: clamp(24px, 4vw, 28px); overflow-wrap: anywhere; }
+  footer h2:has(> .footer-security-headline) { font-size: clamp(34px, 8.8vw, 48px); }
+  footer [data-framer-name="Quick Links"] { width: 100% !important; }
+  footer [data-framer-name="Links"] { max-width: 100%; flex-wrap: wrap !important; }
+  footer [data-framer-name="Quick Links"] a { min-height: 44px; }
+  footer > [data-framer-name="Container"] { gap: 36px !important; }
+  .footer-mark { height: 90px; }
+  main p.framer-text, .about-page p { letter-spacing: -.02em; }
+  form input:not([type="hidden"]), form textarea { font-size: 16px !important; }
+  form textarea { min-height: 140px; }
+}
+
+@media (min-width: 600px) and (max-width: 1279px) {
+  footer > [data-framer-name="Container"] > [data-framer-component-type="RichTextContainer"] { width: 100% !important; max-width: 600px; }
+  footer [data-framer-name="Columns"] { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  footer [data-framer-name="Contact"] { align-self: end; }
+}
+
+@media (min-width: 600px) and (max-width: 809px) {
+  [data-framer-name="Thoughts Section"] .framer-1leqxa3 { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px !important; }
+  [data-framer-name="Thoughts Section"] .framer-1leqxa3 > .ssr-variant { display: contents !important; }
+  [data-framer-name="Thoughts Section"] [data-framer-name="All Posts Card"] { grid-column: 1 / -1; min-height: 180px !important; }
+}
+
+@media (max-width: 599px) {
+  [data-framer-name="Bio Section"] > [data-framer-name="Container"] { grid-template-columns: minmax(0, 1fr); gap: 28px !important; }
+}
