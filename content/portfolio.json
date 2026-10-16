@@ -3913,6 +3913,11 @@
       "label": "education-2-description",
       "value": "Developed practical skills in web application penetration testing, vulnerability discovery, exploitation techniques, and authentication security, with a strong focus on real-world web security assessments."
     },
+    "education-2-certificate": {
+      "type": "link",
+      "label": "View certificate",
+      "value": "https://www.credly.com/badges/cdfba656-fdcd-4437-8a64-949381229c4a/public_url"
+    },
     "experience-title": {
       "type": "text",
       "label": "experience-title",
