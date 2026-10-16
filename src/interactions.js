@@ -117,6 +117,7 @@ function setupScrollMotion(settings) {
   const avatar = group?.querySelector('[data-framer-name="Avatar Wrap"]');
   const front = avatar?.querySelector('[data-framer-name="Avatar - Front"]');
   const back = avatar?.querySelector('[data-framer-name="Avatar - Back"]');
+  const heroTitle = group?.querySelector('#hero-section h1');
   const quoteSection = document.querySelector('[data-framer-name="Quote Section"]');
   const quoteSticky = quoteSection?.querySelector('[data-framer-name="Content"]');
   const quoteParent = quoteSection?.querySelector('span')?.parentElement;
@@ -145,7 +146,12 @@ function setupScrollMotion(settings) {
     if (front && back) {
       const desktop = innerWidth >= 1280;
       const scale = desktop ? .5 + (animated ? progress * .5 : 0) : 1;
-      const y = desktop ? avatar.offsetHeight * .25 * (animated ? 1 - progress : 1) : 0;
+      let entranceY = avatar.offsetHeight * .05;
+      if (desktop && heroTitle && front) {
+        const faceTop = avatar.getBoundingClientRect().top + front.offsetTop + front.offsetHeight * .25;
+        entranceY = Math.max(entranceY, heroTitle.getBoundingClientRect().bottom + 36 - faceTop);
+      }
+      const y = desktop ? entranceY * (animated ? 1 - progress : 1) : 0;
       const angle = animated ? progress * 180 : 0;
       const base = `perspective(1200px) translateY(${y}px) scale(${scale})`;
       front.style.transform = `${base} rotateY(${angle}deg)`;

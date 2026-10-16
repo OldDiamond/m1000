@@ -124,8 +124,8 @@ footer .footer-link-label > span { transition-duration: .55s; transition-delay: 
 .hero-copyright { position: absolute; bottom: 20px; left: max(30px, calc((100% - 1180px)/2)); font: 500 64px/1.1 var(--portfolio-font); letter-spacing: -4px; }
 /* Fit the two explicit title lines to the available hero width. */
 #hero-section [data-framer-component-type="RichTextContainer"]:has(> h1) { container-type: inline-size; }
-#hero-section h1:has(> .hero-title-line) { font-size: min(156px, 11.3cqw); white-space: normal; text-align: center; }
-.hero-title-line { display: block; width: max-content; margin-inline: auto; white-space: nowrap; }
+#hero-section h1:has(> .hero-title-line) { font-size: min(152px, 7.6vw); line-height: .94; letter-spacing: -.025em; white-space: normal; text-align: center; }
+.hero-title-line { display: block; position: relative; left: 50%; transform: translateX(-50%); width: max-content; white-space: nowrap; }
 #hero-section [data-hero-decoration="star"] {
   top: auto !important; bottom: calc(100% - 24px) !important;
   left: clamp(calc((100% - 100vw) / 2 + 25px), -110px, 0px) !important; right: auto !important;
@@ -134,7 +134,13 @@ footer .footer-link-label > span { transition-duration: .55s; transition-delay: 
   top: auto !important; bottom: -70px !important;
   left: auto !important; right: -12px !important;
 }
+@media (min-width: 810px) {
+  #hero-section [data-hero-decoration="star"] { left: calc((100% - 100vw) / 2 + 3vw) !important; }
+  #hero-section [data-hero-decoration="lightning"] { right: calc((100% - 100vw) / 2 + 6vw) !important; }
+}
 @media (max-width: 809px) {
+  #hero-section [data-framer-name="Title"]:has(h1 > .hero-title-line) { max-width: none; }
+  #hero-section h1:has(> .hero-title-line) { font-size: min(92px, 10.5cqw); line-height: 1.02; }
   #hero-section [data-hero-decoration="star"] { bottom: calc(100% - 10px) !important; }
   #hero-section [data-hero-decoration="lightning"] { width: 60px !important; height: 60px !important; bottom: -40px !important; right: -6px !important; }
 }
