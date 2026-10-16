@@ -190,6 +190,7 @@ function setupDecorations() {
   if (title && lines?.length && star && lightning) {
     const align = () => {
       title.style.setProperty('--hero-first-half-width', lines[0].offsetWidth / 2 + 'px');
+      title.style.setProperty('--hero-first-line-height', lines[0].offsetHeight + 'px');
       title.style.setProperty('--hero-last-half-width', lines[lines.length - 1].offsetWidth / 2 + 'px');
       title.style.setProperty('--hero-star-width', star.offsetWidth + 'px');
       title.style.setProperty('--hero-lightning-width', lightning.offsetWidth + 'px');

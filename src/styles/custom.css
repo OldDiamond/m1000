@@ -136,10 +136,11 @@ footer .footer-link-label > span { transition-duration: .55s; transition-delay: 
 }
 @media (min-width: 810px) {
   #hero-section [data-hero-decoration="star"] {
-    left: max(calc((100% - 100vw) / 2 + 12px), calc(50% - var(--hero-first-half-width, 42%) - var(--hero-star-width, 140px) - 2px)) !important;
+    left: max(calc((100% - 100vw) / 2 + 12px), calc(50% - var(--hero-first-half-width, 42%) - var(--hero-star-width, 140px) - 36px)) !important;
+    bottom: calc(100% - var(--hero-first-line-height, 100px) * .83) !important;
   }
   #hero-section [data-hero-decoration="lightning"] {
-    left: min(calc((100% + 100vw) / 2 - var(--hero-lightning-width, 160px) - 20px), calc(50% + var(--hero-last-half-width, 34%) + 2px)) !important;
+    left: min(calc((100% + 100vw) / 2 - var(--hero-lightning-width, 160px) - 20px), calc(50% + var(--hero-first-half-width, 42%) + 10px)) !important;
     right: auto !important;
   }
 }
