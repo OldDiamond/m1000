@@ -140,7 +140,8 @@ footer .footer-link-label > span { transition-duration: .55s; transition-delay: 
     bottom: calc(100% - var(--hero-first-line-height, 100px) * .83) !important;
   }
   #hero-section [data-hero-decoration="lightning"] {
-    left: min(calc((100% + 100vw) / 2 - var(--hero-lightning-width, 160px) - 20px), calc(50% + var(--hero-first-half-width, 42%) + 10px)) !important;
+    left: min(calc((100% + 100vw) / 2 - var(--hero-lightning-width, 160px) - 20px), calc(50% + var(--hero-first-half-width, 42%) - 18px)) !important;
+    bottom: -46px !important;
     right: auto !important;
   }
 }
