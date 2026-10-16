@@ -4107,8 +4107,8 @@
     },
     "text-29": {
       "type": "html",
-      "label": "View the implementation, product tour, and deployment documentation on GitHub.",
-      "value": "<a href=\"https://github.com/OldDiamond/NetNeedle\">View the implementation, product tour, and deployment documentation on GitHub.</a>"
+      "label": "View on GitHub",
+      "value": "<a class=\"netneedle-source-link\" href=\"https://github.com/OldDiamond/NetNeedle\" target=\"_blank\" rel=\"noopener noreferrer\">View on GitHub <span aria-hidden=\"true\">↗</span></a>"
     },
     "text-35": {
       "type": "html",

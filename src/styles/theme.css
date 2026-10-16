@@ -27,6 +27,14 @@ html::-webkit-scrollbar-thumb:hover { background: #a8525d; }
   --framer-link-text-color: var(--theme-accent);
   --framer-link-hover-text-color: #f29ca0;
 }
+#main [data-project-detail] .netneedle-source-link,
+#main [data-project-detail] .netneedle-source-link:visited {
+  color: var(--theme-accent); font-weight: 500;
+  text-decoration: underline; text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+#main [data-project-detail] .netneedle-source-link:hover,
+#main [data-project-detail] .netneedle-source-link:focus-visible { color: #f29ca0; }
 a:focus-visible, button:focus-visible, [role="button"]:focus-visible,
 .draggable-decoration:focus-visible { outline-color: var(--theme-accent); }
 .portfolio-nav {
