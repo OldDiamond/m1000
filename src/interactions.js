@@ -123,6 +123,9 @@ function setupScrollMotion(settings) {
     }));
   }
   const words = [...(quoteParent?.children || [])];
+  const theme = getComputedStyle(document.documentElement);
+  const quoteActive = theme.getPropertyValue('--quote-active').trim() || '#111';
+  const quoteInactive = theme.getPropertyValue('--quote-inactive').trim() || 'rgba(0,0,0,.14)';
   const clamp = value => Math.max(0, Math.min(1, value));
   let frame = 0;
   let progress = group ? clamp(-group.getBoundingClientRect().top / innerHeight) : 0;
@@ -150,7 +153,7 @@ function setupScrollMotion(settings) {
       const revealDistance = stickyRect ? Math.max(1, containerRect.height - stickyRect.height) : 1;
       const reveal = reducedMotion.matches ? 1 : clamp(pinnedTravel / revealDistance);
       words.forEach((word, index) => {
-        const color = index / words.length < reveal ? '#111' : 'rgba(0,0,0,.14)';
+        const color = index / words.length < reveal ? quoteActive : quoteInactive;
         if (word.dataset.revealed !== color) {
           word.style.color = color;
           word.dataset.revealed = color;

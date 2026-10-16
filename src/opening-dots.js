@@ -12,6 +12,9 @@ async function startOpening(layer) {
   const context = canvas.getContext('2d');
   if (!context) throw new Error('Canvas unavailable');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const theme = getComputedStyle(document.documentElement);
+  const backgroundColor = theme.getPropertyValue('--theme-bg').trim() || '#faf7f3';
+  const dotColor = theme.getPropertyValue('--theme-text').trim() || '#111';
   const duration = Number(layer.dataset.duration);
   const page = document.getElementById('main');
   const previousInert = page?.inert;
@@ -112,7 +115,7 @@ async function startOpening(layer) {
     headingDots.width = canvas.width; headingDots.height = canvas.height;
     const ctx = headingDots.getContext('2d');
     ctx.setTransform(canvas.width / width, 0, 0, canvas.height / height, 0, 0);
-    ctx.fillStyle = '#111';
+    ctx.fillStyle = dotColor;
     ctx.beginPath();
     for (const dot of particles) {
       if (dot.isPortrait) continue;
@@ -184,7 +187,7 @@ async function startOpening(layer) {
     layer.dataset.phase = phase < .44 ? 'name' : phase < .72 ? 'grid' : phase < .94 ? 'blend' : 'reveal';
     layer.style.opacity = String(1 - smooth((phase - .94) / .06));
     context.clearRect(0, 0, width, height);
-    context.fillStyle = '#faf7f3';
+    context.fillStyle = backgroundColor;
     context.fillRect(0, 0, width, height);
     layer.dataset.renderer = 'canvas';
     context.save();
@@ -193,7 +196,7 @@ async function startOpening(layer) {
       context.rect((width - side) / 2, (height - side) / 2, side, side);
       context.clip();
     }
-    context.fillStyle = '#111';
+    context.fillStyle = dotColor;
     const headingReveal = smooth((phase - .85) / .1);
     const portraitReveal = smooth((phase - .88) / .08);
     for (const isPortrait of [false, true]) {

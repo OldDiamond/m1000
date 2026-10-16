@@ -1,0 +1,85 @@
+/* Charcoal, steel, and restrained crimson; retain the original layout and motion. */
+:root, body {
+  color-scheme: dark;
+  --theme-bg: #101315;
+  --theme-surface: #181c1f;
+  --theme-text: #edf0ed;
+  --theme-muted: #a5adb3;
+  --theme-line: #ffffff1c;
+  --theme-accent: #df7278;
+  --quote-active: #edf0ed;
+  --quote-inactive: #494f53;
+  --token-2fcd1089-c4fe-44ec-8e47-1defe3c9bd50: var(--theme-bg);
+  --token-e44374f3-0aa3-4326-a0ec-25df52a31057: var(--theme-text);
+  --token-fd5eaaad-cf25-4e7f-b54f-37a28b7e1282: var(--theme-muted);
+  --token-050a7e9f-40b2-4d5e-8e58-10c5e629e538: var(--theme-line);
+  --token-b5ff5227-81f4-4c80-8c80-3dd60a8e9a45: #edf0ed66;
+  --token-04b522f2-919f-4662-ae43-fea5b29501b9: #edf0ed80;
+}
+html { color-scheme: dark; background: var(--theme-bg); scrollbar-color: #555055 var(--theme-bg); }
+body { background: var(--theme-bg); color: var(--theme-text); }
+::selection { background: #963541; color: #fff; }
+html::-webkit-scrollbar-track { background: var(--theme-bg); }
+html::-webkit-scrollbar-thumb { background: #555055; border-color: var(--theme-bg); }
+html::-webkit-scrollbar-thumb:hover { background: #a8525d; }
+#main .framer-text { --framer-text-color: var(--theme-text); }
+#main a.framer-text {
+  --framer-link-text-color: var(--theme-accent);
+  --framer-link-hover-text-color: #f29ca0;
+}
+a:focus-visible, button:focus-visible, [role="button"]:focus-visible,
+.draggable-decoration:focus-visible { outline-color: var(--theme-accent); }
+.portfolio-nav {
+  background: #14181bec;
+  box-shadow: inset 0 0 0 1px #ffffff21, 0 12px 44px #0005;
+  backdrop-filter: blur(16px);
+}
+.portfolio-logo { color: var(--theme-text); }
+.portfolio-toggle { background: #282e33; color: var(--theme-text); }
+.portfolio-toggle:hover { background: #394147; }
+.portfolio-menu a { background: #242a2e; color: var(--theme-text); box-shadow: inset 0 0 0 1px var(--theme-line); }
+.portfolio-menu a:hover { background: #343034; }
+.hero-copyright { color: var(--theme-muted); }
+.draggable-decoration img { filter: url(#burgundy-metallic) drop-shadow(0 0 10px #df727826); }
+.opening-dots { background: var(--theme-bg); }
+.opening-dots[data-renderer="canvas"] { background: transparent; }
+.form-feedback { color: var(--theme-muted); }
+
+/* Existing dark cards retain light labels and dark ink on their filled buttons. */
+footer, form, .framer-1dt4txd, .framer-1q32mfl, .framer-6Ku2B {
+  --token-2fcd1089-c4fe-44ec-8e47-1defe3c9bd50: var(--theme-text);
+  --token-e44374f3-0aa3-4326-a0ec-25df52a31057: #0b0e10;
+}
+form, .framer-1dt4txd { box-shadow: inset 0 0 0 1px var(--theme-line); }
+form .framer-form-input-wrapper {
+  --framer-input-background: #171c20;
+  --framer-input-font-color: var(--theme-text);
+  --framer-input-placeholder-color: var(--theme-muted);
+  --framer-input-border-color: #535b61;
+  --framer-input-focused-border-color: var(--theme-accent);
+}
+form input:not([type="hidden"]), form textarea { color: var(--theme-text); caret-color: var(--theme-accent); }
+#main form input::placeholder, #main form textarea::placeholder { color: var(--theme-muted); opacity: 1; }
+form button[type="submit"] { background: var(--theme-accent) !important; color: #101315; }
+form button[type="submit"] p, form button[type="submit"] span { color: #101315; --text: #101315; }
+footer { background: #0b0e10 !important; box-shadow: inset 0 1px var(--theme-line); }
+footer [data-framer-name="Quick Links"] a {
+  background: #20262a !important;
+  color: var(--theme-text);
+  box-shadow: inset 0 0 0 1px #ffffff1c;
+  transition: background .25s ease, box-shadow .25s ease;
+}
+footer [data-framer-name="Quick Links"] a:hover {
+  background: #32282d !important; box-shadow: inset 0 0 0 1px #df727866;
+}
+footer .footer-link-label { --text: var(--theme-text) !important; color: var(--theme-text); }
+.footer-security-headline em { color: var(--theme-accent); }
+footer [data-brand-wordmark] p { --framer-text-color: #242b30 !important; }
+
+.about-page, .about-cv-button { color: var(--theme-text); }
+.about-cv-arrow > [data-framer-name="BG"] { background: var(--theme-text); }
+.about-cv-arrow svg:first-of-type { --4i27ky: var(--theme-text) !important; }
+.about-cv-arrow svg:nth-of-type(2) { --4i27ky: var(--theme-bg) !important; }
+.about-entry { border-top-color: var(--theme-line); }
+.about-entry:last-child { border-bottom-color: var(--theme-line); }
+.about-year, .about-organization { color: var(--theme-muted); }
