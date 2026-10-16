@@ -59,13 +59,16 @@
 
 </div>
 </div>
-<form class="framer-1rwmlp9" style="will-change: transform; opacity: 1; transform: none;">
+<form class="framer-1rwmlp9" data-contact-form action="{{contactFormAction}}" method="POST" style="will-change: transform; opacity: 1; transform: none;">
+<input type="hidden" name="_subject" value="New portfolio enquiry - m1000z">
+<input type="hidden" name="_template" value="table">
+<input class="form-honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
 <label class="framer-1oda83c">
 <div class="framer-12xulh5" data-framer-component-type="RichTextContainer" style="transform:none">
 <p class="framer-text framer-styles-preset-18hoqs7" data-styles-preset="JW7_JT3Q0" dir="auto" style="--framer-text-color:var(--token-2fcd1089-c4fe-44ec-8e47-1defe3c9bd50, rgb(250, 247, 243))" data-edit="text-62">Name</p>
 </div>
 <div class="framer-form-text-input framer-form-input-wrapper framer-1kkbh8n framer-form-text-input-type">
-<input type="text" required="" name="Name" placeholder="Enter your name" class="framer-form-input framer-form-input-empty" value="">
+<input type="text" required="" name="name" maxlength="120" autocomplete="name" placeholder="Enter your name" class="framer-form-input framer-form-input-empty" value="">
 </div>
 </label>
 <label class="framer-1wqhl3a">
@@ -73,7 +76,7 @@
 <p class="framer-text framer-styles-preset-18hoqs7" data-styles-preset="JW7_JT3Q0" dir="auto" style="--framer-text-color:var(--token-2fcd1089-c4fe-44ec-8e47-1defe3c9bd50, rgb(250, 247, 243))" data-edit="text-63">Email</p>
 </div>
 <div class="framer-form-text-input framer-form-input-wrapper framer-18pxafx">
-<input type="email" required="" name="Email" placeholder="Enter your email" class="framer-form-input framer-form-input-empty" value="">
+<input type="email" required="" name="email" maxlength="254" autocomplete="email" placeholder="Enter your email" class="framer-form-input framer-form-input-empty" value="">
 </div>
 </label>
 <label class="framer-4b0gvu">
@@ -81,7 +84,7 @@
 <p class="framer-text framer-styles-preset-18hoqs7" data-styles-preset="JW7_JT3Q0" dir="auto" style="--framer-text-color:var(--token-2fcd1089-c4fe-44ec-8e47-1defe3c9bd50, rgb(250, 247, 243))" data-edit="text-64">Your Project</p>
 </div>
 <div class="framer-form-text-input framer-form-input-wrapper framer-1fy3q84 framer-form-textarea-input-type">
-<textarea required="" name="Email" placeholder="Tell us about your project" class="framer-form-input">
+<textarea required="" name="message" maxlength="8000" placeholder="Tell us about your project" class="framer-form-input">
 </textarea>
 </div>
 </label>
@@ -103,17 +106,6 @@
 </button>
 </div>
 </div>
-<input type="text" name="website" tabindex="-1" autocomplete="one-time-code" aria-hidden="true" style="position:absolute;transform:scale(0)" data-1p-ignore="true" data-lpignore="true" data-form-type="other" data-bwignore="true" value="">
-<input type="text" name="company" tabindex="-1" autocomplete="one-time-code" aria-hidden="true" style="position:absolute;transform:scale(0)" data-1p-ignore="true" data-lpignore="true" data-form-type="other" data-bwignore="true" value="">
-<input type="text" name="message" tabindex="-1" autocomplete="one-time-code" aria-hidden="true" style="position:absolute;transform:scale(0)" data-1p-ignore="true" data-lpignore="true" data-form-type="other" data-bwignore="true" value="">
-<input type="text" name="subject" tabindex="-1" autocomplete="one-time-code" aria-hidden="true" style="position:absolute;transform:scale(0)" data-1p-ignore="true" data-lpignore="true" data-form-type="other" data-bwignore="true" value="">
-<input type="text" name="title" tabindex="-1" autocomplete="one-time-code" aria-hidden="true" style="position:absolute;transform:scale(0)" data-1p-ignore="true" data-lpignore="true" data-form-type="other" data-bwignore="true" value="">
-<input type="text" name="description" tabindex="-1" autocomplete="one-time-code" aria-hidden="true" style="position:absolute;transform:scale(0)" data-1p-ignore="true" data-lpignore="true" data-form-type="other" data-bwignore="true" value="">
-<input type="text" name="feedback" tabindex="-1" autocomplete="one-time-code" aria-hidden="true" style="position:absolute;transform:scale(0)" data-1p-ignore="true" data-lpignore="true" data-form-type="other" data-bwignore="true" value="">
-<input type="text" name="notes" tabindex="-1" autocomplete="one-time-code" aria-hidden="true" style="position:absolute;transform:scale(0)" data-1p-ignore="true" data-lpignore="true" data-form-type="other" data-bwignore="true" value="">
-<input type="text" name="details" tabindex="-1" autocomplete="one-time-code" aria-hidden="true" style="position:absolute;transform:scale(0)" data-1p-ignore="true" data-lpignore="true" data-form-type="other" data-bwignore="true" value="">
-<input type="text" name="remarks" tabindex="-1" autocomplete="one-time-code" aria-hidden="true" style="position:absolute;transform:scale(0)" data-1p-ignore="true" data-lpignore="true" data-form-type="other" data-bwignore="true" value="">
-<input type="text" name="comments" tabindex="-1" autocomplete="one-time-code" aria-hidden="true" style="position:absolute;transform:scale(0)" data-1p-ignore="true" data-lpignore="true" data-form-type="other" data-bwignore="true" value="">
 </form>
 </div>
 </section>

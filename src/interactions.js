@@ -255,11 +255,13 @@ function setupDecorations() {
 
 function setupForms(settings) {
   document.querySelectorAll('form').forEach(form => {
-    form.querySelectorAll('input[aria-hidden="true"]').forEach(input => input.remove());
-    form.querySelectorAll('textarea').forEach(input => input.name = 'Project');
-    form.removeAttribute('action');
-    const newsletter = form.querySelectorAll('input:not([type="hidden"])').length === 1;
+    form.querySelectorAll('input[aria-hidden="true"]:not([name="_honey"])').forEach(input => input.remove());
+    const newsletter = !form.hasAttribute('data-contact-form') && form.querySelectorAll('input:not([type="hidden"])').length === 1;
+    if (newsletter) form.removeAttribute('action');
     const endpoint = newsletter ? settings.newsletterEndpoint : settings.contactEndpoint;
+    const formSubmit = !newsletter && /^https:\/\/formsubmit\.co\/ajax\//.test(endpoint || '');
+    const buttons = [...form.querySelectorAll('button[type="submit"]')];
+    let sending = false;
     const feedback = document.createElement('p');
     feedback.className = 'form-feedback';
     feedback.setAttribute('role', 'status');
@@ -267,8 +269,11 @@ function setupForms(settings) {
     form.querySelectorAll('input[type="email"]').forEach(input => input.required = true);
     form.addEventListener('submit', async event => {
       event.preventDefault();
+      if (sending) return;
+      if (!newsletter) form.querySelectorAll('input[name="name"],input[name="email"],textarea[name="message"]').forEach(input => input.value = input.value.trim());
       if (!form.reportValidity()) return;
       const data = Object.fromEntries(new FormData(form));
+      if (data._honey) return;
       if (!endpoint) {
         if (newsletter) {
           feedback.textContent = 'Newsletter signup is not connected yet.';
@@ -279,16 +284,35 @@ function setupForms(settings) {
         feedback.textContent = 'Your email app will open with your enquiry. Send it there to complete your message.';
         return;
       }
+      const payload = formSubmit ? {
+        name: data.name, email: data.email, message: data.message,
+        _replyto: data.email, _subject: 'New portfolio enquiry - ' + settings.displayName,
+        _template: 'table', _url: location.origin + location.pathname, _honey: ''
+      } : data;
+      sending = true;
       form.classList.add('portfolio-form-busy');
+      form.setAttribute('aria-busy', 'true');
+      buttons.forEach(button => button.disabled = true);
+      feedback.dataset.state = 'sending';
+      feedback.textContent = newsletter ? 'Subscribing...' : 'Sending your enquiry...';
       try {
-        const response = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
-        if (!response.ok) throw new Error('Submission failed');
-        feedback.textContent = newsletter ? 'You are subscribed.' : 'Thank you. Your enquiry has been sent.';
+        const response = await fetch(endpoint, {
+          method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(payload), signal: AbortSignal.timeout(20000)
+        });
+        const result = await response.json().catch(() => null);
+        if (!response.ok || result?.success === false || result?.success === 'false' || (formSubmit && result?.success !== true && result?.success !== 'true')) throw new Error('Submission failed');
+        feedback.dataset.state = 'success';
+        feedback.textContent = newsletter ? 'You are subscribed.' : 'Thank you. Your enquiry has been submitted.';
         form.reset();
       } catch {
+        feedback.dataset.state = 'error';
         feedback.textContent = 'Could not send. Please try again or email ' + settings.contactEmail;
       } finally {
+        sending = false;
         form.classList.remove('portfolio-form-busy');
+        form.removeAttribute('aria-busy');
+        buttons.forEach(button => button.disabled = false);
       }
     });
   });

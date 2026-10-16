@@ -27,6 +27,7 @@ for(const page of pages){
  }
  const dir=path.join('dist',page.route);fs.mkdirSync(dir,{recursive:true});
  html=html.replaceAll('{{cvAttributes}}',settings.cvUrl?'href="'+escape(settings.cvUrl)+'" download':'role="link" aria-disabled="true" tabindex="0" title="CV will be available soon"');
+ html=html.replaceAll('{{contactFormAction}}',escape((settings.contactEndpoint||'').replace('https://formsubmit.co/ajax/','https://formsubmit.co/')));
  fs.writeFileSync('dist/assets/'+page.slug+'.css',localize(fs.readFileSync('src/styles/'+page.slug+'.css','utf8')));
  html=localize(html);
  // Give long brand names a usable static fit; the browser refines it with the loaded font.

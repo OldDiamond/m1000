@@ -71,6 +71,8 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible,
 .opening-dots { background: var(--theme-bg); }
 .opening-dots[data-renderer="canvas"] { background: transparent; }
 .form-feedback { color: var(--theme-muted); }
+.form-feedback[data-state="error"] { color: var(--theme-accent); }
+.form-honeypot { display: none !important; }
 
 /* Existing dark cards retain light labels and dark ink on their filled buttons. */
 footer, form, .framer-1dt4txd, .framer-1q32mfl, .framer-6Ku2B {
