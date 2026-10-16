@@ -30,15 +30,42 @@ html::-webkit-scrollbar-thumb:hover { background: #a8525d; }
 a:focus-visible, button:focus-visible, [role="button"]:focus-visible,
 .draggable-decoration:focus-visible { outline-color: var(--theme-accent); }
 .portfolio-nav {
-  background: #14181bec;
+  background: linear-gradient(120deg, #ffffff08, #ffffff02), #10151894;
   box-shadow: inset 0 0 0 1px #ffffff21, 0 12px 44px #0005;
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
+.portfolio-nav.is-open { background-color: #101518eb; }
 .portfolio-logo { color: var(--theme-text); }
 .portfolio-toggle { background: #282e33; color: var(--theme-text); }
 .portfolio-toggle:hover { background: #394147; }
 .portfolio-menu a { background: #242a2e; color: var(--theme-text); box-shadow: inset 0 0 0 1px var(--theme-line); }
 .portfolio-menu a:hover { background: #343034; }
+@media (min-width: 810px) {
+  .portfolio-nav { display: flex; align-items: center; width: calc(100% - 60px); max-width: 1180px; min-height: 72px; }
+  .portfolio-nav-bar { height: 72px; padding: 16px 24px; gap: 24px; flex: none; }
+  .portfolio-nav-bar::after { content: ''; height: 24px; width: 1px; background: #ffffff1a; }
+  .portfolio-toggle { display: none; }
+  .portfolio-menu-reveal { display: block; margin-left: auto; }
+  .portfolio-menu { visibility: visible; overflow: visible; }
+  .portfolio-menu-links { flex-direction: row; align-items: center; gap: 8px; padding: 0 12px 0 0; }
+  .portfolio-menu a {
+    opacity: 1; transform: none; height: 44px; padding: 12px 16px;
+    background: transparent; box-shadow: none; border-radius: 12px;
+    color: #d1d7d8; transition: background .25s ease, color .25s ease, box-shadow .25s ease;
+  }
+  .portfolio-menu a:hover, .portfolio-menu a[aria-current="page"] { color: var(--theme-text); background: #ffffff08; }
+  .portfolio-menu .portfolio-contact-link {
+    color: var(--theme-accent); background: #df72780c;
+    box-shadow: inset 0 0 0 1px #df727826;
+  }
+  .portfolio-menu .portfolio-contact-link:hover { color: #f29ca0; background: #df72781c; box-shadow: inset 0 0 0 1px #df72784d; }
+}
+@media (min-width: 810px) and (max-width: 1000px) {
+  .portfolio-nav-bar { padding-inline: 20px; gap: 20px; }
+  .portfolio-menu-links { gap: 2px; }
+  .portfolio-menu a { padding-inline: 12px; }
+}
 .hero-copyright { color: var(--theme-muted); }
 .draggable-decoration img { filter: url(#burgundy-metallic) drop-shadow(0 0 10px #df727826); }
 .opening-dots { background: var(--theme-bg); }

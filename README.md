@@ -29,6 +29,7 @@ Open `http://localhost:3000`. After changing source or content, rebuild and refr
 | Shared visual adjustments | `src/styles/custom.css` |
 | Charcoal theme, text contrast, red accents, and dark form styles | `src/styles/theme.css` |
 | Menu and form behavior | `src/interactions.js` |
+| Glass navigation bar and responsive navigation styling | `src/styles/theme.css` |
 | Local images and fonts | `public/assets/media/` |
 
 `portfolio.json` is grouped by page. Entries have a readable `label` and an editable `value`. `text` fields contain plain text; `html` fields retain article links and formatting. `image` fields also expose `alt`. Keep entry keys intact: they bind content to `data-edit`, `data-edit-image`, or `data-edit-link` attributes in the components. Only use trusted HTML in rich text fields.

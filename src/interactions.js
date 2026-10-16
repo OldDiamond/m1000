@@ -27,12 +27,14 @@ function setupNavigation(settings) {
   if (!panel || !menu || !trigger) return;
   const links = document.createElement('div');
   links.className = 'portfolio-menu-links';
+  const desktop = matchMedia('(min-width: 810px)');
   let open = false;
   function toggle(next, returnFocus = false) {
-    open = next;
+    open = !desktop.matches && next;
+    const visible = desktop.matches || open;
     panel.classList.toggle('is-open', open);
-    menu.inert = !open;
-    menu.setAttribute('aria-hidden', String(!open));
+    menu.inert = !visible;
+    menu.setAttribute('aria-hidden', String(!visible));
     trigger.setAttribute('aria-expanded', String(open));
     trigger.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
     if (returnFocus) trigger.focus();
@@ -40,6 +42,9 @@ function setupNavigation(settings) {
   settings.navigation.forEach((item, index) => {
     const link = document.createElement('a');
     link.href = item.href;
+    if (item.href.endsWith('#contact')) link.classList.add('portfolio-contact-link');
+    const destination = new URL(item.href, location.href);
+    if (!destination.hash && destination.pathname === location.pathname.replace(/\/$/, '')) link.setAttribute('aria-current', 'page');
     link.setAttribute('aria-label', item.label);
     link.style.setProperty('--menu-index', index);
     link.append(rollingLabel(item.label));
@@ -47,6 +52,8 @@ function setupNavigation(settings) {
     links.append(link);
   });
   menu.append(links);
+  toggle(false);
+  desktop.addEventListener('change', () => toggle(false));
   trigger.addEventListener('click', () => toggle(!open));
   document.addEventListener('click', event => {
     if (open && !panel.contains(event.target)) toggle(false);
