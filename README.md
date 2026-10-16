@@ -38,7 +38,7 @@ NetNeedle is the single project on the homepage and `/work`, with its detail pag
 
 The `/about` page has your two education entries and two work experience entries. Edit the `about` group in `content/portfolio.json`: each entry has dates, a degree or role title, an institution or company, and a description. Keep the latest entry first. Add or remove rows in `src/components/about--1--education.html` and `src/components/about--2--experience.html`; new rows need unique `data-edit` keys and matching content entries. `src/styles/about.css` reuses the Projects page's typography and footer styles, then defines the year and details columns. On phones, the date sits above the details.
 
-The About page's **Download CV** button stays inactive until a CV is supplied. Put the PDF in `public/assets/`, set `cvUrl` in `content/settings.json` to its path (for example `/assets/mohammad-yasin-cv.pdf`), and rebuild to activate the download link. The outlined arrow matches the site's existing button animations.
+The About page's **Download CV** button downloads the supplied resume from `public/assets/documents/mohammad-yasin-resume.pdf`, configured through `cvUrl` in `content/settings.json`. Replace that PDF to update the CV, or change the path and rebuild. Setting `cvUrl` to an empty string makes the button inactive again. The outlined arrow matches the site's existing button animations.
 
 To replace a photo, put the new file in `public/assets/media/` and change its image value to `/assets/media/your-photo.jpg`. The two portrait entries represent front and back views; update both. The original source asset URLs are mapped to downloaded files by `content/assets.json` at build time.
 
