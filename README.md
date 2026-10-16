@@ -85,6 +85,8 @@ See `REFERENCE-REVIEW.md` for the reference's components, existing content issue
 
 ## Validation and deployment
 
+Keep credentials, environment files, and private documents outside `public/`. Only `dist/` is deployed. Each build recreates that generated directory, publishes an explicit set of browser settings, and checks public assets for private filenames, unapproved documents, source maps, archives, and common credential patterns. These checks also run during verification; they are safeguards, not a guarantee that every possible secret format can be detected. The CV configured by `cvUrl` is an intentionally public download. Files under `public/`, photos, browser JavaScript, HTML, CSS, and public contact information are accessible to visitors who can view the site.
+
 ```sh
 node scripts/verify.mjs
 ```

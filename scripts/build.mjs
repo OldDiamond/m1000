@@ -1,12 +1,20 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { assertPublicFiles } from './check-public-files.mjs';
 const pages=JSON.parse(fs.readFileSync('src/pages.json','utf8'));
 const content=JSON.parse(fs.readFileSync('content/portfolio.json','utf8'));
 const settings=JSON.parse(fs.readFileSync('content/settings.json','utf8'));
+const publicFileOptions={approvedDocuments:[settings.cvUrl || '']};
+assertPublicFiles('public',publicFileOptions);
 const assets=fs.existsSync('content/assets.json')?JSON.parse(fs.readFileSync('content/assets.json','utf8')):{};
 const localize=value=>{for(const [url,local]of Object.entries(assets)){value=value.replaceAll(url,local).replaceAll(url.replaceAll('&','&amp;'),local)}return value};
 const escape=s=>String(s).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
-fs.mkdirSync('dist/assets',{recursive:true});
+// Recreate only the generated output so removed assets cannot survive a rebuild.
+const projectRoot=fs.realpathSync('.');
+const outputRoot=path.join(projectRoot,'dist');
+if(path.dirname(outputRoot)!==projectRoot||fs.lstatSync(outputRoot,{throwIfNoEntry:false})?.isSymbolicLink())throw new Error('Unsafe build output path');
+fs.rmSync(outputRoot,{recursive:true,force:true});
+fs.mkdirSync(path.join(outputRoot,'assets'),{recursive:true});
 if(fs.existsSync('public'))fs.cpSync('public','dist',{recursive:true});
 fs.copyFileSync('src/styles/custom.css','dist/assets/custom.css');
 fs.copyFileSync('src/styles/theme.css','dist/assets/theme.css');
@@ -17,7 +25,16 @@ fs.copyFileSync('src/footer-hands.js','dist/assets/footer-hands.js');
 fs.copyFileSync('src/footer-mark.js','dist/assets/footer-mark.js');
 fs.copyFileSync('src/page-motion.js','dist/assets/page-motion.js');
 fs.copyFileSync('src/opening-dots.js','dist/assets/opening-dots.js');
-fs.writeFileSync('dist/assets/settings.json',JSON.stringify(settings));
+const pick=(object,keys)=>Object.fromEntries(keys.filter(key=>Object.hasOwn(object || {},key)).map(key=>[key,object[key]]));
+const publicSettings={
+ ...pick(settings,['displayName','contactEmail','copyrightYear','quote','contactEndpoint','newsletterEndpoint','cvUrl']),
+ navigation:(settings.navigation || []).map(item=>pick(item,['label','href'])),
+ openingDots:pick(settings.openingDots,['enabled','text','duration','oncePerSession']),
+ backgroundCurtains:pick(settings.backgroundCurtains,['enabled','intensity','speed','primaryColor','secondaryColor']),
+ footerHands:pick(settings.footerHands,['enabled','color','opacity','columns']),
+ footerMark:pick(settings.footerMark,['enabled','color']),
+};
+fs.writeFileSync('dist/assets/settings.json',JSON.stringify(publicSettings));
 for(const page of pages){
  let html=fs.readFileSync('src/pages/'+page.slug+'.html','utf8');
  html=html.replaceAll('<!--HEADER-->',fs.readFileSync('src/components/Header.html','utf8').replaceAll('{{displayName}}',escape(settings.displayName)));
@@ -63,4 +80,6 @@ for(const page of pages){
  const doc=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101315"><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}"><link rel="stylesheet" href="/assets/${page.slug}.css"><link rel="stylesheet" href="/assets/custom.css"><link rel="stylesheet" href="/assets/theme.css"><link rel="stylesheet" href="/assets/responsive.css">${motionBoot}</head><body>${opening}${icons}${html}<script type="module" src="/assets/interactions.js"></script></body></html>`;
  fs.writeFileSync(path.join(dir,'index.html'),doc);
 }
-console.log('Built '+pages.length+' pages into dist/.');
+try { assertPublicFiles('dist',publicFileOptions); }
+catch(error) { fs.rmSync(outputRoot,{recursive:true,force:true}); throw error; }
+console.log('Built '+pages.length+' pages into dist/; public-file safety checks passed.');

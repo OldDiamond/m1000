@@ -16,3 +16,21 @@ dist/
 *.zip
 *.tar.gz
 .openai/*.local.*
+
+# Private local files must never enter the source repository or public assets.
+.env
+.env.*
+!.env.example
+.npmrc
+.netrc
+private/
+secrets/
+credentials*.json
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+*.sqlite
+*.sqlite3
+*.db

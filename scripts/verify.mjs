@@ -1,5 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { assertPublicFiles } from './check-public-files.mjs';
+const settings=JSON.parse(fs.readFileSync('content/settings.json'));
+assertPublicFiles('dist',{approvedDocuments:[settings.cvUrl || '']});
 const pages=JSON.parse(fs.readFileSync('src/pages.json'));let checks=0;const failures=[];
 for(const page of pages){
  const file=path.join('dist',page.route,'index.html');const html=fs.readFileSync(file,'utf8');checks++;
