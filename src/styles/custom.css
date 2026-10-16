@@ -135,21 +135,30 @@ footer .footer-link-label > span { transition-duration: .55s; transition-delay: 
   left: auto !important; right: -12px !important;
 }
 @media (min-width: 810px) {
-  #hero-section [data-hero-decoration="star"] { left: calc((100% - 100vw) / 2 + 3vw) !important; }
-  #hero-section [data-hero-decoration="lightning"] { right: calc((100% - 100vw) / 2 + 6vw) !important; }
+  #hero-section [data-hero-decoration="star"] {
+    left: max(calc((100% - 100vw) / 2 + 12px), calc(50% - var(--hero-first-half-width, 42%) - var(--hero-star-width, 140px) - 2px)) !important;
+  }
+  #hero-section [data-hero-decoration="lightning"] {
+    left: min(calc((100% + 100vw) / 2 - var(--hero-lightning-width, 160px) - 20px), calc(50% + var(--hero-last-half-width, 34%) + 2px)) !important;
+    right: auto !important;
+  }
 }
 @media (max-width: 809px) {
   #hero-section [data-framer-name="Title"]:has(h1 > .hero-title-line) { max-width: none; }
   #hero-section h1:has(> .hero-title-line) { font-size: min(92px, 10.5cqw); line-height: 1.02; }
   #hero-section [data-hero-decoration="star"] { bottom: calc(100% - 10px) !important; }
-  #hero-section [data-hero-decoration="lightning"] { width: 60px !important; height: 60px !important; bottom: -40px !important; right: -6px !important; }
+  #hero-section [data-hero-decoration="lightning"] {
+    width: 60px !important; height: 60px !important; bottom: -40px !important;
+    left: min(calc((100% + 100vw) / 2 - var(--hero-lightning-width, 60px) - 12px), calc(50% + var(--hero-last-half-width, 34%) + 2px)) !important;
+    right: auto !important;
+  }
 }
 @media (max-width: 360px) {
-  #hero-section [data-hero-decoration="lightning"] { width: 48px !important; height: 48px !important; bottom: -32px !important; right: 0 !important; }
+  #hero-section [data-hero-decoration="lightning"] { width: 48px !important; height: 48px !important; bottom: -32px !important; }
 }
 @media (max-width: 809px) and (max-height: 600px) {
   #hero-section [data-hero-decoration="star"] { width: 44px !important; height: 44px !important; bottom: calc(100% - 6px) !important; }
-  #hero-section [data-hero-decoration="lightning"] { width: 48px !important; height: 48px !important; bottom: -32px !important; right: 0 !important; }
+  #hero-section [data-hero-decoration="lightning"] { width: 48px !important; height: 48px !important; bottom: -32px !important; }
 }
 
 /* A single project uses the full grid and displays its real screenshots uncropped. */

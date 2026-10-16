@@ -183,6 +183,22 @@ function setupScrollMotion(settings) {
 }
 
 function setupDecorations() {
+  const title = document.querySelector('#hero-section [data-framer-name="Title"]');
+  const lines = title?.querySelectorAll('.hero-title-line');
+  const star = title?.querySelector('[data-hero-decoration="star"]');
+  const lightning = title?.querySelector('[data-hero-decoration="lightning"]');
+  if (title && lines?.length && star && lightning) {
+    const align = () => {
+      title.style.setProperty('--hero-first-half-width', lines[0].offsetWidth / 2 + 'px');
+      title.style.setProperty('--hero-last-half-width', lines[lines.length - 1].offsetWidth / 2 + 'px');
+      title.style.setProperty('--hero-star-width', star.offsetWidth + 'px');
+      title.style.setProperty('--hero-lightning-width', lightning.offsetWidth + 'px');
+    };
+    const observer = new ResizeObserver(align);
+    [title, ...lines, star, lightning].forEach(element => observer.observe(element));
+    document.fonts.ready.then(align);
+    align();
+  }
   document.querySelectorAll('[data-framer-name="holo_triangle_rounded"]').forEach((shape, index) => {
     const rotation = index === 0 ? 16 : 0;
     let x = 0, y = 0, vx = 0, vy = 0, frame = 0, drag = null;
