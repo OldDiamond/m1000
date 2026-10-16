@@ -17,8 +17,8 @@
     },
     "text-4": {
       "type": "html",
-      "label": "Hero title: Cybersecurity Consultant",
-      "value": "<span class=\"hero-title-line\">CYBERSECURITY</span> <span class=\"hero-title-line\">CONSULTANT</span>"
+      "label": "Hero title: Web Security Specialist",
+      "value": "<span class=\"hero-title-line\">WEB SECURITY</span> <span class=\"hero-title-line\">SPECIALIST</span>"
     },
     "text-5": {
       "type": "text",
