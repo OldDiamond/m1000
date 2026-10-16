@@ -304,7 +304,7 @@ async function setup() {
   setupScrollMotion(settings);
   setupDecorations();
   setupForms(settings);
-  const socialNames = ['X', 'Instagram', 'LinkedIn', 'YouTube'];
+  const socialNames = ['Gmail: m1000zurich@gmail.com', 'Instagram', 'LinkedIn', 'YouTube'];
   document.querySelectorAll('[data-framer-name="Social Media Icons"] a').forEach((link, index) => {
     link.setAttribute('aria-label', socialNames[index] || 'Social profile');
     link.rel = 'noopener noreferrer';
