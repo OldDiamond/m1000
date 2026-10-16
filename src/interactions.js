@@ -282,7 +282,44 @@ function setupForms(settings) {
     const feedback = document.createElement('p');
     feedback.className = 'form-feedback';
     feedback.setAttribute('role', 'status');
-    form.after(feedback);
+    feedback.setAttribute('aria-live', 'polite');
+    feedback.setAttribute('aria-atomic', 'true');
+    feedback.hidden = true;
+    if (newsletter) form.after(feedback);
+    else form.append(feedback);
+    const secureRetry = formSubmit ? document.createElement('button') : null;
+    if (secureRetry) {
+      secureRetry.type = 'button';
+      secureRetry.className = 'form-secure-retry';
+      secureRetry.textContent = 'Continue with secure form';
+      secureRetry.hidden = true;
+      form.append(secureRetry);
+      secureRetry.addEventListener('click', () => {
+        if (sending) return;
+        form.querySelectorAll('input[name="name"],input[name="email"],textarea[name="message"]').forEach(input => input.value = input.value.trim());
+        if (!form.reportValidity()) return;
+        if (form.elements.namedItem('_honey')?.value) return;
+        // A normal POST lets FormSubmit display its verification page when needed.
+        for (const [name, value] of Object.entries({ _url: location.origin + location.pathname, _replyto: form.elements.namedItem('email').value })) {
+          let field = form.querySelector(`input[name="${name}"]`);
+          if (!field) { field = document.createElement('input'); field.type = 'hidden'; field.name = name; form.append(field); }
+          field.value = value;
+        }
+        HTMLFormElement.prototype.submit.call(form);
+      });
+    }
+    function showFeedback(message, state, { email = false, retry = false } = {}) {
+      feedback.hidden = false;
+      feedback.dataset.state = state;
+      feedback.replaceChildren(document.createTextNode(message));
+      if (email) {
+        const link = document.createElement('a');
+        link.href = 'mailto:' + settings.contactEmail;
+        link.textContent = settings.contactEmail;
+        feedback.append(' ', link);
+      }
+      if (secureRetry) secureRetry.hidden = !retry;
+    }
     form.querySelectorAll('input[type="email"]').forEach(input => input.required = true);
     form.addEventListener('submit', async event => {
       event.preventDefault();
@@ -293,12 +330,12 @@ function setupForms(settings) {
       if (data._honey) return;
       if (!endpoint) {
         if (newsletter) {
-          feedback.textContent = 'Newsletter signup is not connected yet.';
+          showFeedback('Newsletter signup is not connected yet.', 'error');
           return;
         }
         const body = Object.entries(data).filter(([key]) => !key.startsWith('_')).map(([key, value]) => key + ': ' + value).join('\n');
         window.location.href = 'mailto:' + settings.contactEmail + '?subject=' + encodeURIComponent('Portfolio project enquiry') + '&body=' + encodeURIComponent(body);
-        feedback.textContent = 'Your email app will open with your enquiry. Send it there to complete your message.';
+        showFeedback('Your email app will open with your enquiry. Send it there to complete your message.', 'info');
         return;
       }
       const payload = formSubmit ? {
@@ -310,22 +347,37 @@ function setupForms(settings) {
       form.classList.add('portfolio-form-busy');
       form.setAttribute('aria-busy', 'true');
       buttons.forEach(button => button.disabled = true);
-      feedback.dataset.state = 'sending';
-      feedback.textContent = newsletter ? 'Subscribing...' : 'Sending your enquiry...';
+      showFeedback(newsletter ? 'Subscribing...' : 'Sending your enquiry...', 'sending');
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 20000);
       try {
         const response = await fetch(endpoint, {
-          method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify(payload), signal: AbortSignal.timeout(20000)
+          method: 'POST', headers: formSubmit ? { Accept: 'application/json' } : { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: formSubmit ? new URLSearchParams(payload) : JSON.stringify(payload), signal: controller.signal
         });
         const result = await response.json().catch(() => null);
-        if (!response.ok || result?.success === false || result?.success === 'false' || (formSubmit && result?.success !== true && result?.success !== 'true')) throw new Error('Submission failed');
-        feedback.dataset.state = 'success';
-        feedback.textContent = newsletter ? 'You are subscribed.' : 'Thank you. Your enquiry has been submitted.';
+        if (!response.ok || result?.success === false || result?.success === 'false' || (formSubmit && result?.success !== true && result?.success !== 'true')) {
+          const error = new Error('Submission failed');
+          const message = typeof result?.message === 'string' ? result.message : '';
+          error.reason = response.status === 429 ? 'rate-limit' : /activat|confirm.{0,40}email|verify.{0,40}email/i.test(message) ? 'activation' : /captcha|verification/i.test(message) ? 'verification' : 'provider';
+          throw error;
+        }
+        showFeedback(newsletter ? 'You are subscribed.' : 'Thank you. Your enquiry has been submitted.', 'success');
         form.reset();
-      } catch {
-        feedback.dataset.state = 'error';
-        feedback.textContent = 'Could not send. Please try again or email ' + settings.contactEmail;
+      } catch (error) {
+        if (error.reason === 'activation') {
+          showFeedback('This contact form is awaiting email activation. Please email me directly:', 'error', { email: true });
+        } else if (error.reason === 'rate-limit') {
+          showFeedback('Too many attempts. Please wait a few minutes or email me:', 'error', { email: true });
+        } else {
+          const message = error.reason === 'verification' ? 'Please continue with the secure form to complete verification, or email me:'
+            : controller.signal.aborted ? 'The request timed out; delivery could not be confirmed. You can use the secure form or email me:'
+            : formSubmit ? 'The email service could not complete this request. You can use the secure form or email me:'
+            : 'Could not send. Please try again or email';
+          showFeedback(message, 'error', { email: true, retry: Boolean(secureRetry) });
+        }
       } finally {
+        clearTimeout(timeout);
         sending = false;
         form.classList.remove('portfolio-form-busy');
         form.removeAttribute('aria-busy');

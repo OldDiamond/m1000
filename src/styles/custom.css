@@ -183,7 +183,10 @@ input, textarea, button { font-family: var(--portfolio-font); }
 form input:not([type="hidden"]), form textarea { font-family: var(--portfolio-font) !important; font-size: 18px !important; }
 form button[type="submit"], form button[type="submit"] p, form button[type="submit"] span { font-family: var(--portfolio-font) !important; font-size: 18px !important; line-height: 1.2 !important; }
 form button[type="submit"] { min-height: 44px; }
-.form-feedback { font: 16px/1.5 var(--portfolio-font); margin: 12px 0; color: #333; }
+.form-feedback { font: 16px/1.5 var(--portfolio-font); margin: 12px 0; color: #333; max-width: 100%; overflow-wrap: anywhere; }
+[data-contact-form] > .form-feedback { width: 100%; margin: 0; }
+.form-feedback[hidden], .form-secure-retry[hidden] { display: none !important; }
+.form-secure-retry { width: 100%; min-height: 44px; padding: 10px 14px; border: 1px solid currentColor; border-radius: 8px; background: transparent; color: inherit; font: 500 16px/1.4 var(--portfolio-font); cursor: pointer; }
 .portfolio-form-busy { opacity: .6; pointer-events: none; }
 
 /* Service titles and descriptions share a row on wider screens. */

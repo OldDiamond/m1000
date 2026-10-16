@@ -80,6 +80,9 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible,
 .opening-dots[data-renderer="canvas"] { background: transparent; }
 .form-feedback { color: var(--theme-muted); }
 .form-feedback[data-state="error"] { color: var(--theme-accent); }
+.form-feedback a, .form-feedback a:visited { color: var(--theme-accent); text-underline-offset: 3px; }
+.form-secure-retry { color: var(--theme-accent); }
+.form-secure-retry:hover { background: #df727812; }
 .form-honeypot { display: none !important; }
 
 /* Existing dark cards retain light labels and dark ink on their filled buttons. */
