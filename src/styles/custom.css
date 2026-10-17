@@ -44,14 +44,17 @@ body { margin: 0; background: #f5f3ef; }
 .opening-dots-canvas { display: block; width: 100%; height: 100%; }
 html.opening-dots-active { overflow: hidden; scrollbar-gutter: stable; }
 html.opening-dots-active body { touch-action: none; }
-/* Keep the photo in the homepage hero and blend its lower edge into the page. */
-[data-framer-name="Hero & Bio Sections"] { isolation: isolate; }
-.hero-image-background { position: absolute; top: 0; left: 0; width: 100%; height: 100vh; height: 100svh; z-index: -1; overflow: hidden; pointer-events: none; user-select: none; }
-.hero-image-background picture, .hero-image-background img { display: block; width: 100%; height: 100%; }
-.hero-image-background img { object-fit: cover; object-position: 40% center; opacity: .87; }
-.hero-image-background::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 48%, var(--theme-bg) 100%); }
-@media (max-width: 1279px) {
-  .hero-image-background { grid-area: 1 / 1 / 2 / 2; inset: 0; height: auto; }
+/* Shared reference treatment: a static glow at the top, fading into black. */
+.page-image-background {
+  position: absolute; inset: 0 0 auto; z-index: 0;
+  height: 116vh; height: 116svh; pointer-events: none; user-select: none; overflow: hidden;
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+}
+.page-image-background picture, .page-image-background img { display: block; width: 100%; height: 100%; }
+.page-image-background img { object-fit: cover; object-position: 40% center; }
+.page-image-background::after { content: ''; position: absolute; inset: 0; background: #00000038; }
+@media (max-width: 809px) {
+  .page-image-background img { object-position: 38% center; }
 }
 * { box-sizing: border-box; }
 a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline: 2px solid #800020; outline-offset: 5px; }
