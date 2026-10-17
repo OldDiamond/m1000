@@ -130,6 +130,9 @@ footer .footer-link-label > span { transition-duration: .55s; transition-delay: 
 /* Fit the two explicit title lines to the available hero width. */
 #hero-section [data-framer-component-type="RichTextContainer"]:has(> h1) { container-type: inline-size; }
 #hero-section h1 { font-size: min(105px, 6.6vw); line-height: .94; letter-spacing: -.025em; white-space: normal; text-align: center; }
+@media (min-width: 1280px) {
+  #hero-section[data-framer-name="Projects Section"] h1 { text-align: left; }
+}
 .hero-title-line { display: block; position: relative; left: 50%; transform: translateX(-50%); width: max-content; white-space: nowrap; }
 #hero-section [data-hero-decoration="star"] {
   top: auto !important; bottom: calc(100% - 24px) !important;
