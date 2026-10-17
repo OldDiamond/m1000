@@ -1,4 +1,4 @@
-// A transparent curtain shader; the site's existing paper background shows through.
+// Transparent animated curtains over the site's existing dark background.
 export function setupCurtain(options = {}) {
   const layer = document.querySelector('.curtain-background');
   if (!layer) return;
@@ -11,7 +11,7 @@ export function setupCurtain(options = {}) {
   layer.style.setProperty('--curtain-secondary', secondary);
   layer.style.setProperty('--curtain-intensity', strength);
   const canvas = layer.querySelector('canvas');
-  const gl = canvas.getContext('webgl', { alpha: true, antialias: false, depth: false, premultipliedAlpha: false, powerPreference: 'low-power' });
+  const gl = canvas.getContext('webgl', { alpha: true, antialias: false, depth: false, premultipliedAlpha: true, powerPreference: 'low-power' });
   if (!gl) { layer.dataset.renderer = 'css'; return; }
   const vertexSource = `attribute vec2 a_position;
     varying vec2 v_uv;
@@ -37,7 +37,7 @@ export function setupCurtain(options = {}) {
       float halo = .13 * exp(-down * 5.);
       float alpha = u_strength * (light * edges + halo) * fade;
       vec3 color = mix(u_primary, u_secondary, .5 + .5 * sin(v_uv.x * 5. + u_time * .12));
-      gl_FragColor = vec4(color, alpha);
+      gl_FragColor = vec4(color * alpha, alpha);
     }`;
   function compile(type, source) {
     const shader = gl.createShader(type);
