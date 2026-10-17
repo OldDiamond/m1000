@@ -3,6 +3,13 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { assertPublicFiles } from './check-public-files.mjs';
 const pages=JSON.parse(fs.readFileSync('src/pages.json','utf8'));
+const siteHref=value=>{
+ if(typeof value!=='string')return value;
+ const match=/^(\/[^?#]*)(.*)$/.exec(value);
+ if(!match)return value;
+ const route=match[1].replace(/\/+$/,'') || '/';
+ return pages.some(page=>page.route===route)?(route==='/'?'/':route+'/')+match[2]:value;
+};
 const content=JSON.parse(fs.readFileSync('content/portfolio.json','utf8'));
 const settings=JSON.parse(fs.readFileSync('content/settings.json','utf8'));
 const publicFileOptions={approvedDocuments:[settings.cvUrl || '']};
@@ -26,10 +33,19 @@ fs.copyFileSync('src/footer-hands.js','dist/assets/footer-hands.js');
 fs.copyFileSync('src/footer-mark.js','dist/assets/footer-mark.js');
 fs.copyFileSync('src/page-motion.js','dist/assets/page-motion.js');
 fs.copyFileSync('src/opening-dots.js','dist/assets/opening-dots.js');
+const browserModules=new Map(['interactions','curtain','footer-hands','footer-mark','page-motion','opening-dots'].map(name=>[name+'.js',fs.readFileSync('dist/assets/'+name+'.js','utf8')]));
+for(const [name,source] of browserModules){
+ const versioned=source.replace(/(["'])\.\/([\w-]+\.js)\1/g,(match,quote,dependency)=>{
+  if(!browserModules.has(dependency))return match;
+  const version=createHash('sha256').update(browserModules.get(dependency)).digest('hex').slice(0,12);
+  return quote+'./'+dependency+'?v='+version+quote;
+ });
+ fs.writeFileSync('dist/assets/'+name,versioned);
+}
 const pick=(object,keys)=>Object.fromEntries(keys.filter(key=>Object.hasOwn(object || {},key)).map(key=>[key,object[key]]));
 const publicSettings={
  ...pick(settings,['displayName','contactEmail','copyrightYear','quote','contactEndpoint','newsletterEndpoint','cvUrl']),
- navigation:(settings.navigation || []).map(item=>pick(item,['label','href'])),
+ navigation:(settings.navigation || []).map(item=>({...pick(item,['label']),href:siteHref(item.href)})),
  openingDots:pick(settings.openingDots,['enabled','text','duration','oncePerSession']),
  backgroundCurtains:pick(settings.backgroundCurtains,['enabled','intensity','speed','primaryColor','secondaryColor']),
  footerHands:pick(settings.footerHands,['enabled','color','opacity','columns']),
@@ -62,6 +78,7 @@ for(const page of pages){
  html=html.replace(/(<div\b[^>]*class="[^"]*\bframer-zpn31\b[^"]*"[^>]*>)/, '$1'+fs.readFileSync('src/components/CurtainBackground.html','utf8'));
  html=html.replaceAll('href="./','href="/');
  html=html.replace(/href="(\/[^"#]+)(#[^"]*)?"/g,(match,target,hash='')=>{if(pages.some(p=>p.route===target))return match;const found=pages.find(p=>p.route.split('/').at(-1)===target.slice(1));return found?'href="'+found.route+hash+'"':match});
+ html=html.replace(/href="(\/[^"\s]*)"/g,(_,href)=>'href="'+siteHref(href)+'"');
  if(page.slug==='home')html=html.replace('data-framer-name="Hero Section" id="hero-section">','data-framer-name="Hero Section" id="hero-section"><span class="hero-copyright">©'+settings.copyrightYear+'</span>');
  const icons=fs.readFileSync('src/components/Icons.html','utf8');
  const opening=page.slug==='home'&&settings.openingDots?.enabled!==false?fs.readFileSync('src/components/OpeningDots.html','utf8').replaceAll('{{openingText}}',escape(String(settings.openingDots?.text||'['+settings.displayName+']').slice(0,32))).replaceAll('{{openingDuration}}',String(Math.max(2500,Math.min(10000,Number(settings.openingDots?.duration)||5600)))).replaceAll('{{openingOnce}}',String(settings.openingDots?.oncePerSession!==false)):'';
@@ -77,8 +94,10 @@ for(const page of pages){
   const words=body.split(/(<[^>]+>)/g).map(part=>part.startsWith('<')?part:part.replace(/\S+/g,word=>'<span data-reveal-word>'+word+'</span>')).join('');
   return '<'+tag+attrs+' data-page-reveal="'+(hero?'hero':intro?'intro':'heading')+'">'+words+'</'+tag+'>';
  });
- const motionBoot=`<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('page-motion-enabled');setTimeout(()=>{if(!window.__pageMotionReady)document.documentElement.classList.remove('page-motion-enabled')},4000)}</script>`;
- const doc=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101315"><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}"><link rel="stylesheet" href="/assets/${page.slug}.css"><link rel="stylesheet" href="/assets/custom.css"><link rel="stylesheet" href="/assets/theme.css"><link rel="stylesheet" href="/assets/responsive.css">${motionBoot}</head><body>${opening}${icons}${html}<script type="module" src="/assets/interactions.js"></script></body></html>`;
+ const motionBoot='<script>'+fs.readFileSync('src/navigation-boot.js','utf8')+'</script>';
+ const fontPreloads=[500,600,page.slug==='home'?800:700].map(weight=>'<link rel="preload" href="/assets/fonts/archivo-normal-'+weight+'.woff2" as="font" type="font/woff2" crossorigin>').join('');
+ const embeddedSettings='<script type="application/json" id="portfolio-settings">'+JSON.stringify(publicSettings).replaceAll('<','\\u003c')+'</script>';
+ const doc=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101315"><style>html,body{background:#101315;color:#edf0ed}</style><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}">${fontPreloads}<link rel="stylesheet" href="/assets/${page.slug}.css"><link rel="stylesheet" href="/assets/custom.css"><link rel="stylesheet" href="/assets/theme.css"><link rel="stylesheet" href="/assets/responsive.css">${motionBoot}${embeddedSettings}<script type="module" src="/assets/interactions.js" blocking="render"></script></head><body>${opening}${icons}${html}</body></html>`;
  // Updated styles and entry scripts get fresh URLs on browsers that cached an earlier layout.
  const versionedDoc=doc.replace(/((?:href|src)=")((?:\/assets\/)[^"?#]+\.(?:css|js))"/g,(_,attribute,url)=>{
   const version=createHash('sha256').update(fs.readFileSync(path.join('dist',url))).digest('hex').slice(0,12);

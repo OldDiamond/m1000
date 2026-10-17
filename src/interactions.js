@@ -44,7 +44,7 @@ function setupNavigation(settings) {
     link.href = item.href;
     if (item.href.endsWith('#contact')) link.classList.add('portfolio-contact-link');
     const destination = new URL(item.href, location.href);
-    if (!destination.hash && destination.pathname === location.pathname.replace(/\/$/, '')) link.setAttribute('aria-current', 'page');
+    if (!destination.hash && (destination.pathname.replace(/\/+$/, '') || '/') === (location.pathname.replace(/\/+$/, '') || '/')) link.setAttribute('aria-current', 'page');
     link.setAttribute('aria-label', item.label);
     link.style.setProperty('--menu-index', index);
     link.append(rollingLabel(item.label));
@@ -388,7 +388,8 @@ function setupForms(settings) {
 }
 
 async function setup() {
-  const settings = await fetch('/assets/settings.json').then(response => response.json());
+  const embeddedSettings = document.getElementById('portfolio-settings');
+  const settings = embeddedSettings ? JSON.parse(embeddedSettings.textContent) : await fetch('/assets/settings.json').then(response => response.json());
   setupCurtain(settings.backgroundCurtains);
   setupNavigation(settings);
   setupFooter(settings);

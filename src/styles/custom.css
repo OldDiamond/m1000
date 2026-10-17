@@ -6,15 +6,18 @@
 
 @view-transition { navigation: auto; }
 ::view-transition-old(root) {
-  animation: portfolio-page-out 200ms cubic-bezier(.27, 0, .51, 1) 200ms both;
-  mix-blend-mode: normal;
+  animation: portfolio-page-out 300ms var(--motion-ease) both;
+  mix-blend-mode: plus-lighter;
 }
 ::view-transition-new(root) {
-  animation: portfolio-page-in 200ms cubic-bezier(.27, 0, .51, 1) both;
-  mix-blend-mode: normal;
+  animation: portfolio-page-in 300ms var(--motion-ease) both;
+  mix-blend-mode: plus-lighter;
 }
+::view-transition-image-pair(root) { isolation: isolate; }
 @keyframes portfolio-page-out { to { opacity: 0; } }
 @keyframes portfolio-page-in { from { opacity: 0; } to { opacity: 1; } }
+.page-navigation .portfolio-nav { animation: none; }
+.page-fallback-entering #main { opacity: 0; }
 [data-reveal-word] { display: inline-block; }
 .page-motion-enabled [data-page-reveal]:not([data-reveal-played]) [data-reveal-word] {
   opacity: .001; filter: blur(10px); transform: translateY(10px);

@@ -78,7 +78,13 @@ export function setupCurtain(options = {}) {
   gl.uniform1f(gl.getUniformLocation(program, 'u_strength'), strength);
   layer.dataset.renderer = 'webgl';
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
-  let frame = 0, lastRender = -Infinity, elapsed = 0, previousTime = 0, contextAvailable = true, inView = true;
+  let epoch = performance.timeOrigin;
+  try {
+    const stored = Number(sessionStorage.getItem('portfolio-curtain-epoch'));
+    epoch = stored > 0 && stored <= Date.now() ? stored : Date.now();
+    sessionStorage.setItem('portfolio-curtain-epoch', String(epoch));
+  } catch {}
+  let frame = 0, lastRender = -Infinity, elapsed = Math.max(0, (Date.now() - epoch) / 1000), contextAvailable = true, inView = true;
   const draw = () => { if (contextAvailable) { gl.uniform1f(timeUniform, elapsed * speed); gl.drawArrays(gl.TRIANGLES, 0, 6); } };
   function resize() {
     if (!contextAvailable) return;
@@ -92,14 +98,13 @@ export function setupCurtain(options = {}) {
   }
   function animate(time) {
     frame = 0;
-    if (document.hidden || reduce.matches || !speed || !contextAvailable || !inView) { previousTime = 0; return; }
-    if (previousTime) elapsed += Math.min((time - previousTime) / 1000, .1);
-    previousTime = time;
+    if (document.hidden || reduce.matches || !speed || !contextAvailable || !inView) return;
+    elapsed = Math.max(0, (Date.now() - epoch) / 1000);
     if (time - lastRender >= 1000 / 30) { draw(); lastRender = time; }
     frame = requestAnimationFrame(animate);
   }
   function restart() {
-    cancelAnimationFrame(frame); frame = 0; previousTime = 0;
+    cancelAnimationFrame(frame); frame = 0;
     draw();
     if (!document.hidden && !reduce.matches && speed && contextAvailable && inView) frame = requestAnimationFrame(animate);
   }
