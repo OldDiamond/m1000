@@ -418,7 +418,7 @@ async function setup() {
   setupDecorations();
   setupArticleHover();
   setupForms(settings);
-  const socialNames = ['Gmail: m1000zurich@gmail.com', 'Instagram', 'LinkedIn'];
+  const socialNames = ['Gmail: m1000zurich@gmail.com', 'GitHub', 'Hack The Box', 'LinkedIn'];
   document.querySelectorAll('[data-framer-name="Social Media Icons"] a').forEach((link, index) => {
     link.setAttribute('aria-label', socialNames[index] || 'Social profile');
     link.rel = 'noopener noreferrer';

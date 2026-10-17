@@ -374,13 +374,18 @@
     },
     "link-107": {
       "type": "link",
-      "label": "Link",
-      "value": "https://www.instagram.com/yasin._xx/"
+      "label": "GitHub",
+      "value": "https://github.com/OldDiamond"
     },
     "link-108": {
       "type": "link",
       "label": "Link",
       "value": "https://www.linkedin.com/in/m1000z"
+    },
+    "link-109": {
+      "type": "link",
+      "label": "Hack The Box",
+      "value": "https://profile.hackthebox.com/profile/019e4061-76f1-72dc-ab69-1bd0481cd557"
     },
     "link-110": {
       "type": "link",
