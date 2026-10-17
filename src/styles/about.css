@@ -8,6 +8,9 @@
 }
 .about-intro { margin-bottom: 90px; display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 40px; }
 .about-intro > p { margin-top: 16px; max-width: 660px; }
+@media (min-width: 1280px) {
+  #hero-section.about-intro > h1 { text-align: left; }
+}
 .about-cv-button {
   grid-column: 2; grid-row: 1; align-self: center; justify-self: end;
   display: inline-flex; align-items: center; gap: 12px;
