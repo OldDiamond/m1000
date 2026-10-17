@@ -1,6 +1,19 @@
 /* Small-screen layout corrections; the laptop and desktop layout stays intact. */
 @media (max-width: 1279px) {
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  #hero-section[data-framer-name="Projects Section"] { padding: 144px 24px 64px !important; }
+  #hero-section[data-framer-name="Projects Section"] > [data-framer-name="Container"] {
+    display: flex !important; max-width: 900px !important; gap: 32px !important;
+  }
+  #hero-section[data-framer-name="Projects Section"] [data-framer-name="Title & description"] {
+    align-items: center; gap: 12px;
+  }
+  #hero-section[data-framer-name="Projects Section"] [data-framer-name="Title & description"] > [data-framer-component-type="RichTextContainer"] {
+    width: 100%; max-width: 620px;
+  }
+  #hero-section[data-framer-name="Projects Section"] [data-framer-name="Title & description"] p { text-align: center; }
+  #hero-section[data-framer-name="Projects Section"] [data-project] { gap: 16px; }
+  #hero-section[data-framer-name="Projects Section"] [data-project] [data-framer-name="Title & Description"] { gap: 6px; }
   [data-framer-name="Hero & Bio Sections"] {
     --compact-portrait-width: clamp(180px, 28vw, 240px);
     --compact-portrait-height: calc(var(--compact-portrait-width) * 1.14);
