@@ -59,7 +59,6 @@ const faviconLinks=[
  const version=createHash('sha256').update(fs.readFileSync(path.join('dist',url))).digest('hex').slice(0,12);
  return `<link rel="${rel}" href="${url}?v=${version}" type="${type}" sizes="${sizes}">`;
 }).join('');
-const siteBackground=fs.readFileSync('src/components/SiteBackground.html','utf8');
 for(const page of pages){
  let html=fs.readFileSync('src/pages/'+page.slug+'.html','utf8');
  html=html.replaceAll('<!--HEADER-->',fs.readFileSync('src/components/Header.html','utf8').replaceAll('{{displayName}}',escape(settings.displayName)));
@@ -87,6 +86,7 @@ for(const page of pages){
  html=html.replace(/href="(\/[^"#]+)(#[^"]*)?"/g,(match,target,hash='')=>{if(pages.some(p=>p.route===target))return match;const found=pages.find(p=>p.route.split('/').at(-1)===target.slice(1));return found?'href="'+found.route+hash+'"':match});
  html=html.replace(/href="(\/[^"\s]*)"/g,(_,href)=>'href="'+siteHref(href)+'"');
  if(page.slug==='home'){
+  html=html.replace('data-framer-name="Hero &amp; Bio Sections">','data-framer-name="Hero &amp; Bio Sections">'+fs.readFileSync('src/components/HeroBackground.html','utf8'));
   html=html.replace('data-framer-name="Hero Section" id="hero-section">','data-framer-name="Hero Section" id="hero-section"><span class="hero-copyright">©'+settings.copyrightYear+'</span>');
  }
  const icons=fs.readFileSync('src/components/Icons.html','utf8');
@@ -106,7 +106,7 @@ for(const page of pages){
  const motionBoot='<script>'+fs.readFileSync('src/navigation-boot.js','utf8')+'</script>';
  const fontPreloads=[500,600,page.slug==='home'?800:700].map(weight=>'<link rel="preload" href="/assets/fonts/archivo-normal-'+weight+'.woff2" as="font" type="font/woff2" crossorigin>').join('');
  const embeddedSettings='<script type="application/json" id="portfolio-settings">'+JSON.stringify(publicSettings).replaceAll('<','\\u003c')+'</script>';
- const doc=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101315"><style>html,body{background:#101315;color:#edf0ed}</style><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}">${fontPreloads}<link rel="stylesheet" href="/assets/${page.slug}.css"><link rel="stylesheet" href="/assets/custom.css"><link rel="stylesheet" href="/assets/theme.css"><link rel="stylesheet" href="/assets/responsive.css">${motionBoot}${embeddedSettings}<script type="module" src="/assets/interactions.js" blocking="render"></script></head><body>${opening}${icons}${siteBackground}${html}</body></html>`;
+ const doc=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080808"><style>html,body{background:#080808;color:#edf0ed}</style><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}">${fontPreloads}<link rel="stylesheet" href="/assets/${page.slug}.css"><link rel="stylesheet" href="/assets/custom.css"><link rel="stylesheet" href="/assets/theme.css"><link rel="stylesheet" href="/assets/responsive.css">${motionBoot}${embeddedSettings}<script type="module" src="/assets/interactions.js" blocking="render"></script></head><body>${opening}${icons}${html}</body></html>`;
  // Updated styles and entry scripts get fresh URLs on browsers that cached an earlier layout.
  const versionedDoc=doc.replace('</head>',faviconLinks+'</head>').replace(/((?:href|src)=")((?:\/assets\/)[^"?#]+\.(?:css|js))"/g,(_,attribute,url)=>{
   const version=createHash('sha256').update(fs.readFileSync(path.join('dist',url))).digest('hex').slice(0,12);
