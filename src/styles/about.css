@@ -1,32 +1,24 @@
 /* Reuse the existing page typography, paper texture, and footer theme. */
 @import url("/assets/work.css");
 
-.about-light-trails {
+.about-space-background {
   position: absolute; top: 0; left: 0; width: 100%; height: 130vh; height: 130svh;
   min-height: 850px; max-height: 1600px; z-index: 0;
   pointer-events: none; user-select: none; overflow: hidden; contain: strict;
   mask-image: linear-gradient(to bottom, #000 0%, #000 65%, transparent 100%);
-  background: radial-gradient(ellipse at 0% 100%, transparent 45%, #b43f4d20 49%, transparent 54%, #70212c14 62%, transparent 70%);
 }
-.about-light-trails[hidden] { display: none; }
-.about-light-trails[data-renderer="canvas"] { background: none; }
-.about-light-trails-canvas {
-  position: absolute; inset: 0; display: block; width: 100%; height: 100%;
-  transform-origin: 20% 65%; will-change: transform, opacity;
-  animation: about-trails-flow var(--about-trail-duration, 20s) ease-in-out infinite alternate;
+.about-space-background picture {
+  position: absolute; top: 0; right: 0; display: block;
+  width: min(100%, 940px); aspect-ratio: 719 / 996;
+  mask-image: linear-gradient(to bottom, #000 0%, #000 80%, transparent 100%);
 }
-.about-light-trails-canvas:nth-child(2) {
-  transform-origin: 5% 90%; animation-duration: calc(var(--about-trail-duration, 20s) * 1.3);
-  animation-delay: calc(var(--about-trail-duration, 20s) * -.55); animation-direction: alternate-reverse;
+.about-space-background img {
+  display: block; width: 100%; height: 100%; object-fit: contain; opacity: .85;
+  mask-image: linear-gradient(to right, transparent, #000 18%);
 }
-.about-light-trails[data-active="false"] .about-light-trails-canvas { animation-play-state: paused; will-change: auto; }
-.about-light-trails:not([data-renderer="canvas"]) .about-light-trails-canvas { display: none; }
-@keyframes about-trails-flow {
-  from { transform: translate3d(-1.5%, -1%, 0) rotate(-3deg) scale(1.06); opacity: .72; }
-  to { transform: translate3d(1.5%, 2%, 0) rotate(3deg) scale(1.06); opacity: 1; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .about-light-trails-canvas { animation: none; transform: none; will-change: auto; }
+.about-space-background::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, var(--theme-bg) 0%, #101315e6 20%, #10131559 58%, #10131559 100%);
 }
 
 .about-page {

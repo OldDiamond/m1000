@@ -1,5 +1,4 @@
 import { setupCurtain } from './curtain.js';
-import { setupAboutLightTrails } from './about-light-trails.js';
 import { setupFooterHands } from './footer-hands.js';
 import { setupFooterMark } from './footer-mark.js';
 import { setupPageMotion } from './page-motion.js';
@@ -413,7 +412,6 @@ async function setup() {
   const embeddedSettings = document.getElementById('portfolio-settings');
   const settings = embeddedSettings ? JSON.parse(embeddedSettings.textContent) : await fetch('/assets/settings.json').then(response => response.json());
   setupCurtain(settings.backgroundCurtains);
-  setupAboutLightTrails(settings.backgroundCurtains);
   setupNavigation(settings);
   setupFooter(settings);
   setupFooterMark();

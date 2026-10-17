@@ -29,12 +29,11 @@ fs.copyFileSync('src/styles/theme.css','dist/assets/theme.css');
 fs.copyFileSync('src/styles/responsive.css','dist/assets/responsive.css');
 fs.copyFileSync('src/interactions.js','dist/assets/interactions.js');
 fs.copyFileSync('src/curtain.js','dist/assets/curtain.js');
-fs.copyFileSync('src/about-light-trails.js','dist/assets/about-light-trails.js');
 fs.copyFileSync('src/footer-hands.js','dist/assets/footer-hands.js');
 fs.copyFileSync('src/footer-mark.js','dist/assets/footer-mark.js');
 fs.copyFileSync('src/page-motion.js','dist/assets/page-motion.js');
 fs.copyFileSync('src/opening-dots.js','dist/assets/opening-dots.js');
-const browserModules=new Map(['interactions','curtain','about-light-trails','footer-hands','footer-mark','page-motion','opening-dots'].map(name=>[name+'.js',fs.readFileSync('dist/assets/'+name+'.js','utf8')]));
+const browserModules=new Map(['interactions','curtain','footer-hands','footer-mark','page-motion','opening-dots'].map(name=>[name+'.js',fs.readFileSync('dist/assets/'+name+'.js','utf8')]));
 for(const [name,source] of browserModules){
  const versioned=source.replace(/(["'])\.\/([\w-]+\.js)\1/g,(match,quote,dependency)=>{
   if(!browserModules.has(dependency))return match;
