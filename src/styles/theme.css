@@ -50,8 +50,8 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible,
 .portfolio-menu a { background: #242a2e; color: var(--theme-text); box-shadow: inset 0 0 0 1px var(--theme-line); }
 .portfolio-menu a:hover { background: #343034; }
 @media (min-width: 810px) {
-  .portfolio-nav { display: flex; align-items: center; width: calc(100% - 60px); max-width: 720px; min-height: 72px; }
-  .portfolio-nav-bar { height: 72px; padding: 16px 24px; gap: 24px; flex: none; }
+  .portfolio-nav { display: flex; align-items: center; width: calc(100% - 60px); max-width: 680px; min-height: 56px; }
+  .portfolio-nav-bar { height: 56px; padding: 6px 24px; gap: 24px; flex: none; }
   .portfolio-nav-bar::after { content: ''; height: 24px; width: 1px; background: #ffffff1a; }
   .portfolio-toggle { display: none; }
   .portfolio-menu-reveal { display: block; margin-left: auto; }
