@@ -29,11 +29,12 @@ fs.copyFileSync('src/styles/theme.css','dist/assets/theme.css');
 fs.copyFileSync('src/styles/responsive.css','dist/assets/responsive.css');
 fs.copyFileSync('src/interactions.js','dist/assets/interactions.js');
 fs.copyFileSync('src/curtain.js','dist/assets/curtain.js');
+fs.copyFileSync('src/about-light-trails.js','dist/assets/about-light-trails.js');
 fs.copyFileSync('src/footer-hands.js','dist/assets/footer-hands.js');
 fs.copyFileSync('src/footer-mark.js','dist/assets/footer-mark.js');
 fs.copyFileSync('src/page-motion.js','dist/assets/page-motion.js');
 fs.copyFileSync('src/opening-dots.js','dist/assets/opening-dots.js');
-const browserModules=new Map(['interactions','curtain','footer-hands','footer-mark','page-motion','opening-dots'].map(name=>[name+'.js',fs.readFileSync('dist/assets/'+name+'.js','utf8')]));
+const browserModules=new Map(['interactions','curtain','about-light-trails','footer-hands','footer-mark','page-motion','opening-dots'].map(name=>[name+'.js',fs.readFileSync('dist/assets/'+name+'.js','utf8')]));
 for(const [name,source] of browserModules){
  const versioned=source.replace(/(["'])\.\/([\w-]+\.js)\1/g,(match,quote,dependency)=>{
   if(!browserModules.has(dependency))return match;
@@ -83,7 +84,8 @@ for(const page of pages){
  });
  html=html.replace(/(<footer\b[^>]*>)/g, '$1'+fs.readFileSync('src/components/FooterHands.html','utf8'));
  if(settings.footerMark?.enabled!==false)html=html.replace(/(<div\b[^>]*data-framer-name="Quick Links"[^>]*>)/g,(_,open)=>open+fs.readFileSync('src/components/FooterMark.html','utf8').replaceAll('{{footerMarkColor}}',escape(settings.footerMark?.color||'#c74747')));
- html=html.replace(/(<div\b[^>]*class="[^"]*\bframer-zpn31\b[^"]*"[^>]*>)/, '$1'+fs.readFileSync('src/components/CurtainBackground.html','utf8'));
+ const backgroundComponent=page.slug==='about'?'AboutBackground':'CurtainBackground';
+ html=html.replace(/(<div\b[^>]*class="[^"]*\bframer-zpn31\b[^"]*"[^>]*>)/, '$1'+fs.readFileSync('src/components/'+backgroundComponent+'.html','utf8'));
  html=html.replaceAll('href="./','href="/');
  html=html.replace(/href="(\/[^"#]+)(#[^"]*)?"/g,(match,target,hash='')=>{if(pages.some(p=>p.route===target))return match;const found=pages.find(p=>p.route.split('/').at(-1)===target.slice(1));return found?'href="'+found.route+hash+'"':match});
  html=html.replace(/href="(\/[^"\s]*)"/g,(_,href)=>'href="'+siteHref(href)+'"');
