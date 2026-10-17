@@ -1,14 +1,5 @@
 // Run before the first paint so page navigation never starts from a white canvas.
 (() => {
-  // Retire the old homepage fragment without a redirect or a new history entry.
-  function cleanHomeURL() {
-    if (location.pathname === '/' && location.hash === '#hero-section') {
-      history.replaceState(history.state, '', location.pathname + location.search);
-    }
-  }
-  cleanHomeURL();
-  addEventListener('hashchange', cleanHomeURL);
-  addEventListener('pageshow', cleanHomeURL);
   const root = document.documentElement;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const supportsReveal = 'onpagereveal' in window;

@@ -13,7 +13,7 @@
     "text-3": {
       "type": "html",
       "label": "m1000z",
-      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"/\">m1000z</a><!--/$-->"
+      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"./#hero-section\">m1000z</a><!--/$-->"
     },
     "text-4": {
       "type": "html",
@@ -163,37 +163,37 @@
     "text-52": {
       "type": "text",
       "label": "May 5, 2025",
-      "value": "Oct 17, 2026"
+      "value": "May 5, 2025"
     },
     "text-53": {
       "type": "text",
       "label": "Building Trust Through Clear Design",
-      "value": "A Practical Web Security Workflow"
+      "value": "Building Trust Through Clear Design"
     },
     "text-54": {
       "type": "text",
       "label": "How thoughtful visual choices create a stronger sense of reliability for modern brands.",
-      "value": "A focused approach to scoping, testing, validating, and reporting web application vulnerabilities."
+      "value": "How thoughtful visual choices create a stronger sense of reliability for modern brands."
     },
     "text-55": {
       "type": "text",
       "label": "Jun 16, 2025",
-      "value": "Oct 17, 2026"
+      "value": "Jun 16, 2025"
     },
     "text-56": {
       "type": "text",
       "label": "The Role of Art Direction in Branding",
-      "value": "API Security: Identity and Access"
+      "value": "The Role of Art Direction in Branding"
     },
     "text-57": {
       "type": "text",
       "label": "Why visual direction helps brands create emotion and a distinct point of view.",
-      "value": "How authentication, object permissions, and session handling work together to protect REST APIs."
+      "value": "Why visual direction helps brands create emotion and a distinct point of view."
     },
     "text-58": {
       "type": "text",
       "label": "See how we shape brands with clarity and craft— explore our blog",
-      "value": "Practical notes on web security, automation, and building safer applications."
+      "value": "See how we shape brands with clarity and craft— explore our blog"
     },
     "text-59": {
       "type": "text",
@@ -208,7 +208,7 @@
     "text-61": {
       "type": "text",
       "label": "Have a project or need help? Fill out the form, and we'll get back to you soon.",
-      "value": "Have a security project or need help? Send an enquiry, and I’ll get back to you."
+      "value": "Have a project or need help? Fill out the form, and we'll get back to you soon."
     },
     "text-62": {
       "type": "text",
@@ -313,14 +313,14 @@
     "image-92": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scan-configuration.png",
-      "alt": "NetNeedle scan configuration with assessment options"
+      "value": "https://framerusercontent.com/images/lxtBXj3G7Bloek83WxPY1ZUuw0Q.png?width=640&height=360",
+      "alt": ""
     },
     "image-93": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scanner-dashboard.png",
-      "alt": "NetNeedle scanner dashboard showing assessment progress"
+      "value": "https://framerusercontent.com/images/ic9k42rYytbJtnRUJXdcNxCHSc.png?width=640&height=359",
+      "alt": ""
     },
     "link-94": {
       "type": "link",
@@ -335,7 +335,7 @@
     "link-96": {
       "type": "link",
       "label": "m1000z",
-      "value": "/"
+      "value": "/#hero-section"
     },
     "link-97": {
       "type": "link",
@@ -345,27 +345,27 @@
     "link-98": {
       "type": "link",
       "label": "View All Work",
-      "value": "/work"
+      "value": "/work#hero-section"
     },
     "link-99": {
       "type": "link",
       "label": "NetNeedle project page",
-      "value": "/work/netneedle"
+      "value": "/work/netneedle#work-section"
     },
     "link-103": {
       "type": "link",
       "label": "May 5, 2025Building Trust Through Clear DesignHow thoughtful visual choices crea",
-      "value": "/blog/how-can-designers-prepare-for-the-future"
+      "value": "/blog/how-can-designers-prepare-for-the-future#article-section"
     },
     "link-104": {
       "type": "link",
       "label": "Jun 16, 2025The Role of Art Direction in BrandingWhy visual direction helps bran",
-      "value": "/blog/why-every-business-needs-a-professional-website-in-2025"
+      "value": "/blog/why-every-business-needs-a-professional-website-in-2025#article-section"
     },
     "link-105": {
       "type": "link",
       "label": "View All Work",
-      "value": "/blog"
+      "value": "/blog#hero-section"
     },
     "link-106": {
       "type": "link",
@@ -385,7 +385,7 @@
     "link-110": {
       "type": "link",
       "label": "Home\n    .rolling-text-inner-r15 {\n      --font-size: 16px;\n      --text: var(--",
-      "value": "/"
+      "value": "/#hero-section"
     },
     "link-111": {
       "type": "link",
@@ -400,7 +400,7 @@
     "link-113": {
       "type": "link",
       "label": "Works\n    .rolling-text-inner-r1d {\n      --font-size: 16px;\n      --text: var(-",
-      "value": "/work"
+      "value": "/work#hero-section"
     },
     "link-114": {
       "type": "link",
@@ -427,7 +427,7 @@
     "text-3": {
       "type": "html",
       "label": "m1000z",
-      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"/\">m1000z</a><!--/$-->"
+      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"./#hero-section\">m1000z</a><!--/$-->"
     },
     "text-4": {
       "type": "text",
@@ -518,17 +518,17 @@
     "link-36": {
       "type": "link",
       "label": "m1000z",
-      "value": "/"
+      "value": "/#hero-section"
     },
     "link-37": {
       "type": "link",
       "label": "NetNeedle project page",
-      "value": "/work/netneedle"
+      "value": "/work/netneedle#work-section"
     },
     "link-43": {
       "type": "link",
       "label": "Home\n    .rolling-text-inner-rn {\n      --font-size: 16px;\n      --text: var(--t",
-      "value": "/"
+      "value": "/#hero-section"
     },
     "link-44": {
       "type": "link",
@@ -543,7 +543,7 @@
     "link-46": {
       "type": "link",
       "label": "Works\n    .rolling-text-inner-r10 {\n      --font-size: 16px;\n      --text: var(-",
-      "value": "/work"
+      "value": "/work#hero-section"
     },
     "link-47": {
       "type": "link",
@@ -570,122 +570,122 @@
     "text-3": {
       "type": "html",
       "label": "m1000z",
-      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"/\">m1000z</a><!--/$-->"
+      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"./#hero-section\">m1000z</a><!--/$-->"
     },
     "text-4": {
       "type": "text",
       "label": "My Brightest Thoughts",
-      "value": "Security Notes"
+      "value": "My Brightest Thoughts"
     },
     "text-5": {
       "type": "text",
       "label": "Discover ideas, perspectives, and creative thinking shaped by our work in brand identity and art dir",
-      "value": "Practical notes on web application security, API testing, security automation, and turning assessment evidence into clear reports."
+      "value": "Discover ideas, perspectives, and creative thinking shaped by our work in brand identity and art direction. Each article explores how thoughtful design helps brands with clarity and intention."
     },
     "text-6": {
       "type": "text",
       "label": "May 5, 2025",
-      "value": "Oct 17, 2026"
+      "value": "May 5, 2025"
     },
     "text-7": {
       "type": "text",
       "label": "Building Trust Through Clear Design",
-      "value": "A Practical Web Security Workflow"
+      "value": "Building Trust Through Clear Design"
     },
     "text-8": {
       "type": "text",
       "label": "How thoughtful visual choices create a stronger sense of reliability for modern brands.",
-      "value": "A focused approach to scoping, testing, validating, and reporting web application vulnerabilities."
+      "value": "How thoughtful visual choices create a stronger sense of reliability for modern brands."
     },
     "text-9": {
       "type": "text",
       "label": "Jun 16, 2025",
-      "value": "Oct 17, 2026"
+      "value": "Jun 16, 2025"
     },
     "text-10": {
       "type": "text",
       "label": "The Role of Art Direction in Branding",
-      "value": "API Security: Identity and Access"
+      "value": "The Role of Art Direction in Branding"
     },
     "text-11": {
       "type": "text",
       "label": "Why visual direction helps brands create emotion and a distinct point of view.",
-      "value": "How authentication, object permissions, and session handling work together to protect REST APIs."
+      "value": "Why visual direction helps brands create emotion and a distinct point of view."
     },
     "text-12": {
       "type": "text",
       "label": "Jun 16, 2025",
-      "value": "Oct 17, 2026"
+      "value": "Jun 16, 2025"
     },
     "text-13": {
       "type": "text",
       "label": "How Creative Teams Build Brand Systems",
-      "value": "Building Reliable Security Automation"
+      "value": "How Creative Teams Build Brand Systems"
     },
     "text-14": {
       "type": "text",
       "label": "A look at the workflows that keep branding consistent across every touchpoint.",
-      "value": "Design Python security workflows with clear inputs, bounded jobs, structured evidence, and reviewable results."
+      "value": "A look at the workflows that keep branding consistent across every touchpoint."
     },
     "text-15": {
       "type": "text",
       "label": "Jun 16, 2025",
-      "value": "Oct 17, 2026"
+      "value": "Jun 16, 2025"
     },
     "text-16": {
       "type": "text",
       "label": "The Rise of Modern Tech Startup Websites",
-      "value": "Inside NetNeedle: From Scan to Report"
+      "value": "The Rise of Modern Tech Startup Websites"
     },
     "text-17": {
       "type": "text",
       "label": "Why tech startups need clear, high trust digital experiences to communicate and attract users.",
-      "value": "How NetNeedle connects assessment scope, background jobs, scan evidence, and actionable security reports."
+      "value": "Why tech startups need clear, high trust digital experiences to communicate and attract users."
     },
     "text-18": {
       "type": "text",
       "label": "Jun 16, 2025",
-      "value": "Oct 17, 2026"
+      "value": "Jun 16, 2025"
     },
     "text-19": {
       "type": "text",
       "label": "Top Web Design Trends to Watch in 2025",
-      "value": "Seven Checks Before a Web Release"
+      "value": "Top Web Design Trends to Watch in 2025"
     },
     "text-20": {
       "type": "text",
       "label": "Stay ahead of the curve with these key design trends shaping the future of the web.",
-      "value": "A practical release review covering permissions, sessions, secrets, dependencies, headers, logs, and recovery."
+      "value": "Stay ahead of the curve with these key design trends shaping the future of the web."
     },
     "text-21": {
       "type": "text",
       "label": "May 5, 2025",
-      "value": "Oct 17, 2026"
+      "value": "May 5, 2025"
     },
     "text-22": {
       "type": "text",
       "label": "Designing Products with Clear Purpose",
-      "value": "Writing Useful Vulnerability Reports"
+      "value": "Designing Products with Clear Purpose"
     },
     "text-23": {
       "type": "text",
       "label": "How mission-led design turns digital products into richer, more meaningful experiences.",
-      "value": "Turn security findings into clear evidence, realistic impact statements, remediation guidance, and retest criteria."
+      "value": "How mission-led design turns digital products into richer, more meaningful experiences."
     },
     "text-24": {
       "type": "text",
       "label": "May 5, 2025",
-      "value": "Oct 17, 2026"
+      "value": "May 5, 2025"
     },
     "text-25": {
       "type": "text",
       "label": "Starting and Growing a Career in Web Design",
-      "value": "Building a Foundation in Web Security"
+      "value": "Starting and Growing a Career in Web Design"
     },
     "text-26": {
       "type": "text",
       "label": "Web design blends creativity and tech, offering strong demand and roles in design.",
-      "value": "A practical learning path through HTTP, application development, authorized labs, automation, and clear technical writing."
+      "value": "Web design blends creativity and tech, offering strong demand and roles in design."
     },
     "text-27": {
       "type": "html",
@@ -740,44 +740,44 @@
     "image-37": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scan-configuration.png",
-      "alt": "NetNeedle scan configuration with assessment options"
+      "value": "https://framerusercontent.com/images/lxtBXj3G7Bloek83WxPY1ZUuw0Q.png?width=640&height=360",
+      "alt": ""
     },
     "image-38": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scanner-dashboard.png",
-      "alt": "NetNeedle scanner dashboard showing assessment progress"
+      "value": "https://framerusercontent.com/images/ic9k42rYytbJtnRUJXdcNxCHSc.png?width=640&height=359",
+      "alt": ""
     },
     "image-39": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scan-configuration.png",
-      "alt": "NetNeedle assessment configuration used to define scanner inputs"
+      "value": "https://framerusercontent.com/images/MWSFsHfw8FDzKSMZllibGDMY4CU.png?width=640&height=360",
+      "alt": ""
     },
     "image-40": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/exec-report.png",
-      "alt": "NetNeedle executive security report with risk and finding summaries"
+      "value": "https://framerusercontent.com/images/Mirnh1WfdeIPhnjStrfY33WLFo8.png?width=640&height=427",
+      "alt": ""
     },
     "image-41": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scanner-dashboard.png",
-      "alt": "NetNeedle dashboard for reviewing assessment status before a release"
+      "value": "https://framerusercontent.com/images/xgMwYRclJvAhqaJhMbQm8kpRv0.png?width=640&height=427",
+      "alt": ""
     },
     "image-42": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/exec-report.png",
-      "alt": "NetNeedle report presenting security findings and remediation summaries"
+      "value": "https://framerusercontent.com/images/VIMRfiZ27XChz1XOgjss4EmUoDM.png?width=640&height=480",
+      "alt": ""
     },
     "image-43": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/dashboard.png",
-      "alt": "NetNeedle cybersecurity project developed by Mohammad Yasin"
+      "value": "https://framerusercontent.com/images/HH3YKlPdNvuWQdn3ypOgOThmOk.png?width=640&height=427",
+      "alt": ""
     },
     "link-44": {
       "type": "link",
@@ -792,47 +792,47 @@
     "link-46": {
       "type": "link",
       "label": "m1000z",
-      "value": "/"
+      "value": "/#hero-section"
     },
     "link-47": {
       "type": "link",
       "label": "May 5, 2025Building Trust Through Clear DesignHow thoughtful visual choices crea",
-      "value": "/blog/how-can-designers-prepare-for-the-future"
+      "value": "/blog/how-can-designers-prepare-for-the-future#article-section"
     },
     "link-48": {
       "type": "link",
       "label": "Jun 16, 2025The Role of Art Direction in BrandingWhy visual direction helps bran",
-      "value": "/blog/why-every-business-needs-a-professional-website-in-2025"
+      "value": "/blog/why-every-business-needs-a-professional-website-in-2025#article-section"
     },
     "link-49": {
       "type": "link",
       "label": "Jun 16, 2025How Creative Teams Build Brand SystemsA look at the workflows that k",
-      "value": "/blog/how-creative-teams-build-strong-brand-systems"
+      "value": "/blog/how-creative-teams-build-strong-brand-systems#article-section"
     },
     "link-50": {
       "type": "link",
       "label": "Jun 16, 2025The Rise of Modern Tech Startup WebsitesWhy tech startups need clear",
-      "value": "/blog/the-rise-of-modern-tech-startup-websites"
+      "value": "/blog/the-rise-of-modern-tech-startup-websites#article-section"
     },
     "link-51": {
       "type": "link",
       "label": "Jun 16, 2025Top Web Design Trends to Watch in 2025Stay ahead of the curve with t",
-      "value": "/blog/top-web-design-trends-to-watch-in-2025"
+      "value": "/blog/top-web-design-trends-to-watch-in-2025#article-section"
     },
     "link-52": {
       "type": "link",
       "label": "May 5, 2025Designing Products with Clear PurposeHow mission-led design turns dig",
-      "value": "/blog/designing-products-with-purpose"
+      "value": "/blog/designing-products-with-purpose#article-section"
     },
     "link-53": {
       "type": "link",
       "label": "May 5, 2025Starting and Growing a Career in Web DesignWeb design blends creativi",
-      "value": "/blog/starting-and-growing-a-career-in-web-design"
+      "value": "/blog/starting-and-growing-a-career-in-web-design#article-section"
     },
     "link-54": {
       "type": "link",
       "label": "Home\n    .rolling-text-inner-r1e {\n      --font-size: 16px;\n      --text: var(--",
-      "value": "/"
+      "value": "/#hero-section"
     },
     "link-55": {
       "type": "link",
@@ -847,7 +847,7 @@
     "link-57": {
       "type": "link",
       "label": "Works\n    .rolling-text-inner-r1q {\n      --font-size: 16px;\n      --text: var(-",
-      "value": "/work"
+      "value": "/work#hero-section"
     },
     "link-58": {
       "type": "link",
@@ -874,192 +874,192 @@
     "text-3": {
       "type": "html",
       "label": "m1000z",
-      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"/\">m1000z</a><!--/$-->"
+      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"../#hero-section\">m1000z</a><!--/$-->"
     },
     "text-4": {
       "type": "text",
       "label": "Building Trust Through Clear Design",
-      "value": "A Practical Web Security Workflow"
+      "value": "Building Trust Through Clear Design"
     },
     "text-5": {
       "type": "text",
       "label": "Vintage car restoration blends engineering, artistry, and historical research to revive automobiles ",
-      "value": "A focused approach to scoping, testing, validating, and reporting web application vulnerabilities."
+      "value": "Vintage car restoration blends engineering, artistry, and historical research to revive automobiles from past eras."
     },
     "text-6": {
       "type": "text",
       "label": "May 5, 2025",
-      "value": "Oct 17, 2026"
+      "value": "May 5, 2025"
     },
     "text-7": {
       "type": "text",
       "label": "7 min read",
-      "value": "2 min read"
+      "value": "7 min read"
     },
     "text-8": {
       "type": "text",
       "label": "Why Restore Vintage Cars?",
-      "value": "Start with a Clear Scope"
+      "value": "Why Restore Vintage Cars?"
     },
     "text-9": {
       "type": "text",
       "label": "Vintage car restoration is more than a hobby—it’s a way to preserve the craftsmanship, engineering, ",
-      "value": "A useful web assessment starts with an agreed target and a specific question. Define the applications, accounts, environments, and testing window before collecting results."
+      "value": "Vintage car restoration is more than a hobby—it’s a way to preserve the craftsmanship, engineering, and cultural heritage of past decades. Each restored car tells a story, reflecting design innovation, mechanical ingenuity, and the era in which it was created. For enthusiasts, restoring a vintage car is a journey that connects history, artistry, and technical skill."
     },
     "text-10": {
       "type": "text",
       "label": "The Restoration Process",
-      "value": "Map the Application"
+      "value": "The Restoration Process"
     },
     "text-11": {
       "type": "text",
       "label": "Restoration begins long before tools meet metal. Enthusiasts and mechanics start with meticulous res",
-      "value": "Record how the application handles data and which users can reach each workflow. Keep a small inventory that another reviewer can follow:"
+      "value": "Restoration begins long before tools meet metal. Enthusiasts and mechanics start with meticulous research, studying:"
     },
     "text-12": {
       "type": "text",
       "label": "Original factory drawings and blueprints",
-      "value": "Application routes and exposed API endpoints"
+      "value": "Original factory drawings and blueprints"
     },
     "text-13": {
       "type": "text",
       "label": "Historic color charts and paint formulations",
-      "value": "User roles and account boundaries"
+      "value": "Historic color charts and paint formulations"
     },
     "text-14": {
       "type": "text",
       "label": "Interior materials and trim details",
-      "value": "Authentication and account recovery workflows"
+      "value": "Interior materials and trim details"
     },
     "text-15": {
       "type": "text",
       "label": "Mechanical specifications and assembly methods",
-      "value": "Data imports, exports, and file handling"
+      "value": "Mechanical specifications and assembly methods"
     },
     "text-16": {
       "type": "text",
       "label": "The goal is authenticity—every restored car should closely mirror its original form, preserving both",
-      "value": "Use this map to choose checks that match the application. A customer portal and a public information site expose different risks."
+      "value": "The goal is authenticity—every restored car should closely mirror its original form, preserving both function and character."
     },
     "text-17": {
       "type": "text",
       "label": "Mechanical Rebuilding",
-      "value": "Combine Automated and Manual Checks"
+      "value": "Mechanical Rebuilding"
     },
     "text-18": {
       "type": "text",
       "label": "Engines, transmissions, and suspension systems require detailed attention. This often involves:",
-      "value": "Automation helps collect repeatable observations. Manual review adds the application context needed to decide whether an observation is a security issue."
+      "value": "Engines, transmissions, and suspension systems require detailed attention. This often involves:"
     },
     "text-19": {
       "type": "text",
       "label": "Careful disassembly and cleaning of components",
-      "value": "Record the scanner configuration and tool version"
+      "value": "Careful disassembly and cleaning of components"
     },
     "text-20": {
       "type": "text",
       "label": "Machining worn parts to precise tolerances",
-      "value": "Separate confirmed issues from unverified observations"
+      "value": "Machining worn parts to precise tolerances"
     },
     "text-21": {
       "type": "text",
       "label": "Rebuilding and fine-tuning for performance and reliability",
-      "value": "Review access rules with approved test accounts"
+      "value": "Rebuilding and fine-tuning for performance and reliability"
     },
     "text-22": {
       "type": "text",
       "label": "Custom fabrication or sourcing rare components no longer in production",
-      "value": "Check important workflows after configuration changes"
+      "value": "Custom fabrication or sourcing rare components no longer in production"
     },
     "text-23": {
       "type": "text",
       "label": "Restorers may spend months tracking down elusive parts, turning the mechanical process into both a c",
-      "value": "Keep testing controlled and repeatable. Avoid collecting unrelated customer data when a small test record can demonstrate the same behavior."
+      "value": "Restorers may spend months tracking down elusive parts, turning the mechanical process into both a challenge and a labor of love."
     },
     "text-24": {
       "type": "text",
       "label": "Bodywork and Paint",
-      "value": "Validate the Evidence"
+      "value": "Bodywork and Paint"
     },
     "text-25": {
       "type": "text",
       "label": "Restoring the exterior is an art form. Specialists repair rust, reshape panels, and apply paint fini",
-      "value": "For each finding, capture the affected feature, the expected behavior, the observed behavior, and a minimal reproduction. Remove session tokens and personal data from shared evidence."
+      "value": "Restoring the exterior is an art form. Specialists repair rust, reshape panels, and apply paint finishes that match the car’s original hue and texture. Every curve, chrome trim, and detail is treated with museum-level care, ensuring the car looks and feels as it did decades ago."
     },
     "text-26": {
       "type": "text",
       "label": "Interior Craftsmanship",
-      "value": "Explain the Impact"
+      "value": "Interior Craftsmanship"
     },
     "text-27": {
       "type": "text",
       "label": "The interior brings the car’s personality to life. Leather, stitching, wood panels, gauges, and upho",
-      "value": "Describe which user or system could be affected and under which conditions. State prerequisites and uncertainty so the reader can judge the result fairly."
+      "value": "The interior brings the car’s personality to life. Leather, stitching, wood panels, gauges, and upholstery must faithfully replicate the original design. Skilled artisans often spend weeks on this stage, combining traditional techniques with modern precision to achieve a seamless restoration."
     },
     "text-28": {
       "type": "text",
       "label": "The Value of Preservation",
-      "value": "Make the Fix Reviewable"
+      "value": "The Value of Preservation"
     },
     "text-29": {
       "type": "text",
       "label": "Vintage car restoration keeps automotive history alive. It celebrates:",
-      "value": "A useful assessment gives the development team a clear next step:"
+      "value": "Vintage car restoration keeps automotive history alive. It celebrates:"
     },
     "text-30": {
       "type": "text",
       "label": "Design heritage and the evolution of style",
-      "value": "A description of the underlying control failure"
+      "value": "Design heritage and the evolution of style"
     },
     "text-31": {
       "type": "text",
       "label": "Engineering advancements and mechanical ingenuity",
-      "value": "A focused remediation suggestion"
+      "value": "Engineering advancements and mechanical ingenuity"
     },
     "text-32": {
       "type": "text",
       "label": "The passion and dedication of artisans and enthusiasts",
-      "value": "A repeatable check for the corrected behavior"
+      "value": "The passion and dedication of artisans and enthusiasts"
     },
     "text-33": {
       "type": "text",
       "label": "Each restored car is a rolling piece of history, a tangible connection to the past, and a testament ",
-      "value": "Retest the original scenario after the change. Record the outcome and any remaining limitations rather than silently closing the finding."
+      "value": "Each restored car is a rolling piece of history, a tangible connection to the past, and a testament to human creativity."
     },
     "text-34": {
       "type": "text",
       "label": "Bringing Your Passion Online",
-      "value": "Use a Consistent Reference"
+      "value": "Bringing Your Passion Online"
     },
     "text-35": {
       "type": "html",
       "label": "If you’re inspired by vintage cars and want to showcase your restoration projects, a professional po",
-      "value": "The OWASP Web Security Testing Guide provides a shared vocabulary for planning and documenting web security checks."
+      "value": "If you’re inspired by vintage cars and want to showcase your restoration projects, a professional portfolio website can make your work shine. With free Framer templates, you can build eye-catching, fully customizable websites without starting from scratch. Present your projects, tell your story, and celebrate craftsmanship online with ease: <!--$--><a class=\"framer-text framer-styles-preset-k80mkz\" href=\"https://templyo.io/templates\" rel=\"\">Templyo</a><!--/$-->."
     },
     "text-36": {
       "type": "text",
       "label": "One Workflow for Every Platform",
-      "value": "Keep the Workflow Connected"
+      "value": "One Workflow for Every Platform"
     },
     "text-37": {
-      "type": "html",
+      "type": "text",
       "label": "Most restorers don’t post on just one network. Short clips work on TikTok and Reels, detailed progre",
-      "value": "Move from scope to evidence to remediation in one traceable record. See the NetNeedle project for an example of how assessment results and reporting can share a workspace. <a class=\"framer-text framer-styles-preset-k80mkz\" href=\"https://owasp.org/www-project-web-security-testing-guide/\">OWASP Web Security Testing Guide</a>."
+      "value": "Most restorers don’t post on just one network. Short clips work on TikTok and Reels, detailed progress fits Instagram carousels, and longer walkthroughs belong on YouTube or Facebook. Posting each platform separately means rewriting captions, re-uploading media, and switching between apps — time you’d rather spend on the car."
     },
     "text-38": {
       "type": "text",
       "label": "Join the newsletter",
-      "value": "Newsletter coming soon"
+      "value": "Join the newsletter"
     },
     "text-39": {
-      "type": "html",
+      "type": "text",
       "label": "Be the first to read our articles.",
-      "value": "For security enquiries, <a class=\"framer-text\" href=\"/#contact\">get in touch</a>."
+      "value": "Be the first to read our articles."
     },
     "text-40": {
       "type": "text",
       "label": "Submit",
-      "value": "Coming soon"
+      "value": "Submit"
     },
     "text-41": {
       "type": "text",
@@ -1069,47 +1069,47 @@
     "text-42": {
       "type": "text",
       "label": "Jun 16, 2025",
-      "value": "Oct 17, 2026"
+      "value": "Jun 16, 2025"
     },
     "text-43": {
       "type": "text",
       "label": "The Role of Art Direction in Branding",
-      "value": "API Security: Identity and Access"
+      "value": "The Role of Art Direction in Branding"
     },
     "text-44": {
       "type": "text",
       "label": "Why visual direction helps brands create emotion and a distinct point of view.",
-      "value": "How authentication, object permissions, and session handling work together to protect REST APIs."
+      "value": "Why visual direction helps brands create emotion and a distinct point of view."
     },
     "text-45": {
       "type": "text",
       "label": "Jun 16, 2025",
-      "value": "Oct 17, 2026"
+      "value": "Jun 16, 2025"
     },
     "text-46": {
       "type": "text",
       "label": "How Creative Teams Build Brand Systems",
-      "value": "Building Reliable Security Automation"
+      "value": "How Creative Teams Build Brand Systems"
     },
     "text-47": {
       "type": "text",
       "label": "A look at the workflows that keep branding consistent across every touchpoint.",
-      "value": "Design Python security workflows with clear inputs, bounded jobs, structured evidence, and reviewable results."
+      "value": "A look at the workflows that keep branding consistent across every touchpoint."
     },
     "text-48": {
       "type": "text",
       "label": "Jun 16, 2025",
-      "value": "Oct 17, 2026"
+      "value": "Jun 16, 2025"
     },
     "text-49": {
       "type": "text",
       "label": "The Rise of Modern Tech Startup Websites",
-      "value": "Inside NetNeedle: From Scan to Report"
+      "value": "The Rise of Modern Tech Startup Websites"
     },
     "text-50": {
       "type": "text",
       "label": "Why tech startups need clear, high trust digital experiences to communicate and attract users.",
-      "value": "How NetNeedle connects assessment scope, background jobs, scan evidence, and actionable security reports."
+      "value": "Why tech startups need clear, high trust digital experiences to communicate and attract users."
     },
     "text-51": {
       "type": "html",
@@ -1164,26 +1164,26 @@
     "image-61": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scan-configuration.png",
-      "alt": "NetNeedle scan configuration with assessment options"
+      "value": "https://framerusercontent.com/images/lxtBXj3G7Bloek83WxPY1ZUuw0Q.png?width=640&height=360",
+      "alt": ""
     },
     "image-62": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scanner-dashboard.png",
-      "alt": "NetNeedle scanner dashboard showing assessment progress"
+      "value": "https://framerusercontent.com/images/ic9k42rYytbJtnRUJXdcNxCHSc.png?width=640&height=359",
+      "alt": ""
     },
     "image-63": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scan-configuration.png",
-      "alt": "NetNeedle assessment configuration used to define scanner inputs"
+      "value": "https://framerusercontent.com/images/MWSFsHfw8FDzKSMZllibGDMY4CU.png?width=640&height=360",
+      "alt": ""
     },
     "image-64": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/exec-report.png",
-      "alt": "NetNeedle executive security report with risk and finding summaries"
+      "value": "https://framerusercontent.com/images/Mirnh1WfdeIPhnjStrfY33WLFo8.png?width=640&height=427",
+      "alt": ""
     },
     "link-65": {
       "type": "link",
@@ -1198,7 +1198,7 @@
     "link-67": {
       "type": "link",
       "label": "m1000z",
-      "value": "/"
+      "value": "../#hero-section"
     },
     "link-68": {
       "type": "link",
@@ -1208,22 +1208,22 @@
     "link-69": {
       "type": "link",
       "label": "Jun 16, 2025The Role of Art Direction in BrandingWhy visual direction helps bran",
-      "value": "/blog/why-every-business-needs-a-professional-website-in-2025"
+      "value": "/why-every-business-needs-a-professional-website-in-2025"
     },
     "link-70": {
       "type": "link",
       "label": "Jun 16, 2025How Creative Teams Build Brand SystemsA look at the workflows that k",
-      "value": "/blog/how-creative-teams-build-strong-brand-systems"
+      "value": "/how-creative-teams-build-strong-brand-systems"
     },
     "link-71": {
       "type": "link",
       "label": "Jun 16, 2025The Rise of Modern Tech Startup WebsitesWhy tech startups need clear",
-      "value": "/blog/the-rise-of-modern-tech-startup-websites"
+      "value": "/the-rise-of-modern-tech-startup-websites"
     },
     "link-72": {
       "type": "link",
       "label": "Home\n    .rolling-text-inner-rt {\n      --font-size: 16px;\n      --text: var(--t",
-      "value": "/"
+      "value": "../#hero-section"
     },
     "link-73": {
       "type": "link",
@@ -1233,17 +1233,17 @@
     "link-74": {
       "type": "link",
       "label": "Services\n    .rolling-text-inner-r16 {\n      --font-size: 16px;\n      --text: va",
-      "value": "/#services"
+      "value": "../#services"
     },
     "link-75": {
       "type": "link",
       "label": "Works\n    .rolling-text-inner-r19 {\n      --font-size: 16px;\n      --text: var(-",
-      "value": "/work"
+      "value": "../work#hero-section"
     },
     "link-76": {
       "type": "link",
       "label": "Contact\n    .rolling-text-inner-r1b {\n      --font-size: 16px;\n      --text: var",
-      "value": "/#contact"
+      "value": "../#contact"
     },
     "link-77": {
       "type": "link",
@@ -1265,317 +1265,317 @@
     "text-3": {
       "type": "html",
       "label": "m1000z",
-      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"/\">m1000z</a><!--/$-->"
+      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"../#hero-section\">m1000z</a><!--/$-->"
     },
     "text-4": {
       "type": "text",
       "label": "The Role of Art Direction in Branding",
-      "value": "API Security: Identity and Access"
+      "value": "The Role of Art Direction in Branding"
     },
     "text-5": {
       "type": "text",
       "label": "Fashion websites are evolving into immersive platforms capable of storytelling, personalization, and",
-      "value": "How authentication, object permissions, and session handling work together to protect REST APIs."
+      "value": "Fashion websites are evolving into immersive platforms capable of storytelling, personalization, and direct engagement through editorial-style design."
     },
     "text-6": {
       "type": "text",
       "label": "Jun 16, 2025",
-      "value": "Oct 17, 2026"
+      "value": "Jun 16, 2025"
     },
     "text-7": {
       "type": "text",
       "label": "8 min read",
-      "value": "4 min read"
+      "value": "8 min read"
     },
     "text-8": {
       "type": "text",
       "label": "What Makes a Great Fashion Website",
-      "value": "Know What the API Protects"
+      "value": "What Makes a Great Fashion Website"
     },
     "text-9": {
       "type": "text",
       "label": "A great fashion website doesn’t just showcase products—it tells a story, evokes emotion, and reflect",
-      "value": "Start with the data and actions exposed by each endpoint. An API needs an explicit answer to who may read, create, change, or delete each resource."
+      "value": "A great fashion website doesn’t just showcase products—it tells a story, evokes emotion, and reflects a lifestyle. In today’s digital-first world, your online presence often becomes the primary way people experience your brand. A truly exceptional fashion website feels less like a store and more like an immersive journey into your brand’s world."
     },
     "text-10": {
       "type": "text",
       "label": "Fashion Websites as Digital Flagship Stores",
-      "value": "Authentication Establishes Identity"
+      "value": "Fashion Websites as Digital Flagship Stores"
     },
     "text-11": {
       "type": "text",
       "label": "As physical retail shifts toward experience-driven spaces, online stores now serve as the definitive",
-      "value": "Authentication checks who is making a request. It is one input to an access decision; the requested operation still needs a permission check."
+      "value": "As physical retail shifts toward experience-driven spaces, online stores now serve as the definitive point of brand interaction."
     },
     "text-12": {
       "type": "text",
       "label": "“Your homepage is often your first runway.”",
-      "value": "Identify the caller, then check the requested action."
+      "value": "“Your homepage is often your first runway.”"
     },
     "text-13": {
       "type": "text",
       "label": "This means your website isn’t just a catalog—it’s a stage. Every visual, animation, and interaction ",
-      "value": "A valid session should lead to a deliberate authorization decision at the server. Hiding a button in the interface does not enforce that decision."
+      "value": "This means your website isn’t just a catalog—it’s a stage. Every visual, animation, and interaction contributes to the way people perceive your brand."
     },
     "text-14": {
       "type": "text",
       "label": "What this means for brands:",
-      "value": "Map the access model before testing:"
+      "value": "What this means for brands:"
     },
     "text-15": {
       "type": "text",
       "label": "Curated visuals: Every image should feel intentional, not cluttered.",
-      "value": "List the roles the application supports"
+      "value": "Curated visuals: Every image should feel intentional, not cluttered."
     },
     "text-16": {
       "type": "text",
       "label": "Thoughtful interactions: Hover effects, micro-animations, and scroll triggers should enhance discove",
-      "value": "Identify which account owns each test record"
+      "value": "Thoughtful interactions: Hover effects, micro-animations, and scroll triggers should enhance discovery."
     },
     "text-17": {
       "type": "text",
       "label": "Personality over products: Content should convey brand voice, lifestyle, and values—not just invento",
-      "value": "Record operations that require elevated privileges"
+      "value": "Personality over products: Content should convey brand voice, lifestyle, and values—not just inventory."
     },
     "text-18": {
       "type": "text",
       "label": "The Rise of Immersive Storytelling",
-      "value": "Check Object Permissions"
+      "value": "The Rise of Immersive Storytelling"
     },
     "text-19": {
       "type": "text",
       "label": "Storytelling is no longer optional—it’s the heart of high-end fashion branding. Modern brands are mo",
-      "value": "Object level authorization determines whether a caller may access a particular record. A resource identifier alone is insufficient evidence of permission."
+      "value": "Storytelling is no longer optional—it’s the heart of high-end fashion branding. Modern brands are moving away from static product grids and toward experiences that feel editorial."
     },
     "text-20": {
       "type": "text",
       "label": "Editorial Structure",
-      "value": "Use Approved Test Accounts"
+      "value": "Editorial Structure"
     },
     "text-21": {
       "type": "text",
       "label": "Fashion websites increasingly resemble digital magazines:",
-      "value": "Create a small set of controlled records and document their expected access:"
+      "value": "Fashion websites increasingly resemble digital magazines:"
     },
     "text-22": {
       "type": "text",
       "label": "Cinematic hero sections that set the tone immediately",
-      "value": "A user accessing a record they own"
+      "value": "Cinematic hero sections that set the tone immediately"
     },
     "text-23": {
       "type": "text",
       "label": "Layered typography and carefully designed hierarchy",
-      "value": "A different user requesting that same record"
+      "value": "Layered typography and carefully designed hierarchy"
     },
     "text-24": {
       "type": "text",
       "label": "Smooth, artistic page transitions",
-      "value": "A restricted account attempting an administrative action"
+      "value": "Smooth, artistic page transitions"
     },
     "text-25": {
       "type": "text",
       "label": "Narrative-driven product features that feel like part of a story",
-      "value": "A signed-out request to a protected endpoint"
+      "value": "Narrative-driven product features that feel like part of a story"
     },
     "text-26": {
       "type": "text",
       "label": "Why this works: It transforms browsing from a transactional activity into a curated, guided journey ",
-      "value": "Compare the observed result with the intended policy. Record the response and avoid retrieving more data than the test requires."
+      "value": "Why this works: It transforms browsing from a transactional activity into a curated, guided journey that immerses the user in the brand’s universe."
     },
     "text-27": {
       "type": "text",
       "label": "Atmosphere Over Pure Utility",
-      "value": "Enforce Decisions on the Server"
+      "value": "Atmosphere Over Pure Utility"
     },
     "text-28": {
       "type": "text",
       "label": "A fashion website must make users feel something. Utility alone isn’t enough.",
-      "value": "Apply access checks where data is read or changed. Every route that reaches the same object should enforce the relevant policy."
+      "value": "A fashion website must make users feel something. Utility alone isn’t enough."
     },
     "text-29": {
       "type": "text",
       "label": "“Design that evokes emotion is remembered. Design that feels generic is forgotten.”",
-      "value": "Review the access decision at the data boundary."
+      "value": "“Design that evokes emotion is remembered. Design that feels generic is forgotten.”"
     },
     "text-30": {
       "type": "text",
       "label": "Every scroll, hover, or click should reinforce the brand mood. Color palettes, texture, and even mic",
-      "value": "Include alternate request methods, export endpoints, and background operations in the review. An otherwise protected object may be reachable through another workflow."
+      "value": "Every scroll, hover, or click should reinforce the brand mood. Color palettes, texture, and even micro-interactions contribute to the atmosphere, creating a sense of exclusivity and inspiration."
     },
     "text-31": {
       "type": "text",
       "label": "Personalization and User Experience",
-      "value": "Treat Sessions as Security Boundaries"
+      "value": "Personalization and User Experience"
     },
     "text-32": {
       "type": "text",
       "label": "Fashion brands thrive when storytelling merges with personalization. Users expect online experiences",
-      "value": "Session handling connects requests to an authenticated user. Review how sessions are created, renewed, expired, and revoked."
+      "value": "Fashion brands thrive when storytelling merges with personalization. Users expect online experiences that feel tailored and responsive."
     },
     "text-33": {
       "type": "text",
       "label": "Smart Layouts and Micro Interactions",
-      "value": "Review the Lifecycle"
+      "value": "Smart Layouts and Micro Interactions"
     },
     "text-34": {
       "type": "text",
       "label": "Luxury UX isn’t about flashy effects—it’s about subtle, thoughtful details:",
-      "value": "For an approved test environment, document the expected behavior for:"
+      "value": "Luxury UX isn’t about flashy effects—it’s about subtle, thoughtful details:"
     },
     "text-35": {
       "type": "text",
       "label": "Product cards that reveal textures or details on hover",
-      "value": "Sign-in and session renewal"
+      "value": "Product cards that reveal textures or details on hover"
     },
     "text-36": {
       "type": "text",
       "label": "Lookbook-style scrolling sections that mimic editorial spreads",
-      "value": "Logout and session revocation"
+      "value": "Lookbook-style scrolling sections that mimic editorial spreads"
     },
     "text-37": {
       "type": "text",
       "label": "Adaptive layouts that fluidly adjust to mobile or desktop without losing elegance",
-      "value": "Account recovery and sensitive account changes"
+      "value": "Adaptive layouts that fluidly adjust to mobile or desktop without losing elegance"
     },
     "text-38": {
       "type": "text",
       "label": "These micro-interactions signal attention to detail and enhance perceived quality.",
-      "value": "Confirm that these transitions match the documented policy. Avoid placing session identifiers in screenshots or shared reports."
+      "value": "These micro-interactions signal attention to detail and enhance perceived quality."
     },
     "text-39": {
       "type": "text",
       "label": "Brand Identity Through Every Element",
-      "value": "Keep Error Handling Consistent"
+      "value": "Brand Identity Through Every Element"
     },
     "text-40": {
       "type": "text",
       "label": "Consistency is the backbone of brand recognition. Every element—colors, fonts, photography style, to",
-      "value": "Errors should give legitimate users enough information to recover without revealing unnecessary account or internal system details."
+      "value": "Consistency is the backbone of brand recognition. Every element—colors, fonts, photography style, tone of voice—should reinforce your identity."
     },
     "text-41": {
       "type": "text",
       "label": "“Every element should whisper your brand’s identity.”",
-      "value": "Keep troubleshooting useful and sensitive data private."
+      "value": "“Every element should whisper your brand’s identity.”"
     },
     "text-42": {
       "type": "text",
       "label": "From navigation menus to product thumbnails, cohesion communicates professionalism, trust, and style",
-      "value": "Review server logs separately from public responses. Operational diagnostics belong in controlled logging systems."
+      "value": "From navigation menus to product thumbnails, cohesion communicates professionalism, trust, and style."
     },
     "text-43": {
       "type": "text",
       "label": "The Power of Photography and Visual Direction",
-      "value": "Record the Evidence"
+      "value": "The Power of Photography and Visual Direction"
     },
     "text-44": {
       "type": "text",
       "label": "High-quality photography remains central to fashion experiences. Beyond resolution, it’s about story",
-      "value": "A clear finding describes the affected endpoint, caller permissions, test record, and expected access rule."
+      "value": "High-quality photography remains central to fashion experiences. Beyond resolution, it’s about storytelling through visuals."
     },
     "text-45": {
       "type": "text",
       "label": "Elevated Visual Language",
-      "value": "A Useful Finding Includes"
+      "value": "Elevated Visual Language"
     },
     "text-46": {
       "type": "text",
       "label": "Soft spotlighting, rich textures, and cinematic shadows",
-      "value": "The affected operation and environment"
+      "value": "Soft spotlighting, rich textures, and cinematic shadows"
     },
     "text-47": {
       "type": "text",
       "label": "Minimalist backgrounds with intentional negative space",
-      "value": "The roles and prerequisites used in the test"
+      "value": "Minimalist backgrounds with intentional negative space"
     },
     "text-48": {
       "type": "text",
       "label": "Close-ups that highlight craftsmanship and material quality",
-      "value": "The observed result with sensitive values removed"
+      "value": "Close-ups that highlight craftsmanship and material quality"
     },
     "text-49": {
       "type": "text",
       "label": "Natural gradients and atmospheric lighting to convey mood",
-      "value": "The permission check needed to correct the behavior"
+      "value": "Natural gradients and atmospheric lighting to convey mood"
     },
     "text-50": {
       "type": "text",
       "label": "When executed well, photography does more than show a product—it evokes desire.",
-      "value": "Keep the result specific enough for a developer to reproduce using test data."
+      "value": "When executed well, photography does more than show a product—it evokes desire."
     },
     "text-51": {
       "type": "text",
       "label": "Conversion Through Emotion",
-      "value": "Retest the Policy"
+      "value": "Conversion Through Emotion"
     },
     "text-52": {
       "type": "text",
       "label": "Fashion is emotional, and buying decisions often follow emotion before logic. A website that feels p",
-      "value": "After a fix, repeat both the allowed and denied scenarios. A change should preserve legitimate access while enforcing the intended boundary."
+      "value": "Fashion is emotional, and buying decisions often follow emotion before logic. A website that feels premium can subconsciously increase trust, engagement, and conversions."
     },
     "text-53": {
       "type": "text",
       "label": "How Emotion Drives Action",
-      "value": "Keep Regression Checks Small"
+      "value": "How Emotion Drives Action"
     },
     "text-54": {
       "type": "text",
       "label": "Editorial storytelling encourages exploration and attachment",
-      "value": "Test the resource owner path"
+      "value": "Editorial storytelling encourages exploration and attachment"
     },
     "text-55": {
       "type": "text",
       "label": "Consistent art direction reinforces perceived value",
-      "value": "Test a different account and a restricted role"
+      "value": "Consistent art direction reinforces perceived value"
     },
     "text-56": {
       "type": "text",
       "label": "Frictionless checkout processes reduce hesitation",
-      "value": "Test the signed-out case where relevant"
+      "value": "Frictionless checkout processes reduce hesitation"
     },
     "text-57": {
       "type": "text",
       "label": "Styled testimonials and social proof make the brand relatable yet aspirational",
-      "value": "Check alternate endpoints that reach the same resource"
+      "value": "Styled testimonials and social proof make the brand relatable yet aspirational"
     },
     "text-58": {
       "type": "text",
       "label": "When users feel a connection, conversions follow naturally.",
-      "value": "Store these expectations with the application tests so future changes can be reviewed against the same access policy."
+      "value": "When users feel a connection, conversions follow naturally."
     },
     "text-59": {
       "type": "text",
       "label": "Final Thought",
-      "value": "Build Around Explicit Rules"
+      "value": "Final Thought"
     },
     "text-60": {
       "type": "text",
       "label": "Fashion is visual, emotional, and aspirational. A modern fashion website should be more than a digit",
-      "value": "API security improves when identity, permissions, and session lifecycle rules are documented together."
+      "value": "Fashion is visual, emotional, and aspirational. A modern fashion website should be more than a digital storefront—it should be a cinematic, curated experience that mirrors the values and identity of the brand."
     },
     "text-61": {
       "type": "text",
       "label": "The brands that succeed online are those who craft experiences that feel meaningful, intentional, an",
-      "value": "Use the OWASP API Security guidance as a reference for object level authorization and keep test records within an approved assessment scope."
+      "value": "The brands that succeed online are those who craft experiences that feel meaningful, intentional, and unmistakably their own."
     },
     "text-62": {
       "type": "html",
       "label": "If you want inspiration or ready-to-publish designs, explore free Framer templates at Templyo.",
-      "value": "Review the relevant OWASP guidance before defining the next set of authorization checks. <a class=\"framer-text framer-styles-preset-k80mkz\" href=\"https://owasp.org/API-Security/editions/2023/en/0xa1-broken-object-level-authorization/\">OWASP API Security: Object Level Authorization</a>."
+      "value": "If you want inspiration or ready-to-publish designs, explore free Framer templates at <!--$--><a class=\"framer-text framer-styles-preset-k80mkz\" href=\"https://templyo.io/templates\" rel=\"\">Templyo</a><!--/$-->."
     },
     "text-63": {
       "type": "text",
       "label": "Join the newsletter",
-      "value": "Newsletter coming soon"
+      "value": "Join the newsletter"
     },
     "text-64": {
-      "type": "html",
+      "type": "text",
       "label": "Be the first to read our articles.",
-      "value": "For security enquiries, <a class=\"framer-text\" href=\"/#contact\">get in touch</a>."
+      "value": "Be the first to read our articles."
     },
     "text-65": {
       "type": "text",
       "label": "Submit",
-      "value": "Coming soon"
+      "value": "Submit"
     },
     "text-66": {
       "type": "text",
@@ -1585,47 +1585,47 @@
     "text-67": {
       "type": "text",
       "label": "May 5, 2025",
-      "value": "Oct 17, 2026"
+      "value": "May 5, 2025"
     },
     "text-68": {
       "type": "text",
       "label": "Building Trust Through Clear Design",
-      "value": "A Practical Web Security Workflow"
+      "value": "Building Trust Through Clear Design"
     },
     "text-69": {
       "type": "text",
       "label": "How thoughtful visual choices create a stronger sense of reliability for modern brands.",
-      "value": "A focused approach to scoping, testing, validating, and reporting web application vulnerabilities."
+      "value": "How thoughtful visual choices create a stronger sense of reliability for modern brands."
     },
     "text-70": {
       "type": "text",
       "label": "Jun 16, 2025",
-      "value": "Oct 17, 2026"
+      "value": "Jun 16, 2025"
     },
     "text-71": {
       "type": "text",
       "label": "How Creative Teams Build Brand Systems",
-      "value": "Building Reliable Security Automation"
+      "value": "How Creative Teams Build Brand Systems"
     },
     "text-72": {
       "type": "text",
       "label": "A look at the workflows that keep branding consistent across every touchpoint.",
-      "value": "Design Python security workflows with clear inputs, bounded jobs, structured evidence, and reviewable results."
+      "value": "A look at the workflows that keep branding consistent across every touchpoint."
     },
     "text-73": {
       "type": "text",
       "label": "Jun 16, 2025",
-      "value": "Oct 17, 2026"
+      "value": "Jun 16, 2025"
     },
     "text-74": {
       "type": "text",
       "label": "The Rise of Modern Tech Startup Websites",
-      "value": "Inside NetNeedle: From Scan to Report"
+      "value": "The Rise of Modern Tech Startup Websites"
     },
     "text-75": {
       "type": "text",
       "label": "Why tech startups need clear, high trust digital experiences to communicate and attract users.",
-      "value": "How NetNeedle connects assessment scope, background jobs, scan evidence, and actionable security reports."
+      "value": "Why tech startups need clear, high trust digital experiences to communicate and attract users."
     },
     "text-76": {
       "type": "html",
@@ -1680,26 +1680,26 @@
     "image-86": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scanner-dashboard.png",
-      "alt": "NetNeedle scanner dashboard showing assessment progress"
+      "value": "https://framerusercontent.com/images/ic9k42rYytbJtnRUJXdcNxCHSc.png?width=640&height=359",
+      "alt": ""
     },
     "image-87": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scan-configuration.png",
-      "alt": "NetNeedle scan configuration with assessment options"
+      "value": "https://framerusercontent.com/images/lxtBXj3G7Bloek83WxPY1ZUuw0Q.png?width=640&height=360",
+      "alt": ""
     },
     "image-88": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scan-configuration.png",
-      "alt": "NetNeedle assessment configuration used to define scanner inputs"
+      "value": "https://framerusercontent.com/images/MWSFsHfw8FDzKSMZllibGDMY4CU.png?width=640&height=360",
+      "alt": ""
     },
     "image-89": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/exec-report.png",
-      "alt": "NetNeedle executive security report with risk and finding summaries"
+      "value": "https://framerusercontent.com/images/Mirnh1WfdeIPhnjStrfY33WLFo8.png?width=640&height=427",
+      "alt": ""
     },
     "link-90": {
       "type": "link",
@@ -1714,7 +1714,7 @@
     "link-92": {
       "type": "link",
       "label": "m1000z",
-      "value": "/"
+      "value": "../#hero-section"
     },
     "link-93": {
       "type": "link",
@@ -1724,22 +1724,22 @@
     "link-94": {
       "type": "link",
       "label": "May 5, 2025Building Trust Through Clear DesignHow thoughtful visual choices crea",
-      "value": "/blog/how-can-designers-prepare-for-the-future"
+      "value": "/how-can-designers-prepare-for-the-future"
     },
     "link-95": {
       "type": "link",
       "label": "Jun 16, 2025How Creative Teams Build Brand SystemsA look at the workflows that k",
-      "value": "/blog/how-creative-teams-build-strong-brand-systems"
+      "value": "/how-creative-teams-build-strong-brand-systems"
     },
     "link-96": {
       "type": "link",
       "label": "Jun 16, 2025The Rise of Modern Tech Startup WebsitesWhy tech startups need clear",
-      "value": "/blog/the-rise-of-modern-tech-startup-websites"
+      "value": "/the-rise-of-modern-tech-startup-websites"
     },
     "link-97": {
       "type": "link",
       "label": "Home\n    .rolling-text-inner-ru {\n      --font-size: 16px;\n      --text: var(--t",
-      "value": "/"
+      "value": "../#hero-section"
     },
     "link-98": {
       "type": "link",
@@ -1749,17 +1749,17 @@
     "link-99": {
       "type": "link",
       "label": "Services\n    .rolling-text-inner-r16 {\n      --font-size: 16px;\n      --text: va",
-      "value": "/#services"
+      "value": "../#services"
     },
     "link-100": {
       "type": "link",
       "label": "Works\n    .rolling-text-inner-r17 {\n      --font-size: 16px;\n      --text: var(-",
-      "value": "/work"
+      "value": "../work#hero-section"
     },
     "link-101": {
       "type": "link",
       "label": "Contact\n    .rolling-text-inner-r1a {\n      --font-size: 16px;\n      --text: var",
-      "value": "/#contact"
+      "value": "../#contact"
     },
     "link-102": {
       "type": "link",
@@ -1781,217 +1781,217 @@
     "text-3": {
       "type": "html",
       "label": "m1000z",
-      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"/\">m1000z</a><!--/$-->"
+      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"../#hero-section\">m1000z</a><!--/$-->"
     },
     "text-4": {
       "type": "text",
       "label": "How Creative Teams Build Brand Systems",
-      "value": "Building Reliable Security Automation"
+      "value": "How Creative Teams Build Brand Systems"
     },
     "text-5": {
       "type": "text",
       "label": "Strong brand systems are built through collaboration, consistent rules, and a shared understanding o",
-      "value": "Design Python security workflows with clear inputs, bounded jobs, structured evidence, and reviewable results."
+      "value": "Strong brand systems are built through collaboration, consistent rules, and a shared understanding of visual identity."
     },
     "text-6": {
       "type": "text",
       "label": "Jun 16, 2025",
-      "value": "Oct 17, 2026"
+      "value": "Jun 16, 2025"
     },
     "text-7": {
       "type": "text",
       "label": "5 min read",
-      "value": "2 min read"
+      "value": "5 min read"
     },
     "text-8": {
       "type": "text",
       "label": "What Is a Brand System?",
-      "value": "Define the Job First"
+      "value": "What Is a Brand System?"
     },
     "text-9": {
       "type": "text",
       "label": "A brand system is more than a logo or a color palette—it’s the comprehensive set of rules, assets, a",
-      "value": "A small security script becomes easier to maintain when its purpose is explicit. Write down the approved inputs, expected outputs, and conditions that should stop the job."
+      "value": "A brand system is more than a logo or a color palette—it’s the comprehensive set of rules, assets, and design principles that define how an organization communicates visually and verbally. It ensures that every interaction, whether online or offline, reflects the company’s identity consistently and memorably."
     },
     "text-10": {
       "type": "text",
       "label": "Strong brand systems typically define:",
-      "value": "A repeatable task needs a clear contract:"
+      "value": "Strong brand systems typically define:"
     },
     "text-11": {
       "type": "text",
       "label": "Typography: Fonts, hierarchy, and usage",
-      "value": "An explicit target scope"
+      "value": "Typography: Fonts, hierarchy, and usage"
     },
     "text-12": {
       "type": "text",
       "label": "Color palettes: Primary, secondary, and accent colors",
-      "value": "Validated configuration values"
+      "value": "Color palettes: Primary, secondary, and accent colors"
     },
     "text-13": {
       "type": "text",
       "label": "Spacing and layout principles: Margins, grids, and alignment",
-      "value": "A defined timeout"
+      "value": "Spacing and layout principles: Margins, grids, and alignment"
     },
     "text-14": {
       "type": "text",
       "label": "Photography and illustration style: Mood, tone, and composition",
-      "value": "A limit on concurrent work"
+      "value": "Photography and illustration style: Mood, tone, and composition"
     },
     "text-15": {
       "type": "text",
       "label": "Iconography and graphic elements: Consistent shapes, strokes, and styles",
-      "value": "A structured result format"
+      "value": "Iconography and graphic elements: Consistent shapes, strokes, and styles"
     },
     "text-16": {
       "type": "text",
       "label": "Tone of voice: How the brand “speaks” in copy and messaging",
-      "value": "A visible failure state"
+      "value": "Tone of voice: How the brand “speaks” in copy and messaging"
     },
     "text-17": {
       "type": "text",
       "label": "By codifying these elements, a brand system provides a clear blueprint that guides every piece of de",
-      "value": "These details make it possible to compare runs and identify what changed when a result differs."
+      "value": "By codifying these elements, a brand system provides a clear blueprint that guides every piece of design, marketing, or communication."
     },
     "text-18": {
       "type": "text",
       "label": "Why Consistency Matters",
-      "value": "Make Failures Visible"
+      "value": "Why Consistency Matters"
     },
     "text-19": {
       "type": "text",
       "label": "Inconsistent branding can confuse audiences, dilute your message, and weaken trust. When all teams—f",
-      "value": "A timeout, an unavailable dependency, and a completed check are different outcomes. Preserve those distinctions in the result instead of reporting an empty success."
+      "value": "Inconsistent branding can confuse audiences, dilute your message, and weaken trust. When all teams—from marketing to product design—follow the same brand rules, the company speaks with one unified voice."
     },
     "text-20": {
       "type": "text",
       "label": "Benefits of consistency:",
-      "value": "Useful job records include:"
+      "value": "Benefits of consistency:"
     },
     "text-21": {
       "type": "text",
       "label": "Stronger recognition: Audiences remember and identify the brand more quickly",
-      "value": "The tool and configuration used"
+      "value": "Stronger recognition: Audiences remember and identify the brand more quickly"
     },
     "text-22": {
       "type": "text",
       "label": "Emotional connection: Cohesive design and messaging foster trust and loyalty",
-      "value": "Start and completion times"
+      "value": "Emotional connection: Cohesive design and messaging foster trust and loyalty"
     },
     "text-23": {
       "type": "text",
       "label": "Efficiency: Teams spend less time debating design choices, reducing friction",
-      "value": "A concise reason for incomplete work"
+      "value": "Efficiency: Teams spend less time debating design choices, reducing friction"
     },
     "text-24": {
       "type": "text",
       "label": "Think of your brand system as the invisible framework that keeps every interaction aligned and profe",
-      "value": "A clear record helps a reviewer decide whether a job needs a retry, a configuration change, or a manual check."
+      "value": "Think of your brand system as the invisible framework that keeps every interaction aligned and professional."
     },
     "text-25": {
       "type": "text",
       "label": "How Creative Teams Collaborate",
-      "value": "Separate Collection from Review"
+      "value": "How Creative Teams Collaborate"
     },
     "text-26": {
       "type": "text",
       "label": "A brand system works best when designers, marketers, content creators, and developers collaborate cl",
-      "value": "Collection code should preserve observations in a stable format. Reporting code can then organize that evidence without having to repeat the original check."
+      "value": "A brand system works best when designers, marketers, content creators, and developers collaborate closely."
     },
     "text-27": {
       "type": "text",
       "label": "Tools and practices that make collaboration seamless:",
-      "value": "Keep the handoff explicit:"
+      "value": "Tools and practices that make collaboration seamless:"
     },
     "text-28": {
       "type": "text",
       "label": "Shared design libraries: Centralized components for colors, typography, buttons, and UI elements",
-      "value": "Use consistent field names and status values"
+      "value": "Shared design libraries: Centralized components for colors, typography, buttons, and UI elements"
     },
     "text-29": {
       "type": "text",
       "label": "Documentation hubs: Guides that explain proper usage of each element",
-      "value": "Retain enough context to trace each observation"
+      "value": "Documentation hubs: Guides that explain proper usage of each element"
     },
     "text-30": {
       "type": "text",
       "label": "Version-controlled assets: Ensures everyone uses the latest logos, templates, and brand files",
-      "value": "Version changes to the output schema"
+      "value": "Version-controlled assets: Ensures everyone uses the latest logos, templates, and brand files"
     },
     "text-31": {
       "type": "text",
       "label": "Cross-functional feedback loops: Designers, writers, and marketers review and approve creative asset",
-      "value": "Review a small set of known results after changes"
+      "value": "Cross-functional feedback loops: Designers, writers, and marketers review and approve creative assets together"
     },
     "text-32": {
       "type": "text",
       "label": "When teams align around a clear system, every campaign, webpage, or social post reinforces the brand",
-      "value": "This separation makes it easier to improve a report without accidentally changing how the underlying evidence was collected."
+      "value": "When teams align around a clear system, every campaign, webpage, or social post reinforces the brand identity."
     },
     "text-33": {
       "type": "text",
       "label": "Adapting Brand Systems Over Time",
-      "value": "Protect Credentials and Evidence"
+      "value": "Adapting Brand Systems Over Time"
     },
     "text-34": {
       "type": "text",
       "label": "Brand systems aren’t static—they evolve as companies grow, products expand, and markets shift. A str",
-      "value": "Keep secrets outside source code and generated reports. Give each job only the access it needs and avoid writing sensitive request values to ordinary logs."
+      "value": "Brand systems aren’t static—they evolve as companies grow, products expand, and markets shift. A strong system can adapt without losing its core identity."
     },
     "text-35": {
       "type": "text",
       "label": "Best practices for evolution:",
-      "value": "Review the workflow regularly:"
+      "value": "Best practices for evolution:"
     },
     "text-36": {
       "type": "text",
       "label": "Conduct regular audits to identify inconsistencies",
-      "value": "Check where credentials enter the process"
+      "value": "Conduct regular audits to identify inconsistencies"
     },
     "text-37": {
       "type": "text",
       "label": "Update style guides and components with new campaigns or products",
-      "value": "Remove sensitive values from shared fixtures"
+      "value": "Update style guides and components with new campaigns or products"
     },
     "text-38": {
       "type": "text",
       "label": "Introduce modular design elements that allow flexibility while maintaining cohesion",
-      "value": "Limit access to stored assessment evidence"
+      "value": "Introduce modular design elements that allow flexibility while maintaining cohesion"
     },
     "text-39": {
       "type": "text",
       "label": "Collect feedback from teams to improve usability and clarity",
-      "value": "Document how a failed job can be stopped or retried"
+      "value": "Collect feedback from teams to improve usability and clarity"
     },
     "text-40": {
       "type": "text",
       "label": "An evolving brand system ensures your visual and verbal identity stays relevant, fresh, and effectiv",
-      "value": "Automation should leave a trace that is useful to maintainers without turning logs into another store of confidential data."
+      "value": "An evolving brand system ensures your visual and verbal identity stays relevant, fresh, and effective for years to come."
     },
     "text-41": {
       "type": "text",
       "label": "Bringing Brand Systems to Life",
-      "value": "From Script to Service"
+      "value": "Bringing Brand Systems to Life"
     },
     "text-42": {
       "type": "html",
       "label": "If you’re just starting out, Framer templates can help you implement a brand system quickly and beau",
-      "value": "NetNeedle applies a service-based approach to assessment workflows, with a FastAPI application and background workers for long-running tasks. <a class=\"framer-text framer-styles-preset-k80mkz\" href=\"https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html\">OWASP Secrets Management Cheat Sheet</a>."
+      "value": "If you’re just starting out, Framer templates can help you implement a brand system quickly and beautifully. With layouts optimized for both UX and UI, these templates let you focus on design and storytelling without writing a single line of code. Explore ready-to-use templates and start building smarter, more consistent brand experiences today: <!--$--><a class=\"framer-text framer-styles-preset-k80mkz\" href=\"https://templyo.io/templates\" rel=\"\">Templyo</a><!--/$-->."
     },
     "text-43": {
       "type": "text",
       "label": "Join the newsletter",
-      "value": "Newsletter coming soon"
+      "value": "Join the newsletter"
     },
     "text-44": {
-      "type": "html",
+      "type": "text",
       "label": "Be the first to read our articles.",
-      "value": "For security enquiries, <a class=\"framer-text\" href=\"/#contact\">get in touch</a>."
+      "value": "Be the first to read our articles."
     },
     "text-45": {
       "type": "text",
       "label": "Submit",
-      "value": "Coming soon"
+      "value": "Submit"
     },
     "text-46": {
       "type": "text",
@@ -2001,47 +2001,47 @@
     "text-47": {
       "type": "text",
       "label": "May 5, 2025",
-      "value": "Oct 17, 2026"
+      "value": "May 5, 2025"
     },
     "text-48": {
       "type": "text",
       "label": "Building Trust Through Clear Design",
-      "value": "A Practical Web Security Workflow"
+      "value": "Building Trust Through Clear Design"
     },
     "text-49": {
       "type": "text",
       "label": "How thoughtful visual choices create a stronger sense of reliability for modern brands.",
-      "value": "A focused approach to scoping, testing, validating, and reporting web application vulnerabilities."
+      "value": "How thoughtful visual choices create a stronger sense of reliability for modern brands."
     },
     "text-50": {
       "type": "text",
       "label": "Jun 16, 2025",
-      "value": "Oct 17, 2026"
+      "value": "Jun 16, 2025"
     },
     "text-51": {
       "type": "text",
       "label": "The Role of Art Direction in Branding",
-      "value": "API Security: Identity and Access"
+      "value": "The Role of Art Direction in Branding"
     },
     "text-52": {
       "type": "text",
       "label": "Why visual direction helps brands create emotion and a distinct point of view.",
-      "value": "How authentication, object permissions, and session handling work together to protect REST APIs."
+      "value": "Why visual direction helps brands create emotion and a distinct point of view."
     },
     "text-53": {
       "type": "text",
       "label": "Jun 16, 2025",
-      "value": "Oct 17, 2026"
+      "value": "Jun 16, 2025"
     },
     "text-54": {
       "type": "text",
       "label": "The Rise of Modern Tech Startup Websites",
-      "value": "Inside NetNeedle: From Scan to Report"
+      "value": "The Rise of Modern Tech Startup Websites"
     },
     "text-55": {
       "type": "text",
       "label": "Why tech startups need clear, high trust digital experiences to communicate and attract users.",
-      "value": "How NetNeedle connects assessment scope, background jobs, scan evidence, and actionable security reports."
+      "value": "Why tech startups need clear, high trust digital experiences to communicate and attract users."
     },
     "text-56": {
       "type": "html",
@@ -2096,26 +2096,26 @@
     "image-66": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scan-configuration.png",
-      "alt": "NetNeedle assessment configuration used to define scanner inputs"
+      "value": "https://framerusercontent.com/images/MWSFsHfw8FDzKSMZllibGDMY4CU.png?width=640&height=360",
+      "alt": ""
     },
     "image-67": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scan-configuration.png",
-      "alt": "NetNeedle scan configuration with assessment options"
+      "value": "https://framerusercontent.com/images/lxtBXj3G7Bloek83WxPY1ZUuw0Q.png?width=640&height=360",
+      "alt": ""
     },
     "image-68": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scanner-dashboard.png",
-      "alt": "NetNeedle scanner dashboard showing assessment progress"
+      "value": "https://framerusercontent.com/images/ic9k42rYytbJtnRUJXdcNxCHSc.png?width=640&height=359",
+      "alt": ""
     },
     "image-69": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/exec-report.png",
-      "alt": "NetNeedle executive security report with risk and finding summaries"
+      "value": "https://framerusercontent.com/images/Mirnh1WfdeIPhnjStrfY33WLFo8.png?width=640&height=427",
+      "alt": ""
     },
     "link-70": {
       "type": "link",
@@ -2130,7 +2130,7 @@
     "link-72": {
       "type": "link",
       "label": "m1000z",
-      "value": "/"
+      "value": "../#hero-section"
     },
     "link-73": {
       "type": "link",
@@ -2140,22 +2140,22 @@
     "link-74": {
       "type": "link",
       "label": "May 5, 2025Building Trust Through Clear DesignHow thoughtful visual choices crea",
-      "value": "/blog/how-can-designers-prepare-for-the-future"
+      "value": "/how-can-designers-prepare-for-the-future"
     },
     "link-75": {
       "type": "link",
       "label": "Jun 16, 2025The Role of Art Direction in BrandingWhy visual direction helps bran",
-      "value": "/blog/why-every-business-needs-a-professional-website-in-2025"
+      "value": "/why-every-business-needs-a-professional-website-in-2025"
     },
     "link-76": {
       "type": "link",
       "label": "Jun 16, 2025The Rise of Modern Tech Startup WebsitesWhy tech startups need clear",
-      "value": "/blog/the-rise-of-modern-tech-startup-websites"
+      "value": "/the-rise-of-modern-tech-startup-websites"
     },
     "link-77": {
       "type": "link",
       "label": "Home\n    .rolling-text-inner-r12 {\n      --font-size: 16px;\n      --text: var(--",
-      "value": "/"
+      "value": "../#hero-section"
     },
     "link-78": {
       "type": "link",
@@ -2165,17 +2165,17 @@
     "link-79": {
       "type": "link",
       "label": "Services\n    .rolling-text-inner-r19 {\n      --font-size: 16px;\n      --text: va",
-      "value": "/#services"
+      "value": "../#services"
     },
     "link-80": {
       "type": "link",
       "label": "Works\n    .rolling-text-inner-r1c {\n      --font-size: 16px;\n      --text: var(-",
-      "value": "/work"
+      "value": "../work#hero-section"
     },
     "link-81": {
       "type": "link",
       "label": "Contact\n    .rolling-text-inner-r1e {\n      --font-size: 16px;\n      --text: var",
-      "value": "/#contact"
+      "value": "../#contact"
     },
     "link-82": {
       "type": "link",
@@ -2197,192 +2197,192 @@
     "text-3": {
       "type": "html",
       "label": "m1000z",
-      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"/\">m1000z</a><!--/$-->"
+      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"../#hero-section\">m1000z</a><!--/$-->"
     },
     "text-4": {
       "type": "text",
       "label": "The Rise of Modern Tech Startup Websites",
-      "value": "Inside NetNeedle: From Scan to Report"
+      "value": "The Rise of Modern Tech Startup Websites"
     },
     "text-5": {
       "type": "text",
       "label": "Tech startup websites are transforming into transparent, user-centric platforms built to explain pro",
-      "value": "How NetNeedle connects assessment scope, background jobs, scan evidence, and actionable security reports."
+      "value": "Tech startup websites are transforming into transparent, user-centric platforms built to explain products quickly, build credibility, and convert visitors into early adopters. Clean visuals, sharp messaging, and interactive elements are now essential for standing out in a competitive market."
     },
     "text-6": {
       "type": "text",
       "label": "Jun 16, 2025",
-      "value": "Oct 17, 2026"
+      "value": "Jun 16, 2025"
     },
     "text-7": {
       "type": "text",
       "label": "5 min read",
-      "value": "2 min read"
+      "value": "5 min read"
     },
     "text-8": {
       "type": "text",
       "label": "What Makes a Great Tech Startup Website?",
-      "value": "One Workspace for Assessment Evidence"
+      "value": "What Makes a Great Tech Startup Website?"
     },
     "text-9": {
       "type": "html",
       "label": "A strong startup website does more than showcase features—it communicates value, trust, and momentum",
-      "value": "NetNeedle is a cybersecurity assessment platform that brings scan configuration, findings, and reporting into a connected workflow."
+      "value": "A strong startup website does more than showcase features—it communicates <strong class=\"framer-text\">value, trust, and momentum</strong>. Today’s visitors want to know what a product does, why it matters, and how it’s different—within seconds. Great startup sites use <strong class=\"framer-text\">clear hierarchy, focused messaging, and purposeful visuals</strong> to deliver that clarity quickly and effectively."
     },
     "text-10": {
       "type": "html",
       "label": "“Good design is good business.” – Thomas J. Watson",
-      "value": "Keep the path from an observation to a report visible."
+      "value": "“Good design is good business.” – <strong class=\"framer-text\">Thomas J. Watson</strong>"
     },
     "text-11": {
       "type": "text",
       "label": "Clear Messaging Above All",
-      "value": "Start with the Assessment Scope"
+      "value": "Clear Messaging Above All"
     },
     "text-12": {
       "type": "html",
       "label": "Startup products can be complex or abstract. The best websites simplify these concepts through:",
-      "value": "The workflow begins by selecting the assessment type and target. Network, web, and advanced web assessments provide different views of the same security review."
+      "value": "Startup products can be complex or abstract. The best websites <strong class=\"framer-text\">simplify these concepts</strong> through:"
     },
     "text-13": {
       "type": "text",
       "label": "Sharp, memorable taglines",
-      "value": "Define the approved target"
+      "value": "Sharp, memorable taglines"
     },
     "text-14": {
       "type": "text",
       "label": "Concise, benefit-driven descriptions",
-      "value": "Choose checks that fit the assessment"
+      "value": "Concise, benefit-driven descriptions"
     },
     "text-15": {
       "type": "text",
       "label": "Intuitive visuals and diagrams",
-      "value": "Keep the configuration with the resulting evidence"
+      "value": "Intuitive visuals and diagrams"
     },
     "text-16": {
       "type": "html",
       "label": "Instead of overwhelming users with jargon, modern startup sites communicate like storytellers: direc",
-      "value": "This context matters when a reviewer returns to a result later or compares it with a follow-up assessment."
+      "value": "Instead of overwhelming users with jargon, modern startup sites communicate like storytellers: <strong class=\"framer-text\">direct, human, and memorable</strong>."
     },
     "text-17": {
       "type": "html",
       "label": "“If you can’t explain it simply, you don’t understand it well enough.” – Albert Einstein",
-      "value": "Configuration is part of the evidence."
+      "value": "“If you can’t explain it simply, you don’t understand it well enough.” – <strong class=\"framer-text\">Albert Einstein</strong>"
     },
     "text-18": {
       "type": "text",
       "label": "Interactive Product Storytelling",
-      "value": "Run Long Jobs in the Background"
+      "value": "Interactive Product Storytelling"
     },
     "text-19": {
       "type": "html",
       "label": "Interactive demos, animated diagrams, and scroll-driven storytelling allow users to experience the p",
-      "value": "The FastAPI application serves the workspace while Celery and Redis manage background work. PostgreSQL stores assessment state."
+      "value": "Interactive demos, animated diagrams, and scroll-driven storytelling allow users to <strong class=\"framer-text\">experience the product without reading lengthy documentation</strong>. These elements make the site feel alive, help visitors visualize the value instantly, and <strong class=\"framer-text\">increase trust and adoption</strong>."
     },
     "text-20": {
       "type": "html",
       "label": "Tip: Even small interactive elements, like hover reveals or micro-animations, can dramatically impro",
-      "value": "Keeping jobs separate from the request lifecycle allows the interface to present progress while the assessment continues."
+      "value": "<strong class=\"framer-text\">Tip:</strong> Even small interactive elements, like hover reveals or micro-animations, can dramatically improve engagement."
     },
     "text-21": {
       "type": "html",
       "label": "“The details are not the details. They make the design.” – Charles Eames",
-      "value": "Expose progress and incomplete states clearly."
+      "value": "“The details are not the details. They make the design.” – <strong class=\"framer-text\">Charles Eames</strong>"
     },
     "text-22": {
       "type": "text",
       "label": "Social Proof and Credibility",
-      "value": "Bring Tool Output Together"
+      "value": "Social Proof and Credibility"
     },
     "text-23": {
       "type": "html",
       "label": "In a crowded market, users need reassurance. Testimonials, case studies, press mentions, and transpa",
-      "value": "NetNeedle integrates tools including Nmap, Masscan, Nuclei, WhatWeb, Nikto, and testssl.sh. Their output becomes evidence for review rather than a standalone final verdict."
+      "value": "In a crowded market, users need reassurance. <strong class=\"framer-text\">Testimonials, case studies, press mentions, and transparent pricing</strong> all help build confidence. Clear evidence of trustworthiness often determines whether a user signs up—or bounces."
     },
     "text-24": {
       "type": "html",
       "label": "“Trust is built with consistency.” – Lincoln Chafee",
-      "value": "A finding still needs context and validation."
+      "value": "“Trust is built with consistency.” – <strong class=\"framer-text\">Lincoln Chafee</strong>"
     },
     "text-25": {
       "type": "text",
       "label": "Mobile-First Thinking",
-      "value": "Review Before Reporting"
+      "value": "Mobile-First Thinking"
     },
     "text-26": {
       "type": "text",
       "label": "Startup audiences are often browsing on the go. Websites need to:",
-      "value": "The workspace helps a reviewer:"
+      "value": "Startup audiences are often browsing on the go. Websites need to:"
     },
     "text-27": {
       "type": "text",
       "label": "Load quickly",
-      "value": "Inspect the evidence associated with a finding"
+      "value": "Load quickly"
     },
     "text-28": {
       "type": "text",
       "label": "Highlight key points clearly",
-      "value": "Review severity and confirmation status"
+      "value": "Highlight key points clearly"
     },
     "text-29": {
       "type": "text",
       "label": "Present CTAs in accessible, thumb-friendly positions",
-      "value": "Return to persisted assessment results"
+      "value": "Present CTAs in accessible, thumb-friendly positions"
     },
     "text-30": {
       "type": "html",
       "label": "A mobile-optimized UI ensures users grasp the product quickly and stay engaged, regardless of device",
-      "value": "Confirmed findings, observations, and incomplete checks should remain distinguishable in the final output."
+      "value": "A mobile-optimized UI ensures users <strong class=\"framer-text\">grasp the product quickly and stay engaged</strong>, regardless of device."
     },
     "text-31": {
       "type": "html",
       "label": "“Mobile is the primary canvas for the modern web.” – Luke Wroblewski",
-      "value": "Keep uncertainty visible in the report."
+      "value": "“Mobile is the primary canvas for the modern web.” – <strong class=\"framer-text\">Luke Wroblewski</strong>"
     },
     "text-32": {
       "type": "text",
       "label": "Conversion-Oriented Simplicity",
-      "value": "Turn Evidence into Action"
+      "value": "Conversion-Oriented Simplicity"
     },
     "text-33": {
       "type": "html",
       "label": "While creativity matters, clarity always wins. Streamlined structures, minimal friction in sign-up f",
-      "value": "Executive and technical reports summarize risk, findings, and remediation guidance. Reports can be exported as HTML or PDF."
+      "value": "While creativity matters, <strong class=\"framer-text\">clarity always wins</strong>. Streamlined structures, minimal friction in sign-up flows, and consistent CTAs guide users toward <strong class=\"framer-text\">key actions</strong> like joining a waitlist or starting a free trial."
     },
     "text-34": {
       "type": "html",
       "label": "Key principle: The simpler the user journey, the higher the conversion.",
-      "value": "AI-assisted narratives use validated evidence and deterministic fallbacks. A reviewer remains responsible for checking that the wording matches the underlying result."
+      "value": "<strong class=\"framer-text\">Key principle:</strong> The simpler the user journey, the higher the conversion."
     },
     "text-35": {
       "type": "html",
       "label": "“Simplicity is the ultimate sophistication.” – Leonardo da Vinci",
-      "value": "A useful report points to a concrete next action."
+      "value": "“Simplicity is the ultimate sophistication.” – <strong class=\"framer-text\">Leonardo da Vinci</strong>"
     },
     "text-36": {
       "type": "text",
       "label": "Launch Smarter, Not Harder",
-      "value": "Explore the Implementation"
+      "value": "Launch Smarter, Not Harder"
     },
     "text-37": {
       "type": "html",
       "label": "If you’re ready to build a startup website without starting from scratch, free Framer templates can ",
-      "value": "The project page includes screenshots, the technology stack, and a link to the repository for a closer look at the assessment and reporting workflow. <a class=\"framer-text framer-styles-preset-k80mkz\" href=\"/work/netneedle/\">Explore the NetNeedle project</a>."
+      "value": "If you’re ready to build a startup website without starting from scratch, free Framer templates can help. They’re designed to <strong class=\"framer-text\">launch modern, conversion-ready websites with ease</strong>, letting you focus on growth, messaging, and user experience: <!--$--><a class=\"framer-text framer-styles-preset-k80mkz\" href=\"https://templyo.io/templates\" rel=\"\">Templyo</a><!--/$-->."
     },
     "text-38": {
       "type": "text",
       "label": "Join the newsletter",
-      "value": "Newsletter coming soon"
+      "value": "Join the newsletter"
     },
     "text-39": {
-      "type": "html",
+      "type": "text",
       "label": "Be the first to read our articles.",
-      "value": "For security enquiries, <a class=\"framer-text\" href=\"/#contact\">get in touch</a>."
+      "value": "Be the first to read our articles."
     },
     "text-40": {
       "type": "text",
       "label": "Submit",
-      "value": "Coming soon"
+      "value": "Submit"
     },
     "text-41": {
       "type": "text",
@@ -2392,47 +2392,47 @@
     "text-42": {
       "type": "text",
       "label": "May 5, 2025",
-      "value": "Oct 17, 2026"
+      "value": "May 5, 2025"
     },
     "text-43": {
       "type": "text",
       "label": "Building Trust Through Clear Design",
-      "value": "A Practical Web Security Workflow"
+      "value": "Building Trust Through Clear Design"
     },
     "text-44": {
       "type": "text",
       "label": "How thoughtful visual choices create a stronger sense of reliability for modern brands.",
-      "value": "A focused approach to scoping, testing, validating, and reporting web application vulnerabilities."
+      "value": "How thoughtful visual choices create a stronger sense of reliability for modern brands."
     },
     "text-45": {
       "type": "text",
       "label": "Jun 16, 2025",
-      "value": "Oct 17, 2026"
+      "value": "Jun 16, 2025"
     },
     "text-46": {
       "type": "text",
       "label": "The Role of Art Direction in Branding",
-      "value": "API Security: Identity and Access"
+      "value": "The Role of Art Direction in Branding"
     },
     "text-47": {
       "type": "text",
       "label": "Why visual direction helps brands create emotion and a distinct point of view.",
-      "value": "How authentication, object permissions, and session handling work together to protect REST APIs."
+      "value": "Why visual direction helps brands create emotion and a distinct point of view."
     },
     "text-48": {
       "type": "text",
       "label": "Jun 16, 2025",
-      "value": "Oct 17, 2026"
+      "value": "Jun 16, 2025"
     },
     "text-49": {
       "type": "text",
       "label": "How Creative Teams Build Brand Systems",
-      "value": "Building Reliable Security Automation"
+      "value": "How Creative Teams Build Brand Systems"
     },
     "text-50": {
       "type": "text",
       "label": "A look at the workflows that keep branding consistent across every touchpoint.",
-      "value": "Design Python security workflows with clear inputs, bounded jobs, structured evidence, and reviewable results."
+      "value": "A look at the workflows that keep branding consistent across every touchpoint."
     },
     "text-51": {
       "type": "html",
@@ -2487,26 +2487,26 @@
     "image-61": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/exec-report.png",
-      "alt": "NetNeedle executive security report with risk and finding summaries"
+      "value": "https://framerusercontent.com/images/Mirnh1WfdeIPhnjStrfY33WLFo8.png?width=640&height=427",
+      "alt": ""
     },
     "image-62": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scan-configuration.png",
-      "alt": "NetNeedle scan configuration with assessment options"
+      "value": "https://framerusercontent.com/images/lxtBXj3G7Bloek83WxPY1ZUuw0Q.png?width=640&height=360",
+      "alt": ""
     },
     "image-63": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scanner-dashboard.png",
-      "alt": "NetNeedle scanner dashboard showing assessment progress"
+      "value": "https://framerusercontent.com/images/ic9k42rYytbJtnRUJXdcNxCHSc.png?width=640&height=359",
+      "alt": ""
     },
     "image-64": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scan-configuration.png",
-      "alt": "NetNeedle assessment configuration used to define scanner inputs"
+      "value": "https://framerusercontent.com/images/MWSFsHfw8FDzKSMZllibGDMY4CU.png?width=640&height=360",
+      "alt": ""
     },
     "link-65": {
       "type": "link",
@@ -2521,7 +2521,7 @@
     "link-67": {
       "type": "link",
       "label": "m1000z",
-      "value": "/"
+      "value": "../#hero-section"
     },
     "link-68": {
       "type": "link",
@@ -2531,22 +2531,22 @@
     "link-69": {
       "type": "link",
       "label": "May 5, 2025Building Trust Through Clear DesignHow thoughtful visual choices crea",
-      "value": "/blog/how-can-designers-prepare-for-the-future"
+      "value": "/how-can-designers-prepare-for-the-future"
     },
     "link-70": {
       "type": "link",
       "label": "Jun 16, 2025The Role of Art Direction in BrandingWhy visual direction helps bran",
-      "value": "/blog/why-every-business-needs-a-professional-website-in-2025"
+      "value": "/why-every-business-needs-a-professional-website-in-2025"
     },
     "link-71": {
       "type": "link",
       "label": "Jun 16, 2025How Creative Teams Build Brand SystemsA look at the workflows that k",
-      "value": "/blog/how-creative-teams-build-strong-brand-systems"
+      "value": "/how-creative-teams-build-strong-brand-systems"
     },
     "link-72": {
       "type": "link",
       "label": "Home\n    .rolling-text-inner-r12 {\n      --font-size: 16px;\n      --text: var(--",
-      "value": "/"
+      "value": "../#hero-section"
     },
     "link-73": {
       "type": "link",
@@ -2556,17 +2556,17 @@
     "link-74": {
       "type": "link",
       "label": "Services\n    .rolling-text-inner-r1b {\n      --font-size: 16px;\n      --text: va",
-      "value": "/#services"
+      "value": "../#services"
     },
     "link-75": {
       "type": "link",
       "label": "Works\n    .rolling-text-inner-r1c {\n      --font-size: 16px;\n      --text: var(-",
-      "value": "/work"
+      "value": "../work#hero-section"
     },
     "link-76": {
       "type": "link",
       "label": "Contact\n    .rolling-text-inner-r1e {\n      --font-size: 16px;\n      --text: var",
-      "value": "/#contact"
+      "value": "../#contact"
     },
     "link-77": {
       "type": "link",
@@ -2588,232 +2588,232 @@
     "text-3": {
       "type": "html",
       "label": "m1000z",
-      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"/\">m1000z</a><!--/$-->"
+      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"../#hero-section\">m1000z</a><!--/$-->"
     },
     "text-4": {
       "type": "text",
       "label": "Top Web Design Trends to Watch in 2025",
-      "value": "Seven Checks Before a Web Release"
+      "value": "Top Web Design Trends to Watch in 2025"
     },
     "text-5": {
       "type": "text",
       "label": "Web design in 2025 is more immersive, responsive, and human-centered than ever before. This article ",
-      "value": "A practical release review covering permissions, sessions, secrets, dependencies, headers, logs, and recovery."
+      "value": "Web design in 2025 is more immersive, responsive, and human-centered than ever before. This article explores top trends like AI-enhanced personalization, bold typography, animated interactions, and minimalist layouts. Whether you're refreshing your portfolio or launching a brand site, these trends will help your designs stay modern, engaging, and conversion-focused."
     },
     "text-6": {
       "type": "text",
       "label": "Jun 16, 2025",
-      "value": "Oct 17, 2026"
+      "value": "Jun 16, 2025"
     },
     "text-7": {
       "type": "text",
       "label": "8 min read",
-      "value": "3 min read"
+      "value": "8 min read"
     },
     "text-8": {
       "type": "text",
       "label": "Top Web Design Trends to Watch in 2025",
-      "value": "Make the Release Review Repeatable"
+      "value": "Top Web Design Trends to Watch in 2025"
     },
     "text-9": {
       "type": "html",
       "label": "The web never stops evolving—and neither do the expectations of its users. In 2025, web design is no",
-      "value": "A short checklist helps a team revisit important security decisions before a release. Adapt it to the application and record who reviewed each area."
+      "value": "The web never stops evolving—and neither do the expectations of its users. In 2025, web design is no longer just about aesthetics; it’s about creating <strong class=\"framer-text\">experiences that feel intuitive, responsive, and personalized</strong>."
     },
     "text-10": {
       "type": "text",
       "label": "Whether you’re a freelance designer, agency creative, or startup founder, staying ahead of trends is",
-      "value": "Keep unresolved items visible with an owner and a next step. A checked box should point to evidence that someone can inspect."
+      "value": "Whether you’re a freelance designer, agency creative, or startup founder, staying ahead of trends is key to keeping your work fresh, future-ready, and competitive. Here are the most impactful web design trends to watch—and try—this year."
     },
     "text-11": {
       "type": "html",
       "label": "“Design is intelligence made visible.” – Alina Wheeler",
-      "value": "Keep the checklist close to the release record."
+      "value": "“Design is intelligence made visible.” – <strong class=\"framer-text\">Alina Wheeler</strong>"
     },
     "text-12": {
       "type": "text",
       "label": "1. AI-Powered Personalization",
-      "value": "1. Access Rules"
+      "value": "1. AI-Powered Personalization"
     },
     "text-13": {
       "type": "html",
       "label": "AI is moving beyond backend tools to directly shape user experiences. From dynamically changing cont",
-      "value": "Review important actions for each user role. Confirm the intended policy is enforced by the server and covered by focused tests."
+      "value": "AI is moving beyond backend tools to directly shape user experiences. From dynamically changing content based on behavior to interfaces adapting to time of day or previous visits, personalized UX is becoming the new standard. Sites that feel tailored are more likely to <strong class=\"framer-text\">convert, engage, and retain visitors</strong>."
     },
     "text-14": {
       "type": "html",
       "label": "How to use it: Integrate personalized greetings, suggest content based on user history, or show loca",
-      "value": "Include both allowed and denied scenarios in the review."
+      "value": "<strong class=\"framer-text\">How to use it:</strong> Integrate personalized greetings, suggest content based on user history, or show location-based content using AI rules or third-party tools."
     },
     "text-15": {
       "type": "html",
       "label": "“Personalization is not a trend, it’s a strategy.” – Bruce Temkin",
-      "value": "Document the expected permission boundary."
+      "value": "“Personalization is not a trend, it’s a strategy.” – <strong class=\"framer-text\">Bruce Temkin</strong>"
     },
     "text-16": {
       "type": "text",
       "label": "2. Bold, Expressive Typography",
-      "value": "2. Session Handling"
+      "value": "2. Bold, Expressive Typography"
     },
     "text-17": {
       "type": "text",
       "label": "Typography is taking center stage—literally. Designers are using oversized, kinetic, and expressive ",
-      "value": "Review sign-in, logout, session expiry, and account recovery behavior against the application policy."
+      "value": "Typography is taking center stage—literally. Designers are using oversized, kinetic, and expressive type to convey emotion and guide attention. Custom fonts, variable typefaces, and dynamic letter animations are all part of this movement."
     },
     "text-18": {
       "type": "html",
       "label": "Why it works: Big type grabs attention, communicates brand tone, and adds visual interest without ne",
-      "value": "Use approved test accounts and remove session values from shared evidence."
+      "value": "<strong class=\"framer-text\">Why it works:</strong> Big type grabs attention, communicates brand tone, and adds visual interest without needing heavy imagery."
     },
     "text-19": {
       "type": "html",
       "label": "“Typography is the voice of your brand.” – Ellen Lupton",
-      "value": "Check the complete account lifecycle."
+      "value": "“Typography is the voice of your brand.” – <strong class=\"framer-text\">Ellen Lupton</strong>"
     },
     "text-20": {
       "type": "text",
       "label": "3. Micro-Interactions & Scroll Animations",
-      "value": "3. Secrets and Configuration"
+      "value": "3. Micro-Interactions & Scroll Animations"
     },
     "text-21": {
       "type": "text",
       "label": "Subtle animations—like button hover effects, scroll-triggered reveals, or loading transitions—create",
-      "value": "Confirm that credentials are supplied through the intended secure configuration path and are absent from browser assets, public repositories, and routine logs."
+      "value": "Subtle animations—like button hover effects, scroll-triggered reveals, or loading transitions—create delight and enhance usability. These micro-interactions guide users through a site while making the experience feel alive."
     },
     "text-22": {
       "type": "html",
       "label": "Use with care: Keep motion subtle, fast, and purposeful. Avoid over-animating, which can overwhelm o",
-      "value": "Review the actual build output as well as the source tree."
+      "value": "<strong class=\"framer-text\">Use with care:</strong> Keep motion subtle, fast, and purposeful. Avoid over-animating, which can overwhelm or distract."
     },
     "text-23": {
       "type": "html",
       "label": "“The details are not the details. They make the design.” – Charles Eames",
-      "value": "Anything delivered to a browser can be inspected."
+      "value": "“The details are not the details. They make the design.” – <strong class=\"framer-text\">Charles Eames</strong>"
     },
     "text-24": {
       "type": "text",
       "label": "4. Minimal Layouts with Purposeful Whitespace",
-      "value": "4. Dependencies"
+      "value": "4. Minimal Layouts with Purposeful Whitespace"
     },
     "text-25": {
       "type": "text",
       "label": "Minimalism isn’t disappearing—it’s evolving. 2025 minimalism emphasizes clarity, breathing room, and",
-      "value": "Record the dependencies used by the release and review relevant security advisories. Track updates and test the application after changing a package."
+      "value": "Minimalism isn’t disappearing—it’s evolving. 2025 minimalism emphasizes clarity, breathing room, and intentional design. Generous spacing, soft color palettes, and clean grid systems make content easy to scan while elevating a site’s overall feel."
     },
     "text-26": {
       "type": "html",
       "label": "Bonus: Minimal layouts also improve loading speed, which is great for SEO and mobile users.",
-      "value": "Keep a clear record of accepted risks and the plan to address them."
+      "value": "<strong class=\"framer-text\">Bonus:</strong> Minimal layouts also improve <strong class=\"framer-text\">loading speed</strong>, which is great for SEO and mobile users."
     },
     "text-27": {
       "type": "html",
       "label": "“Simplicity is the ultimate sophistication.” – Leonardo da Vinci",
-      "value": "Make dependency review a recurring task."
+      "value": "“Simplicity is the ultimate sophistication.” – <strong class=\"framer-text\">Leonardo da Vinci</strong>"
     },
     "text-28": {
       "type": "text",
       "label": "5. Dark Mode & Soft Contrast Themes",
-      "value": "5. Browser Security Controls"
+      "value": "5. Dark Mode & Soft Contrast Themes"
     },
     "text-29": {
       "type": "html",
       "label": "Dark mode has shifted from a nice-to-have to mainstream. Designers now favor soft contrast themes—de",
-      "value": "Review response headers and cookie settings for the deployment environment. Choose controls that match how the application is served and embedded."
+      "value": "Dark mode has shifted from a nice-to-have to mainstream. Designers now favor <strong class=\"framer-text\">soft contrast themes</strong>—deep charcoals paired with muted hues—for a more elegant, eye-friendly experience."
     },
     "text-30": {
       "type": "html",
       "label": "Design tip: Test legibility carefully in dark mode and avoid neon or overly saturated colors against",
-      "value": "Test policy changes with the real browser workflows before rollout."
+      "value": "<strong class=\"framer-text\">Design tip:</strong> Test legibility carefully in dark mode and avoid neon or overly saturated colors against dark backgrounds."
     },
     "text-31": {
       "type": "text",
       "label": "6. Accessible & Ethical Design",
-      "value": "6. Logging and Diagnostics"
+      "value": "6. Accessible & Ethical Design"
     },
     "text-32": {
       "type": "html",
       "label": "Web accessibility isn’t optional—it’s a necessity. In 2025, accessibility is also a design priority.",
-      "value": "Check that operational events are useful to maintainers without exposing sensitive request or account data. Review the following areas:"
+      "value": "Web accessibility isn’t optional—it’s a necessity. In 2025, accessibility is also a <strong class=\"framer-text\">design priority</strong>. Designers are focusing on:"
     },
     "text-33": {
       "type": "text",
       "label": "Proper contrast ratios",
-      "value": "Authentication and authorization events"
+      "value": "Proper contrast ratios"
     },
     "text-34": {
       "type": "text",
       "label": "Keyboard navigation",
-      "value": "Job failures and incomplete work"
+      "value": "Keyboard navigation"
     },
     "text-35": {
       "type": "text",
       "label": "ARIA labels",
-      "value": "Log access and retention"
+      "value": "ARIA labels"
     },
     "text-36": {
       "type": "text",
       "label": "Inclusive content",
-      "value": "Sensitive values in diagnostic output"
+      "value": "Inclusive content"
     },
     "text-37": {
       "type": "text",
       "label": "Ethical design also extends to avoiding dark patterns, improving performance, and respecting user pr",
-      "value": "Check the public error response separately from internal logs. Each has a different audience."
+      "value": "Ethical design also extends to avoiding dark patterns, improving performance, and respecting user privacy."
     },
     "text-38": {
       "type": "html",
       "label": "“Good design is inclusive design.” – Kat Holmes",
-      "value": "Keep diagnostics useful and access controlled."
+      "value": "“Good design is inclusive design.” – <strong class=\"framer-text\">Kat Holmes</strong>"
     },
     "text-39": {
       "type": "text",
       "label": "7. 3D & Real-World Textures",
-      "value": "7. Recovery and Retesting"
+      "value": "7. 3D & Real-World Textures"
     },
     "text-40": {
       "type": "html",
       "label": "While flat design remains popular, subtle 3D elements—floating cards, shadows, tactile textures—are ",
-      "value": "Know how to recover from an unsuccessful release. Keep a rollback plan, identify who can use it, and document checks for the restored service."
+      "value": "While flat design remains popular, subtle <strong class=\"framer-text\">3D elements</strong>—floating cards, shadows, tactile textures—are returning. These touches add depth and realism, especially on product-focused or portfolio sites."
     },
     "text-41": {
       "type": "html",
       "label": "Framer tip: Use scroll speed, parallax effects, and depth sparingly to enhance dimension without har",
-      "value": "Retest the affected workflows after a security fix and preserve the outcome with the release notes."
+      "value": "<strong class=\"framer-text\">Framer tip:</strong> Use scroll speed, parallax effects, and depth sparingly to enhance dimension without harming performance."
     },
     "text-42": {
       "type": "html",
       "label": "“Design adds value faster than it adds cost.” – Joel Spolsky",
-      "value": "A release review should be repeatable by the next maintainer."
+      "value": "“Design adds value faster than it adds cost.” – <strong class=\"framer-text\">Joel Spolsky</strong>"
     },
     "text-43": {
       "type": "text",
       "label": "Future-Ready Design Starts Now",
-      "value": "Keep Improving the Checklist"
+      "value": "Future-Ready Design Starts Now"
     },
     "text-44": {
       "type": "html",
       "label": "Designing in 2025 is about balancing clean aesthetics, speed, and meaningful interactivity. Whether ",
-      "value": "Review which checks caught problems and which areas needed more context. Update the checklist as the application and its deployment change."
+      "value": "Designing in 2025 is about <strong class=\"framer-text\">balancing clean aesthetics, speed, and meaningful interactivity</strong>. Whether updating a startup landing page or your creative portfolio, these trends help create experiences that feel modern, intuitive, and memorable."
     },
     "text-45": {
       "type": "html",
       "label": "Looking to get a head start? Free Framer templates are built with these trends in mind—minimal, resp",
-      "value": "Use the OWASP cheat sheets as a reference for choosing and reviewing application-specific controls. <a class=\"framer-text framer-styles-preset-k80mkz\" href=\"https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html\">OWASP HTTP Headers Cheat Sheet</a>."
+      "value": "Looking to get a head start? Free Framer templates are built with these trends in mind—<strong class=\"framer-text\">minimal, responsive, and optimized for real-world use</strong>. Start exploring and bring your next idea to life faster: <!--$--><a class=\"framer-text framer-styles-preset-k80mkz\" href=\"https://templyo.io/templates\" rel=\"\">Templyo</a><!--/$-->."
     },
     "text-46": {
       "type": "text",
       "label": "Join the newsletter",
-      "value": "Newsletter coming soon"
+      "value": "Join the newsletter"
     },
     "text-47": {
-      "type": "html",
+      "type": "text",
       "label": "Be the first to read our articles.",
-      "value": "For security enquiries, <a class=\"framer-text\" href=\"/#contact\">get in touch</a>."
+      "value": "Be the first to read our articles."
     },
     "text-48": {
       "type": "text",
       "label": "Submit",
-      "value": "Coming soon"
+      "value": "Submit"
     },
     "text-49": {
       "type": "text",
@@ -2823,47 +2823,47 @@
     "text-50": {
       "type": "text",
       "label": "May 5, 2025",
-      "value": "Oct 17, 2026"
+      "value": "May 5, 2025"
     },
     "text-51": {
       "type": "text",
       "label": "Building Trust Through Clear Design",
-      "value": "A Practical Web Security Workflow"
+      "value": "Building Trust Through Clear Design"
     },
     "text-52": {
       "type": "text",
       "label": "How thoughtful visual choices create a stronger sense of reliability for modern brands.",
-      "value": "A focused approach to scoping, testing, validating, and reporting web application vulnerabilities."
+      "value": "How thoughtful visual choices create a stronger sense of reliability for modern brands."
     },
     "text-53": {
       "type": "text",
       "label": "Jun 16, 2025",
-      "value": "Oct 17, 2026"
+      "value": "Jun 16, 2025"
     },
     "text-54": {
       "type": "text",
       "label": "The Role of Art Direction in Branding",
-      "value": "API Security: Identity and Access"
+      "value": "The Role of Art Direction in Branding"
     },
     "text-55": {
       "type": "text",
       "label": "Why visual direction helps brands create emotion and a distinct point of view.",
-      "value": "How authentication, object permissions, and session handling work together to protect REST APIs."
+      "value": "Why visual direction helps brands create emotion and a distinct point of view."
     },
     "text-56": {
       "type": "text",
       "label": "Jun 16, 2025",
-      "value": "Oct 17, 2026"
+      "value": "Jun 16, 2025"
     },
     "text-57": {
       "type": "text",
       "label": "How Creative Teams Build Brand Systems",
-      "value": "Building Reliable Security Automation"
+      "value": "How Creative Teams Build Brand Systems"
     },
     "text-58": {
       "type": "text",
       "label": "A look at the workflows that keep branding consistent across every touchpoint.",
-      "value": "Design Python security workflows with clear inputs, bounded jobs, structured evidence, and reviewable results."
+      "value": "A look at the workflows that keep branding consistent across every touchpoint."
     },
     "text-59": {
       "type": "html",
@@ -2918,26 +2918,26 @@
     "image-69": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scanner-dashboard.png",
-      "alt": "NetNeedle dashboard for reviewing assessment status before a release"
+      "value": "https://framerusercontent.com/images/xgMwYRclJvAhqaJhMbQm8kpRv0.png?width=640&height=427",
+      "alt": ""
     },
     "image-70": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scan-configuration.png",
-      "alt": "NetNeedle scan configuration with assessment options"
+      "value": "https://framerusercontent.com/images/lxtBXj3G7Bloek83WxPY1ZUuw0Q.png?width=640&height=360",
+      "alt": ""
     },
     "image-71": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scanner-dashboard.png",
-      "alt": "NetNeedle scanner dashboard showing assessment progress"
+      "value": "https://framerusercontent.com/images/ic9k42rYytbJtnRUJXdcNxCHSc.png?width=640&height=359",
+      "alt": ""
     },
     "image-72": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scan-configuration.png",
-      "alt": "NetNeedle assessment configuration used to define scanner inputs"
+      "value": "https://framerusercontent.com/images/MWSFsHfw8FDzKSMZllibGDMY4CU.png?width=640&height=360",
+      "alt": ""
     },
     "link-73": {
       "type": "link",
@@ -2952,7 +2952,7 @@
     "link-75": {
       "type": "link",
       "label": "m1000z",
-      "value": "/"
+      "value": "../#hero-section"
     },
     "link-76": {
       "type": "link",
@@ -2962,22 +2962,22 @@
     "link-77": {
       "type": "link",
       "label": "May 5, 2025Building Trust Through Clear DesignHow thoughtful visual choices crea",
-      "value": "/blog/how-can-designers-prepare-for-the-future"
+      "value": "/how-can-designers-prepare-for-the-future"
     },
     "link-78": {
       "type": "link",
       "label": "Jun 16, 2025The Role of Art Direction in BrandingWhy visual direction helps bran",
-      "value": "/blog/why-every-business-needs-a-professional-website-in-2025"
+      "value": "/why-every-business-needs-a-professional-website-in-2025"
     },
     "link-79": {
       "type": "link",
       "label": "Jun 16, 2025How Creative Teams Build Brand SystemsA look at the workflows that k",
-      "value": "/blog/how-creative-teams-build-strong-brand-systems"
+      "value": "/how-creative-teams-build-strong-brand-systems"
     },
     "link-80": {
       "type": "link",
       "label": "Home\n    .rolling-text-inner-rr {\n      --font-size: 16px;\n      --text: var(--t",
-      "value": "/"
+      "value": "../#hero-section"
     },
     "link-81": {
       "type": "link",
@@ -2987,17 +2987,17 @@
     "link-82": {
       "type": "link",
       "label": "Services\n    .rolling-text-inner-r12 {\n      --font-size: 16px;\n      --text: va",
-      "value": "/#services"
+      "value": "../#services"
     },
     "link-83": {
       "type": "link",
       "label": "Works\n    .rolling-text-inner-r15 {\n      --font-size: 16px;\n      --text: var(-",
-      "value": "/work"
+      "value": "../work#hero-section"
     },
     "link-84": {
       "type": "link",
       "label": "Contact\n    .rolling-text-inner-r16 {\n      --font-size: 16px;\n      --text: var",
-      "value": "/#contact"
+      "value": "../#contact"
     },
     "link-85": {
       "type": "link",
@@ -3019,187 +3019,187 @@
     "text-3": {
       "type": "html",
       "label": "m1000z",
-      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"/\">m1000z</a><!--/$-->"
+      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"../#hero-section\">m1000z</a><!--/$-->"
     },
     "text-4": {
       "type": "text",
       "label": "Designing Products with Clear Purpose",
-      "value": "Writing Useful Vulnerability Reports"
+      "value": "Designing Products with Clear Purpose"
     },
     "text-5": {
       "type": "text",
       "label": "A purposeful digital product focuses on solving a specific user need through clarity, usability, and",
-      "value": "Turn security findings into clear evidence, realistic impact statements, remediation guidance, and retest criteria."
+      "value": "A purposeful digital product focuses on solving a specific user need through clarity, usability, and intentional design decisions."
     },
     "text-6": {
       "type": "text",
       "label": "May 5, 2025",
-      "value": "Oct 17, 2026"
+      "value": "May 5, 2025"
     },
     "text-7": {
       "type": "text",
       "label": "6 min read",
-      "value": "2 min read"
+      "value": "6 min read"
     },
     "text-8": {
       "type": "text",
       "label": "What does purposeful product design mean?",
-      "value": "Write for the Person Who Will Fix It"
+      "value": "What does purposeful product design mean?"
     },
     "text-9": {
       "type": "html",
       "label": "Purposeful digital product design starts with a simple idea:every interface and interaction should s",
-      "value": "A vulnerability report should help a developer understand the observed behavior and decide what to change."
+      "value": "Purposeful digital product design starts with a simple idea:<br class=\"framer-text\">every interface and interaction should solve a real problem."
     },
     "text-10": {
       "type": "text",
       "label": "“Good design isn’t about adding more. It’s about understanding what truly matters.”",
-      "value": "Make the evidence easy to follow."
+      "value": "“Good design isn’t about adding more. It’s about understanding what truly matters.”"
     },
     "text-11": {
       "type": "text",
       "label": "Instead of chasing visual trends, purposeful design is grounded in empathy, clarity, and thoughtful ",
-      "value": "Start with the affected feature, the environment, and the conditions needed to reproduce the issue. Keep the description tied to what the assessment demonstrated."
+      "value": "Instead of chasing visual trends, purposeful design is grounded in empathy, clarity, and thoughtful iteration. It’s about creating experiences that genuinely support the user, not just impress them visually."
     },
     "text-12": {
       "type": "text",
       "label": "The importance of solving real user problems",
-      "value": "Describe Expected and Observed Behavior"
+      "value": "The importance of solving real user problems"
     },
     "text-13": {
       "type": "text",
       "label": "A product becomes meaningful when its core functionality directly aligns with users’ needs. This is ",
-      "value": "Explain the intended control and the result of the test. This makes a finding easier to assess than a tool label on its own."
+      "value": "A product becomes meaningful when its core functionality directly aligns with users’ needs. This is where research plays a critical role — talking to users, observing their behavior, and continuously testing assumptions."
     },
     "text-14": {
       "type": "text",
       "label": "A few guiding principles:",
-      "value": "A clear description answers three questions:"
+      "value": "A few guiding principles:"
     },
     "text-15": {
       "type": "text",
       "label": "Understand the problem before designing the solution",
-      "value": "What should the application have allowed?"
+      "value": "Understand the problem before designing the solution"
     },
     "text-16": {
       "type": "text",
       "label": "Let function lead form",
-      "value": "What behavior did the test demonstrate?"
+      "value": "Let function lead form"
     },
     "text-17": {
       "type": "text",
       "label": "Simplify wherever possible",
-      "value": "Which account or data boundary was affected?"
+      "value": "Simplify wherever possible"
     },
     "text-18": {
       "type": "text",
       "label": "When teams follow this mindset, interfaces feel intuitive even on the first visit.",
-      "value": "A reviewer should be able to understand the issue before reading a long request transcript."
+      "value": "When teams follow this mindset, interfaces feel intuitive even on the first visit."
     },
     "text-19": {
       "type": "text",
       "label": "Purposeful products vs feature-heavy platforms",
-      "value": "Use the Minimum Evidence Needed"
+      "value": "Purposeful products vs feature-heavy platforms"
     },
     "text-20": {
       "type": "text",
       "label": "Many platforms try to offer everything at once, assuming more features equal more value. In reality,",
-      "value": "Include a small reproduction with controlled test data. Avoid copying unrelated customer records into a report."
+      "value": "Many platforms try to offer everything at once, assuming more features equal more value. In reality, this usually leads to clutter, confusion, and a fragmented experience."
     },
     "text-21": {
       "type": "text",
       "label": "Purposeful design takes the opposite approach:",
-      "value": "Useful supporting material includes:"
+      "value": "Purposeful design takes the opposite approach:"
     },
     "text-22": {
       "type": "text",
       "label": "Remove what isn’t needed",
-      "value": "The affected route and relevant prerequisites"
+      "value": "Remove what isn’t needed"
     },
     "text-23": {
       "type": "text",
       "label": "Highlight the elements that matter most",
-      "value": "A redacted request or a focused screenshot"
+      "value": "Highlight the elements that matter most"
     },
     "text-24": {
       "type": "text",
       "label": "Guide users toward a clear, focused goal",
-      "value": "The observed result and assessment timestamp"
+      "value": "Guide users toward a clear, focused goal"
     },
     "text-25": {
       "type": "text",
       "label": "Less noise, more clarity.",
-      "value": "Remove credentials, session values, and personal information before sharing the report."
+      "value": "Less noise, more clarity."
     },
     "text-26": {
       "type": "text",
       "label": "Maintaining clarity through visual design",
-      "value": "Explain Impact Without Guesswork"
+      "value": "Maintaining clarity through visual design"
     },
     "text-27": {
       "type": "text",
       "label": "Visual design should support the experience, not compete with it. Clean spacing, readable typography",
-      "value": "Connect the behavior to a realistic consequence. State the required access and any limits of the evidence so the reader can judge the finding fairly."
+      "value": "Visual design should support the experience, not compete with it. Clean spacing, readable typography, and consistent colors help users absorb information quickly. Motion and micro-interactions can add delight, but they should remain subtle and intentional."
     },
     "text-28": {
       "type": "text",
       "label": "Building purposeful products requires collaboration",
-      "value": "Propose a Reviewable Remediation"
+      "value": "Building purposeful products requires collaboration"
     },
     "text-29": {
       "type": "text",
       "label": "Truly impactful products are created when everyone works toward the same vision. Designers, develope",
-      "value": "Point to the failed control and describe the corrected behavior. Work with the application team when the right fix depends on architecture or business rules."
+      "value": "Truly impactful products are created when everyone works toward the same vision. Designers, developers, product managers, and marketing teams each shape different layers of the final experience. Purposeful collaboration leads to purposeful outcomes."
     },
     "text-30": {
       "type": "text",
       "label": "Build your own purposeful portfolio",
-      "value": "Define the Retest"
+      "value": "Build your own purposeful portfolio"
     },
     "text-31": {
       "type": "html",
       "label": "If you’re looking to create a beautiful, intentional portfolio without starting from scratch, explor",
-      "value": "Agree on the cases needed to confirm the fix and preserve legitimate behavior."
+      "value": "If you’re looking to create a beautiful, intentional portfolio without starting from scratch, explore our <!--$--><a class=\"framer-text framer-styles-preset-k80mkz\" href=\"https://templyo.io/templates\" rel=\"\">free Framer templates</a><!--/$-->."
     },
     "text-32": {
       "type": "text",
       "label": "They offer:",
-      "value": "Record the following outcomes:"
+      "value": "They offer:"
     },
     "text-33": {
       "type": "text",
       "label": "Clean, modern layouts",
-      "value": "The original issue is no longer reproducible"
+      "value": "Clean, modern layouts"
     },
     "text-34": {
       "type": "text",
       "label": "Smooth interactions",
-      "value": "Approved users can still complete the workflow"
+      "value": "Smooth interactions"
     },
     "text-35": {
       "type": "text",
       "label": "A professional look ready to personalize",
-      "value": "Related entry points follow the same policy"
+      "value": "A professional look ready to personalize"
     },
     "text-36": {
-      "type": "html",
+      "type": "text",
       "label": "A fast, polished foundation for any portfolio.",
-      "value": "A useful report ends with evidence that the corrected control behaves as intended. <a class=\"framer-text framer-styles-preset-k80mkz\" href=\"/work/netneedle/\">See NetNeedle reporting</a>."
+      "value": "A fast, polished foundation for any portfolio."
     },
     "text-37": {
       "type": "text",
       "label": "Join the newsletter",
-      "value": "Newsletter coming soon"
+      "value": "Join the newsletter"
     },
     "text-38": {
-      "type": "html",
+      "type": "text",
       "label": "Be the first to read our articles.",
-      "value": "For security enquiries, <a class=\"framer-text\" href=\"/#contact\">get in touch</a>."
+      "value": "Be the first to read our articles."
     },
     "text-39": {
       "type": "text",
       "label": "Submit",
-      "value": "Coming soon"
+      "value": "Submit"
     },
     "text-40": {
       "type": "text",
@@ -3209,47 +3209,47 @@
     "text-41": {
       "type": "text",
       "label": "May 5, 2025",
-      "value": "Oct 17, 2026"
+      "value": "May 5, 2025"
     },
     "text-42": {
       "type": "text",
       "label": "Building Trust Through Clear Design",
-      "value": "A Practical Web Security Workflow"
+      "value": "Building Trust Through Clear Design"
     },
     "text-43": {
       "type": "text",
       "label": "How thoughtful visual choices create a stronger sense of reliability for modern brands.",
-      "value": "A focused approach to scoping, testing, validating, and reporting web application vulnerabilities."
+      "value": "How thoughtful visual choices create a stronger sense of reliability for modern brands."
     },
     "text-44": {
       "type": "text",
       "label": "Jun 16, 2025",
-      "value": "Oct 17, 2026"
+      "value": "Jun 16, 2025"
     },
     "text-45": {
       "type": "text",
       "label": "The Role of Art Direction in Branding",
-      "value": "API Security: Identity and Access"
+      "value": "The Role of Art Direction in Branding"
     },
     "text-46": {
       "type": "text",
       "label": "Why visual direction helps brands create emotion and a distinct point of view.",
-      "value": "How authentication, object permissions, and session handling work together to protect REST APIs."
+      "value": "Why visual direction helps brands create emotion and a distinct point of view."
     },
     "text-47": {
       "type": "text",
       "label": "Jun 16, 2025",
-      "value": "Oct 17, 2026"
+      "value": "Jun 16, 2025"
     },
     "text-48": {
       "type": "text",
       "label": "How Creative Teams Build Brand Systems",
-      "value": "Building Reliable Security Automation"
+      "value": "How Creative Teams Build Brand Systems"
     },
     "text-49": {
       "type": "text",
       "label": "A look at the workflows that keep branding consistent across every touchpoint.",
-      "value": "Design Python security workflows with clear inputs, bounded jobs, structured evidence, and reviewable results."
+      "value": "A look at the workflows that keep branding consistent across every touchpoint."
     },
     "text-50": {
       "type": "html",
@@ -3304,26 +3304,26 @@
     "image-60": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/exec-report.png",
-      "alt": "NetNeedle report presenting security findings and remediation summaries"
+      "value": "https://framerusercontent.com/images/VIMRfiZ27XChz1XOgjss4EmUoDM.png?width=640&height=480",
+      "alt": ""
     },
     "image-61": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scan-configuration.png",
-      "alt": "NetNeedle scan configuration with assessment options"
+      "value": "https://framerusercontent.com/images/lxtBXj3G7Bloek83WxPY1ZUuw0Q.png?width=640&height=360",
+      "alt": ""
     },
     "image-62": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scanner-dashboard.png",
-      "alt": "NetNeedle scanner dashboard showing assessment progress"
+      "value": "https://framerusercontent.com/images/ic9k42rYytbJtnRUJXdcNxCHSc.png?width=640&height=359",
+      "alt": ""
     },
     "image-63": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scan-configuration.png",
-      "alt": "NetNeedle assessment configuration used to define scanner inputs"
+      "value": "https://framerusercontent.com/images/MWSFsHfw8FDzKSMZllibGDMY4CU.png?width=640&height=360",
+      "alt": ""
     },
     "link-64": {
       "type": "link",
@@ -3338,7 +3338,7 @@
     "link-66": {
       "type": "link",
       "label": "m1000z",
-      "value": "/"
+      "value": "../#hero-section"
     },
     "link-67": {
       "type": "link",
@@ -3348,22 +3348,22 @@
     "link-68": {
       "type": "link",
       "label": "May 5, 2025Building Trust Through Clear DesignHow thoughtful visual choices crea",
-      "value": "/blog/how-can-designers-prepare-for-the-future"
+      "value": "/how-can-designers-prepare-for-the-future"
     },
     "link-69": {
       "type": "link",
       "label": "Jun 16, 2025The Role of Art Direction in BrandingWhy visual direction helps bran",
-      "value": "/blog/why-every-business-needs-a-professional-website-in-2025"
+      "value": "/why-every-business-needs-a-professional-website-in-2025"
     },
     "link-70": {
       "type": "link",
       "label": "Jun 16, 2025How Creative Teams Build Brand SystemsA look at the workflows that k",
-      "value": "/blog/how-creative-teams-build-strong-brand-systems"
+      "value": "/how-creative-teams-build-strong-brand-systems"
     },
     "link-71": {
       "type": "link",
       "label": "Home\n    .rolling-text-inner-rq {\n      --font-size: 16px;\n      --text: var(--t",
-      "value": "/"
+      "value": "../#hero-section"
     },
     "link-72": {
       "type": "link",
@@ -3373,17 +3373,17 @@
     "link-73": {
       "type": "link",
       "label": "Services\n    .rolling-text-inner-r13 {\n      --font-size: 16px;\n      --text: va",
-      "value": "/#services"
+      "value": "../#services"
     },
     "link-74": {
       "type": "link",
       "label": "Works\n    .rolling-text-inner-r18 {\n      --font-size: 16px;\n      --text: var(-",
-      "value": "/work"
+      "value": "../work#hero-section"
     },
     "link-75": {
       "type": "link",
       "label": "Contact\n    .rolling-text-inner-r19 {\n      --font-size: 16px;\n      --text: var",
-      "value": "/#contact"
+      "value": "../#contact"
     },
     "link-76": {
       "type": "link",
@@ -3405,187 +3405,187 @@
     "text-3": {
       "type": "html",
       "label": "m1000z",
-      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"/\">m1000z</a><!--/$-->"
+      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"../#hero-section\">m1000z</a><!--/$-->"
     },
     "text-4": {
       "type": "text",
       "label": "Starting and Growing a Career in Web Design",
-      "value": "Building a Foundation in Web Security"
+      "value": "Starting and Growing a Career in Web Design"
     },
     "text-5": {
       "type": "text",
       "label": "Web design careers offer growing demand, competitive salaries, and creative opportunities. Designers",
-      "value": "A practical learning path through HTTP, application development, authorized labs, automation, and clear technical writing."
+      "value": "Web design careers offer growing demand, competitive salaries, and creative opportunities. Designers focus on site appearance, usability, and functionality, while developers handle technical aspects like performance and coding."
     },
     "text-6": {
       "type": "text",
       "label": "May 5, 2025",
-      "value": "Oct 17, 2026"
+      "value": "May 5, 2025"
     },
     "text-7": {
       "type": "text",
       "label": "6 min read",
-      "value": "2 min read"
+      "value": "6 min read"
     },
     "text-8": {
       "type": "text",
       "label": "Exploring a Career in Web Design",
-      "value": "Start with How Applications Work"
+      "value": "Exploring a Career in Web Design"
     },
     "text-9": {
       "type": "text",
       "label": "As the internet continues to expand at an unprecedented pace, careers related to web design and deve",
-      "value": "Web security is easier to understand when requests, sessions, databases, and deployment are familiar. Build a small application and follow a request through each layer."
+      "value": "As the internet continues to expand at an unprecedented pace, careers related to web design and development are growing alongside it. The U.S. Bureau of Labor Statistics predicts that by 2029, job opportunities in these fields will grow by 8%—faster than the average for all occupations. Whether you aim for a salaried position or a freelance career, web design offers diverse employment arrangements, competitive compensation, and the chance to merge technical expertise with creative vision."
     },
     "text-10": {
       "type": "html",
       "label": "“Design is not just what it looks like and feels like. Design is how it works.” – Steve Jobs",
-      "value": "Learn the behavior you are trying to protect."
+      "value": "“Design is not just what it looks like and feels like. Design is how it works.” – <strong class=\"framer-text\">Steve Jobs</strong>"
     },
     "text-11": {
       "type": "text",
       "label": "What Does a Career in Web Design Involve?",
-      "value": "Practice with a Clear Scope"
+      "value": "What Does a Career in Web Design Involve?"
     },
     "text-12": {
       "type": "text",
       "label": "A web design career encompasses the planning, creation, and coding of websites across industries. Ty",
-      "value": "Use environments designed for training or systems you have explicit permission to assess. Keep the objective and limits of each exercise in your notes."
+      "value": "A web design career encompasses the planning, creation, and coding of websites across industries. Typical responsibilities include:"
     },
     "text-13": {
       "type": "text",
       "label": "Collaborating with clients to define website goals and specifications",
-      "value": "Trace a request from the browser to the server"
+      "value": "Collaborating with clients to define website goals and specifications"
     },
     "text-14": {
       "type": "text",
       "label": "Incorporating feedback to refine design and functionality",
-      "value": "Compare normal behavior across test accounts"
+      "value": "Incorporating feedback to refine design and functionality"
     },
     "text-15": {
       "type": "text",
       "label": "Working on graphic design, layout, and multimedia integration (images, video, audio)",
-      "value": "Read the code responsible for a security decision"
+      "value": "Working on graphic design, layout, and multimedia integration (images, video, audio)"
     },
     "text-16": {
       "type": "text",
       "label": "Ensuring responsive, user-friendly, and visually engaging interfaces",
-      "value": "Document what the exercise demonstrated"
+      "value": "Ensuring responsive, user-friendly, and visually engaging interfaces"
     },
     "text-17": {
       "type": "text",
       "label": "Web designers often operate at the intersection of creativity and technology, shaping how users expe",
-      "value": "A short, repeatable explanation is more useful than a collection of screenshots without context."
+      "value": "Web designers often operate at the intersection of creativity and technology, shaping how users experience a site. Unlike web developers, who focus more on technical infrastructure and coding, web designers are primarily responsible for visual storytelling, usability, and interface design."
     },
     "text-18": {
       "type": "html",
       "label": "“People ignore design that ignores people.” – Frank Chimero",
-      "value": "Keep notes another learner could follow."
+      "value": "“People ignore design that ignores people.” – <strong class=\"framer-text\">Frank Chimero</strong>"
     },
     "text-19": {
       "type": "text",
       "label": "However, in practice, the lines between designers and developers often blur. Many web designers toda",
-      "value": "When an exercise is complete, explain the root cause and the expected fix in your own words. Revisit the example after making a small change."
+      "value": "However, in practice, the lines between designers and developers often blur. Many web designers today are proficient in front-end coding, enabling them to implement their designs directly and collaborate more seamlessly with development teams."
     },
     "text-20": {
       "type": "text",
       "label": "Understanding Web Designers vs. Web Developers",
-      "value": "Connect Testing with Development"
+      "value": "Understanding Web Designers vs. Web Developers"
     },
     "text-21": {
       "type": "text",
       "label": "The U.S. Bureau of Labor Statistics groups web developers and digital designers together, but distin",
-      "value": "Building and reviewing applications give complementary views of the same problem. Use both to understand where a control belongs."
+      "value": "The U.S. Bureau of Labor Statistics groups web developers and digital designers together, but distinguishes their roles:"
     },
     "text-22": {
       "type": "text",
       "label": "Web Developers: Build and maintain websites, focusing on technical aspects such as site performance,",
-      "value": "Build a feature and describe its intended access rules."
+      "value": "Web Developers: Build and maintain websites, focusing on technical aspects such as site performance, back-end functionality, and capacity. They may specialize in front-end, back-end, or full-stack development, using programming languages, frameworks, and libraries."
     },
     "text-23": {
       "type": "text",
       "label": "Web Designers: Focus on the visual design, layout, and functionality of a website. They ensure usabi",
-      "value": "Review it with controlled test data and correct the behavior."
+      "value": "Web Designers: Focus on the visual design, layout, and functionality of a website. They ensure usability, aesthetic appeal, and a coherent brand experience, often working closely with front-end developers to implement their vision."
     },
     "text-24": {
       "type": "html",
       "label": "“Good design is obvious. Great design is transparent.” – Joe Sparano",
-      "value": "Keep tests small and results reproducible."
+      "value": "“Good design is obvious. Great design is transparent.” – <strong class=\"framer-text\">Joe Sparano</strong>"
     },
     "text-25": {
       "type": "text",
       "label": "Both roles are essential to creating modern, responsive websites, and designers with coding skills a",
-      "value": "Repeat the loop on a new workflow so the reasoning carries beyond a single lab."
+      "value": "Both roles are essential to creating modern, responsive websites, and designers with coding skills are increasingly valued for their ability to bridge the gap between vision and implementation."
     },
     "text-26": {
       "type": "text",
       "label": "Are Web Designers in Demand?",
-      "value": "Automate a Small Task"
+      "value": "Are Web Designers in Demand?"
     },
     "text-27": {
       "type": "text",
       "label": "The demand for web designers and developers continues to grow as digital presence becomes crucial fo",
-      "value": "Choose a repetitive part of your workflow and give it clear inputs and outputs. Keep errors visible and avoid placing credentials in source code."
+      "value": "The demand for web designers and developers continues to grow as digital presence becomes crucial for businesses, organizations, and individuals. With 17.4 billion websites in existence as of January 2020, the need for skilled professionals shows no signs of slowing."
     },
     "text-28": {
       "type": "text",
       "label": "Web designers with coding experience or proficiency in modern design tools often command higher sala",
-      "value": "Good starting projects include:"
+      "value": "Web designers with coding experience or proficiency in modern design tools often command higher salaries and have access to more competitive opportunities. While pay varies by experience, skill set, and industry, there are clear pathways for career growth:"
     },
     "text-29": {
       "type": "text",
       "label": "Front-end web design and development",
-      "value": "A tool that organizes assessment notes"
+      "value": "Front-end web design and development"
     },
     "text-30": {
       "type": "text",
       "label": "UI/UX design and user research",
-      "value": "A parser that normalizes approved scanner output"
+      "value": "UI/UX design and user research"
     },
     "text-31": {
       "type": "text",
       "label": "Interactive and multimedia web experiences",
-      "value": "A report generator for controlled test results"
+      "value": "Interactive and multimedia web experiences"
     },
     "text-32": {
       "type": "text",
       "label": "Freelance or agency-based work spanning multiple industries",
-      "value": "A check that detects accidental public-file exposure"
+      "value": "Freelance or agency-based work spanning multiple industries"
     },
     "text-33": {
       "type": "text",
       "label": "“Websites promote you 24/7: No employee will do that.” – Paul Cookson",
-      "value": "A finished small project can show a clear engineering decision."
+      "value": "“Websites promote you 24/7: No employee will do that.” – Paul Cookson"
     },
     "text-34": {
       "type": "text",
       "label": "Key skills for aspiring web designers in 2025 include HTML, CSS, JavaScript, responsive design, UX p",
-      "value": "Keep the project small enough to explain, maintain, and demonstrate with non-sensitive data."
+      "value": "Key skills for aspiring web designers in 2025 include HTML, CSS, JavaScript, responsive design, UX principles, and proficiency with modern design software."
     },
     "text-35": {
       "type": "text",
       "label": "Bringing Your Portfolio Online",
-      "value": "Present Your Work Clearly"
+      "value": "Bringing Your Portfolio Online"
     },
     "text-36": {
       "type": "html",
       "label": "A professional portfolio is essential for web designers to showcase their skills and attract clients",
-      "value": "Explain the problem, the implementation, the evidence, and the limitations. My About page describes my education and experience; NetNeedle shows how assessment workflows and reporting can be brought together. <a class=\"framer-text framer-styles-preset-k80mkz\" href=\"https://owasp.org/www-project-web-security-testing-guide/\">OWASP Web Security Testing Guide</a>."
+      "value": "A professional portfolio is essential for web designers to showcase their skills and attract clients or employers. If you want to build a stunning portfolio website without starting from scratch, free Framer templates can help. These templates are optimized for both design and usability, making it easy to create a polished, eye-catching portfolio tailored to your work: <!--$--><a class=\"framer-text framer-styles-preset-k80mkz\" href=\"https://templyo.io/templates\" rel=\"\">Templyo</a><!--/$-->."
     },
     "text-37": {
       "type": "text",
       "label": "Join the newsletter",
-      "value": "Newsletter coming soon"
+      "value": "Join the newsletter"
     },
     "text-38": {
-      "type": "html",
+      "type": "text",
       "label": "Be the first to read our articles.",
-      "value": "For security enquiries, <a class=\"framer-text\" href=\"/#contact\">get in touch</a>."
+      "value": "Be the first to read our articles."
     },
     "text-39": {
       "type": "text",
       "label": "Submit",
-      "value": "Coming soon"
+      "value": "Submit"
     },
     "text-40": {
       "type": "text",
@@ -3595,47 +3595,47 @@
     "text-41": {
       "type": "text",
       "label": "May 5, 2025",
-      "value": "Oct 17, 2026"
+      "value": "May 5, 2025"
     },
     "text-42": {
       "type": "text",
       "label": "Building Trust Through Clear Design",
-      "value": "A Practical Web Security Workflow"
+      "value": "Building Trust Through Clear Design"
     },
     "text-43": {
       "type": "text",
       "label": "How thoughtful visual choices create a stronger sense of reliability for modern brands.",
-      "value": "A focused approach to scoping, testing, validating, and reporting web application vulnerabilities."
+      "value": "How thoughtful visual choices create a stronger sense of reliability for modern brands."
     },
     "text-44": {
       "type": "text",
       "label": "Jun 16, 2025",
-      "value": "Oct 17, 2026"
+      "value": "Jun 16, 2025"
     },
     "text-45": {
       "type": "text",
       "label": "The Role of Art Direction in Branding",
-      "value": "API Security: Identity and Access"
+      "value": "The Role of Art Direction in Branding"
     },
     "text-46": {
       "type": "text",
       "label": "Why visual direction helps brands create emotion and a distinct point of view.",
-      "value": "How authentication, object permissions, and session handling work together to protect REST APIs."
+      "value": "Why visual direction helps brands create emotion and a distinct point of view."
     },
     "text-47": {
       "type": "text",
       "label": "Jun 16, 2025",
-      "value": "Oct 17, 2026"
+      "value": "Jun 16, 2025"
     },
     "text-48": {
       "type": "text",
       "label": "How Creative Teams Build Brand Systems",
-      "value": "Building Reliable Security Automation"
+      "value": "How Creative Teams Build Brand Systems"
     },
     "text-49": {
       "type": "text",
       "label": "A look at the workflows that keep branding consistent across every touchpoint.",
-      "value": "Design Python security workflows with clear inputs, bounded jobs, structured evidence, and reviewable results."
+      "value": "A look at the workflows that keep branding consistent across every touchpoint."
     },
     "text-50": {
       "type": "html",
@@ -3690,26 +3690,26 @@
     "image-60": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/dashboard.png",
-      "alt": "NetNeedle cybersecurity project developed by Mohammad Yasin"
+      "value": "https://framerusercontent.com/images/HH3YKlPdNvuWQdn3ypOgOThmOk.png?width=640&height=427",
+      "alt": ""
     },
     "image-61": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scan-configuration.png",
-      "alt": "NetNeedle scan configuration with assessment options"
+      "value": "https://framerusercontent.com/images/lxtBXj3G7Bloek83WxPY1ZUuw0Q.png?width=640&height=360",
+      "alt": ""
     },
     "image-62": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scanner-dashboard.png",
-      "alt": "NetNeedle scanner dashboard showing assessment progress"
+      "value": "https://framerusercontent.com/images/ic9k42rYytbJtnRUJXdcNxCHSc.png?width=640&height=359",
+      "alt": ""
     },
     "image-63": {
       "type": "image",
       "label": "Image",
-      "value": "/assets/netneedle/scan-configuration.png",
-      "alt": "NetNeedle assessment configuration used to define scanner inputs"
+      "value": "https://framerusercontent.com/images/MWSFsHfw8FDzKSMZllibGDMY4CU.png?width=640&height=360",
+      "alt": ""
     },
     "link-64": {
       "type": "link",
@@ -3724,7 +3724,7 @@
     "link-66": {
       "type": "link",
       "label": "m1000z",
-      "value": "/"
+      "value": "../#hero-section"
     },
     "link-67": {
       "type": "link",
@@ -3734,22 +3734,22 @@
     "link-68": {
       "type": "link",
       "label": "May 5, 2025Building Trust Through Clear DesignHow thoughtful visual choices crea",
-      "value": "/blog/how-can-designers-prepare-for-the-future"
+      "value": "/how-can-designers-prepare-for-the-future"
     },
     "link-69": {
       "type": "link",
       "label": "Jun 16, 2025The Role of Art Direction in BrandingWhy visual direction helps bran",
-      "value": "/blog/why-every-business-needs-a-professional-website-in-2025"
+      "value": "/why-every-business-needs-a-professional-website-in-2025"
     },
     "link-70": {
       "type": "link",
       "label": "Jun 16, 2025How Creative Teams Build Brand SystemsA look at the workflows that k",
-      "value": "/blog/how-creative-teams-build-strong-brand-systems"
+      "value": "/how-creative-teams-build-strong-brand-systems"
     },
     "link-71": {
       "type": "link",
       "label": "Home\n    .rolling-text-inner-rq {\n      --font-size: 16px;\n      --text: var(--t",
-      "value": "/"
+      "value": "../#hero-section"
     },
     "link-72": {
       "type": "link",
@@ -3759,17 +3759,17 @@
     "link-73": {
       "type": "link",
       "label": "Services\n    .rolling-text-inner-rs {\n      --font-size: 16px;\n      --text: var",
-      "value": "/#services"
+      "value": "../#services"
     },
     "link-74": {
       "type": "link",
       "label": "Works\n    .rolling-text-inner-r15 {\n      --font-size: 16px;\n      --text: var(-",
-      "value": "/work"
+      "value": "../work#hero-section"
     },
     "link-75": {
       "type": "link",
       "label": "Contact\n    .rolling-text-inner-r16 {\n      --font-size: 16px;\n      --text: var",
-      "value": "/#contact"
+      "value": "../#contact"
     },
     "link-76": {
       "type": "link",
@@ -3791,7 +3791,7 @@
     "link-43": {
       "type": "link",
       "label": "Home\n    .rolling-text-inner-rn {\n      --font-size: 16px;\n      --text: var(--t",
-      "value": "/"
+      "value": "/#hero-section"
     },
     "text-20": {
       "type": "text",
@@ -3821,7 +3821,7 @@
     "link-46": {
       "type": "link",
       "label": "Works\n    .rolling-text-inner-r10 {\n      --font-size: 16px;\n      --text: var(-",
-      "value": "/work"
+      "value": "/work#hero-section"
     },
     "text-23": {
       "type": "text",
@@ -3978,7 +3978,7 @@
     "text-3": {
       "type": "html",
       "label": "m1000z",
-      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"/\">m1000z</a><!--/$-->"
+      "value": "<a class=\"framer-text framer-styles-preset-1kr3xaf\" data-styles-preset=\"mi01ReKIR\" href=\"../#hero-section\">m1000z</a><!--/$-->"
     },
     "text-4": {
       "type": "text",
@@ -4197,7 +4197,7 @@
     "link-53": {
       "type": "link",
       "label": "m1000z",
-      "value": "/"
+      "value": "../#hero-section"
     },
     "link-54": {
       "type": "link",
@@ -4206,8 +4206,8 @@
     },
     "link-57": {
       "type": "link",
-      "label": "Home",
-      "value": "/"
+      "label": "/#hero-section",
+      "value": "/#hero-section"
     },
     "link-58": {
       "type": "link",
@@ -4221,8 +4221,8 @@
     },
     "link-60": {
       "type": "link",
-      "label": "Projects",
-      "value": "/work"
+      "label": "/work#hero-section",
+      "value": "/work#hero-section"
     },
     "link-61": {
       "type": "link",

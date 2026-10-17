@@ -107,10 +107,7 @@ export function setupPageMotion() {
       if (!destination.hash || destination.hash === location.hash) {
         event.preventDefault();
         const target = destination.hash && document.getElementById(decodeURIComponent(destination.hash.slice(1)));
-        if (target) {
-          target.scrollIntoView({ behavior: reduced.matches ? 'instant' : 'smooth' });
-          target.focus?.({ preventScroll: true });
-        }
+        if (target) target.scrollIntoView({ behavior: reduced.matches ? 'instant' : 'smooth' });
         else {
           if (!destination.hash && location.hash) history.pushState(null, '', destination.pathname + destination.search);
           window.scrollTo({ top: 0, behavior: reduced.matches ? 'instant' : 'smooth' });
