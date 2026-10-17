@@ -102,7 +102,7 @@ form input:not([type="hidden"]), form textarea { color: var(--theme-text); caret
 #main form input::placeholder, #main form textarea::placeholder { color: var(--theme-muted); opacity: 1; }
 form button[type="submit"] { background: var(--theme-accent) !important; color: #101315; }
 form button[type="submit"] p, form button[type="submit"] span { color: #101315; --text: #101315; }
-footer { background: #0b0e10 !important; box-shadow: inset 0 1px var(--theme-line); }
+footer { background: transparent !important; box-shadow: inset 0 1px var(--theme-line); }
 footer [data-framer-name="Quick Links"] a {
   background: #20262a !important;
   color: var(--theme-text);
