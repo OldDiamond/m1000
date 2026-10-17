@@ -3,6 +3,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { assertPublicFiles } from './check-public-files.mjs';
 const pages=JSON.parse(fs.readFileSync('src/pages.json','utf8'));
+const canonicalOrigin='https://www.m1000z.com';
 const siteHref=value=>{
  if(typeof value!=='string')return value;
  const match=/^(\/[^?#]*)(.*)$/.exec(value);
@@ -52,6 +53,8 @@ const publicSettings={
  footerMark:pick(settings.footerMark,['enabled','color']),
 };
 fs.writeFileSync('dist/assets/settings.json',JSON.stringify(publicSettings));
+fs.writeFileSync('dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+pages.map(page=>'  <url><loc>'+canonicalOrigin+siteHref(page.route)+'</loc></url>').join('\n')+'\n</urlset>\n');
+fs.writeFileSync('dist/robots.txt','User-agent: *\nAllow: /\n\nSitemap: '+canonicalOrigin+'/sitemap.xml\n');
 for(const page of pages){
  let html=fs.readFileSync('src/pages/'+page.slug+'.html','utf8');
  html=html.replaceAll('<!--HEADER-->',fs.readFileSync('src/components/Header.html','utf8').replaceAll('{{displayName}}',escape(settings.displayName)));
@@ -79,6 +82,19 @@ for(const page of pages){
  html=html.replaceAll('href="./','href="/');
  html=html.replace(/href="(\/[^"#]+)(#[^"]*)?"/g,(match,target,hash='')=>{if(pages.some(p=>p.route===target))return match;const found=pages.find(p=>p.route.split('/').at(-1)===target.slice(1));return found?'href="'+found.route+hash+'"':match});
  html=html.replace(/href="(\/[^"\s]*)"/g,(_,href)=>'href="'+siteHref(href)+'"');
+ // Give keyboard users a stable content target without changing the layout.
+ if(/<main\b/.test(html))html=html.replace(/<main\b/,'<main id="main-content" tabindex="-1"');
+ else html=html.replace(/(<section\b[^>]*id="article-section")/,'$1 role="main" tabindex="-1" data-main-content');
+ // Newsletter delivery is not configured; do not invite a dead-end submission.
+ if(!settings.newsletterEndpoint)html=html.replace(/(<form\b[^>]*class="framer-3r2a70"[^>]*>)([\s\S]*?)<\/form>/g,(_,open,body)=>open+body.replace(/<(input|button)\b/g,'<$1 disabled')+'</form>');
+ let articleCover=page.route.startsWith('/blog/');
+ html=html.replace(/<img\b[^>]*>/g,tag=>{
+  tag=tag.replace('decoding="auto"','decoding="async"');
+  // The article cover and portrait are visible on entry; cards remain lazy.
+  if(articleCover||tag.includes('data-portrait-photo'))tag=tag.replace('loading="lazy"','loading="eager"');
+  articleCover=false;
+  return tag;
+ });
  if(page.slug==='home')html=html.replace('data-framer-name="Hero Section" id="hero-section">','data-framer-name="Hero Section" id="hero-section"><span class="hero-copyright">©'+settings.copyrightYear+'</span>');
  const icons=fs.readFileSync('src/components/Icons.html','utf8');
  const opening=page.slug==='home'&&settings.openingDots?.enabled!==false?fs.readFileSync('src/components/OpeningDots.html','utf8').replaceAll('{{openingText}}',escape(String(settings.openingDots?.text||'['+settings.displayName+']').slice(0,32))).replaceAll('{{openingDuration}}',String(Math.max(2500,Math.min(10000,Number(settings.openingDots?.duration)||5600)))).replaceAll('{{openingOnce}}',String(settings.openingDots?.oncePerSession!==false)):'';
@@ -97,7 +113,8 @@ for(const page of pages){
  const motionBoot='<script>'+fs.readFileSync('src/navigation-boot.js','utf8')+'</script>';
  const fontPreloads=[500,600,page.slug==='home'?800:700].map(weight=>'<link rel="preload" href="/assets/fonts/archivo-normal-'+weight+'.woff2" as="font" type="font/woff2" crossorigin>').join('');
  const embeddedSettings='<script type="application/json" id="portfolio-settings">'+JSON.stringify(publicSettings).replaceAll('<','\\u003c')+'</script>';
- const doc=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101315"><style>html,body{background:#101315;color:#edf0ed}</style><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}">${fontPreloads}<link rel="stylesheet" href="/assets/${page.slug}.css"><link rel="stylesheet" href="/assets/custom.css"><link rel="stylesheet" href="/assets/theme.css"><link rel="stylesheet" href="/assets/responsive.css">${motionBoot}${embeddedSettings}<script type="module" src="/assets/interactions.js" blocking="render"></script></head><body>${opening}${icons}${html}</body></html>`;
+ const skipTarget=page.route.startsWith('/blog/')?'article-section':'main-content';
+ const doc=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101315"><style>html,body{background:#101315;color:#edf0ed}</style><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}"><link rel="canonical" href="${canonicalOrigin+siteHref(page.route)}">${fontPreloads}<link rel="stylesheet" href="/assets/${page.slug}.css"><link rel="stylesheet" href="/assets/custom.css"><link rel="stylesheet" href="/assets/theme.css"><link rel="stylesheet" href="/assets/responsive.css">${motionBoot}${embeddedSettings}<script type="module" src="/assets/interactions.js" blocking="render"></script></head><body>${opening}<a class="skip-link" href="#${skipTarget}">Skip to content</a>${icons}${html}</body></html>`;
  // Updated styles and entry scripts get fresh URLs on browsers that cached an earlier layout.
  const versionedDoc=doc.replace(/((?:href|src)=")((?:\/assets\/)[^"?#]+\.(?:css|js))"/g,(_,attribute,url)=>{
   const version=createHash('sha256').update(fs.readFileSync(path.join('dist',url))).digest('hex').slice(0,12);

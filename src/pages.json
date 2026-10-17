@@ -2,8 +2,8 @@
   {
     "route": "/",
     "slug": "home",
-    "title": "m1000z",
-    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
+    "title": "Mohammad Yasin | Web Security Specialist",
+    "description": "Mohammad Yasin’s cybersecurity portfolio: web application security, penetration testing, API security, and Python automation. Explore NetNeedle and get in touch.",
     "components": [
       "home--0--hero-bio-sections",
       "home--1--quote-section",
@@ -17,8 +17,8 @@
   {
     "route": "/about",
     "slug": "about",
-    "title": "About - m1000z",
-    "description": "Education, professional experience, and milestones along my journey in cybersecurity, ethical hacking, and security automation.",
+    "title": "About Mohammad Yasin | Cybersecurity & Experience",
+    "description": "Explore Mohammad Yasin’s computer science education, CWES certification, and experience in web security, infrastructure, and security automation.",
     "components": [
       "about--0--intro",
       "about--1--education",
@@ -29,8 +29,8 @@
   {
     "route": "/work",
     "slug": "work",
-    "title": "Projects - m1000z",
-    "description": "NetNeedle: cybersecurity assessment, security automation, and evidence-led reporting.",
+    "title": "Cybersecurity Projects | Mohammad Yasin",
+    "description": "Explore NetNeedle, Mohammad Yasin’s cybersecurity assessment platform for web security testing, automated scanning, and evidence-led reporting.",
     "components": [
       "work--0--projects-section",
       "work--1--phone"
@@ -39,8 +39,8 @@
   {
     "route": "/work/netneedle",
     "slug": "work--netneedle",
-    "title": "NetNeedle - m1000z",
-    "description": "NetNeedle maps external attack surfaces, reviews web security findings, and turns scan evidence into actionable reports.",
+    "title": "NetNeedle | Security Assessment & Reporting",
+    "description": "See how NetNeedle uses Python, FastAPI, background workers, and validated scan evidence to support security assessments and actionable remediation reports.",
     "components": [
       "work--netneedle--0--work-section",
       "work--netneedle--1--phone"
@@ -49,8 +49,8 @@
   {
     "route": "/blog",
     "slug": "blog",
-    "title": "Thoughts - m1000z",
-    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
+    "title": "Web Security & Automation Notes | m1000z",
+    "description": "Read practical articles on web security, API authorization, Python automation, vulnerability reporting, and building a foundation in cybersecurity.",
     "components": [
       "blog--0--projects-section",
       "blog--1--phone"
@@ -59,8 +59,8 @@
   {
     "route": "/blog/how-can-designers-prepare-for-the-future",
     "slug": "blog--how-can-designers-prepare-for-the-future",
-    "title": "Building Trust Through Clear Design - m1000z",
-    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
+    "title": "A Practical Web Security Workflow | m1000z",
+    "description": "A focused approach to scoping, testing, validating, and reporting web application vulnerabilities.",
     "components": [
       "blog--how-can-designers-prepare-for-the-future--0--article-section",
       "blog--how-can-designers-prepare-for-the-future--1--more-articles",
@@ -70,8 +70,8 @@
   {
     "route": "/blog/why-every-business-needs-a-professional-website-in-2025",
     "slug": "blog--why-every-business-needs-a-professional-website-in-2025",
-    "title": "The Role of Art Direction in Branding - m1000z",
-    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
+    "title": "API Security: Identity and Access | m1000z",
+    "description": "How authentication, object permissions, and session handling work together to protect REST APIs.",
     "components": [
       "blog--why-every-business-needs-a-professional-website-in-2025--0--article-section",
       "blog--why-every-business-needs-a-professional-website-in-2025--1--more-articles",
@@ -81,8 +81,8 @@
   {
     "route": "/blog/how-creative-teams-build-strong-brand-systems",
     "slug": "blog--how-creative-teams-build-strong-brand-systems",
-    "title": "How Creative Teams Build Brand Systems - m1000z",
-    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
+    "title": "Building Reliable Security Automation | m1000z",
+    "description": "Design Python security workflows with clear inputs, bounded jobs, structured evidence, and reviewable results.",
     "components": [
       "blog--how-creative-teams-build-strong-brand-systems--0--article-section",
       "blog--how-creative-teams-build-strong-brand-systems--1--more-articles",
@@ -92,8 +92,8 @@
   {
     "route": "/blog/the-rise-of-modern-tech-startup-websites",
     "slug": "blog--the-rise-of-modern-tech-startup-websites",
-    "title": "The Rise of Modern Tech Startup Websites - m1000z",
-    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
+    "title": "Inside NetNeedle: From Scan to Report | m1000z",
+    "description": "How NetNeedle connects assessment scope, background jobs, scan evidence, and actionable security reports.",
     "components": [
       "blog--the-rise-of-modern-tech-startup-websites--0--article-section",
       "blog--the-rise-of-modern-tech-startup-websites--1--more-articles",
@@ -103,8 +103,8 @@
   {
     "route": "/blog/top-web-design-trends-to-watch-in-2025",
     "slug": "blog--top-web-design-trends-to-watch-in-2025",
-    "title": "Top Web Design Trends to Watch in 2025 - m1000z",
-    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
+    "title": "Seven Checks Before a Web Release | m1000z",
+    "description": "A practical release review covering permissions, sessions, secrets, dependencies, headers, logs, and recovery.",
     "components": [
       "blog--top-web-design-trends-to-watch-in-2025--0--article-section",
       "blog--top-web-design-trends-to-watch-in-2025--1--more-articles",
@@ -114,8 +114,8 @@
   {
     "route": "/blog/designing-products-with-purpose",
     "slug": "blog--designing-products-with-purpose",
-    "title": "Designing Products with Clear Purpose - m1000z",
-    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
+    "title": "Writing Useful Vulnerability Reports | m1000z",
+    "description": "Turn security findings into clear evidence, realistic impact statements, remediation guidance, and retest criteria.",
     "components": [
       "blog--designing-products-with-purpose--0--article-section",
       "blog--designing-products-with-purpose--1--more-articles",
@@ -125,8 +125,8 @@
   {
     "route": "/blog/starting-and-growing-a-career-in-web-design",
     "slug": "blog--starting-and-growing-a-career-in-web-design",
-    "title": "Starting and Growing a Career in Web Design - m1000z",
-    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
+    "title": "Building a Foundation in Web Security | m1000z",
+    "description": "A practical learning path through HTTP, application development, authorized labs, automation, and clear technical writing.",
     "components": [
       "blog--starting-and-growing-a-career-in-web-design--0--article-section",
       "blog--starting-and-growing-a-career-in-web-design--1--more-articles",

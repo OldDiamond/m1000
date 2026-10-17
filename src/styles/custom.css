@@ -67,6 +67,9 @@ html.opening-dots-active body { touch-action: none; }
 @keyframes curtain-fallback { from { transform: translateX(-1.5%) skewX(-1deg); } to { transform: translateX(1.5%) skewX(1deg); } }
 * { box-sizing: border-box; }
 a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline: 2px solid #800020; outline-offset: 5px; }
+.skip-link { position: fixed; z-index: 3000; top: 8px; left: 16px; padding: 12px 16px; transform: translateY(-160%); background: var(--theme-bg, #101315); color: var(--theme-text, #edf0ed); font: 500 16px/1.4 var(--portfolio-font); border: 1px solid currentColor; border-radius: 8px; }
+.skip-link:focus { transform: translateY(0); }
+#main-content { scroll-margin-top: 110px; }
 .draggable-decoration:focus-visible { outline: 2px solid #800020; outline-offset: 5px; border-radius: 12px; }
 .draggable-decoration { cursor: grab !important; touch-action: none; user-select: none; }
 .draggable-decoration.is-dragging { cursor: grabbing !important; }
