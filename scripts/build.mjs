@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { assertPublicFiles } from './check-public-files.mjs';
 const pages=JSON.parse(fs.readFileSync('src/pages.json','utf8'));
 const content=JSON.parse(fs.readFileSync('content/portfolio.json','utf8'));
@@ -78,7 +79,12 @@ for(const page of pages){
  });
  const motionBoot=`<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('page-motion-enabled');setTimeout(()=>{if(!window.__pageMotionReady)document.documentElement.classList.remove('page-motion-enabled')},4000)}</script>`;
  const doc=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101315"><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}"><link rel="stylesheet" href="/assets/${page.slug}.css"><link rel="stylesheet" href="/assets/custom.css"><link rel="stylesheet" href="/assets/theme.css"><link rel="stylesheet" href="/assets/responsive.css">${motionBoot}</head><body>${opening}${icons}${html}<script type="module" src="/assets/interactions.js"></script></body></html>`;
- fs.writeFileSync(path.join(dir,'index.html'),doc);
+ // Updated styles and entry scripts get fresh URLs on browsers that cached an earlier layout.
+ const versionedDoc=doc.replace(/((?:href|src)=")((?:\/assets\/)[^"?#]+\.(?:css|js))"/g,(_,attribute,url)=>{
+  const version=createHash('sha256').update(fs.readFileSync(path.join('dist',url))).digest('hex').slice(0,12);
+  return attribute+url+'?v='+version+'"';
+ });
+ fs.writeFileSync(path.join(dir,'index.html'),versionedDoc);
 }
 try { assertPublicFiles('dist',publicFileOptions); }
 catch(error) { fs.rmSync(outputRoot,{recursive:true,force:true}); throw error; }
