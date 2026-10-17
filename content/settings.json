@@ -12,7 +12,7 @@
     "oncePerSession": true
   },
   "backgroundCurtains": {
-    "enabled": true,
+    "enabled": false,
     "intensity": 0.82,
     "speed": 0.35,
     "primaryColor": "#b43f4d",

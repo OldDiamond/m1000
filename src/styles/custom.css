@@ -44,27 +44,17 @@ body { margin: 0; background: #f5f3ef; }
 .opening-dots-canvas { display: block; width: 100%; height: 100%; }
 html.opening-dots-active { overflow: hidden; scrollbar-gutter: stable; }
 html.opening-dots-active body { touch-action: none; }
-.curtain-background {
-  --curtain-primary: #b43f4d; --curtain-secondary: #70212c; --curtain-intensity: .82;
-  position: absolute; top: 0; left: 0; right: 0; z-index: 0;
-  width: 100%; height: 120vh; height: 120svh;
-  pointer-events: none; overflow: hidden; contain: strict;
+[data-framer-name="Hero & Bio Sections"] { isolation: isolate; }
+.hero-image-background { position: absolute; top: 0; left: 0; width: 100%; height: 100vh; height: 100svh; z-index: -1; overflow: hidden; pointer-events: none; user-select: none; }
+.hero-image-background picture, .hero-image-background img { display: block; width: 100%; height: 100%; }
+.hero-image-background img { object-fit: cover; object-position: 40% center; opacity: .8; }
+.hero-image-background::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, #10131533 0%, #10131559 50%, #10131594 78%, var(--theme-bg) 100%);
 }
-.curtain-background[hidden] { display: none; }
-.curtain-canvas { display: block; width: 100%; height: 100%; }
-.curtain-background::before {
-  content: ''; position: absolute; inset: -6%;
-  background:
-    repeating-linear-gradient(92deg, transparent 0 28px, color-mix(in srgb, var(--curtain-secondary) 28%, transparent) 35px, transparent 48px),
-    radial-gradient(ellipse at 0% 0%, var(--curtain-primary), transparent 52%),
-    radial-gradient(ellipse at 100% 0%, var(--curtain-secondary), transparent 52%);
-  opacity: calc(var(--curtain-intensity) * .6);
-  mask-image: linear-gradient(to bottom, #000, transparent 88%);
-  animation: curtain-fallback 18s ease-in-out infinite alternate;
+@media (max-width: 1279px) {
+  .hero-image-background { grid-area: 1 / 1 / 2 / 2; inset: 0; height: auto; }
 }
-.curtain-background[data-renderer="webgl"]::before { display: none; }
-.curtain-background[data-renderer="css"] .curtain-canvas { display: none; }
-@keyframes curtain-fallback { from { transform: translateX(-1.5%) skewX(-1deg); } to { transform: translateX(1.5%) skewX(1deg); } }
 * { box-sizing: border-box; }
 a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline: 2px solid #800020; outline-offset: 5px; }
 .draggable-decoration:focus-visible { outline: 2px solid #800020; outline-offset: 5px; border-radius: 12px; }
