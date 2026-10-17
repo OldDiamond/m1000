@@ -3,16 +3,17 @@
   const root = document.documentElement;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const supportsReveal = 'onpagereveal' in window;
+  const reloading = performance.getEntriesByType('navigation')[0]?.type === 'reload';
   let pending = false;
   try {
     const entry = JSON.parse(sessionStorage.getItem('portfolio-navigation') || 'null');
-    pending = Boolean(entry && Date.now() - entry.at < 15000 &&
+    pending = Boolean(!reloading && entry && Date.now() - entry.at < 15000 &&
       new URL(entry.url).pathname.replace(/\/$/, '') === location.pathname.replace(/\/$/, ''));
     sessionStorage.removeItem('portfolio-navigation');
   } catch {}
   try {
     const previous = document.referrer && new URL(document.referrer);
-    pending ||= Boolean(previous && previous.origin === location.origin && previous.pathname !== location.pathname);
+    pending ||= Boolean(!reloading && previous && previous.origin === location.origin && previous.pathname !== location.pathname);
   } catch {}
   if (pending) root.classList.add('page-navigation');
   let resolve, resolved = false;

@@ -5,10 +5,11 @@
 (() => {
   const layer = document.getElementById('portfolio-opening');
   const navigation = performance.getEntriesByType('navigation')[0];
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches || navigation?.type === 'back_forward' || document.documentElement.classList.contains('page-navigation')) return;
+  const reloading = navigation?.type === 'reload';
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || navigation?.type === 'back_forward' || (!reloading && document.documentElement.classList.contains('page-navigation'))) return;
   const key = 'portfolio-opening:' + layer.dataset.text;
   try {
-    if (layer.dataset.once === 'true' && sessionStorage.getItem(key) && navigation?.type !== 'reload') return;
+    if (layer.dataset.once === 'true' && sessionStorage.getItem(key) && !reloading) return;
     sessionStorage.setItem(key, 'seen');
   } catch {}
   layer.hidden = false;
