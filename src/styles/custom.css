@@ -186,6 +186,21 @@ input, textarea, button { font-family: var(--portfolio-font); }
 form input:not([type="hidden"]), form textarea { font-family: var(--portfolio-font) !important; font-size: 18px !important; }
 form button[type="submit"], form button[type="submit"] p, form button[type="submit"] span { font-family: var(--portfolio-font) !important; font-size: 18px !important; line-height: 1.2 !important; }
 form button[type="submit"] { min-height: 44px; }
+/* Keep newsletter controls fully inside their card, with consistent spacing. */
+#main [data-framer-name="Newsletter"] { --border-color: var(--theme-line); padding: 24px; }
+#main [data-framer-name="Newsletter"] form { gap: 12px; overflow: visible; box-shadow: none; }
+#main [data-framer-name="Newsletter"] .framer-form-input-wrapper {
+  --framer-input-padding: 12px 14px;
+  --framer-input-border-top-width: 1px; --framer-input-border-right-width: 1px;
+  --framer-input-border-bottom-width: 1px; --framer-input-border-left-width: 1px;
+  --framer-input-focused-border-width: 1px;
+  --framer-input-focused-border-color: var(--theme-accent);
+  --framer-input-border-radius-top-left: 10px; --framer-input-border-radius-top-right: 10px;
+  --framer-input-border-radius-bottom-left: 10px; --framer-input-border-radius-bottom-right: 10px;
+  height: 48px;
+}
+#main [data-framer-name="Newsletter"] form > .ssr-variant > div { height: 48px; }
+#main [data-framer-name="Newsletter"] button[type="submit"] { border-radius: 10px !important; }
 .form-feedback { font: 16px/1.5 var(--portfolio-font); margin: 12px 0; color: #333; max-width: 100%; overflow-wrap: anywhere; }
 [data-contact-form] > .form-feedback { width: 100%; margin: 0; }
 .form-feedback[hidden], .form-secure-retry[hidden] { display: none !important; }

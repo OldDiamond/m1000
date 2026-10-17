@@ -285,7 +285,12 @@ function setupForms(settings) {
   document.querySelectorAll('form').forEach(form => {
     form.querySelectorAll('input[aria-hidden="true"]:not([name="_honey"])').forEach(input => input.remove());
     const newsletter = !form.hasAttribute('data-contact-form') && form.querySelectorAll('input:not([type="hidden"])').length === 1;
-    if (newsletter) form.removeAttribute('action');
+    if (newsletter) {
+      form.removeAttribute('action');
+      const input = form.querySelector('input[type="email"]');
+      input?.setAttribute('aria-label', 'Email address');
+      input?.setAttribute('autocomplete', 'email');
+    }
     const endpoint = newsletter ? settings.newsletterEndpoint : settings.contactEndpoint;
     const formSubmit = !newsletter && /^https:\/\/formsubmit\.co\/ajax\//.test(endpoint || '');
     const buttons = [...form.querySelectorAll('button[type="submit"]')];
