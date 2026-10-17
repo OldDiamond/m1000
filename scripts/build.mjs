@@ -52,6 +52,14 @@ const publicSettings={
  footerMark:pick(settings.footerMark,['enabled','color']),
 };
 fs.writeFileSync('dist/assets/settings.json',JSON.stringify(publicSettings));
+const faviconLinks=[
+ ['icon','/favicon.ico','image/x-icon','16x16 32x32 48x48'],
+ ['icon','/favicon-32x32.png','image/png','32x32'],
+ ['apple-touch-icon','/apple-touch-icon.png','image/png','180x180'],
+].map(([rel,url,type,sizes])=>{
+ const version=createHash('sha256').update(fs.readFileSync(path.join('dist',url))).digest('hex').slice(0,12);
+ return `<link rel="${rel}" href="${url}?v=${version}" type="${type}" sizes="${sizes}">`;
+}).join('');
 for(const page of pages){
  let html=fs.readFileSync('src/pages/'+page.slug+'.html','utf8');
  html=html.replaceAll('<!--HEADER-->',fs.readFileSync('src/components/Header.html','utf8').replaceAll('{{displayName}}',escape(settings.displayName)));
@@ -99,7 +107,7 @@ for(const page of pages){
  const embeddedSettings='<script type="application/json" id="portfolio-settings">'+JSON.stringify(publicSettings).replaceAll('<','\\u003c')+'</script>';
  const doc=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101315"><style>html,body{background:#101315;color:#edf0ed}</style><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}">${fontPreloads}<link rel="stylesheet" href="/assets/${page.slug}.css"><link rel="stylesheet" href="/assets/custom.css"><link rel="stylesheet" href="/assets/theme.css"><link rel="stylesheet" href="/assets/responsive.css">${motionBoot}${embeddedSettings}<script type="module" src="/assets/interactions.js" blocking="render"></script></head><body>${opening}${icons}${html}</body></html>`;
  // Updated styles and entry scripts get fresh URLs on browsers that cached an earlier layout.
- const versionedDoc=doc.replace(/((?:href|src)=")((?:\/assets\/)[^"?#]+\.(?:css|js))"/g,(_,attribute,url)=>{
+ const versionedDoc=doc.replace('</head>',faviconLinks+'</head>').replace(/((?:href|src)=")((?:\/assets\/)[^"?#]+\.(?:css|js))"/g,(_,attribute,url)=>{
   const version=createHash('sha256').update(fs.readFileSync(path.join('dist',url))).digest('hex').slice(0,12);
   return attribute+url+'?v='+version+'"';
  });
