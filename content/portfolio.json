@@ -33,7 +33,7 @@
     "text-7": {
       "type": "text",
       "label": "Biography introduction",
-      "value": "I’m Mohammad Yasin, a cybersecurity enthusiast based in Zurich, Switzerland, specializing in web application security and penetration testing."
+      "value": "I’m Yasin, a cybersecurity enthusiast based in Zurich, Switzerland, specializing in web application security and penetration testing."
     },
     "text-8": {
       "type": "text",
@@ -282,15 +282,15 @@
     },
     "image-76": {
       "type": "image",
-      "label": "Red portrait of Mohammad Yasin",
+      "label": "Red portrait of Yasin",
       "value": "/assets/media/portrait-red-v3.png",
-      "alt": "Red portrait of Mohammad Yasin"
+      "alt": "Red portrait of Yasin"
     },
     "image-77": {
       "type": "image",
-      "label": "Black-and-white portrait of Mohammad Yasin",
+      "label": "Black-and-white portrait of Yasin",
       "value": "/assets/media/portrait-grayscale-v3.png",
-      "alt": "Black-and-white portrait of Mohammad Yasin"
+      "alt": "Black-and-white portrait of Yasin"
     },
     "image-78": {
       "type": "image",
