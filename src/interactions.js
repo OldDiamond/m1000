@@ -100,6 +100,11 @@ function setupFooter(settings) {
     footers.forEach(footer => {
       footer.classList.remove('framer-v-788ly6', 'framer-v-1w2xgsd', 'framer-v-1s9g854');
       footer.classList.add('framer-v-' + variant);
+      const mark = footer.querySelector('.footer-mark');
+      if (mark) {
+        if (innerWidth < 1280) footer.querySelector('[data-framer-name="Columns"]').before(mark);
+        else footer.querySelector('[data-framer-name="Quick Links"]').prepend(mark);
+      }
     });
     fitWordmarks();
   };

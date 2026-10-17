@@ -5,7 +5,7 @@ export async function setupFooterHands(options = {}) {
   if (options.enabled === false) { layers.forEach(layer => layer.hidden = true); return; }
   const columns = Math.max(40, Math.min(140, Number(options.columns) || 80));
   const pools = [' ', '.,:', '-~^:;', '+<>?!', '/\\()[]{}', '*#%@'];
-  async function silhouette(src) {
+  async function silhouette(src, columns) {
     const image = new Image(); image.src = src; await image.decode();
     const source = document.createElement('canvas');
     source.width = image.naturalWidth; source.height = image.naturalHeight;
@@ -37,25 +37,35 @@ export async function setupFooterHands(options = {}) {
     }
     return { text: lines.join('\n'), rows };
   }
-  let shapes;
-  try { shapes = await Promise.all([silhouette('/assets/hands/left.png'), silhouette('/assets/hands/right.png')]); }
+  let shapeSets;
+  try {
+    const densities = [...new Set([columns, Math.min(columns, 40)])];
+    shapeSets = new Map(await Promise.all(densities.map(async density => [density,
+      await Promise.all(['/assets/hands/left.png', '/assets/hands/right.png'].map(src => silhouette(src, density)))
+    ])));
+  }
   catch { layers.forEach(layer => layer.hidden = true); return; }
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   layers.forEach(layer => {
     layer.style.setProperty('--hands-color', options.color || '#ff603b');
     layer.style.setProperty('--hands-opacity', Math.max(0, Math.min(1, Number(options.opacity ?? .8))));
-    layer.querySelectorAll('pre').forEach((pre, index) => pre.textContent = shapes[index].text);
     layer.dataset.ready = 'true';
   });
   const motion = layers.map(layer => ({ layer, progress: 0, target: 0 }));
   let frame = 0, previousTime = 0;
   function layout() {
+    const density = innerWidth < 1280 ? Math.min(columns, 40) : columns;
+    const shapes = shapeSets.get(density);
     layers.forEach(layer => {
+      if (layer.dataset.columns !== String(density)) {
+        layer.querySelectorAll('pre').forEach((pre, index) => pre.textContent = shapes[index].text);
+        layer.dataset.columns = String(density);
+      }
       const footer = layer.closest('footer');
       const word = footer.querySelector('svg[data-framer-component-type="RichTextContainer"]');
       const available = word ? word.getBoundingClientRect().top - footer.getBoundingClientRect().top - 16 : footer.clientHeight * .55;
       layer.style.height = Math.max(160, available) + 'px';
-      const cell = Math.min(layer.clientWidth * .44 / columns, layer.clientHeight / (Math.max(...shapes.map(s => s.rows)) * 1.25));
+      const cell = Math.min(layer.clientWidth * .44 / density, layer.clientHeight / (Math.max(...shapes.map(s => s.rows)) * 1.25));
       layer.style.setProperty('--hand-cell', cell + 'px');
     });
     updateTargets();
