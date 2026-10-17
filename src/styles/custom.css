@@ -253,6 +253,13 @@ a:is(:hover, :focus-visible) [data-framer-name="Arrow Button"] > [data-framer-na
 [data-framer-name="Logo"] img { object-fit: contain !important; object-position: center !important; }
 [data-framer-name="Image Wrap"] img { transition: transform .45s ease; }
 [data-framer-name="Project Card"]:hover img { transform: scale(1.025); }
+/* Reference article hover: centered 4% image zoom with an 800ms spring (bounce .2). */
+a.framer-6Ku2B > [data-framer-name="Image"] {
+  transform: scale(1); transform-origin: center;
+  transition: transform .8s var(--motion-ease);
+  transition-timing-function: linear(0, .02241, .07939, .15808, .24859, .34353, .43755, .52693, .60932, .68333, .74837, .80439, .85176, .89109, .92313, .94875, .96879, .9841, .99545, 1.00356, 1.00908, 1.01254, 1.01443, 1.01513, 1.01499, 1.01425, 1.01313, 1.0118, 1.01037, 1.00893, 1.00755, 1.00627, 1.00511, 1.00408, 1.0032, 1.00244, 1.00181, 1.00129, 1.00088, 1.00055, 1);
+}
+a.framer-6Ku2B:is(.is-hovered, :focus-visible) > [data-framer-name="Image"] { transform: scale(1.04); }
 footer a { color: inherit; text-decoration: none; }
 footer { isolation: isolate; }
 footer > [data-framer-name="Container"] { z-index: 2; }

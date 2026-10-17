@@ -270,6 +270,17 @@ function setupDecorations() {
   });
 }
 
+function setupArticleHover() {
+  document.querySelectorAll('a.framer-6Ku2B').forEach(card => {
+    card.addEventListener('pointerenter', event => {
+      if (event.pointerType === 'mouse' || event.pointerType === 'pen') card.classList.add('is-hovered');
+    });
+    const leave = () => card.classList.remove('is-hovered');
+    card.addEventListener('pointerleave', leave);
+    card.addEventListener('pointercancel', leave);
+  });
+}
+
 function setupForms(settings) {
   document.querySelectorAll('form').forEach(form => {
     form.querySelectorAll('input[aria-hidden="true"]:not([name="_honey"])').forEach(input => input.remove());
@@ -397,6 +408,7 @@ async function setup() {
   setupFooterHands(settings.footerHands);
   setupScrollMotion(settings);
   setupDecorations();
+  setupArticleHover();
   setupForms(settings);
   const socialNames = ['Gmail: m1000zurich@gmail.com', 'Instagram', 'LinkedIn'];
   document.querySelectorAll('[data-framer-name="Social Media Icons"] a').forEach((link, index) => {
