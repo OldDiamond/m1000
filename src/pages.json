@@ -2,8 +2,8 @@
   {
     "route": "/",
     "slug": "home",
-    "title": "m1000z",
-    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
+    "title": "m1000z | Yasin – Web Application Penetration Tester in Zurich",
+    "description": "Yasin (m1000z), web application penetration tester in Zurich. I secure web apps so attackers can't. Read my security writeups and get in touch.",
     "components": [
       "home--0--hero-bio-sections",
       "home--1--quote-section",
