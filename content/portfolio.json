@@ -3863,6 +3863,31 @@
       "label": "m1000z",
       "value": "m1000z"
     },
+    "education-title": {
+      "type": "text",
+      "label": "education-title",
+      "value": "Education"
+    },
+    "education-1-years": {
+      "type": "text",
+      "label": "education-1-years",
+      "value": "NOV 2026"
+    },
+    "education-1-title": {
+      "type": "text",
+      "label": "education-1-title",
+      "value": "Bachelor of Science in Computer Science (BSCS)"
+    },
+    "education-1-organization": {
+      "type": "text",
+      "label": "education-1-organization",
+      "value": "International Institute of Science, Art and Technology (IISAT)"
+    },
+    "education-1-description": {
+      "type": "text",
+      "label": "education-1-description",
+      "value": "Building a strong foundation in programming, networking, software development, and computer systems, with a particular focus on cybersecurity and offensive security."
+    },
     "experience-title": {
       "type": "text",
       "label": "experience-title",

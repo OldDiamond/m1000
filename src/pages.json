@@ -22,6 +22,7 @@
     "components": [
       "about--0--intro",
       "about--1--journey",
+      "about--2--education",
       "about--2--certifications",
       "about--3--experience",
       "about--4--resume",
