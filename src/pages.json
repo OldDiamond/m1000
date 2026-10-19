@@ -53,87 +53,10 @@
     "route": "/blog",
     "slug": "blog",
     "title": "Thoughts - m1000z",
-    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
+    "description": "Security writeups by Yasin (m1000z), including his experience preparing for and passing HTB CWES.",
     "components": [
       "blog--0--projects-section",
       "blog--1--phone"
-    ]
-  },
-  {
-    "route": "/blog/how-can-designers-prepare-for-the-future",
-    "slug": "blog--how-can-designers-prepare-for-the-future",
-    "title": "Building Trust Through Clear Design - m1000z",
-    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
-    "components": [
-      "blog--how-can-designers-prepare-for-the-future--0--article-section",
-      "blog--how-can-designers-prepare-for-the-future--1--more-articles",
-      "blog--how-can-designers-prepare-for-the-future--2--phone"
-    ]
-  },
-  {
-    "route": "/blog/why-every-business-needs-a-professional-website-in-2025",
-    "slug": "blog--why-every-business-needs-a-professional-website-in-2025",
-    "title": "The Role of Art Direction in Branding - m1000z",
-    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
-    "components": [
-      "blog--why-every-business-needs-a-professional-website-in-2025--0--article-section",
-      "blog--why-every-business-needs-a-professional-website-in-2025--1--more-articles",
-      "blog--why-every-business-needs-a-professional-website-in-2025--2--phone"
-    ]
-  },
-  {
-    "route": "/blog/how-creative-teams-build-strong-brand-systems",
-    "slug": "blog--how-creative-teams-build-strong-brand-systems",
-    "title": "How Creative Teams Build Brand Systems - m1000z",
-    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
-    "components": [
-      "blog--how-creative-teams-build-strong-brand-systems--0--article-section",
-      "blog--how-creative-teams-build-strong-brand-systems--1--more-articles",
-      "blog--how-creative-teams-build-strong-brand-systems--2--phone"
-    ]
-  },
-  {
-    "route": "/blog/the-rise-of-modern-tech-startup-websites",
-    "slug": "blog--the-rise-of-modern-tech-startup-websites",
-    "title": "The Rise of Modern Tech Startup Websites - m1000z",
-    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
-    "components": [
-      "blog--the-rise-of-modern-tech-startup-websites--0--article-section",
-      "blog--the-rise-of-modern-tech-startup-websites--1--more-articles",
-      "blog--the-rise-of-modern-tech-startup-websites--2--phone"
-    ]
-  },
-  {
-    "route": "/blog/top-web-design-trends-to-watch-in-2025",
-    "slug": "blog--top-web-design-trends-to-watch-in-2025",
-    "title": "Top Web Design Trends to Watch in 2025 - m1000z",
-    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
-    "components": [
-      "blog--top-web-design-trends-to-watch-in-2025--0--article-section",
-      "blog--top-web-design-trends-to-watch-in-2025--1--more-articles",
-      "blog--top-web-design-trends-to-watch-in-2025--2--phone"
-    ]
-  },
-  {
-    "route": "/blog/designing-products-with-purpose",
-    "slug": "blog--designing-products-with-purpose",
-    "title": "Designing Products with Clear Purpose - m1000z",
-    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
-    "components": [
-      "blog--designing-products-with-purpose--0--article-section",
-      "blog--designing-products-with-purpose--1--more-articles",
-      "blog--designing-products-with-purpose--2--phone"
-    ]
-  },
-  {
-    "route": "/blog/starting-and-growing-a-career-in-web-design",
-    "slug": "blog--starting-and-growing-a-career-in-web-design",
-    "title": "Starting and Growing a Career in Web Design - m1000z",
-    "description": "Software engineer and Framer creator with a strong focus on building modern, scalable, and conversion-driven web experiences. ",
-    "components": [
-      "blog--starting-and-growing-a-career-in-web-design--0--article-section",
-      "blog--starting-and-growing-a-career-in-web-design--1--more-articles",
-      "blog--starting-and-growing-a-career-in-web-design--2--phone"
     ]
   }
 ]

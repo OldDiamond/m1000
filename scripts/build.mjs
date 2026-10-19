@@ -17,6 +17,15 @@ assertPublicFiles('public',publicFileOptions);
 const assets=fs.existsSync('content/assets.json')?JSON.parse(fs.readFileSync('content/assets.json','utf8')):{};
 const localize=value=>{for(const [url,local]of Object.entries(assets)){value=value.replaceAll(url,local).replaceAll(url.replaceAll('&','&amp;'),local)}return value};
 const escape=s=>String(s).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+const posts=JSON.parse(fs.readFileSync('content/posts.json','utf8'));
+const blogCard=fs.readFileSync('src/components/BlogCard.html','utf8');
+const blogCards=posts.map(post=>{
+ if(new URL(post.url).protocol!=='https:')throw new Error('Blog links must use HTTPS');
+ const fields={postUrl:post.url,postTitle:post.title,postImage:post.image,imageAlt:post.imageAlt,
+  imageWidth:post.imageWidth,imageHeight:post.imageHeight,postDate:post.date,
+  postDisplayDate:new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'UTC'}).format(new Date(post.date)),postExcerpt:post.excerpt};
+ return Object.entries(fields).reduce((html,[key,value])=>html.replaceAll('{{'+key+'}}',escape(value)),blogCard);
+}).join('\n');
 // Recreate only the generated output so removed assets cannot survive a rebuild.
 const projectRoot=fs.realpathSync('.');
 const outputRoot=path.join(projectRoot,'dist');
@@ -64,6 +73,7 @@ for(const page of pages){
  let html=fs.readFileSync('src/pages/'+page.slug+'.html','utf8');
  html=html.replaceAll('<!--HEADER-->',fs.readFileSync('src/components/Header.html','utf8').replaceAll('{{displayName}}',escape(settings.displayName)));
  page.components.forEach((name,i)=>{html=html.replace('<!--COMPONENT:'+i+'-->',fs.readFileSync('src/components/'+name+'.html','utf8'))});
+ html=html.replaceAll('<!--BLOG-CARDS-->',blogCards);
  for(const [key,field]of Object.entries(content[page.slug])){
   if(field.type==='html'||field.type==='text'){const re=new RegExp('(<(h[1-6]|p)\\b[^>]*data-edit="'+key+'"[^>]*>)[\\s\\S]*?<\\/\\2>','g');html=html.replace(re,(_,open,tag)=>open+(field.type==='text'?escape(field.value):field.value)+'</'+tag+'>')}
   else {const marker=field.type==='image'?'data-edit-image':'data-edit-link';const re=new RegExp('<(?:img|a)\\b[^>]*'+marker+'="'+key+'"[^>]*>','g');html=html.replace(re,tag=>{const attr=field.type==='image'?'src':'href';tag=tag.replace(new RegExp(attr+'="[^"]*"'),attr+'="'+escape(field.value)+'"');if(field.type==='image')tag=tag.replace(/alt="[^"]*"/,'alt="'+escape(field.alt||'')+'"');return tag})}
