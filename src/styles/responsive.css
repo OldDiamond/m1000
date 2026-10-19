@@ -71,16 +71,14 @@
   [data-framer-name="Quote Section"], [data-framer-name="Quote Section"] > [data-framer-name="Container"] { height: 150vh !important; height: 150svh !important; }
   [data-framer-name="Quote Section"] [data-framer-name="Content"] { height: 100vh !important; height: 100svh !important; padding-block: 100px 32px !important; }
   [data-framer-name="Thoughts Section"] [data-framer-name="All Posts Card"] { min-height: 240px !important; height: auto !important; gap: 32px !important; }
-  #main footer { padding-top: 50px; }
-  footer > [data-framer-name="Container"] { width: 100% !important; max-width: 1000px !important; gap: 24px !important; }
-  #main footer h2:has(> .footer-security-headline) { font-size: 43.5px; }
+  footer > [data-framer-name="Container"] { width: 100% !important; max-width: 1000px !important; }
   footer > [data-framer-name="Container"] > [data-framer-component-type="RichTextContainer"] {
     width: 100% !important; max-width: 600px; margin-inline: auto;
   }
   footer h2:has(> .footer-security-headline) { text-align: center; }
   .footer-mark { align-self: center; }
   .footer-hand pre { color: var(--hands-color); opacity: var(--hands-opacity); }
-  footer [data-framer-name="Columns"] { width: 100% !important; min-width: 0; gap: 20px !important; }
+  footer [data-framer-name="Columns"] { width: 100% !important; min-width: 0; gap: 32px !important; }
   /* Framer's one-pixel flex bases must not become literal grid-column widths. */
   footer [data-framer-name="Columns"] > [data-framer-name],
   footer [data-framer-name="Columns"] [data-framer-component-type="RichTextContainer"],
@@ -116,13 +114,12 @@
   [data-framer-name="Services Cards"] h3 { font-size: clamp(24px, 4.4vw, 28px); line-height: 1.25; }
   [data-project-detail] [data-framer-name="Project Details"] { flex-wrap: wrap !important; gap: 16px !important; }
   .about-entry-content > h3 { font-size: clamp(24px, 4vw, 28px); overflow-wrap: anywhere; }
-  #main footer { padding-top: 32px; }
-  #main footer h2:has(> .footer-security-headline) { font-size: clamp(25.5px, 6.6vw, 36px); }
+  footer h2:has(> .footer-security-headline) { font-size: clamp(34px, 8.8vw, 48px); }
   footer [data-framer-name="Quick Links"] { width: 100% !important; }
   footer [data-framer-name="Links"] { max-width: 100%; flex-wrap: wrap !important; }
-  #main footer [data-framer-name="Quick Links"] a { min-height: 36px; }
-  footer > [data-framer-name="Container"] { gap: 16px !important; }
-  .footer-mark { height: 67.5px; }
+  footer [data-framer-name="Quick Links"] a { min-height: 44px; }
+  footer > [data-framer-name="Container"] { gap: 36px !important; }
+  .footer-mark { height: 90px; }
   main p.framer-text, .about-page p { letter-spacing: -.02em; }
   form input:not([type="hidden"]), form textarea { font-size: 16px !important; }
   form textarea { min-height: 140px; }

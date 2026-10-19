@@ -90,9 +90,8 @@ function setupFooter(settings) {
       const size = Math.min(416.95, 1180 / Math.max(1, width) * 100);
       label.style.setProperty('--framer-font-size', size + 'px');
       word.setAttribute('viewBox', `0 0 1200 ${size * .9}`);
-      // Keep 90% of the smaller watermark visible, with a compact content gap.
-      const clearance = innerWidth < 600 ? 24 : 50;
-      footer.style.paddingBottom = Math.ceil(word.getBoundingClientRect().height * .9 + clearance) + 'px';
+      // Keep three quarters visible, with room above for the footer links.
+      footer.style.paddingBottom = Math.ceil(word.getBoundingClientRect().height * .75 + 64) + 'px';
     });
   }
   const layout = () => {
