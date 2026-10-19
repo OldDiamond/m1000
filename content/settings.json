@@ -39,7 +39,7 @@
   "footerHands": {
     "enabled": true,
     "color": "var(--accent)",
-    "opacity": 0.25,
+    "opacity": 0.6,
     "columns": 80
   },
   "cvUrl": "/assets/documents/mohammad-yasin-resume.pdf",
