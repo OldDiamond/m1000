@@ -41,8 +41,6 @@
 .about-resume-actions .about-resume-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 48px; padding: 14px 20px; background: var(--theme-accent); color: var(--theme-bg); border-radius: 10px; text-decoration: none; transition: background .2s ease; }
 .about-resume-actions .about-resume-button:hover { background: var(--accent-hover); color: var(--theme-bg); }
 .about-resume-view { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 0; }
-#main[data-page="about"] .portfolio-logo { font-family: var(--about-heading-font); font-weight: 700; }
-#main[data-page="about"] .portfolio-menu a { font-family: var(--about-label-font); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
 #main[data-page="about"] footer :is(h2, h4) { font-family: var(--about-heading-font); }
 #main[data-page="about"] footer [data-brand-wordmark] p { font-family: var(--about-heading-font) !important; }
 #main[data-page="about"] a:focus-visible { outline: 2px solid var(--theme-accent); outline-offset: 5px; }
@@ -62,8 +60,6 @@
   .about-story > h2, .about-history > h2 { font-size: 42px; }
   .about-history > h2 { margin-bottom: 36px; }
   .about-entry { grid-template-columns: 240px minmax(0, 1fr); gap: 40px; padding: 36px 0; }
-  #main[data-page="about"] .portfolio-menu-links { gap: 2px; }
-  #main[data-page="about"] .portfolio-menu a { padding-inline: 12px; }
 }
 @media (min-width: 1280px) {
   #main[data-page="about"] .about-page { max-width: 1180px; padding: 180px 0 120px; }

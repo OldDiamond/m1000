@@ -66,7 +66,7 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible,
     background: transparent; box-shadow: none; border-radius: 12px;
     color: #d1d7d8; transition: background .25s ease, color .25s ease, box-shadow .25s ease;
   }
-  .portfolio-menu a:hover, .portfolio-menu a[aria-current="page"] { color: var(--accent-hover); background: var(--accent-soft); }
+  .portfolio-menu a:hover { color: var(--accent-hover); background: var(--accent-soft); }
 }
 .portfolio-menu .portfolio-contact-link {
   color: var(--accent); background: var(--accent-soft);

@@ -26,28 +26,6 @@
       "about--3--experience",
       "about--4--resume",
       "work--1--phone"
-    ],
-    "navigation": [
-      {
-        "label": "Services",
-        "href": "/#services"
-      },
-      {
-        "label": "Blogs",
-        "href": "/blog"
-      },
-      {
-        "label": "Projects",
-        "href": "/work"
-      },
-      {
-        "label": "About Me",
-        "href": "/about"
-      },
-      {
-        "label": "Contact",
-        "href": "/#contact"
-      }
     ]
   },
   {

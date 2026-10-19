@@ -104,10 +104,9 @@ for(const page of pages){
   return '<'+tag+attrs+' data-page-reveal="'+(hero?'hero':intro?'intro':'heading')+'">'+words+'</'+tag+'>';
  });
  const motionBoot='<script>'+fs.readFileSync('src/navigation-boot.js','utf8')+'</script>';
- const fontFiles=page.slug==='about'?['about-inter','about-inter-tight','about-jetbrains-mono']:[500,600,page.slug==='home'?800:700].map(weight=>'archivo-normal-'+weight);
+ const fontFiles=[...new Set([...(page.slug==='about'?['about-inter','about-inter-tight','about-jetbrains-mono']:[500,600,page.slug==='home'?800:700].map(weight=>'archivo-normal-'+weight)),'archivo-normal-500','archivo-normal-700'])];
  const fontPreloads=fontFiles.map(name=>'<link rel="preload" href="/assets/fonts/'+name+'.woff2" as="font" type="font/woff2" crossorigin>').join('');
- const pageSettings=page.navigation?{...publicSettings,navigation:page.navigation.map(item=>({...pick(item,['label']),href:siteHref(item.href)}))}:publicSettings;
- const embeddedSettings='<script type="application/json" id="portfolio-settings">'+JSON.stringify(pageSettings).replaceAll('<','\\u003c')+'</script>';
+ const embeddedSettings='<script type="application/json" id="portfolio-settings">'+JSON.stringify(publicSettings).replaceAll('<','\\u003c')+'</script>';
  const pageSeo=page.slug==='about'?[
   '<link rel="canonical" href="https://www.m1000z.com/about/">',
   '<meta name="robots" content="index,follow">',
