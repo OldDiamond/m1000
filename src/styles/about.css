@@ -4,23 +4,23 @@
 @font-face { font-family: "About Inter Tight"; src: url("/assets/fonts/about-inter-tight.woff2") format("woff2"); font-style: normal; font-weight: 700 800; font-display: swap; }
 @font-face { font-family: "About JetBrains Mono"; src: url("/assets/fonts/about-jetbrains-mono.woff2") format("woff2"); font-style: normal; font-weight: 400 500; font-display: swap; }
 
-#main[data-page="about"] { --portfolio-font: "About Inter", Arial, sans-serif; --about-heading-font: "About Inter Tight", "About Inter", Arial, sans-serif; --about-label-font: "About JetBrains Mono", Consolas, monospace; }
-#main[data-page="about"] .about-page { position: relative; width: calc(100% - 40px); max-width: 1180px; margin: 0 auto; padding: 140px 0 80px; font-family: var(--portfolio-font); color: var(--theme-text); }
+#main[data-page="about"] { --portfolio-font: "About Inter", Arial, sans-serif; --about-heading-font: "About Inter Tight", "About Inter", Arial, sans-serif; --about-label-font: "About JetBrains Mono", Consolas, monospace; --about-body-size: clamp(17px, 1.25vw, 18px); --about-label-size: clamp(12px, 1vw, 13px); }
+#main[data-page="about"] .about-page { position: relative; width: calc(100% - 40px); max-width: 1180px; margin: 0 auto; padding: 140px 0 80px; font: 400 var(--about-body-size)/1.6 var(--portfolio-font); color: var(--theme-text); }
 #main[data-page="about"] #hero-section { display: block; padding: 0 !important; height: auto !important; min-height: 0 !important; scroll-margin-top: 120px; }
 #main[data-page="about"] .about-page :is(h1, h2, h3) { font-family: var(--about-heading-font); font-weight: 700; line-height: 1.08; letter-spacing: 0; }
 #main[data-page="about"] .about-intro h1 { font-size: clamp(40px, 5.6vw, 80px); max-width: 1040px; margin: 18px 0 26px; text-align: left; text-wrap: balance; }
-#main[data-page="about"] .about-page p { font: 400 17px/1.6 var(--portfolio-font); letter-spacing: -.01em; margin: 0; }
+#main[data-page="about"] .about-page :is(p, li) { font: 400 var(--about-body-size)/1.6 var(--portfolio-font); letter-spacing: -.01em; }
+#main[data-page="about"] .about-page p { margin: 0; }
 #main[data-page="about"] .about-page .about-eyebrow,
-#main[data-page="about"] .about-page .about-year { font: 400 13px/1.6 var(--about-label-font); letter-spacing: .08em; color: var(--theme-muted); }
-#main[data-page="about"] .about-eyebrow { text-transform: uppercase; }
-#main[data-page="about"] .about-page .about-year { text-transform: uppercase; white-space: nowrap; letter-spacing: .1em; }
+#main[data-page="about"] .about-page .about-year { font: 400 var(--about-label-size)/1.5 var(--about-label-font); letter-spacing: .1em; color: var(--theme-muted); text-transform: uppercase; }
+#main[data-page="about"] .about-page .about-eyebrow { line-height: 1.6; }
 .about-prose { max-width: 800px; min-width: 0; }
 #main[data-page="about"] .about-prose p + p { margin-top: 22px; }
 .about-prose a { color: var(--theme-text); text-decoration-thickness: 1px; text-underline-offset: 4px; transition: color .2s ease; }
 .about-prose a:hover { color: var(--theme-accent); }
 .about-section-links { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 32px; }
-.about-section-links a, .about-resume-actions a { font: 400 13px/1.5 var(--about-label-font); letter-spacing: .08em; text-transform: uppercase; }
-.about-section-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 0; color: var(--theme-muted); text-decoration: none; border-bottom: 1px solid var(--theme-line); transition: color .2s ease, border-color .2s ease; }
+.about-section-links a, .about-resume-actions a { font: 400 var(--about-label-size)/1.5 var(--about-label-font); letter-spacing: .08em; text-transform: uppercase; }
+.about-section-links a { padding: 8px 0; color: var(--theme-muted); text-decoration: none; border-bottom: 1px solid var(--theme-line); transition: color .2s ease, border-color .2s ease; }
 .about-section-links a:hover { color: var(--theme-accent); border-color: var(--theme-accent); }
 .about-page > section { margin-top: 64px; scroll-margin-top: 110px; }
 .about-story { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
@@ -32,7 +32,7 @@
 .about-entry-content { min-width: 0; }
 #main[data-page="about"] .about-entry-content > h3 { font-size: 28px; margin: 0; overflow-wrap: anywhere; }
 #main[data-page="about"] .about-page .about-organization { color: var(--theme-muted); margin-top: 10px; }
-#main[data-page="about"] .about-description { margin-top: 14px; max-width: 800px; }
+#main[data-page="about"] .about-page .about-description { margin-top: 14px; max-width: 800px; }
 .about-credential { display: inline-flex; align-items: baseline; gap: 12px; color: inherit; text-decoration: none; transition: color .2s ease; }
 .about-credential > span:first-child { min-width: 0; }
 .about-credential:hover { color: var(--theme-accent); }
@@ -40,32 +40,41 @@
 .about-resume-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 28px; margin-top: 28px; }
 .about-resume-actions .about-resume-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 48px; padding: 14px 20px; background: var(--theme-accent); color: var(--theme-bg); border-radius: 10px; text-decoration: none; transition: background .2s ease; }
 .about-resume-actions .about-resume-button:hover { background: var(--accent-hover); color: var(--theme-bg); }
-.about-resume-view { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 0; }
-#main[data-page="about"] footer :is(h2, h4) { font-family: var(--about-heading-font); }
-#main[data-page="about"] footer [data-brand-wordmark] p { font-family: var(--about-heading-font) !important; }
+.about-resume-view { padding: 12px 0; }
+#main[data-page="about"] footer { font: 400 var(--about-body-size)/1.6 var(--portfolio-font); }
+#main[data-page="about"] footer :is(h2, h4) { font-family: var(--about-heading-font); font-weight: 700; line-height: 1.08; letter-spacing: normal; }
+#main[data-page="about"] footer h2:has(> .footer-security-headline) { font-size: clamp(32px, 3.8vw, 56px); text-align: left; }
+#main[data-page="about"] footer .footer-link-label { font: 400 var(--about-label-size)/1.5 var(--about-label-font); letter-spacing: .1em; text-transform: uppercase; }
+#main[data-page="about"] footer .footer-link-label > span { line-height: 1.2; }
+#main[data-page="about"] footer [data-framer-name="Quick Links"] a { min-height: 0; }
+#main[data-page="about"] footer a[href^="mailto:"] { font: 400 18px/1.6 var(--portfolio-font); letter-spacing: calc(var(--about-body-size) * -.01); }
+#main[data-page="about"] footer [data-brand-wordmark] p { font-family: var(--about-heading-font) !important; font-weight: 800; line-height: .9; letter-spacing: .015em; }
 #main[data-page="about"] a:focus-visible { outline: 2px solid var(--theme-accent); outline-offset: 5px; }
 
+@media (max-width: 1279px) {
+  #main[data-page="about"] footer > [data-framer-name="Container"] { max-width: none !important; gap: 60px !important; }
+  #main[data-page="about"] footer > [data-framer-name="Container"] > [data-framer-component-type="RichTextContainer"] { width: fit-content !important; max-width: 340px; margin-inline: 0; }
+  #main[data-page="about"] footer [data-framer-name="Columns"] { display: flex !important; flex-direction: column; width: min(720px, 100%) !important; gap: 60px !important; }
+  #main[data-page="about"] footer [data-framer-name="Columns"] > :is([data-framer-name="Quick Links"], [data-framer-name="Contact"]) { width: 300px !important; max-width: 100%; align-self: flex-start; }
+}
+
 @media (min-width: 601px) {
-  .about-entry { grid-template-columns: 200px minmax(0, 1fr); gap: 24px; }
+  .about-entry { grid-template-columns: 110px minmax(0, 1fr); gap: 24px; }
   #main[data-page="about"] .about-page .about-year { padding-top: 5px; }
 }
 @media (min-width: 810px) {
   #main[data-page="about"] .about-page { width: calc(100% - 60px); max-width: 840px; padding: 160px 0 100px; }
-  #main[data-page="about"] .about-page p { font-size: 18px; }
-  #main[data-page="about"] .about-page .about-eyebrow, #main[data-page="about"] .about-page .about-year { font-size: 13px; }
-  #main[data-page="about"] .about-page .about-year { font-size: 16px; }
   #main[data-page="about"] .about-intro h1 { margin: 20px 0 32px; }
   .about-page > section { margin-top: 96px; }
   .about-story { grid-template-columns: 200px minmax(0, 1fr); gap: 40px; }
   .about-story > h2, .about-history > h2 { font-size: 42px; }
   .about-history > h2 { margin-bottom: 36px; }
-  .about-entry { grid-template-columns: 240px minmax(0, 1fr); gap: 40px; padding: 36px 0; }
+  .about-entry { grid-template-columns: 150px minmax(0, 1fr); gap: 40px; padding: 36px 0; }
+  #main[data-page="about"] .about-entry-content > h3 { font-size: 32px; }
 }
 @media (min-width: 1280px) {
   #main[data-page="about"] .about-page { max-width: 1180px; padding: 180px 0 120px; }
   .about-story { grid-template-columns: 240px minmax(0, 1fr); gap: 60px; }
   .about-story > h2, .about-history > h2 { font-size: 48px; }
-  .about-entry { grid-template-columns: 280px minmax(0, 1fr); gap: 60px; }
-  #main[data-page="about"] .about-page .about-year { font-size: 20px; }
-  #main[data-page="about"] .about-entry-content > h3 { font-size: 32px; }
+  .about-entry { grid-template-columns: 180px minmax(0, 1fr); gap: 60px; }
 }
