@@ -198,7 +198,33 @@
     "text-59": {
       "type": "text",
       "label": "View All Work",
-      "value": "View All Articles"
+      "value": "View all blogs"
+    },
+    "thoughts-third-date": {
+      "type": "text",
+      "label": "Third blog preview date",
+      "value": "Jun 16, 2025"
+    },
+    "thoughts-third-title": {
+      "type": "text",
+      "label": "Third blog preview title",
+      "value": "How Creative Teams Build Brand Systems"
+    },
+    "thoughts-third-excerpt": {
+      "type": "text",
+      "label": "Third blog preview excerpt",
+      "value": "A look at the workflows that keep branding consistent across every touchpoint."
+    },
+    "thoughts-third-link": {
+      "type": "link",
+      "label": "Third blog preview link",
+      "value": "/blog/how-creative-teams-build-strong-brand-systems#article-section"
+    },
+    "thoughts-third-image": {
+      "type": "image",
+      "label": "Third blog preview cover",
+      "value": "https://framerusercontent.com/images/MWSFsHfw8FDzKSMZllibGDMY4CU.png?width=640&height=360",
+      "alt": ""
     },
     "text-60": {
       "type": "text",
@@ -364,8 +390,8 @@
     },
     "link-105": {
       "type": "link",
-      "label": "View All Work",
-      "value": "/blog#hero-section"
+      "label": "View all blogs",
+      "value": "/blog/"
     },
     "link-106": {
       "type": "link",
