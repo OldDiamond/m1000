@@ -28,12 +28,12 @@
       "href": "/blog"
     },
     {
-      "label": "About Me",
-      "href": "/about"
-    },
-    {
       "label": "Projects",
       "href": "/work"
+    },
+    {
+      "label": "About Me",
+      "href": "/about"
     },
     {
       "label": "Contact",
