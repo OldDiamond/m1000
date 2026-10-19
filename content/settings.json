@@ -20,12 +20,16 @@
   },
   "navigation": [
     {
-      "label": "About Me",
-      "href": "/about"
-    },
-    {
       "label": "Services",
       "href": "/#services"
+    },
+    {
+      "label": "Blog",
+      "href": "/blog"
+    },
+    {
+      "label": "About Me",
+      "href": "/about"
     },
     {
       "label": "Projects",
