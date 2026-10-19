@@ -8,6 +8,13 @@
     "imageAlt": "HTB Certified Web Exploitation Specialist achievement badge",
     "imageWidth": 1024,
     "imageHeight": 754,
+    "thumbnail": {
+      "src": "/assets/blog/cwes-card-badge.png",
+      "alt": "HTB Certified Web Exploitation Specialist (CWES) badge",
+      "width": 1036,
+      "height": 1036,
+      "fit": "contain"
+    },
     "sourceUrl": "https://medium.com/@m1000z/passing-htb-cwes-what-you-do-when-you-dont-know-what-comes-next-17773f43c0f7",
     "author": "Yasin",
     "publishedAt": "2026-10-19T19:57:14.000Z",

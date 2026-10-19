@@ -21,8 +21,10 @@ const posts=JSON.parse(fs.readFileSync('content/posts.json','utf8'));
 const blogCard=fs.readFileSync('src/components/BlogCard.html','utf8');
 const renderBlogCard=post=>{
  if(new URL(post.url,'https://www.m1000z.com').protocol!=='https:')throw new Error('Blog links must use HTTPS');
- const fields={postUrl:siteHref(post.url),postTitle:post.title,postImage:post.image,imageAlt:post.imageAlt,
-  imageWidth:post.imageWidth,imageHeight:post.imageHeight,postDate:post.date,
+ const thumbnail=post.thumbnail;
+ const fields={postUrl:siteHref(post.url),postTitle:post.title,postImage:thumbnail?.src||post.image,imageAlt:thumbnail?.alt||post.imageAlt,
+  imageWidth:thumbnail?.width||post.imageWidth,imageHeight:thumbnail?.height||post.imageHeight,
+  postImageFit:thumbnail?.fit==='contain'?'contain':'cover',postDate:post.date,
   postDisplayDate:new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'UTC'}).format(new Date(post.date)),postExcerpt:post.excerpt};
  return Object.entries(fields).reduce((html,[key,value])=>html.replaceAll('{{'+key+'}}',escape(value)),blogCard);
 };
