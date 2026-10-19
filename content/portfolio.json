@@ -3871,7 +3871,7 @@
     "experience-1-years": {
       "type": "text",
       "label": "experience-1-years",
-      "value": "01. January 2026 – October 2026"
+      "value": "JAN 2026 – OCT 2026"
     },
     "experience-1-title": {
       "type": "text",
@@ -3891,7 +3891,7 @@
     "experience-2-years": {
       "type": "text",
       "label": "experience-2-years",
-      "value": "02. May 2023 – August 2024"
+      "value": "MAY 2023 – AUG 2024"
     },
     "experience-2-title": {
       "type": "text",
@@ -3966,7 +3966,7 @@
     "certification-1-date": {
       "type": "text",
       "label": "certification-1-date",
-      "value": "01. July 2025"
+      "value": "JUL 2025"
     },
     "certification-1-title": {
       "type": "html",

@@ -13,6 +13,7 @@
 #main[data-page="about"] .about-page .about-eyebrow,
 #main[data-page="about"] .about-page .about-year { font: 400 13px/1.6 var(--about-label-font); letter-spacing: .08em; color: var(--theme-muted); }
 #main[data-page="about"] .about-eyebrow { text-transform: uppercase; }
+#main[data-page="about"] .about-page .about-year { text-transform: uppercase; white-space: nowrap; letter-spacing: .1em; }
 .about-prose { max-width: 800px; min-width: 0; }
 #main[data-page="about"] .about-prose p + p { margin-top: 22px; }
 .about-prose a { color: var(--theme-text); text-decoration-thickness: 1px; text-underline-offset: 4px; transition: color .2s ease; }
@@ -47,19 +48,20 @@
 #main[data-page="about"] a:focus-visible { outline: 2px solid var(--theme-accent); outline-offset: 5px; }
 
 @media (min-width: 601px) {
-  .about-entry { grid-template-columns: 110px minmax(0, 1fr); gap: 24px; }
+  .about-entry { grid-template-columns: 200px minmax(0, 1fr); gap: 24px; }
   #main[data-page="about"] .about-page .about-year { padding-top: 5px; }
 }
 @media (min-width: 810px) {
   #main[data-page="about"] .about-page { width: calc(100% - 60px); max-width: 840px; padding: 160px 0 100px; }
   #main[data-page="about"] .about-page p { font-size: 18px; }
   #main[data-page="about"] .about-page .about-eyebrow, #main[data-page="about"] .about-page .about-year { font-size: 13px; }
+  #main[data-page="about"] .about-page .about-year { font-size: 16px; }
   #main[data-page="about"] .about-intro h1 { margin: 20px 0 32px; }
   .about-page > section { margin-top: 96px; }
   .about-story { grid-template-columns: 200px minmax(0, 1fr); gap: 40px; }
   .about-story > h2, .about-history > h2 { font-size: 42px; }
   .about-history > h2 { margin-bottom: 36px; }
-  .about-entry { grid-template-columns: 150px minmax(0, 1fr); gap: 40px; padding: 36px 0; }
+  .about-entry { grid-template-columns: 240px minmax(0, 1fr); gap: 40px; padding: 36px 0; }
   #main[data-page="about"] .portfolio-menu-links { gap: 2px; }
   #main[data-page="about"] .portfolio-menu a { padding-inline: 12px; }
 }
@@ -67,6 +69,7 @@
   #main[data-page="about"] .about-page { max-width: 1180px; padding: 180px 0 120px; }
   .about-story { grid-template-columns: 240px minmax(0, 1fr); gap: 60px; }
   .about-story > h2, .about-history > h2 { font-size: 48px; }
-  .about-entry { grid-template-columns: 180px minmax(0, 1fr); gap: 60px; }
+  .about-entry { grid-template-columns: 280px minmax(0, 1fr); gap: 60px; }
+  #main[data-page="about"] .about-page .about-year { font-size: 20px; }
   #main[data-page="about"] .about-entry-content > h3 { font-size: 32px; }
 }
