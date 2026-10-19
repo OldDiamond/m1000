@@ -77,7 +77,7 @@
   }
   footer h2:has(> .footer-security-headline) { text-align: center; }
   .footer-mark { align-self: center; }
-  .footer-hand pre { color: var(--theme-accent); opacity: min(1, calc(var(--hands-opacity) * 1.5)); }
+  .footer-hand pre { color: var(--hands-color); opacity: var(--hands-opacity); }
   footer [data-framer-name="Columns"] { width: 100% !important; min-width: 0; gap: 32px !important; }
   /* Framer's one-pixel flex bases must not become literal grid-column widths. */
   footer [data-framer-name="Columns"] > [data-framer-name],

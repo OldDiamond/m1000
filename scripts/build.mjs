@@ -83,7 +83,7 @@ for(const page of pages){
   return open+body+'</svg>';
  });
  html=html.replace(/(<footer\b[^>]*>)/g, '$1'+fs.readFileSync('src/components/FooterHands.html','utf8'));
- if(settings.footerMark?.enabled!==false)html=html.replace(/(<div\b[^>]*data-framer-name="Quick Links"[^>]*>)/g,(_,open)=>open+fs.readFileSync('src/components/FooterMark.html','utf8').replaceAll('{{footerMarkColor}}',escape(settings.footerMark?.color||'#c74747')));
+ if(settings.footerMark?.enabled!==false)html=html.replace(/(<div\b[^>]*data-framer-name="Quick Links"[^>]*>)/g,(_,open)=>open+fs.readFileSync('src/components/FooterMark.html','utf8').replaceAll('{{footerMarkColor}}',escape(settings.footerMark?.color||'var(--accent)')));
  html=html.replaceAll('href="./','href="/');
  html=html.replace(/href="(\/[^"#]+)(#[^"]*)?"/g,(match,target,hash='')=>{if(pages.some(p=>p.route===target))return match;const found=pages.find(p=>p.route.split('/').at(-1)===target.slice(1));return found?'href="'+found.route+hash+'"':match});
  html=html.replace(/href="(\/[^"\s]*)"/g,(_,href)=>'href="'+siteHref(href)+'"');
@@ -129,8 +129,8 @@ for(const page of pages){
   '<meta name="twitter:image:alt" content="m1000z silver emblem">',
  ].join(''):'';
  const doc=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080809"><style>html,body{background:#080809;color:#edf0ed}</style><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}">${fontPreloads}<link rel="stylesheet" href="/assets/${page.slug}.css"><link rel="stylesheet" href="/assets/custom.css"><link rel="stylesheet" href="/assets/theme.css"><link rel="stylesheet" href="/assets/responsive.css">${motionBoot}${embeddedSettings}<script type="module" src="/assets/interactions.js" blocking="render"></script></head><body>${opening}${icons}${html}</body></html>`;
- // Updated styles and entry scripts get fresh URLs on browsers that cached an earlier layout.
- const versionedDoc=doc.replace('</head>',pageSeo+faviconLinks+'</head>').replace(/((?:href|src)=")((?:\/assets\/)[^"?#]+\.(?:css|js))"/g,(_,attribute,url)=>{
+ // Recolored images, styles and entry scripts bypass cached versions after deployment.
+ const versionedDoc=doc.replace('</head>',pageSeo+faviconLinks+'</head>').replace(/((?:href|src)=")((?:\/assets\/[^"?#]+\.(?:css|js))|(?:\/assets\/(?:media\/portrait-red-v3\.png|footer\/looping-arch\.gif)))"/g,(_,attribute,url)=>{
   const version=createHash('sha256').update(fs.readFileSync(path.join('dist',url))).digest('hex').slice(0,12);
   return attribute+url+'?v='+version+'"';
  });

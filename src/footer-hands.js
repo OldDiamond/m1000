@@ -47,8 +47,8 @@ export async function setupFooterHands(options = {}) {
   catch { layers.forEach(layer => layer.hidden = true); return; }
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   layers.forEach(layer => {
-    layer.style.setProperty('--hands-color', options.color || '#ff603b');
-    layer.style.setProperty('--hands-opacity', Math.max(0, Math.min(1, Number(options.opacity ?? .8))));
+    layer.style.setProperty('--hands-color', options.color || 'var(--accent)');
+    layer.style.setProperty('--hands-opacity', Math.max(0, Math.min(1, Number(options.opacity ?? .25))));
     layer.dataset.ready = 'true';
   });
   const motion = layers.map(layer => ({ layer, progress: 0, target: 0 }));

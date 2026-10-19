@@ -282,9 +282,9 @@
     },
     "image-76": {
       "type": "image",
-      "label": "Red portrait of Yasin",
+      "label": "Blue duotone portrait of Yasin",
       "value": "/assets/media/portrait-red-v3.png",
-      "alt": "Red portrait of Yasin"
+      "alt": "Blue duotone portrait of Yasin"
     },
     "image-77": {
       "type": "image",
@@ -3991,7 +3991,7 @@
     "resume-links": {
       "type": "html",
       "label": "resume-links",
-      "value": "Explore <a href=\"/blog/\">my blog</a>, browse my projects on <a href=\"https://github.com/OldDiamond\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a>, or connect with me on <a href=\"https://www.linkedin.com/in/m1000z\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn</a>. You can also find my practice profile on <a href=\"https://profile.hackthebox.com/profile/019e4061-76f1-72dc-ab69-1bd0481cd557\" target=\"_blank\" rel=\"noopener noreferrer\">Hack The Box</a>."
+      "value": "Explore <a href=\"/blog/\">my blog</a> and <a href=\"https://medium.com/@m1000z\" target=\"_blank\" rel=\"noopener noreferrer\">Medium</a>, browse my projects on <a href=\"https://github.com/OldDiamond\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a>, or connect with me on <a href=\"https://www.linkedin.com/in/m1000z\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn</a>. You can also find my practice profile on <a href=\"https://profile.hackthebox.com/profile/019e4061-76f1-72dc-ab69-1bd0481cd557\" target=\"_blank\" rel=\"noopener noreferrer\">Hack The Box</a>."
     },
     "certification-1-link": {
       "type": "link",

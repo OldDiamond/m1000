@@ -15,8 +15,8 @@
     "enabled": false,
     "intensity": 0.82,
     "speed": 0.35,
-    "primaryColor": "#b43f4d",
-    "secondaryColor": "#70212c"
+    "primaryColor": "var(--accent)",
+    "secondaryColor": "var(--accent-soft)"
   },
   "navigation": [
     {
@@ -38,13 +38,13 @@
   ],
   "footerHands": {
     "enabled": true,
-    "color": "#c65a62",
-    "opacity": 0.6,
+    "color": "var(--accent)",
+    "opacity": 0.25,
     "columns": 80
   },
   "cvUrl": "/assets/documents/mohammad-yasin-resume.pdf",
   "footerMark": {
     "enabled": true,
-    "color": "#df7278"
+    "color": "var(--accent)"
   }
 }
