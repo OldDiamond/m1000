@@ -34,21 +34,18 @@ if (article && body && tools) {
     usedIds.add(id);
     heading.id = id;
     const subsection = heading.tagName === 'H3';
-    const tick = document.createElement('a');
-    tick.href = '#' + encodeURIComponent(id);
+    const tick = document.createElement('span');
     tick.className = 'article-rail-tick' + (subsection ? ' is-subsection' : '');
-    tick.setAttribute('aria-label', title);
-    tick.title = title;
     tick.append(document.createElement('span'));
     ticks.append(tick);
     const item = document.createElement('li');
     if (subsection) item.className = 'is-subsection';
     const link = document.createElement('a');
-    link.href = tick.getAttribute('href');
+    link.href = '#' + encodeURIComponent(id);
     link.textContent = title;
     item.append(link);
     tocList.append(item);
-    for (const anchor of [tick, link]) {
+    for (const anchor of [link]) {
       anchor.addEventListener('click', event => {
         if (event.button || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
         closeToc(false);
@@ -65,9 +62,12 @@ if (article && body && tools) {
     tools.querySelector('.article-mobile-toc').hidden = false;
   }
 
-  let tocOpener = null;
+  let tocOpener = null, tocTimer, hoverBlockedUntil = 0, openedByHover = false;
+  const hoverRail = matchMedia('(min-width: 1100px) and (hover: hover) and (pointer: fine)');
   function closeToc(returnFocus = true) {
+    clearTimeout(tocTimer);
     if (toc.hidden) return;
+    hoverBlockedUntil = performance.now() + 200;
     toc.hidden = true;
     tocTriggers.forEach(trigger => trigger.setAttribute('aria-expanded', 'false'));
     if (returnFocus) (tocOpener?.getClientRects().length ? tocOpener : tocTriggers.find(trigger => trigger.getClientRects().length))?.focus({ preventScroll: true });
@@ -78,16 +78,32 @@ if (article && body && tools) {
     shareTrigger.setAttribute('aria-expanded', 'false');
     if (returnFocus) shareTrigger.focus({ preventScroll: true });
   }
-  tocTriggers.forEach(trigger => trigger.addEventListener('click', () => {
-    if (!toc.hidden) { closeToc(); return; }
+  function openToc(trigger, focus = true) {
+    clearTimeout(tocTimer);
     closeShare(false);
     tocOpener = trigger;
+    openedByHover = !focus;
     toc.hidden = false;
     tocTriggers.forEach(button => button.setAttribute('aria-expanded', 'true'));
-    tocClose.focus({ preventScroll: true });
+    if (focus) tocClose.focus({ preventScroll: true });
     revealActiveLink();
     navbar?.classList.remove('article-nav-away');
+  }
+  tocTriggers.forEach(trigger => trigger.addEventListener('click', () => {
+    if (!toc.hidden && !openedByHover) closeToc();
+    else openToc(trigger);
   }));
+  rail.addEventListener('pointerenter', event => {
+    if (toc.hidden && hoverRail.matches && event.pointerType !== 'touch' && performance.now() >= hoverBlockedUntil) openToc(tocTriggers[0], false);
+  });
+  function scheduleTocClose() {
+    if (hoverRail.matches) tocTimer = setTimeout(() => {
+      if (!toc.matches(':hover,:focus-within') && !rail.matches(':hover,:focus-within')) closeToc(false);
+    }, 180);
+  }
+  rail.addEventListener('pointerleave', scheduleTocClose);
+  toc.addEventListener('pointerenter', () => clearTimeout(tocTimer));
+  toc.addEventListener('pointerleave', scheduleTocClose);
   tocClose.addEventListener('click', () => closeToc());
   document.addEventListener('keydown', event => {
     if (event.key !== 'Escape') return;
@@ -192,10 +208,9 @@ if (article && body && tools) {
     if (next !== active) {
       active = next;
       sections.forEach(({ tick, link }, index) => {
-        for (const anchor of [tick, link]) {
-          if (index === active) anchor.setAttribute('aria-current', 'location');
-          else anchor.removeAttribute('aria-current');
-        }
+        tick.classList.toggle('is-active', index === active);
+        if (index === active) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
       });
       revealActiveLink();
     }
