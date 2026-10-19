@@ -3,7 +3,22 @@
   <article aria-labelledby="article-heading">
     <header>
       <h1 id="article-heading">{{postTitle}}</h1>
-      <p class="article-meta">{{postAuthor}} · <time datetime="{{postDate}}">{{postLongDate}}</time> · {{readingMinutes}} min read</p>
+      <div class="article-meta-row">
+        <p class="article-meta">{{postAuthor}} · <time datetime="{{postDate}}">{{postLongDate}}</time> · {{readingMinutes}} min read</p>
+        <div class="article-share" hidden>
+          <button class="article-icon-button article-share-trigger" type="button" aria-label="Share article" aria-expanded="false" aria-controls="article-share-options">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 16V3m-5 5 5-5 5 5M5 12H3v9h18v-9h-2"/></svg>
+          </button>
+          <div class="article-share-options" id="article-share-options" role="group" aria-label="Share this article" hidden>
+            <button type="button" data-copy-link><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m10 8 3-3a4.2 4.2 0 0 1 6 6l-3 3m-2 2-3 3a4.2 4.2 0 0 1-6-6l3-3m1 5 6-6"/></svg><span data-copy-label>Copy link</span></button>
+            <a data-share="x" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">𝕏</span>Share on X</a>
+            <a data-share="linkedin" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">in</span>Share on LinkedIn</a>
+            <a data-share="threads" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">@</span>Share on Threads</a>
+            <p class="article-sr-only" role="status" data-share-status></p>
+            <label class="article-copy-fallback" hidden>Copy this link<input type="text" readonly aria-label="Article link"></label>
+          </div>
+        </div>
+      </div>
       <ul class="article-tags" aria-label="Tags">{{postTags}}</ul>
     </header>
     <div class="article-body">{{postBody}}</div>
@@ -13,4 +28,25 @@
     <a href="/blog/">← All Blogs</a>
     <a href="#article-section">Back to top ↑</a>
   </nav>
+  <section class="article-related" aria-labelledby="article-related-heading">
+    <div class="article-related-header"><h2 id="article-related-heading">More to Explore</h2><a href="/blog/">All Blogs ↗</a></div>
+    {{relatedPosts}}
+  </section>
 </main>
+<div class="article-tools" hidden>
+  <div class="article-progress" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+  <nav class="article-rail" aria-label="Article sections" hidden>
+    <button class="article-icon-button" type="button" data-toc-trigger aria-label="Open table of contents" aria-expanded="false" aria-controls="article-toc">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h1M3 12h1M3 18h1"/></svg>
+    </button>
+    <div class="article-rail-ticks"></div>
+  </nav>
+  <button class="article-icon-button article-mobile-toc" type="button" data-toc-trigger aria-label="Open table of contents" aria-expanded="false" aria-controls="article-toc" hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h1M3 12h1M3 18h1"/></svg>
+  </button>
+  <div class="article-toc" id="article-toc" role="dialog" aria-modal="false" aria-labelledby="article-toc-heading" hidden>
+    <div class="article-toc-header"><h2 id="article-toc-heading">ON THIS PAGE</h2><button class="article-icon-button" type="button" data-toc-close aria-label="Close table of contents"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button></div>
+    <nav aria-label="On this page"><ol class="article-toc-list"></ol></nav>
+  </div>
+  <button class="article-icon-button article-back-top" type="button" aria-label="Back to top" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 14 6-6 6 6"/></svg></button>
+</div>

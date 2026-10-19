@@ -19,13 +19,14 @@ const localize=value=>{for(const [url,local]of Object.entries(assets)){value=val
 const escape=s=>String(s).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const posts=JSON.parse(fs.readFileSync('content/posts.json','utf8'));
 const blogCard=fs.readFileSync('src/components/BlogCard.html','utf8');
-const blogCards=posts.map(post=>{
+const renderBlogCard=post=>{
  if(new URL(post.url,'https://www.m1000z.com').protocol!=='https:')throw new Error('Blog links must use HTTPS');
  const fields={postUrl:siteHref(post.url),postTitle:post.title,postImage:post.image,imageAlt:post.imageAlt,
   imageWidth:post.imageWidth,imageHeight:post.imageHeight,postDate:post.date,
   postDisplayDate:new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'UTC'}).format(new Date(post.date)),postExcerpt:post.excerpt};
  return Object.entries(fields).reduce((html,[key,value])=>html.replaceAll('{{'+key+'}}',escape(value)),blogCard);
-}).join('\n');
+};
+const blogCards=posts.map(renderBlogCard).join('\n');
 // Recreate only the generated output so removed assets cannot survive a rebuild.
 const projectRoot=fs.realpathSync('.');
 const outputRoot=path.join(projectRoot,'dist');
@@ -41,6 +42,7 @@ fs.copyFileSync('src/footer-hands.js','dist/assets/footer-hands.js');
 fs.copyFileSync('src/footer-mark.js','dist/assets/footer-mark.js');
 fs.copyFileSync('src/page-motion.js','dist/assets/page-motion.js');
 fs.copyFileSync('src/opening-dots.js','dist/assets/opening-dots.js');
+fs.copyFileSync('src/article.js','dist/assets/article.js');
 const browserModules=new Map(['interactions','footer-hands','footer-mark','page-motion','opening-dots'].map(name=>[name+'.js',fs.readFileSync('dist/assets/'+name+'.js','utf8')]));
 for(const [name,source] of browserModules){
  const versioned=source.replace(/(["'])\.\/([\w-]+\.js)\1/g,(match,quote,dependency)=>{
@@ -84,6 +86,11 @@ for(const page of pages){
   for(const [key,value]of Object.entries(fields))html=html.replaceAll('{{'+key+'}}',escape(value));
   html=html.replaceAll('{{postTags}}',articlePost.tags.map(tag=>'<li>'+escape(tag)+'</li>').join(''));
   html=html.replaceAll('{{postBody}}',body);
+  const related=posts.filter(post=>siteHref(post.url)!==siteHref(articlePost.url))
+   .sort((a,b)=>new Date(b.date)-new Date(a.date)).slice(0,3);
+  html=html.replaceAll('{{relatedPosts}}',related.length
+   ?'<div class="article-related-grid">'+related.map(renderBlogCard).join('\n')+'</div>'
+   :'<p class="article-related-empty">More articles will appear here as they’re published.</p>');
  }
  for(const [key,field]of Object.entries(content[page.contentKey||page.slug])){
   if(field.type==='html'||field.type==='text'){const re=new RegExp('(<(h[1-6]|p)\\b[^>]*data-edit="'+key+'"[^>]*>)[\\s\\S]*?<\\/\\2>','g');html=html.replace(re,(_,open,tag)=>open+(field.type==='text'?escape(field.value):field.value)+'</'+tag+'>')}
@@ -93,7 +100,8 @@ for(const page of pages){
  html=html.replaceAll('{{cvAttributes}}',settings.cvUrl?'href="'+escape(settings.cvUrl)+'" download':'role="link" aria-disabled="true" tabindex="0" title="CV will be available soon"');
  html=html.replaceAll('{{cvViewAttributes}}',settings.cvUrl?'href="'+escape(settings.cvUrl)+'"':'role="link" aria-disabled="true" tabindex="0" title="CV will be available soon"');
  html=html.replaceAll('{{contactFormAction}}',escape((settings.contactEndpoint||'').replace('https://formsubmit.co/ajax/','https://formsubmit.co/')));
- fs.writeFileSync('dist/assets/'+page.slug+'.css',localize(fs.readFileSync('src/styles/'+page.slug+'.css','utf8')));
+ const stylesheet=articlePost?'article':page.slug;
+ fs.writeFileSync('dist/assets/'+stylesheet+'.css',localize(fs.readFileSync('src/styles/'+stylesheet+'.css','utf8')));
  html=localize(html);
  // Give long brand names a usable static fit; the browser refines it with the loaded font.
  html=html.replace(/(<svg\b[^>]*data-framer-component-type="RichTextContainer"[^>]*>)([\s\S]*?)<\/svg>/g,(match,open,body)=>{
@@ -165,7 +173,8 @@ for(const page of pages){
  ].join(''):'';
  const doc=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080809"><style>html,body{background:#080809;color:#edf0ed}</style><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}">${fontPreloads}<link rel="stylesheet" href="/assets/${page.slug}.css"><link rel="stylesheet" href="/assets/custom.css"><link rel="stylesheet" href="/assets/theme.css"><link rel="stylesheet" href="/assets/responsive.css">${motionBoot}${embeddedSettings}<script type="module" src="/assets/interactions.js" blocking="render"></script></head><body>${opening}${icons}${html}</body></html>`;
  // Recolored images, styles and entry scripts bypass cached versions after deployment.
- const versionedDoc=doc.replace('</head>',pageSeo+articleSeo+faviconLinks+'</head>').replace(/((?:href|src)=")((?:\/assets\/[^"?#]+\.(?:css|js))|(?:\/assets\/(?:media\/portrait-red-v3\.png|footer\/looping-arch\.gif)))"/g,(_,attribute,url)=>{
+ const articleDoc=articlePost?doc.replace('/assets/'+page.slug+'.css','/assets/article.css').replace('</head>','<script type="module" src="/assets/article.js"></script></head>'):doc;
+ const versionedDoc=articleDoc.replace('</head>',pageSeo+articleSeo+faviconLinks+'</head>').replace(/((?:href|src)=")((?:\/assets\/[^"?#]+\.(?:css|js))|(?:\/assets\/(?:media\/portrait-red-v3\.png|footer\/looping-arch\.gif)))"/g,(_,attribute,url)=>{
   const version=createHash('sha256').update(fs.readFileSync(path.join('dist',url))).digest('hex').slice(0,12);
   return attribute+url+'?v='+version+'"';
  });
