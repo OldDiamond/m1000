@@ -522,13 +522,13 @@
     },
     "text-4": {
       "type": "text",
-      "label": "My Brightest Thoughts",
-      "value": "My Brightest Thoughts"
+      "label": "Blogs",
+      "value": "Blogs"
     },
     "text-5": {
       "type": "text",
       "label": "Security blog introduction",
-      "value": "Notes on web security, penetration testing, and learning through practical experience."
+      "value": "Cybersecurity articles, vulnerability research, and penetration testing walkthroughs."
     },
     "text-27": {
       "type": "html",

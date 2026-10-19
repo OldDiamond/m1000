@@ -1,15 +1,25 @@
-<section class="framer-feedpn" data-framer-name="Projects Section" id="hero-section">
+<section class="framer-feedpn blog-index" data-framer-name="Projects Section" id="hero-section">
   <div class="framer-1v3zcj4" data-framer-name="Container">
-    <div class="framer-140fddp" data-framer-name="Title &amp; description">
-      <div class="framer-1uenooa" data-framer-component-type="RichTextContainer" style="transform:none">
-        <h1 class="framer-text framer-styles-preset-1prhr7z" data-styles-preset="dPClOXQ0u" style="--framer-text-alignment:left" data-edit="text-4">My Brightest Thoughts</h1>
+    <div class="blog-listing-header">
+      <div class="framer-140fddp" data-framer-name="Title &amp; description">
+        <div class="framer-1uenooa" data-framer-component-type="RichTextContainer" style="transform:none">
+          <h1 class="framer-text framer-styles-preset-1prhr7z" data-styles-preset="dPClOXQ0u" style="--framer-text-alignment:left" data-edit="text-4">Blogs</h1>
+        </div>
+        <div class="framer-6551sn" data-framer-component-type="RichTextContainer" style="transform:none">
+          <p class="framer-text framer-styles-preset-8qcqpn" data-styles-preset="e4lWfIAXv" style="--framer-text-alignment:left" data-edit="text-5">Cybersecurity articles, vulnerability research, and penetration testing walkthroughs.</p>
+        </div>
       </div>
-      <div class="framer-6551sn" data-framer-component-type="RichTextContainer" style="transform:none">
-        <p class="framer-text framer-styles-preset-8qcqpn" data-styles-preset="e4lWfIAXv" style="--framer-text-alignment:left" data-edit="text-5">Notes on web security, penetration testing, and learning through practical experience.</p>
-      </div>
+      <search class="blog-search" role="search" aria-label="Search blog articles">
+        <label class="blog-search-sr-only" for="blog-query">Search articles</label>
+        <svg class="blog-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="7.5"/><path d="m16 16 5 5"/></svg>
+        <input type="search" id="blog-query" name="q" placeholder="Search articles..." autocomplete="off" aria-controls="blog-results">
+        <button type="button" class="blog-search-clear" aria-label="Clear search" hidden><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m5 5 10 10M5 15 15 5"/></svg></button>
+      </search>
     </div>
-    <div class="framer-bv39vk">
+    <p class="blog-search-sr-only" role="status" aria-live="polite" aria-atomic="true" data-search-status></p>
+    <div class="framer-bv39vk" id="blog-results">
       <!--BLOG-CARDS-->
     </div>
+    <p class="blog-search-empty" hidden>No articles found. Try a different search.</p>
   </div>
 </section>
