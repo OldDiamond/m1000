@@ -8,8 +8,6 @@ if (article && body && tools) {
   tools.hidden = false;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const navbar = document.querySelector('.portfolio-nav');
-  const progress = tools.querySelector('.article-progress');
-  const progressFill = progress.firstElementChild;
   const backTop = tools.querySelector('.article-back-top');
   const rail = tools.querySelector('.article-rail');
   const ticks = tools.querySelector('.article-rail-ticks');
@@ -233,8 +231,6 @@ if (article && body && tools) {
     const offset = innerWidth < 810 ? 110 : 128;
     const distance = Math.max(1, bodyBox.height - innerHeight + offset);
     const value = Math.max(0, Math.min(1, (offset - bodyBox.top) / distance));
-    progressFill.style.transform = `scaleX(${value})`;
-    progress.setAttribute('aria-valuenow', String(Math.round(value * 100)));
     backTop.classList.toggle('is-visible', y > 400);
     backTop.tabIndex = y > 400 ? 0 : -1;
     let next = sections.length ? 0 : -1;

@@ -68,8 +68,6 @@
 .article-copy-fallback input { display: block; width: 100%; margin-top: 8px; padding: 10px; color: var(--theme-text); background: var(--theme-bg); border: 1px solid var(--accent-border); border-radius: 6px; }
 .article-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; clip-path: inset(50%); overflow: hidden; white-space: nowrap; }
 .article-tools { font: 400 14px/1.45 "Article Inter", Arial, sans-serif; color: var(--theme-muted); }
-.article-progress { position: fixed; z-index: 1100; inset: 0 0 auto; height: 3px; pointer-events: none; }
-.article-progress > span { display: block; width: 100%; height: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; }
 .article-rail { position: fixed; z-index: 1001; right: 16px; top: 50%; transform: translateY(-50%); }
 .article-rail-trigger { display: grid; place-items: center; width: 40px; padding: 12px 8px; border: 0; border-radius: 10px; background: transparent; cursor: pointer; }
 .article-rail-ticks { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; width: 22px; max-height: calc(100svh - 220px); overflow-y: auto; scrollbar-width: none; }
