@@ -62,15 +62,22 @@ if (article && body && tools) {
     tools.querySelector('.article-mobile-toc').hidden = false;
   }
 
-  let tocOpener = null, tocTimer, hoverBlockedUntil = 0, openedByHover = false;
+  let tocOpener = null, tocOpen = false, tocOpenTimer, tocCloseTimer, tocHideTimer;
+  let hoverBlockedUntil = 0, openedByHover = false, pointerInRail = false, pointerInToc = false;
   const hoverRail = matchMedia('(min-width: 1100px) and (hover: hover) and (pointer: fine)');
   function closeToc(returnFocus = true) {
-    clearTimeout(tocTimer);
-    if (toc.hidden) return;
-    hoverBlockedUntil = performance.now() + 200;
-    toc.hidden = true;
+    clearTimeout(tocOpenTimer);
+    clearTimeout(tocCloseTimer);
+    if (!tocOpen) return;
+    tocOpen = false;
+    hoverBlockedUntil = performance.now() + 350;
     tocTriggers.forEach(trigger => trigger.setAttribute('aria-expanded', 'false'));
     if (returnFocus) (tocOpener?.getClientRects().length ? tocOpener : tocTriggers.find(trigger => trigger.getClientRects().length))?.focus({ preventScroll: true });
+    toc.inert = true;
+    toc.classList.remove('is-open');
+    // Keep the panel mounted until its fade finishes; reopening cancels this hide.
+    if (reduced.matches) toc.hidden = true;
+    else tocHideTimer = setTimeout(() => { if (!tocOpen) toc.hidden = true; }, 180);
   }
   function closeShare(returnFocus = true) {
     if (shareOptions.hidden) return;
@@ -79,35 +86,65 @@ if (article && body && tools) {
     if (returnFocus) shareTrigger.focus({ preventScroll: true });
   }
   function openToc(trigger, focus = true) {
-    clearTimeout(tocTimer);
+    clearTimeout(tocOpenTimer);
+    clearTimeout(tocCloseTimer);
+    clearTimeout(tocHideTimer);
+    if (tocOpen) {
+      if (focus) { openedByHover = false; tocClose.focus({ preventScroll: true }); }
+      return;
+    }
     closeShare(false);
     tocOpener = trigger;
     openedByHover = !focus;
+    tocOpen = true;
+    const wasHidden = toc.hidden;
     toc.hidden = false;
+    toc.inert = false;
+    // Establish the transparent starting frame without moving the hit area.
+    if (wasHidden) void toc.offsetWidth;
+    toc.classList.add('is-open');
     tocTriggers.forEach(button => button.setAttribute('aria-expanded', 'true'));
     if (focus) tocClose.focus({ preventScroll: true });
     revealActiveLink();
     navbar?.classList.remove('article-nav-away');
   }
   tocTriggers.forEach(trigger => trigger.addEventListener('click', () => {
-    if (!toc.hidden && !openedByHover) closeToc();
+    if (tocOpen && !openedByHover) closeToc();
     else openToc(trigger);
   }));
   rail.addEventListener('pointerenter', event => {
-    if (toc.hidden && hoverRail.matches && event.pointerType !== 'touch' && performance.now() >= hoverBlockedUntil) openToc(tocTriggers[0], false);
+    pointerInRail = true;
+    clearTimeout(tocCloseTimer);
+    if (!tocOpen && hoverRail.matches && event.pointerType !== 'touch' && performance.now() >= hoverBlockedUntil) {
+      // Let a click reach the rail before a hover panel can cover it.
+      tocOpenTimer = setTimeout(() => {
+        if (pointerInRail && hoverRail.matches && !tocOpen) openToc(tocTriggers[0], false);
+      }, 120);
+    }
   });
   function scheduleTocClose() {
-    if (hoverRail.matches) tocTimer = setTimeout(() => {
-      if (!toc.matches(':hover,:focus-within') && !rail.matches(':hover,:focus-within')) closeToc(false);
-    }, 180);
+    clearTimeout(tocCloseTimer);
+    if (hoverRail.matches && openedByHover && tocOpen) tocCloseTimer = setTimeout(() => {
+      if (!pointerInRail && !pointerInToc && !toc.matches(':focus-within')) closeToc(false);
+    }, 300);
   }
-  rail.addEventListener('pointerleave', scheduleTocClose);
-  toc.addEventListener('pointerenter', () => clearTimeout(tocTimer));
-  toc.addEventListener('pointerleave', scheduleTocClose);
+  rail.addEventListener('pointerleave', event => {
+    pointerInRail = false;
+    clearTimeout(tocOpenTimer);
+    if (toc.contains(event.relatedTarget)) { pointerInToc = true; clearTimeout(tocCloseTimer); }
+    else scheduleTocClose();
+  });
+  toc.addEventListener('pointerenter', () => { pointerInToc = true; clearTimeout(tocCloseTimer); });
+  toc.addEventListener('pointerleave', event => {
+    pointerInToc = false;
+    if (rail.contains(event.relatedTarget)) { pointerInRail = true; clearTimeout(tocCloseTimer); }
+    else scheduleTocClose();
+  });
   tocClose.addEventListener('click', () => closeToc());
   document.addEventListener('keydown', event => {
     if (event.key !== 'Escape') return;
-    if (!toc.hidden) { closeToc(); event.preventDefault(); }
+    clearTimeout(tocOpenTimer);
+    if (tocOpen) { closeToc(); event.preventDefault(); }
     else if (!shareOptions.hidden) { closeShare(); event.preventDefault(); }
   });
   document.addEventListener('pointerdown', event => {
@@ -115,7 +152,7 @@ if (article && body && tools) {
     if (!share.contains(event.target)) closeShare(false);
   });
   document.addEventListener('focusin', event => {
-    if (!toc.hidden && !toc.contains(event.target) && !tocTriggers.includes(event.target)) closeToc(false);
+    if (tocOpen && !toc.contains(event.target) && !tocTriggers.includes(event.target)) closeToc(false);
     if (!share.contains(event.target)) closeShare(false);
     if (navbar?.contains(event.target)) navbar.classList.remove('article-nav-away');
   });
@@ -183,7 +220,7 @@ if (article && body && tools) {
       if (box.top < viewport.top) ticks.scrollTop += box.top - viewport.top;
       else if (box.bottom > viewport.bottom) ticks.scrollTop += box.bottom - viewport.bottom;
     }
-    if (toc.hidden || !link) return;
+    if (!tocOpen || !link) return;
     const box = link.getBoundingClientRect(), viewport = tocScroll.getBoundingClientRect();
     if (box.top < viewport.top) tocScroll.scrollTop += box.top - viewport.top - 8;
     else if (box.bottom > viewport.bottom) tocScroll.scrollTop += box.bottom - viewport.bottom + 8;
@@ -216,7 +253,7 @@ if (article && body && tools) {
     }
     if (delta) {
       movement = Math.sign(delta) === Math.sign(movement) ? movement + delta : delta;
-      const keepVisible = y < 160 || navbar?.matches(':focus-within,.is-open') || !toc.hidden || !shareOptions.hidden;
+      const keepVisible = y < 160 || navbar?.matches(':focus-within,.is-open') || tocOpen || !shareOptions.hidden;
       if (keepVisible) navbar?.classList.remove('article-nav-away');
       else if (Math.abs(movement) >= 12) navbar?.classList.toggle('article-nav-away', movement > 0);
     }
