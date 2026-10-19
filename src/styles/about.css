@@ -1,55 +1,72 @@
-/* Reuse the existing page typography and footer theme. */
+/* Shared shell and footer; the new typography applies only to About. */
 @import url("/assets/work.css");
+@font-face { font-family: "About Inter"; src: url("/assets/fonts/about-inter.woff2") format("woff2"); font-style: normal; font-weight: 400 700; font-display: swap; }
+@font-face { font-family: "About Inter Tight"; src: url("/assets/fonts/about-inter-tight.woff2") format("woff2"); font-style: normal; font-weight: 700 800; font-display: swap; }
+@font-face { font-family: "About JetBrains Mono"; src: url("/assets/fonts/about-jetbrains-mono.woff2") format("woff2"); font-style: normal; font-weight: 400 500; font-display: swap; }
 
-.about-page {
-  position: relative; width: calc(100% - 60px); max-width: 1180px;
-  margin: 0 auto; padding: 180px 0 120px;
-  font-family: var(--portfolio-font); color: #111;
-}
-.about-intro { margin-bottom: 90px; display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 40px; }
-.about-intro > p { margin-top: 16px; max-width: 660px; }
-@media (min-width: 1280px) {
-  #hero-section.about-intro > h1 { text-align: left; }
-}
-.about-cv-button {
-  grid-column: 2; grid-row: 1; align-self: center; justify-self: end;
-  display: inline-flex; align-items: center; gap: 12px;
-  font: 400 20px/1.45 var(--portfolio-font); letter-spacing: -.4px;
-  color: #111; text-decoration: none; cursor: pointer; white-space: nowrap;
-}
-.about-cv-button[aria-disabled="true"] { cursor: default; }
-.about-cv-arrow { display: block; flex: none; width: 42px; height: 42px; border: 1px solid currentColor; border-radius: 8px; }
-.about-cv-arrow > [data-framer-name="BG"] { position: absolute; background: #111; border-radius: 100%; }
-.about-history + .about-history { margin-top: 90px; }
-.about-history > h2 { font-size: 48px; font-weight: 500; letter-spacing: -1.8px; line-height: 1.1; margin-bottom: 36px; }
-.about-timeline { list-style: none; padding: 0; margin: 0; }
-.about-entry { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 60px; padding: 36px 0; border-top: 1px solid #0000001a; }
-.about-entry:last-child { border-bottom: 1px solid #0000001a; }
-.about-year { font-size: 20px; font-weight: 400; line-height: 1.45; letter-spacing: -.4px; color: #777; padding-top: 5px; }
+#main[data-page="about"] { --portfolio-font: "About Inter", Arial, sans-serif; --about-heading-font: "About Inter Tight", "About Inter", Arial, sans-serif; --about-label-font: "About JetBrains Mono", Consolas, monospace; }
+#main[data-page="about"] .about-page { position: relative; width: calc(100% - 40px); max-width: 1180px; margin: 0 auto; padding: 140px 0 80px; font-family: var(--portfolio-font); color: var(--theme-text); }
+#main[data-page="about"] #hero-section { display: block; padding: 0 !important; height: auto !important; min-height: 0 !important; scroll-margin-top: 120px; }
+#main[data-page="about"] .about-page :is(h1, h2, h3) { font-family: var(--about-heading-font); font-weight: 700; line-height: 1.08; letter-spacing: 0; }
+#main[data-page="about"] .about-intro h1 { font-size: clamp(40px, 5.6vw, 80px); max-width: 1040px; margin: 18px 0 26px; text-align: left; text-wrap: balance; }
+#main[data-page="about"] .about-page p { font: 400 17px/1.6 var(--portfolio-font); letter-spacing: -.01em; margin: 0; }
+#main[data-page="about"] .about-page .about-eyebrow,
+#main[data-page="about"] .about-page .about-year { font: 400 13px/1.6 var(--about-label-font); letter-spacing: .08em; color: var(--theme-muted); }
+#main[data-page="about"] .about-eyebrow { text-transform: uppercase; }
+.about-prose { max-width: 800px; min-width: 0; }
+#main[data-page="about"] .about-prose p + p { margin-top: 22px; }
+.about-prose a { color: var(--theme-text); text-decoration-thickness: 1px; text-underline-offset: 4px; transition: color .2s ease; }
+.about-prose a:hover { color: var(--theme-accent); }
+.about-section-links { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 32px; }
+.about-section-links a, .about-resume-actions a { font: 400 13px/1.5 var(--about-label-font); letter-spacing: .08em; text-transform: uppercase; }
+.about-section-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 0; color: var(--theme-muted); text-decoration: none; border-bottom: 1px solid var(--theme-line); transition: color .2s ease, border-color .2s ease; }
+.about-section-links a:hover { color: var(--theme-accent); border-color: var(--theme-accent); }
+.about-page > section { margin-top: 64px; scroll-margin-top: 110px; }
+.about-story { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
+.about-story > h2, .about-history > h2 { font-size: 36px; margin: 0; align-self: start; }
+.about-history > h2 { margin-bottom: 28px; }
+.about-timeline { list-style: none; margin: 0; padding: 0; }
+.about-entry { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 28px 0; border-top: 1px solid var(--theme-line); }
+.about-entry:last-child { border-bottom: 1px solid var(--theme-line); }
 .about-entry-content { min-width: 0; }
-.about-entry-content > h3 { font-size: 32px; font-weight: 500; letter-spacing: -1px; line-height: 1.2; }
-.about-organization { font-size: 20px; line-height: 1.45; letter-spacing: -.4px; color: #777; margin-top: 10px; }
-.about-description { font-size: 20px; line-height: 1.45; letter-spacing: -.4px; margin-top: 14px; max-width: 700px; }
-.about-certificate-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; font-size: 20px; line-height: 1.45; letter-spacing: -.4px; color: var(--theme-accent); text-decoration: none; }
-.about-certificate-link:hover, .about-certificate-link:focus-visible { text-decoration: underline; text-underline-offset: 4px; }
+#main[data-page="about"] .about-entry-content > h3 { font-size: 28px; margin: 0; overflow-wrap: anywhere; }
+#main[data-page="about"] .about-page .about-organization { color: var(--theme-muted); margin-top: 10px; }
+#main[data-page="about"] .about-description { margin-top: 14px; max-width: 800px; }
+.about-credential { display: inline-flex; align-items: baseline; gap: 12px; color: inherit; text-decoration: none; transition: color .2s ease; }
+.about-credential > span:first-child { min-width: 0; }
+.about-credential:hover { color: var(--theme-accent); }
+.about-external-arrow { flex: none; font: 400 22px/1 var(--portfolio-font); color: var(--theme-muted); }
+.about-resume-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 28px; margin-top: 28px; }
+.about-resume-actions .about-resume-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 48px; padding: 14px 20px; background: var(--theme-accent); color: var(--theme-bg); border-radius: 10px; text-decoration: none; transition: background .2s ease; }
+.about-resume-actions .about-resume-button:hover { background: #f29ca0; color: var(--theme-bg); }
+.about-resume-view { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 0; }
+#main[data-page="about"] .portfolio-logo { font-family: var(--about-heading-font); font-weight: 700; }
+#main[data-page="about"] .portfolio-menu a { font-family: var(--about-label-font); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+#main[data-page="about"] footer :is(h2, h4) { font-family: var(--about-heading-font); }
+#main[data-page="about"] footer [data-brand-wordmark] p { font-family: var(--about-heading-font) !important; }
+#main[data-page="about"] a:focus-visible { outline: 2px solid var(--theme-accent); outline-offset: 5px; }
 
-@media (max-width: 1279px) {
-  .about-page { max-width: 840px; padding-top: 160px; padding-bottom: 100px; }
-  .about-entry { grid-template-columns: 150px minmax(0, 1fr); gap: 40px; }
-  .about-history > h2 { font-size: 42px; }
+@media (min-width: 601px) {
+  .about-entry { grid-template-columns: 110px minmax(0, 1fr); gap: 24px; }
+  #main[data-page="about"] .about-page .about-year { padding-top: 5px; }
 }
-@media (max-width: 809px) {
-  .about-page { width: calc(100% - 40px); padding-top: 140px; padding-bottom: 80px; }
-  .about-intro { margin-bottom: 60px; }
-  .about-history + .about-history { margin-top: 60px; }
-  .about-history > h2 { font-size: 36px; letter-spacing: -1.2px; margin-bottom: 28px; }
-  .about-entry { grid-template-columns: 110px minmax(0, 1fr); gap: 24px; padding: 28px 0; }
-  .about-entry-content > h3 { font-size: 28px; }
-  .about-year, .about-organization, .about-description, .about-certificate-link { font-size: 18px; }
+@media (min-width: 810px) {
+  #main[data-page="about"] .about-page { width: calc(100% - 60px); max-width: 840px; padding: 160px 0 100px; }
+  #main[data-page="about"] .about-page p { font-size: 18px; }
+  #main[data-page="about"] .about-page .about-eyebrow, #main[data-page="about"] .about-page .about-year { font-size: 13px; }
+  #main[data-page="about"] .about-intro h1 { margin: 20px 0 32px; }
+  .about-page > section { margin-top: 96px; }
+  .about-story { grid-template-columns: 200px minmax(0, 1fr); gap: 40px; }
+  .about-story > h2, .about-history > h2 { font-size: 42px; }
+  .about-history > h2 { margin-bottom: 36px; }
+  .about-entry { grid-template-columns: 150px minmax(0, 1fr); gap: 40px; padding: 36px 0; }
+  #main[data-page="about"] .portfolio-menu-links { gap: 2px; }
+  #main[data-page="about"] .portfolio-menu a { padding-inline: 12px; }
 }
-@media (max-width: 600px) {
-  .about-intro { grid-template-columns: minmax(0, 1fr); }
-  .about-cv-button { grid-column: 1; grid-row: 3; justify-self: start; margin-top: 24px; }
-  .about-entry { grid-template-columns: minmax(0, 1fr); gap: 12px; }
-  .about-year { padding-top: 0; }
+@media (min-width: 1280px) {
+  #main[data-page="about"] .about-page { max-width: 1180px; padding: 180px 0 120px; }
+  .about-story { grid-template-columns: 240px minmax(0, 1fr); gap: 60px; }
+  .about-story > h2, .about-history > h2 { font-size: 48px; }
+  .about-entry { grid-template-columns: 180px minmax(0, 1fr); gap: 60px; }
+  #main[data-page="about"] .about-entry-content > h3 { font-size: 32px; }
 }

@@ -17,13 +17,37 @@
   {
     "route": "/about",
     "slug": "about",
-    "title": "About - m1000z",
-    "description": "Education, professional experience, and milestones along my journey in cybersecurity, ethical hacking, and security automation.",
+    "title": "About Yasin | Web Security Specialist - m1000z",
+    "description": "Meet Yasin, a Junior Web Security Specialist based in Zurich. Explore his journey, HTB CWES certification, security automation work, and resume.",
     "components": [
       "about--0--intro",
-      "about--1--education",
-      "about--2--experience",
+      "about--1--journey",
+      "about--2--certifications",
+      "about--3--experience",
+      "about--4--resume",
       "work--1--phone"
+    ],
+    "navigation": [
+      {
+        "label": "Services",
+        "href": "/#services"
+      },
+      {
+        "label": "Blogs",
+        "href": "/blog"
+      },
+      {
+        "label": "Projects",
+        "href": "/work"
+      },
+      {
+        "label": "About Me",
+        "href": "/about"
+      },
+      {
+        "label": "Contact",
+        "href": "/#contact"
+      }
     ]
   },
   {

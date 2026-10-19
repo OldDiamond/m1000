@@ -70,6 +70,7 @@ for(const page of pages){
  }
  const dir=path.join('dist',page.route);fs.mkdirSync(dir,{recursive:true});
  html=html.replaceAll('{{cvAttributes}}',settings.cvUrl?'href="'+escape(settings.cvUrl)+'" download':'role="link" aria-disabled="true" tabindex="0" title="CV will be available soon"');
+ html=html.replaceAll('{{cvViewAttributes}}',settings.cvUrl?'href="'+escape(settings.cvUrl)+'"':'role="link" aria-disabled="true" tabindex="0" title="CV will be available soon"');
  html=html.replaceAll('{{contactFormAction}}',escape((settings.contactEndpoint||'').replace('https://formsubmit.co/ajax/','https://formsubmit.co/')));
  fs.writeFileSync('dist/assets/'+page.slug+'.css',localize(fs.readFileSync('src/styles/'+page.slug+'.css','utf8')));
  html=localize(html);
@@ -105,11 +106,31 @@ for(const page of pages){
   return '<'+tag+attrs+' data-page-reveal="'+(hero?'hero':intro?'intro':'heading')+'">'+words+'</'+tag+'>';
  });
  const motionBoot='<script>'+fs.readFileSync('src/navigation-boot.js','utf8')+'</script>';
- const fontPreloads=[500,600,page.slug==='home'?800:700].map(weight=>'<link rel="preload" href="/assets/fonts/archivo-normal-'+weight+'.woff2" as="font" type="font/woff2" crossorigin>').join('');
- const embeddedSettings='<script type="application/json" id="portfolio-settings">'+JSON.stringify(publicSettings).replaceAll('<','\\u003c')+'</script>';
+ const fontFiles=page.slug==='about'?['about-inter','about-inter-tight','about-jetbrains-mono']:[500,600,page.slug==='home'?800:700].map(weight=>'archivo-normal-'+weight);
+ const fontPreloads=fontFiles.map(name=>'<link rel="preload" href="/assets/fonts/'+name+'.woff2" as="font" type="font/woff2" crossorigin>').join('');
+ const pageSettings=page.navigation?{...publicSettings,navigation:page.navigation.map(item=>({...pick(item,['label']),href:siteHref(item.href)}))}:publicSettings;
+ const embeddedSettings='<script type="application/json" id="portfolio-settings">'+JSON.stringify(pageSettings).replaceAll('<','\\u003c')+'</script>';
+ const pageSeo=page.slug==='about'?[
+  '<link rel="canonical" href="https://www.m1000z.com/about/">',
+  '<meta name="robots" content="index,follow">',
+  '<meta property="og:type" content="website">',
+  '<meta property="og:site_name" content="'+escape(settings.displayName)+'">',
+  '<meta property="og:url" content="https://www.m1000z.com/about/">',
+  '<meta property="og:title" content="'+escape(page.title)+'">',
+  '<meta property="og:description" content="'+escape(page.description)+'">',
+  '<meta property="og:image" content="https://www.m1000z.com/assets/brand/m1000z-logo.png">',
+  '<meta property="og:image:alt" content="m1000z silver emblem">',
+  '<meta property="og:image:width" content="180">',
+  '<meta property="og:image:height" content="180">',
+  '<meta name="twitter:card" content="summary">',
+  '<meta name="twitter:title" content="'+escape(page.title)+'">',
+  '<meta name="twitter:description" content="'+escape(page.description)+'">',
+  '<meta name="twitter:image" content="https://www.m1000z.com/assets/brand/m1000z-logo.png">',
+  '<meta name="twitter:image:alt" content="m1000z silver emblem">',
+ ].join(''):'';
  const doc=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080809"><style>html,body{background:#080809;color:#edf0ed}</style><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}">${fontPreloads}<link rel="stylesheet" href="/assets/${page.slug}.css"><link rel="stylesheet" href="/assets/custom.css"><link rel="stylesheet" href="/assets/theme.css"><link rel="stylesheet" href="/assets/responsive.css">${motionBoot}${embeddedSettings}<script type="module" src="/assets/interactions.js" blocking="render"></script></head><body>${opening}${icons}${html}</body></html>`;
  // Updated styles and entry scripts get fresh URLs on browsers that cached an earlier layout.
- const versionedDoc=doc.replace('</head>',faviconLinks+'</head>').replace(/((?:href|src)=")((?:\/assets\/)[^"?#]+\.(?:css|js))"/g,(_,attribute,url)=>{
+ const versionedDoc=doc.replace('</head>',pageSeo+faviconLinks+'</head>').replace(/((?:href|src)=")((?:\/assets\/)[^"?#]+\.(?:css|js))"/g,(_,attribute,url)=>{
   const version=createHash('sha256').update(fs.readFileSync(path.join('dist',url))).digest('hex').slice(0,12);
   return attribute+url+'?v='+version+'"';
  });

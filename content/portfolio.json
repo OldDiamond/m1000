@@ -3863,66 +3863,6 @@
       "label": "m1000z",
       "value": "m1000z"
     },
-    "about-title": {
-      "type": "text",
-      "label": "about-title",
-      "value": "About"
-    },
-    "about-intro": {
-      "type": "text",
-      "label": "about-intro",
-      "value": "Education, professional experience, and milestones along my journey in cybersecurity, ethical hacking, and security automation."
-    },
-    "education-title": {
-      "type": "text",
-      "label": "education-title",
-      "value": "Education"
-    },
-    "education-1-years": {
-      "type": "text",
-      "label": "education-1-years",
-      "value": "01. November 2026"
-    },
-    "education-1-title": {
-      "type": "text",
-      "label": "education-1-title",
-      "value": "Bachelor of Science in Computer Science (BSCS)"
-    },
-    "education-1-organization": {
-      "type": "text",
-      "label": "education-1-organization",
-      "value": "International Institute of Science, Art and Technology (IISAT)"
-    },
-    "education-1-description": {
-      "type": "text",
-      "label": "education-1-description",
-      "value": "Completed my Bachelor's degree in Computer Science, building a strong foundation in programming, networking, software development, and computer systems, with a particular focus on cybersecurity and offensive security."
-    },
-    "education-2-years": {
-      "type": "text",
-      "label": "education-2-years",
-      "value": "02. July 2025"
-    },
-    "education-2-title": {
-      "type": "text",
-      "label": "education-2-title",
-      "value": "Certified Web Exploitation Specialist (CWES)"
-    },
-    "education-2-organization": {
-      "type": "text",
-      "label": "education-2-organization",
-      "value": "Hack The Box (HTB)"
-    },
-    "education-2-description": {
-      "type": "text",
-      "label": "education-2-description",
-      "value": "Developed practical skills in web application penetration testing, vulnerability discovery, exploitation techniques, and authentication security, with a strong focus on real-world web security assessments."
-    },
-    "education-2-certificate": {
-      "type": "link",
-      "label": "View certificate",
-      "value": "https://www.credly.com/badges/cdfba656-fdcd-4437-8a64-949381229c4a/public_url"
-    },
     "experience-title": {
       "type": "text",
       "label": "experience-title",
@@ -3941,7 +3881,7 @@
     "experience-1-organization": {
       "type": "text",
       "label": "experience-1-organization",
-      "value": "NetNeedle"
+      "value": "NetNeedle · Independent project"
     },
     "experience-1-description": {
       "type": "text",
@@ -3961,12 +3901,102 @@
     "experience-2-organization": {
       "type": "text",
       "label": "experience-2-organization",
-      "value": "11ven Tech Yards · Remote"
+      "value": "11ven Tech Yards · Islamabad, Pakistan (Remote)"
     },
     "experience-2-description": {
       "type": "text",
       "label": "experience-2-description",
       "value": "Administered and secured Linux production servers, implemented system hardening techniques, and maintained reliable infrastructure operations. Developed Python and PowerShell automation tools for system diagnostics, troubleshooting, and security monitoring, strengthening my foundation in infrastructure security and system administration."
+    },
+    "about-eyebrow": {
+      "type": "text",
+      "label": "about-eyebrow",
+      "value": "About me / Web security"
+    },
+    "about-title": {
+      "type": "text",
+      "label": "about-title",
+      "value": "Hi, I'm Yasin"
+    },
+    "about-intro": {
+      "type": "text",
+      "label": "about-intro",
+      "value": "I'm a Junior Web Security Specialist based in Zurich, Switzerland, focused on web application security, vulnerability analysis, and practical penetration testing."
+    },
+    "about-focus": {
+      "type": "text",
+      "label": "about-focus",
+      "value": "I build tools that make security testing more useful. My project, NetNeedle, brings together web and REST API assessments, automated scanning, and AI-assisted remediation reporting using Python and FastAPI."
+    },
+    "about-background": {
+      "type": "text",
+      "label": "about-background",
+      "value": "I'm an HTB Certified Web Exploitation Specialist (CWES). My background also includes Linux infrastructure hardening, security monitoring, and automation with Python and PowerShell."
+    },
+    "journey-title": {
+      "type": "text",
+      "label": "journey-title",
+      "value": "My Journey"
+    },
+    "journey-1": {
+      "type": "text",
+      "label": "journey-1",
+      "value": "My path combines computer science studies at IISAT with hands-on systems work. Programming, networking, and software development have helped me understand how applications and infrastructure fit together, and where security weaknesses can appear."
+    },
+    "journey-2": {
+      "type": "text",
+      "label": "journey-2",
+      "value": "Working on infrastructure at 11ven Tech Yards gave me practical experience with Linux servers, troubleshooting, and system hardening. Writing Python and PowerShell tools helped me turn repeated diagnostic tasks into reliable automation."
+    },
+    "journey-3": {
+      "type": "text",
+      "label": "journey-3",
+      "value": "That experience carried into NetNeedle. I built a cloud-based vulnerability scanner with Python and FastAPI, bringing together web application checks, REST API testing, and reporting. The goal is to turn findings into remediation guidance that developers can use."
+    },
+    "journey-4": {
+      "type": "text",
+      "label": "journey-4",
+      "value": "Today, I keep developing my web security skills through practical testing, Hack The Box, and CTF challenges. I'm interested in work that connects careful vulnerability analysis with building better security tools."
+    },
+    "certifications-title": {
+      "type": "text",
+      "label": "certifications-title",
+      "value": "Certifications"
+    },
+    "certification-1-date": {
+      "type": "text",
+      "label": "certification-1-date",
+      "value": "01. July 2025"
+    },
+    "certification-1-title": {
+      "type": "html",
+      "label": "certification-1-title",
+      "value": "<a class=\"about-credential\" href=\"https://www.credly.com/badges/cdfba656-fdcd-4437-8a64-949381229c4a/public_url\" data-edit-link=\"certification-1-link\" target=\"_blank\" rel=\"noopener noreferrer\"><span>HTB Certified Web Exploitation Specialist (CWES)</span><span class=\"about-external-arrow\" aria-hidden=\"true\">↗</span></a>"
+    },
+    "certification-1-issuer": {
+      "type": "text",
+      "label": "certification-1-issuer",
+      "value": "Hack The Box"
+    },
+    "resume-title": {
+      "type": "text",
+      "label": "resume-title",
+      "value": "My Resume"
+    },
+    "resume-overview": {
+      "type": "text",
+      "label": "resume-overview",
+      "value": "My resume covers my web security work, infrastructure experience, technical skills, and NetNeedle. Download it for a concise overview of my background."
+    },
+    "resume-links": {
+      "type": "html",
+      "label": "resume-links",
+      "value": "Explore <a href=\"/blog/\">my blog</a>, browse my projects on <a href=\"https://github.com/OldDiamond\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a>, or connect with me on <a href=\"https://www.linkedin.com/in/m1000z\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn</a>. You can also find my practice profile on <a href=\"https://profile.hackthebox.com/profile/019e4061-76f1-72dc-ab69-1bd0481cd557\" target=\"_blank\" rel=\"noopener noreferrer\">Hack The Box</a>."
+    },
+    "certification-1-link": {
+      "type": "link",
+      "label": "Yasin’s CWES credential",
+      "value": "https://www.credly.com/badges/cdfba656-fdcd-4437-8a64-949381229c4a/public_url"
     }
   },
   "work--netneedle": {
