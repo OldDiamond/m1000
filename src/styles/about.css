@@ -41,22 +41,7 @@
 .about-resume-actions .about-resume-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 48px; padding: 14px 20px; background: var(--theme-accent); color: var(--theme-bg); border-radius: 10px; text-decoration: none; transition: background .2s ease; }
 .about-resume-actions .about-resume-button:hover { background: var(--accent-hover); color: var(--theme-bg); }
 .about-resume-view { padding: 12px 0; }
-#main[data-page="about"] footer { font: 400 var(--about-body-size)/1.6 var(--portfolio-font); }
-#main[data-page="about"] footer :is(h2, h4) { font-family: var(--about-heading-font); font-weight: 700; line-height: 1.08; letter-spacing: normal; }
-#main[data-page="about"] footer h2:has(> .footer-security-headline) { font-size: clamp(32px, 3.8vw, 56px); text-align: left; }
-#main[data-page="about"] footer .footer-link-label { font: 400 var(--about-label-size)/1.5 var(--about-label-font); letter-spacing: .1em; text-transform: uppercase; }
-#main[data-page="about"] footer .footer-link-label > span { line-height: 1.2; }
-#main[data-page="about"] footer [data-framer-name="Quick Links"] a { min-height: 0; }
-#main[data-page="about"] footer a[href^="mailto:"] { font: 400 18px/1.6 var(--portfolio-font); letter-spacing: calc(var(--about-body-size) * -.01); }
-#main[data-page="about"] footer [data-brand-wordmark] p { font-family: var(--about-heading-font) !important; font-weight: 800; line-height: .9; letter-spacing: .015em; }
 #main[data-page="about"] a:focus-visible { outline: 2px solid var(--theme-accent); outline-offset: 5px; }
-
-@media (max-width: 1279px) {
-  #main[data-page="about"] footer > [data-framer-name="Container"] { max-width: none !important; gap: 60px !important; }
-  #main[data-page="about"] footer > [data-framer-name="Container"] > [data-framer-component-type="RichTextContainer"] { width: fit-content !important; max-width: 340px; margin-inline: 0; }
-  #main[data-page="about"] footer [data-framer-name="Columns"] { display: flex !important; flex-direction: column; width: min(720px, 100%) !important; gap: 60px !important; }
-  #main[data-page="about"] footer [data-framer-name="Columns"] > :is([data-framer-name="Quick Links"], [data-framer-name="Contact"]) { width: 300px !important; max-width: 100%; align-self: flex-start; }
-}
 
 @media (min-width: 601px) {
   .about-entry { grid-template-columns: 110px minmax(0, 1fr); gap: 24px; }

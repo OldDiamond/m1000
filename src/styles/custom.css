@@ -298,24 +298,32 @@ footer > [data-framer-name="Container"] { z-index: 2; }
 }
 .footer-hand-left pre { left: 0; }
 .footer-hand-right pre { right: 0; top: 22%; }
-/* Raise the large name and leave only its lower quarter below the footer edge. */
+/* Shared compact footer sizing, with the watermark mostly visible. */
+#main footer { --portfolio-font: "Archivo", Arial, sans-serif; padding-top: 80px; }
+#main footer > [data-framer-name="Container"] { max-width: 1080px; column-gap: 64px; }
+#main footer [data-framer-name="Columns"] { max-width: 660px; column-gap: 48px; }
+#main footer :is([data-framer-name="Quick Links"], [data-framer-name="Contact"]) { gap: 12px; }
+#main footer [data-framer-name="Links"] { gap: 6px; }
+#main footer .footer-link-label { font-size: 14px; line-height: 1.2; }
+#main footer [data-framer-name="Quick Links"] a > div > div { padding: 6px 12px !important; }
+#main footer a[href^="mailto:"] { font-size: 16px; }
 footer h2:has(> .footer-security-headline) {
   font-family: var(--portfolio-font); font-weight: 700;
   letter-spacing: -.06em; line-height: .98; color: #faf7f3;
 }
 .footer-security-headline em { color: var(--accent); font-style: italic; font-weight: inherit; white-space: nowrap; }
 @media (min-width: 1280px) {
-  footer h2:has(> .footer-security-headline) { font-size: 60px; }
+  footer h2:has(> .footer-security-headline) { font-size: 45px; }
 }
-footer [data-brand-wordmark] { bottom: 0 !important; transform: translate(-50%, 25%) !important; }
+#main footer [data-brand-wordmark] { width: 47%; max-width: 600px; bottom: 0 !important; transform: translate(-50%, 10%) !important; }
 footer [data-brand-wordmark] foreignObject { white-space: normal; }
 footer [data-brand-wordmark] p { white-space: nowrap; }
 
 /* Original looping arch, recolored to the accent and placed above the Quick links. */
 footer [data-framer-name="Quick Links"] { position: relative; }
 .footer-mark {
-  position: absolute; left: 50%; bottom: calc(100% + 65px); transform: translateX(-50%);
-  width: 160px; height: 160px; pointer-events: none; user-select: none;
+  position: absolute; left: 50%; bottom: calc(100% - 16px); transform: translateX(-50%);
+  width: 120px; height: 120px; pointer-events: none; user-select: none;
 }
 .footer-mark-definitions { position: absolute; width: 0; height: 0; }
 .footer-mark > img, .footer-mark > canvas {
@@ -324,8 +332,8 @@ footer [data-framer-name="Quick Links"] { position: relative; }
 }
 .footer-mark > [hidden] { display: none !important; }
 @media (max-width: 1279px) {
-  .footer-mark { position: relative; left: auto; bottom: auto; transform: none; margin-inline: auto; width: 140px; height: 100px; flex: none; }
-  .footer-mark > img, .footer-mark > canvas { position: absolute; top: -20px; width: 140px; height: 140px; }
+  .footer-mark { position: relative; left: auto; bottom: auto; transform: none; margin-inline: auto; width: 105px; height: 75px; flex: none; }
+  .footer-mark > img, .footer-mark > canvas { position: absolute; top: -15px; width: 105px; height: 105px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .footer-mark > img { visibility: hidden; }
