@@ -24,7 +24,6 @@ if(path.dirname(outputRoot)!==projectRoot||fs.lstatSync(outputRoot,{throwIfNoEnt
 fs.rmSync(outputRoot,{recursive:true,force:true});
 fs.mkdirSync(path.join(outputRoot,'assets'),{recursive:true});
 if(fs.existsSync('public'))fs.cpSync('public','dist',{recursive:true});
-fs.copyFileSync('favicon.png','dist/favicon.png');
 fs.copyFileSync('src/styles/custom.css','dist/assets/custom.css');
 fs.copyFileSync('src/styles/theme.css','dist/assets/theme.css');
 fs.copyFileSync('src/styles/responsive.css','dist/assets/responsive.css');
@@ -53,10 +52,13 @@ const publicSettings={
 };
 fs.writeFileSync('dist/assets/settings.json',JSON.stringify(publicSettings));
 const faviconLinks=[
- '<link rel="icon" type="image/png" href="/favicon.png">',
- '<link rel="icon" href="/favicon.ico" sizes="48x48">',
- '<link rel="apple-touch-icon" href="/favicon.png">',
-].join('');
+ ['icon','/favicon.ico','image/x-icon','16x16 32x32 48x48'],
+ ['icon','/favicon-32x32.png','image/png','32x32'],
+ ['apple-touch-icon','/apple-touch-icon.png','image/png','180x180'],
+].map(([rel,url,type,sizes])=>{
+ const version=createHash('sha256').update(fs.readFileSync(path.join('dist',url))).digest('hex').slice(0,12);
+ return `<link rel="${rel}" href="${url}?v=${version}" type="${type}" sizes="${sizes}">`;
+}).join('');
 const pageBackground=fs.readFileSync('src/components/PageBackground.html','utf8');
 for(const page of pages){
  let html=fs.readFileSync('src/pages/'+page.slug+'.html','utf8');
