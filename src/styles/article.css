@@ -11,11 +11,17 @@
 .article-page a { color: var(--accent); text-underline-offset: 4px; }
 .article-page a:hover { color: var(--accent-hover); }
 .article-page a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 3px; }
-.article-page .article-back { font-size: 14px; color: var(--theme-muted); }
+.article-page .article-back { font-size: 14px; color: #e5e5e5; }
+.article-page :is(.article-back, h1, .article-meta) { text-shadow: 0 1px 4px rgba(0,0,0,.65); }
 .article-page h1 { font: 700 clamp(30px, 4vw, 52px)/1.08 "Article Inter Tight", var(--portfolio-font); letter-spacing: 0; margin: 24px 0; }
-.article-page .article-meta { color: var(--theme-muted); font-size: clamp(17px, 1.25vw, 18px); margin: 0; line-height: 1.6; letter-spacing: -.01em; }
+.article-page .article-meta { color: #e5e5e5; font-size: clamp(17px, 1.25vw, 18px); margin: 0; line-height: 1.6; letter-spacing: -.01em; }
 .article-tags { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 20px 0 0; list-style: none; }
-.article-page .article-tags li { color: var(--accent); background: var(--accent-soft); border: 1px solid var(--accent-border); border-radius: 20px; padding: 5px 11px; font-size: clamp(17px, 1.25vw, 18px); line-height: 1.6; letter-spacing: -.01em; }
+.article-page .article-tags li { color: var(--accent-hover); background: rgba(10,10,12,.7); border: 1px solid color-mix(in srgb, var(--accent-hover) 55%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 20px; padding: 5px 11px; font-size: clamp(17px, 1.25vw, 18px); line-height: 1.6; letter-spacing: -.01em; }
+/* Darken only article hero backgrounds; retain the glow and its right-side fade. */
+#main[data-page="article"] .page-image-background::before {
+  content: ''; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(90deg, rgba(8,8,9,.82) 0%, rgba(8,8,9,.68) 40%, rgba(8,8,9,.3) 70%, transparent 100%);
+}
 .article-body { margin-top: 40px; }
 .article-page .article-body h2 { font: 700 30px/1.08 "Article Inter Tight", var(--portfolio-font); letter-spacing: 0; margin: 48px 0 18px; scroll-margin-top: 128px; }
 .article-page .article-body :is(p, li) { font: 400 17.12px/1.6 var(--portfolio-font); letter-spacing: -.01em; }
