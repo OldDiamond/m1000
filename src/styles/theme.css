@@ -42,12 +42,12 @@ html::-webkit-scrollbar-thumb:hover { background: var(--accent-hover); }
 a:focus-visible, button:focus-visible, [role="button"]:focus-visible,
 .draggable-decoration:focus-visible { outline-color: var(--theme-accent); }
 .portfolio-nav {
-  background: var(--theme-surface);
+  background: linear-gradient(120deg, #ffffff08, #ffffff02), #14161a94;
   box-shadow: inset 0 0 0 1px var(--theme-line), 0 12px 44px #0005;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
-.portfolio-nav.is-open { background-color: var(--theme-surface); }
+.portfolio-nav.is-open { background-color: #14161aeb; }
 .portfolio-logo { color: var(--theme-text); }
 .portfolio-toggle { background: var(--theme-line); color: var(--theme-text); }
 .portfolio-toggle:hover { background: var(--accent-soft); }
