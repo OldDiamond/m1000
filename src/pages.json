@@ -58,5 +58,17 @@
       "blog--0--projects-section",
       "blog--1--phone"
     ]
+  },
+  {
+    "route": "/posts/passing-htb-cwes",
+    "slug": "post--passing-htb-cwes",
+    "type": "article",
+    "contentKey": "blog",
+    "title": "My HTB CWES Journey: Taking One Step at a Time | Yasin – m1000z",
+    "description": "How I prepared for HTB CWES, approached the exam, and learned to document and communicate my findings.",
+    "components": [
+      "PostArticle",
+      "blog--1--phone"
+    ]
   }
 ]

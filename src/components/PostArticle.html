@@ -1,0 +1,16 @@
+<main class="article-page" id="article-section">
+  <a class="article-back" href="/blog/">← All Blogs</a>
+  <article aria-labelledby="article-heading">
+    <header>
+      <h1 id="article-heading">{{postTitle}}</h1>
+      <p class="article-meta">{{postAuthor}} · <time datetime="{{postDate}}">{{postLongDate}}</time> · {{readingMinutes}} min read</p>
+      <ul class="article-tags" aria-label="Tags">{{postTags}}</ul>
+    </header>
+    <div class="article-body">{{postBody}}</div>
+    <p class="article-source">Originally published on <a href="{{sourceUrl}}" target="_blank" rel="noopener noreferrer">Medium ↗</a>.</p>
+  </article>
+  <nav class="article-end" aria-label="Article navigation">
+    <a href="/blog/">← All Blogs</a>
+    <a href="#article-section">Back to top ↑</a>
+  </nav>
+</main>

@@ -1,12 +1,21 @@
 [
   {
-    "title": "Passing HTB CWES: What You Do When You Don’t Know What Comes Next",
-    "url": "https://medium.com/@m1000z/passing-htb-cwes-what-you-do-when-you-dont-know-what-comes-next-17773f43c0f7",
+    "title": "My HTB CWES Journey: Taking One Step at a Time",
+    "url": "/posts/passing-htb-cwes/",
     "date": "2026-10-19",
-    "excerpt": "My experience preparing for HTB CWES, building a repeatable testing process, and turning uncertainty into evidence.",
-    "image": "/assets/blog/passing-htb-cwes.png",
-    "imageAlt": "Yasin’s Hack The Box Certified Web Exploitation Specialist certificate",
+    "excerpt": "How I prepared for HTB CWES, approached the exam, and learned to document and communicate my findings.",
+    "image": "/assets/blog/cwes-journey-cover.png",
+    "imageAlt": "HTB Certified Web Exploitation Specialist achievement badge",
     "imageWidth": 1024,
-    "imageHeight": 724
+    "imageHeight": 754,
+    "sourceUrl": "https://medium.com/@m1000z/passing-htb-cwes-what-you-do-when-you-dont-know-what-comes-next-17773f43c0f7",
+    "author": "Yasin",
+    "publishedAt": "2026-10-19T19:57:14.000Z",
+    "tags": [
+      "HTB CWES",
+      "Web Security",
+      "Penetration Testing"
+    ],
+    "bodyFile": "content/articles/passing-htb-cwes.html"
   }
 ]
