@@ -70,5 +70,13 @@
       "PostArticle",
       "blog--1--phone"
     ]
+  },
+  {
+    "route": "/404",
+    "slug": "not-found",
+    "type": "error",
+    "title": "404 — Page not found | m1000z",
+    "description": "You went down a rabbit hole. Return to m1000z's home page.",
+    "components": []
   }
 ]

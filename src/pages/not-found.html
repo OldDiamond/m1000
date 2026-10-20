@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="theme-color" content="#080809">
+ <meta name="robots" content="noindex,follow">
+ <title>{{pageTitle}}</title>
+ <meta name="description" content="{{description}}">
+ {{faviconLinks}}
+ <link rel="preload" href="/assets/fonts/archivo-normal-500.woff2" as="font" type="font/woff2" crossorigin>
+ <link rel="stylesheet" href="{{stylesheet}}">
+ <script type="module" src="{{script}}"></script>
+</head>
+<body>
+ <header class="error-header">
+  <a class="error-brand" href="/" aria-label="{{displayName}} home">{{displayName}}</a>
+  <a class="home-button" href="/">Back to home</a>
+ </header>
+ <main class="rabbit-hole" aria-labelledby="error-title">
+  <div class="rabbit-background" aria-hidden="true">
+   <canvas class="rabbit-canvas"></canvas>
+  </div>
+  <div class="error-message">
+   <svg class="pixel-chevron" viewBox="0 0 30 50" aria-hidden="true"><path d="M20 0h10v10H20zM10 10h10v10H10zM0 20h10v10H0zM10 30h10v10H10zM20 40h10v10H20z"/></svg>
+   <h1 id="error-title"><span class="sr-only">404 — Page not found</span><svg class="pixel-number" viewBox="0 0 190 80" aria-hidden="true" shape-rendering="crispEdges">
+    <path d="M30 0h20v80H40V60H0V30h10v20h30V10H30zM10 20h10v10H10zM20 10h10v10H20zM160 0h20v80h-10V60h-40V30h10v20h30V10h-10zM140 20h10v10h-10zM150 10h10v10h-10z"/>
+    <path d="M75 0h30v10H75zM65 10h10v60H65zM105 10h10v60h-10zM75 70h30v10H75zM95 20h10v10H95zM85 30h10v20H85zM75 50h10v10H75z"/>
+   </svg></h1>
+   <p>You went down a rabbit hole.<br>Even we don't know where this one goes.</p>
+  </div>
+  <button class="motion-toggle" type="button" hidden aria-pressed="false">Pause motion</button>
+ </main>
+</body>
+</html>

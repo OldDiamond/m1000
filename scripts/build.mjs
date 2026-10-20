@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { assertPublicFiles } from './check-public-files.mjs';
+import { buildNotFoundPage } from './build-not-found.mjs';
 const pages=JSON.parse(fs.readFileSync('src/pages.json','utf8'));
 const siteHref=value=>{
  if(typeof value!=='string')return value;
@@ -76,6 +77,10 @@ const faviconLinks=[
 }).join('');
 const pageBackground=fs.readFileSync('src/components/PageBackground.html','utf8');
 for(const page of pages){
+ if(page.type==='error'){
+  buildNotFoundPage({outputRoot,page,displayName:settings.displayName,faviconLinks});
+  continue;
+ }
  const articlePost=page.type==='article'?posts.find(post=>siteHref(post.url)===siteHref(page.route)):null;
  if(page.type==='article'&&!articlePost)throw new Error('Missing article data for '+page.route);
  let html=fs.readFileSync('src/pages/'+page.slug+'.html','utf8');

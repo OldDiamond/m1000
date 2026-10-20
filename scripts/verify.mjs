@@ -13,4 +13,11 @@ for(const page of pages){
  if(/<script[^>]+src="https?:/.test(html))failures.push(page.route+': third party runtime script');
  for(const [,id]of html.matchAll(/<use[^>]+href="#([^" ]+)"/g)){checks++;if(!html.includes('id="'+id+'"'))failures.push(page.route+': missing SVG definition '+id)}
 }
+const notFound=fs.readFileSync('dist/404/index.html','utf8');
+for(const [valid,message]of [
+ [notFound===fs.readFileSync('dist/404.html','utf8'),'404 fallback differs from /404/'],
+ [/name="robots" content="noindex,follow"/.test(notFound),'404 page must not be indexed'],
+ [!/<footer\b/.test(notFound),'404 page must not include a footer'],
+ [/<a class="home-button" href="\/">Back to home<\/a>/.test(notFound),'404 page is missing its home button'],
+]){checks++;if(!valid)failures.push(message);}
 if(failures.length){console.error([...new Set(failures)].join('\n'));process.exitCode=1}else console.log('Verified '+pages.length+' pages and '+checks+' page, internal link, and asset checks.');
