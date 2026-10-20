@@ -369,6 +369,26 @@ footer [data-framer-name="Quick Links"] { position: relative; }
   .footer-mark { position: relative; left: auto; bottom: auto; transform: none; margin-inline: auto; width: 140px; height: 100px; flex: none; }
   .footer-mark > img, .footer-mark > canvas { position: absolute; top: -20px; width: 140px; height: 140px; }
 }
+/* Vertical offsets leave the headline, watermark, widths, and document flow intact. */
+#main footer [data-framer-name="Columns"] { translate: 0 50px; }
+#main footer .footer-mark { translate: 0 -30px; }
+@media (max-width: 1279px) {
+  #main footer [data-framer-name="Columns"] { translate: 0 20px; }
+  #main footer .footer-mark { translate: 0 20px; }
+  #main[data-page="about"] footer [data-framer-name="Contact"] { translate: 0 -8px; }
+  #main[data-page="about"] footer :is([data-framer-name="Quick Links"], [data-framer-name="Contact"]) > [data-framer-name="Links"] { translate: 0 -4px; }
+}
+@media (max-width: 809px) {
+  #main footer [data-framer-name="Columns"] { translate: 0 26px; }
+  #main footer .footer-mark { translate: 0 15px; }
+  #main footer [data-framer-name="Quick Links"] > [data-framer-name="Links"] { translate: 0 -6px; }
+  #main[data-page="about"] footer [data-framer-name="Contact"] { translate: 0 -12px; }
+  #main[data-page="about"] footer :is([data-framer-name="Quick Links"], [data-framer-name="Contact"]) > [data-framer-name="Links"] { translate: 0 -6px; }
+}
+@media (max-width: 599px) {
+  #main footer [data-framer-name="Contact"] { translate: 0 -12px; }
+  #main footer [data-framer-name="Contact"] > [data-framer-name="Links"] { translate: 0 -6px; }
+}
 @media (prefers-reduced-motion: reduce) {
   .footer-mark > img { visibility: hidden; }
 }
