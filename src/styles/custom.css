@@ -185,9 +185,16 @@ footer .footer-link-label > span { transition-duration: .55s; transition-delay: 
 }
 #main [data-project-grid] a[data-project="netneedle"] [data-framer-name="Image"] { border-radius: 0 !important; }
 #main [data-project-grid] a[data-project="netneedle"] [data-framer-name="Title & Description"] {
-  width: 100%; align-items: flex-start; gap: 12px; padding: 24px;
+  position: relative; width: 100%; align-items: flex-start; gap: 12px; padding: 24px; overflow: hidden;
 }
-#main [data-project-grid] a[data-project="netneedle"] [data-framer-name="Title & Description"] > div { width: 100%; }
+#main [data-project-grid] a[data-project="netneedle"] [data-framer-name="Title & Description"]::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(115deg, transparent 30%, rgb(255 255 255 / 6%) 48%, transparent 66%);
+  background-size: 240% 100%; background-position: 100% 0;
+  transition: background-position .8s var(--motion-ease);
+}
+#main [data-project-grid] a[data-project="netneedle"]:is(:hover, :focus-visible) [data-framer-name="Title & Description"]::before { background-position: 0% 0; }
+#main [data-project-grid] a[data-project="netneedle"] [data-framer-name="Title & Description"] > div { position: relative; width: 100%; }
 #main [data-project-grid] a[data-project="netneedle"] :is(h3, p) { margin: 0; text-align: left; }
 #main [data-project-grid] a[data-project="netneedle"] h3 { font-size: 32px; line-height: 1.2; }
 #main [data-project-grid] a[data-project="netneedle"] p { font-size: 16px; line-height: 1.6; }
