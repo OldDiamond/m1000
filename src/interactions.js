@@ -27,6 +27,7 @@ function setupNavigation(settings) {
   const links = document.createElement('div');
   links.className = 'portfolio-menu-links';
   const desktop = matchMedia('(min-width: 810px)');
+  const persistentNavigation = ['home', 'about'].includes(document.getElementById('main')?.dataset.page);
   let open = false;
   let lastScrollY = Math.max(0, scrollY), movement = 0, scrollFrame = 0;
   function showNavigation() {
@@ -37,7 +38,7 @@ function setupNavigation(settings) {
   function updateScrollNavigation() {
     scrollFrame = 0;
     const y = Math.max(0, scrollY), delta = y - lastScrollY;
-    const keepVisible = y < 160 || open || panel.querySelector(':focus-visible')
+    const keepVisible = persistentNavigation || y < 160 || open || panel.querySelector(':focus-visible')
       || document.querySelector('.article-toc.is-open, .article-share-options:not([hidden])');
     if (keepVisible) {
       panel.classList.remove('is-scrolled-away');
