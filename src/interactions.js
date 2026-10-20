@@ -118,7 +118,7 @@ function setupFooter(settings) {
       label.style.setProperty('--framer-font-size', size + 'px');
       word.setAttribute('viewBox', `0 0 1200 ${size * .9}`);
       // Preserve the watermark size and crop with a smaller gap below the links.
-      footer.style.paddingBottom = Math.ceil(word.getBoundingClientRect().height * .75 + 24) + 'px';
+      footer.style.paddingBottom = Math.ceil(word.getBoundingClientRect().height * .75 + 12) + 'px';
     });
   }
   const layout = () => {

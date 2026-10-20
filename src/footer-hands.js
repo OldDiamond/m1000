@@ -65,7 +65,8 @@ export async function setupFooterHands(options = {}) {
       const word = footer.querySelector('svg[data-framer-component-type="RichTextContainer"]');
       const content = footer.querySelector(':scope > [data-framer-name="Container"]');
       // Keep the hands at their established scale when the watermark gap changes.
-      const available = content ? content.getBoundingClientRect().bottom - footer.getBoundingClientRect().top + 48
+      const spacing = parseFloat(getComputedStyle(footer).getPropertyValue('--footer-art-spacing')) || 0;
+      const available = content ? content.getBoundingClientRect().bottom - footer.getBoundingClientRect().top + 48 + spacing
         : word ? word.getBoundingClientRect().top - footer.getBoundingClientRect().top - 16 : footer.clientHeight * .55;
       layer.style.height = Math.max(160, available) + 'px';
       const cell = Math.min(layer.clientWidth * .44 / density, layer.clientHeight / (Math.max(...shapes.map(s => s.rows)) * 1.25));

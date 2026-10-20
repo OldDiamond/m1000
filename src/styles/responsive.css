@@ -71,14 +71,15 @@
   [data-framer-name="Quote Section"], [data-framer-name="Quote Section"] > [data-framer-name="Container"] { height: 150vh !important; height: 150svh !important; }
   [data-framer-name="Quote Section"] [data-framer-name="Content"] { height: 100vh !important; height: 100svh !important; padding-block: 100px 32px !important; }
   [data-framer-name="Thoughts Section"] [data-framer-name="All Posts Card"] { min-height: 240px !important; height: auto !important; gap: 32px !important; }
-  footer > [data-framer-name="Container"] { width: 100% !important; max-width: 1000px !important; }
+  #main footer { padding-top: 60px; --footer-art-spacing: 112px; }
+  footer > [data-framer-name="Container"] { width: 100% !important; max-width: 1000px !important; row-gap: 24px !important; }
   footer > [data-framer-name="Container"] > [data-framer-component-type="RichTextContainer"] {
     width: 100% !important; max-width: 600px; margin-inline: auto;
   }
   footer h2:has(> .footer-security-headline) { text-align: center; }
   .footer-mark { align-self: center; }
   .footer-hand pre { color: var(--hands-color); opacity: var(--hands-opacity); }
-  footer [data-framer-name="Columns"] { width: 100% !important; min-width: 0; gap: 32px !important; }
+  footer [data-framer-name="Columns"] { width: 100% !important; min-width: 0; column-gap: 32px !important; row-gap: 20px !important; }
   /* Framer's one-pixel flex bases must not become literal grid-column widths. */
   footer [data-framer-name="Columns"] > [data-framer-name],
   footer [data-framer-name="Columns"] [data-framer-component-type="RichTextContainer"],
@@ -118,7 +119,8 @@
   footer [data-framer-name="Quick Links"] { width: 100% !important; }
   footer [data-framer-name="Links"] { max-width: 100%; flex-wrap: wrap !important; }
   footer [data-framer-name="Quick Links"] a { min-height: 44px; }
-  footer > [data-framer-name="Container"] { gap: 36px !important; }
+  #main footer { padding-top: 40px; --footer-art-spacing: 84px; }
+  footer > [data-framer-name="Container"] { row-gap: 20px !important; }
   .footer-mark { height: 90px; }
   main p.framer-text, .about-page p { letter-spacing: -.02em; }
   form input:not([type="hidden"]), form textarea { font-size: 16px !important; }
@@ -128,7 +130,7 @@
 @media (min-width: 600px) and (max-width: 1279px) {
   footer > [data-framer-name="Container"] > [data-framer-component-type="RichTextContainer"] { width: 100% !important; max-width: 600px; }
   footer [data-framer-name="Columns"] { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-  footer [data-framer-name="Contact"] { align-self: end; }
+  footer [data-framer-name="Contact"] { align-self: start; }
 }
 
 @media (min-width: 810px) and (max-width: 1279px) {
@@ -143,4 +145,8 @@
 
 @media (max-width: 699px) {
   [data-framer-name="Bio Section"] > [data-framer-name="Container"] { grid-template-columns: minmax(0, 1fr); gap: 28px !important; }
+}
+
+@media (min-width: 600px) and (max-width: 809px) {
+  #main footer { --footer-art-spacing: 72px; }
 }

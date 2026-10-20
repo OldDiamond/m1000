@@ -52,9 +52,10 @@
 #main[data-page="about"] a:focus-visible { outline: 2px solid var(--theme-accent); outline-offset: 5px; }
 
 @media (max-width: 1279px) {
-  #main[data-page="about"] footer > [data-framer-name="Container"] { max-width: none !important; gap: 60px !important; }
+  #main[data-page="about"] footer { --footer-art-spacing: 148px; }
+  #main[data-page="about"] footer > [data-framer-name="Container"] { max-width: none !important; row-gap: 24px !important; }
   #main[data-page="about"] footer > [data-framer-name="Container"] > [data-framer-component-type="RichTextContainer"] { width: fit-content !important; max-width: 340px; margin-inline: 0; }
-  #main[data-page="about"] footer [data-framer-name="Columns"] { display: flex !important; flex-direction: column; width: min(720px, 100%) !important; gap: 60px !important; }
+  #main[data-page="about"] footer [data-framer-name="Columns"] { display: flex !important; flex-direction: column; width: min(720px, 100%) !important; row-gap: 24px !important; }
   #main[data-page="about"] footer [data-framer-name="Columns"] > :is([data-framer-name="Quick Links"], [data-framer-name="Contact"]) { width: 300px !important; max-width: 100%; align-self: flex-start; }
 }
 
@@ -77,4 +78,9 @@
   .about-story { grid-template-columns: 240px minmax(0, 1fr); gap: 60px; }
   .about-story > h2, .about-history > h2 { font-size: 48px; }
   .about-entry { grid-template-columns: 180px minmax(0, 1fr); gap: 60px; }
+}
+
+@media (max-width: 809px) {
+  #main[data-page="about"] footer { --footer-art-spacing: 156px; }
+  #main[data-page="about"] footer > [data-framer-name="Container"] { row-gap: 20px !important; }
 }

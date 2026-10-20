@@ -344,6 +344,9 @@ footer h2:has(> .footer-security-headline) {
 }
 .footer-security-headline em { color: var(--accent); font-style: italic; font-weight: inherit; white-space: nowrap; }
 @media (min-width: 1280px) {
+  #main footer { padding-top: 96px; --footer-art-spacing: 24px; }
+  #main footer > [data-framer-name="Container"] { align-items: flex-start; }
+  #main footer .footer-mark { bottom: calc(100% - 32px); }
   footer h2:has(> .footer-security-headline) { font-size: 60px; }
 }
 footer [data-brand-wordmark] { bottom: 0 !important; transform: translate(-50%, 25%) !important; }
