@@ -156,6 +156,9 @@ footer [data-brand-wordmark] p { --framer-text-color: #242b30 !important; }
   display: block; width: 100%; height: 100%; object-fit: cover;
   transform: none;
 }
+#main a.blog-preview-card [data-framer-name="Image"] img[src="/assets/blog/cwes-academy-badge.png"] {
+  box-sizing: border-box; padding: clamp(16px, 3vw, 24px); object-position: center;
+}
 #main a.framer-6Ku2B > [data-framer-name="Content"] {
   position: relative; flex: 1; display: flex; flex-direction: column; align-items: stretch;
   justify-content: flex-start; width: 100%; height: auto; min-height: 240px;
