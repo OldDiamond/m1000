@@ -98,8 +98,6 @@
 .article-mobile-toc { display: none; }
 .article-back-top { position: fixed; z-index: 1001; bottom: max(24px, env(safe-area-inset-bottom)); right: 24px; width: 52px; height: 52px; border-radius: 50%; box-shadow: 0 6px 24px #0004; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .2s ease, visibility .2s ease, background .2s ease, color .2s ease; }
 .article-back-top.is-visible { opacity: 1; visibility: visible; pointer-events: auto; }
-#main[data-page="article"] .portfolio-nav { transition: translate .3s var(--motion-ease); }
-#main[data-page="article"] .portfolio-nav.article-nav-away:not(:focus-within):not(.is-open) { translate: 0 calc(-100% - 50px); }
 .article-related { margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--theme-line); }
 .article-related-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 28px; }
 .article-related-header h2 { margin: 0; font: 700 30px/1.08 "Article Inter Tight", var(--portfolio-font); }

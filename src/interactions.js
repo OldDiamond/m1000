@@ -28,10 +28,36 @@ function setupNavigation(settings) {
   links.className = 'portfolio-menu-links';
   const desktop = matchMedia('(min-width: 810px)');
   let open = false;
+  let lastScrollY = Math.max(0, scrollY), movement = 0, scrollFrame = 0;
+  function showNavigation() {
+    panel.classList.remove('is-scrolled-away');
+    movement = 0;
+    lastScrollY = Math.max(0, scrollY);
+  }
+  function updateScrollNavigation() {
+    scrollFrame = 0;
+    const y = Math.max(0, scrollY), delta = y - lastScrollY;
+    const keepVisible = y < 160 || open || panel.querySelector(':focus-visible')
+      || document.querySelector('.article-toc.is-open, .article-share-options:not([hidden])');
+    if (keepVisible) {
+      panel.classList.remove('is-scrolled-away');
+      movement = 0;
+    } else if (delta) {
+      movement = Math.sign(delta) === Math.sign(movement) ? movement + delta : delta;
+      if (Math.abs(movement) >= 12) panel.classList.toggle('is-scrolled-away', movement > 0);
+    }
+    lastScrollY = y;
+  }
+  addEventListener('scroll', () => {
+    if (!scrollFrame) scrollFrame = requestAnimationFrame(updateScrollNavigation);
+  }, { passive: true });
+  addEventListener('pageshow', showNavigation);
+  panel.addEventListener('focusin', showNavigation);
   function toggle(next, returnFocus = false) {
     open = !desktop.matches && next;
     const visible = desktop.matches || open;
     panel.classList.toggle('is-open', open);
+    showNavigation();
     menu.inert = !visible;
     menu.setAttribute('aria-hidden', String(!visible));
     trigger.setAttribute('aria-expanded', String(open));

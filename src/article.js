@@ -104,7 +104,7 @@ if (article && body && tools) {
     tocTriggers.forEach(button => button.setAttribute('aria-expanded', 'true'));
     if (focus) tocClose.focus({ preventScroll: true });
     revealActiveLink();
-    navbar?.classList.remove('article-nav-away');
+    navbar?.classList.remove('is-scrolled-away');
   }
   tocTriggers.forEach(trigger => trigger.addEventListener('click', () => {
     if (tocOpen && !openedByHover) closeToc();
@@ -152,7 +152,7 @@ if (article && body && tools) {
   document.addEventListener('focusin', event => {
     if (tocOpen && !toc.contains(event.target) && !tocTriggers.includes(event.target)) closeToc(false);
     if (!share.contains(event.target)) closeShare(false);
-    if (navbar?.contains(event.target)) navbar.classList.remove('article-nav-away');
+    if (navbar?.contains(event.target)) navbar.classList.remove('is-scrolled-away');
   });
 
   // The canonical URL excludes tracking parameters and section fragments.
@@ -177,7 +177,7 @@ if (article && body && tools) {
     shareOptions.hidden = false;
     shareTrigger.setAttribute('aria-expanded', 'true');
     share.querySelector('[data-copy-link]').focus({ preventScroll: true });
-    navbar?.classList.remove('article-nav-away');
+    navbar?.classList.remove('is-scrolled-away');
   });
   let copyTimer;
   share.querySelector('[data-copy-link]').addEventListener('click', async () => {
@@ -206,10 +206,10 @@ if (article && body && tools) {
   backTop.addEventListener('click', () => {
     const backLink = article.querySelector('.article-back');
     backLink.focus({ preventScroll: true });
-    navbar?.classList.remove('article-nav-away');
+    navbar?.classList.remove('is-scrolled-away');
     window.scrollTo({ top: 0, behavior: reduced.matches ? 'instant' : 'smooth' });
   });
-  let active = -1, lastY = scrollY, movement = 0, frame = 0;
+  let active = -1, frame = 0;
   function revealActiveLink() {
     const link = sections[active]?.link;
     const tick = sections[active]?.tick;
@@ -226,7 +226,6 @@ if (article && body && tools) {
   function update() {
     frame = 0;
     const y = Math.max(0, scrollY);
-    const delta = y - lastY;
     const bodyBox = body.getBoundingClientRect();
     const offset = innerWidth < 810 ? 110 : 128;
     const distance = Math.max(1, bodyBox.height - innerHeight + offset);
@@ -247,18 +246,11 @@ if (article && body && tools) {
       });
       revealActiveLink();
     }
-    if (delta) {
-      movement = Math.sign(delta) === Math.sign(movement) ? movement + delta : delta;
-      const keepVisible = y < 160 || navbar?.matches(':focus-within,.is-open') || tocOpen || !shareOptions.hidden;
-      if (keepVisible) navbar?.classList.remove('article-nav-away');
-      else if (Math.abs(movement) >= 12) navbar?.classList.toggle('article-nav-away', movement > 0);
-    }
-    lastY = y;
   }
   function scheduleUpdate() { if (!frame) frame = requestAnimationFrame(update); }
   addEventListener('scroll', scheduleUpdate, { passive: true });
   addEventListener('resize', scheduleUpdate, { passive: true });
-  addEventListener('pageshow', () => { navbar?.classList.remove('article-nav-away'); scheduleUpdate(); });
+  addEventListener('pageshow', () => { navbar?.classList.remove('is-scrolled-away'); scheduleUpdate(); });
   new ResizeObserver(scheduleUpdate).observe(body);
   document.fonts.ready.then(scheduleUpdate);
   // Deep links also work for headings whose IDs were generated at runtime.
