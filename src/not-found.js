@@ -1,16 +1,15 @@
 // Original luminance-based square halftone renderer; all media stays on this site.
 const background=document.querySelector('.rabbit-background');
 const canvas=document.querySelector('.rabbit-canvas');
-const toggle=document.querySelector('.motion-toggle');
 const context=canvas?.getContext('2d',{alpha:false});
-if(context&&background&&toggle){
+if(context&&background){
  const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
  const video=document.createElement('video');
  video.muted=true;video.loop=true;video.playsInline=true;video.preload='none';
  const poster=new Image();
  const sample=document.createElement('canvas');
  const pixels=sample.getContext('2d',{willReadFrequently:true});
- let width=0,height=0,columns=0,rows=0,frame=0,lastFrame=0,paused=false,loaded=false;
+ let width=0,height=0,columns=0,rows=0,frame=0,lastFrame=0,loaded=false;
  const saveData=navigator.connection?.saveData===true;
  const cover=(ctx,source,w,h)=>{
   const sw=source.videoWidth||source.naturalWidth,sh=source.videoHeight||source.naturalHeight;
@@ -45,12 +44,12 @@ if(context&&background&&toggle){
  }
  function updateMotion(){
   cancelAnimationFrame(frame);frame=0;
-  const animateVideo=!reducedMotion.matches&&!saveData&&!paused&&!document.hidden;
+  const animateVideo=!reducedMotion.matches&&!saveData&&!document.hidden;
   if(!animateVideo){video.pause();paint();return;}
   if(!loaded){video.src='/assets/404/rabbit-hole.mp4';loaded=true;}
   video.play().then(()=>{
-   if(!reducedMotion.matches&&!paused&&!document.hidden&&!frame)frame=requestAnimationFrame(animate);
-  }).catch(()=>{paint();toggle.hidden=true;});
+   if(!reducedMotion.matches&&!document.hidden&&!frame)frame=requestAnimationFrame(animate);
+  }).catch(paint);
  }
  function resize(){
   const rect=background.getBoundingClientRect();width=rect.width;height=rect.height;
@@ -60,16 +59,11 @@ if(context&&background&&toggle){
   columns=Math.max(1,Math.ceil(width/7));rows=Math.max(1,Math.ceil(height/7));
   sample.width=columns;sample.height=rows;paint();
  }
- toggle.addEventListener('click',()=>{
-  paused=!paused;toggle.setAttribute('aria-pressed',String(paused));
-  toggle.textContent=paused?'Resume motion':'Pause motion';updateMotion();
- });
- const preferenceChanged=()=>{toggle.hidden=reducedMotion.matches||saveData;updateMotion();};
- reducedMotion.addEventListener('change',preferenceChanged);
+ reducedMotion.addEventListener('change',updateMotion);
  document.addEventListener('visibilitychange',updateMotion);
  new ResizeObserver(resize).observe(background);
- poster.addEventListener('load',()=>{resize();preferenceChanged();});
+ poster.addEventListener('load',()=>{resize();updateMotion();});
  poster.src='/assets/404/rabbit-hole.jpg';
- video.addEventListener('error',()=>{toggle.hidden=true;paint();});
+ video.addEventListener('error',paint);
  video.addEventListener('loadeddata',paint);
 }
