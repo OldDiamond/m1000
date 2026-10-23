@@ -38,7 +38,7 @@
     "text-8": {
       "type": "text",
       "label": "Web security specialism",
-      "value": "I’m a Junior Web Security Specialist with a strong focus on identifying vulnerabilities, securing web applications, and building automated security solutions."
+      "value": "I’m a Web Security Specialist with a strong focus on identifying vulnerabilities, securing web applications, and building automated security solutions."
     },
     "text-9": {
       "type": "text",
@@ -790,7 +790,7 @@
     "about-intro": {
       "type": "text",
       "label": "about-intro",
-      "value": "I'm a Junior Web Security Specialist based in Zurich, Switzerland, focused on web application security, vulnerability analysis, and practical penetration testing."
+      "value": "I'm a Web Security Specialist based in Zurich, Switzerland, focused on web application security, vulnerability analysis, and practical penetration testing."
     },
     "about-focus": {
       "type": "text",

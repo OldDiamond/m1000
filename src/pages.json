@@ -18,7 +18,7 @@
     "route": "/about",
     "slug": "about",
     "title": "About Yasin | Web Security Specialist - m1000z",
-    "description": "Meet Yasin, a Junior Web Security Specialist based in Zurich. Explore his journey, HTB CWES certification, security automation work, and resume.",
+    "description": "Meet Yasin, a Web Security Specialist based in Zurich. Explore his journey, HTB CWES certification, security automation work, and resume.",
     "components": [
       "about--0--intro",
       "about--1--journey",
