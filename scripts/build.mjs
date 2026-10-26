@@ -68,12 +68,14 @@ const publicSettings={
 };
 fs.writeFileSync('dist/assets/settings.json',JSON.stringify(publicSettings));
 const faviconLinks=[
- ['icon','/favicon.ico','image/x-icon','16x16 32x32 48x48'],
+ ['icon','/favicon.ico','image/x-icon','16x16 32x32 48x48 96x96'],
  ['icon','/favicon-32x32.png','image/png','32x32'],
+ ['icon','/favicon-96x96.png','image/png','96x96'],
  ['apple-touch-icon','/apple-touch-icon.png','image/png','180x180'],
 ].map(([rel,url,type,sizes])=>{
- const version=createHash('sha256').update(fs.readFileSync(path.join('dist',url))).digest('hex').slice(0,12);
- return `<link rel="${rel}" href="${url}?v=${version}" type="${type}" sizes="${sizes}">`;
+ // Stable public URLs let crawlers keep the same favicon location across deploys.
+ if(!fs.existsSync(path.join('dist',url)))throw new Error('Missing favicon asset: '+url);
+ return `<link rel="${rel}" type="${type}" sizes="${sizes}" href="${url}">`;
 }).join('');
 const pageBackground=fs.readFileSync('src/components/PageBackground.html','utf8');
 for(const page of pages){
