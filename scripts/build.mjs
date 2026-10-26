@@ -3,7 +3,11 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { assertPublicFiles } from './check-public-files.mjs';
 import { buildNotFoundPage } from './build-not-found.mjs';
-const pages=JSON.parse(fs.readFileSync('src/pages.json','utf8'));
+import { canonicalUrl, isPublished, resolvePages, routePath } from './site-pages.mjs';
+import { buildSitemap } from './build-sitemap.mjs';
+const publishedPosts=JSON.parse(fs.readFileSync('content/posts.json','utf8')).filter(post=>isPublished(post));
+const pages=resolvePages(JSON.parse(fs.readFileSync('src/pages.json','utf8')),publishedPosts);
+const posts=publishedPosts.filter(post=>pages.some(page=>page.type==='article'&&page.route===routePath(post.url)));
 const siteHref=value=>{
  if(typeof value!=='string')return value;
  const match=/^(\/[^?#]*)(.*)$/.exec(value);
@@ -18,12 +22,11 @@ assertPublicFiles('public',publicFileOptions);
 const assets=fs.existsSync('content/assets.json')?JSON.parse(fs.readFileSync('content/assets.json','utf8')):{};
 const localize=value=>{for(const [url,local]of Object.entries(assets)){value=value.replaceAll(url,local).replaceAll(url.replaceAll('&','&amp;'),local)}return value};
 const escape=s=>String(s).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
-const posts=JSON.parse(fs.readFileSync('content/posts.json','utf8'));
 const blogCard=fs.readFileSync('src/components/BlogCard.html','utf8');
 const renderBlogCard=post=>{
  if(new URL(post.url,'https://www.m1000z.com').protocol!=='https:')throw new Error('Blog links must use HTTPS');
  const thumbnail=post.thumbnail;
- const fields={postUrl:siteHref(post.url),postTitle:post.title,postImage:thumbnail?.src||post.image,imageAlt:thumbnail?.alt||post.imageAlt,
+ const fields={postUrl:siteHref(routePath(post.url)),postTitle:post.title,postImage:thumbnail?.src||post.image,imageAlt:thumbnail?.alt||post.imageAlt,
   imageWidth:thumbnail?.width||post.imageWidth,imageHeight:thumbnail?.height||post.imageHeight,
   postImageFit:thumbnail?.fit==='contain'?'contain':'cover',postDate:post.date,
   postDisplayDate:new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'UTC'}).format(new Date(post.date)),postExcerpt:post.excerpt};
@@ -83,10 +86,16 @@ for(const page of pages){
   buildNotFoundPage({outputRoot,page,displayName:settings.displayName,faviconLinks});
   continue;
  }
- const articlePost=page.type==='article'?posts.find(post=>siteHref(post.url)===siteHref(page.route)):null;
+ const articlePost=page.type==='article'?posts.find(post=>routePath(post.url)===page.route):null;
  if(page.type==='article'&&!articlePost)throw new Error('Missing article data for '+page.route);
- let html=fs.readFileSync('src/pages/'+page.slug+'.html','utf8');
- html=html.replaceAll('<!--HEADER-->',fs.readFileSync('src/components/Header.html','utf8').replaceAll('{{displayName}}',escape(settings.displayName)));
+ let html=fs.readFileSync('src/pages/'+(page.templateSlug||page.slug)+'.html','utf8');
+ const navigation=publicSettings.navigation.map((item,index)=>{
+  const destination=new URL(item.href,'https://www.m1000z.com');
+  const current=!destination.hash&&destination.href===canonicalUrl(page.route);
+  const letters=[...item.label].map((letter,i)=>'<span style="--letter-index: '+i+';">'+escape(letter)+'</span>').join('');
+  return '<a href="'+escape(item.href)+'"'+(item.href.endsWith('#contact')?' class="portfolio-contact-link"':'')+(current?' aria-current="page"':'')+' aria-label="'+escape(item.label)+'" style="--menu-index: '+index+';"><span class="rolling-label" aria-hidden="true">'+letters+'</span></a>';
+ }).join('');
+ html=html.replaceAll('<!--HEADER-->',fs.readFileSync('src/components/Header.html','utf8').replaceAll('{{displayName}}',escape(settings.displayName)).replaceAll('<!--NAVIGATION-->','<div class="portfolio-menu-links">'+navigation+'</div>'));
  page.components.forEach((name,i)=>{html=html.replace('<!--COMPONENT:'+i+'-->',fs.readFileSync('src/components/'+name+'.html','utf8'))});
  html=html.replaceAll('<!--BLOG-CARDS-->',blogCards);
  if(articlePost){
@@ -97,7 +106,7 @@ for(const page of pages){
   for(const [key,value]of Object.entries(fields))html=html.replaceAll('{{'+key+'}}',escape(value));
   html=html.replaceAll('{{postTags}}',articlePost.tags.map(tag=>'<li>'+escape(tag)+'</li>').join(''));
   html=html.replaceAll('{{postBody}}',body);
-  const related=posts.filter(post=>siteHref(post.url)!==siteHref(articlePost.url))
+  const related=posts.filter(post=>routePath(post.url)!==page.route)
    .sort((a,b)=>new Date(b.date)-new Date(a.date)).slice(0,3);
   html=html.replaceAll('{{relatedPosts}}',related.length
    ?'<div class="article-related-grid">'+related.map(renderBlogCard).join('\n')+'</div>'
@@ -150,8 +159,6 @@ for(const page of pages){
  const fontPreloads=fontFiles.map(name=>'<link rel="preload" href="/assets/fonts/'+name+'.woff2" as="font" type="font/woff2" crossorigin>').join('');
  const embeddedSettings='<script type="application/json" id="portfolio-settings">'+JSON.stringify(publicSettings).replaceAll('<','\\u003c')+'</script>';
  const pageSeo=page.slug==='about'?[
-  '<link rel="canonical" href="https://www.m1000z.com/about/">',
-  '<meta name="robots" content="index,follow">',
   '<meta property="og:type" content="website">',
   '<meta property="og:site_name" content="'+escape(settings.displayName)+'">',
   '<meta property="og:url" content="https://www.m1000z.com/about/">',
@@ -168,7 +175,6 @@ for(const page of pages){
   '<meta name="twitter:image:alt" content="m1000z silver emblem">',
  ].join(''):'';
  const articleSeo=articlePost?[
-  '<link rel="canonical" href="https://www.m1000z.com'+escape(siteHref(page.route))+'">',
   '<meta property="og:type" content="article">',
   '<meta property="og:title" content="'+escape(page.title)+'">',
   '<meta property="og:description" content="'+escape(page.description)+'">',
@@ -186,12 +192,16 @@ for(const page of pages){
  // Recolored images, styles and entry scripts bypass cached versions after deployment.
  const articleDoc=articlePost?doc.replace('/assets/'+page.slug+'.css','/assets/article.css').replace('</head>','<script type="module" src="/assets/article.js"></script></head>'):doc;
  const blogAssets=page.slug==='blog'?'<link rel="stylesheet" href="/assets/blog-search.css"><script type="module" src="/assets/blog-search.js"></script>':'';
- const versionedDoc=articleDoc.replace('</head>',pageSeo+articleSeo+faviconLinks+blogAssets+'</head>').replace(/((?:href|src)=")((?:\/assets\/[^"?#]+\.(?:css|js))|(?:\/assets\/(?:media\/portrait-red-v3\.png|footer\/looping-arch\.gif)))"/g,(_,attribute,url)=>{
+ const canonical=canonicalUrl(articlePost?.canonical||page.canonical||page.route);
+ const indexingSeo='<link rel="canonical" href="'+escape(canonical)+'"><meta name="robots" content="'+(page.noindex||articlePost?.noindex?'noindex':'index')+',follow">';
+ const noScriptNavigation='<noscript><style>.portfolio-toggle{display:none}.portfolio-menu-reveal{grid-template-rows:1fr}.portfolio-menu{visibility:visible}.portfolio-menu a{opacity:1;transform:none}</style></noscript>';
+ const versionedDoc=articleDoc.replace('</head>',indexingSeo+pageSeo+articleSeo+faviconLinks+blogAssets+noScriptNavigation+'</head>').replace(/((?:href|src)=")((?:\/assets\/[^"?#]+\.(?:css|js))|(?:\/assets\/(?:media\/portrait-red-v3\.png|footer\/looping-arch\.gif)))"/g,(_,attribute,url)=>{
   const version=createHash('sha256').update(fs.readFileSync(path.join('dist',url))).digest('hex').slice(0,12);
   return attribute+url+'?v='+version+'"';
  });
  fs.writeFileSync(path.join(dir,'index.html'),versionedDoc);
 }
+buildSitemap({outputRoot,pages,posts});
 try { assertPublicFiles('dist',publicFileOptions); }
 catch(error) { fs.rmSync(outputRoot,{recursive:true,force:true}); throw error; }
 console.log('Built '+pages.length+' pages into dist/; public-file safety checks passed.');

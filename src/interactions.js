@@ -24,7 +24,7 @@ function setupNavigation(settings) {
   const menu = document.querySelector('#portfolio-menu');
   const trigger = document.querySelector('.portfolio-toggle');
   if (!panel || !menu || !trigger) return;
-  const links = document.createElement('div');
+  const links = menu.querySelector('.portfolio-menu-links') || document.createElement('div');
   links.className = 'portfolio-menu-links';
   const desktop = matchMedia('(min-width: 810px)');
   const persistentNavigation = ['home', 'about'].includes(document.getElementById('main')?.dataset.page);
@@ -65,15 +65,16 @@ function setupNavigation(settings) {
     trigger.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
     if (returnFocus) trigger.focus();
   }
+  const existingLinks = [...links.children];
   settings.navigation.forEach((item, index) => {
-    const link = document.createElement('a');
+    const link = existingLinks[index] || document.createElement('a');
     link.href = item.href;
     if (item.href.endsWith('#contact')) link.classList.add('portfolio-contact-link');
     const destination = new URL(item.href, location.href);
     if (!destination.hash && (destination.pathname.replace(/\/+$/, '') || '/') === (location.pathname.replace(/\/+$/, '') || '/')) link.setAttribute('aria-current', 'page');
     link.setAttribute('aria-label', item.label);
     link.style.setProperty('--menu-index', index);
-    link.append(rollingLabel(item.label));
+    link.replaceChildren(rollingLabel(item.label));
     link.addEventListener('click', () => toggle(false));
     links.append(link);
   });

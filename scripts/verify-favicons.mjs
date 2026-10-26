@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import { pathToFileURL } from 'node:url';
+import { resolvePages } from './site-pages.mjs';
 
 export function verifyFavicons(root='dist') {
  const pngSize=bytes=>{
@@ -21,7 +22,7 @@ export function verifyFavicons(root='dist') {
   assert(offset>=70&&offset+length<=ico.length,'Invalid ICO frame bounds');
   assert.deepEqual(pngSize(ico.subarray(offset,offset+length)),[size,size]);
  }
- const pages=JSON.parse(fs.readFileSync('src/pages.json'));
+ const pages=resolvePages(JSON.parse(fs.readFileSync('src/pages.json')),JSON.parse(fs.readFileSync('content/posts.json')));
  for(const page of pages){
   const html=fs.readFileSync(path.join(root,page.route,'index.html'),'utf8');
   const icons=[...html.matchAll(/<link\b[^>]*>/g)].map(match=>match[0]).filter(tag=>/\brel="(?:icon|shortcut icon|apple-touch-icon)"/.test(tag));
