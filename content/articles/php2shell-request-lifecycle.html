@@ -1,0 +1,50 @@
+<p>A login check protects an application only once execution reaches it. Before that point, a web runtime may already be interpreting configuration, parsing a request body and allocating memory. After the response, the same worker may still need to clean up state before serving another visitor.</p>
+<p>PHP2Shell is a reminder to include both ends of that lifecycle in a web security assessment. CVE-2026-109618 and CVE-2026-109619 concern memory safety inside PHP itself. Updating application code or changing a password cannot repair the underlying runtime.</p>
+
+<h2>Two advisories, with important deployment differences</h2>
+<p>The <a href="https://www.php.net/archive/2026.php">PHP project’s October 21 security announcement</a> identifies fixed releases <strong>8.2.35, 8.3.36, 8.4.27 and 8.5.12</strong>. It urges updates across web-serving deployments, including PHP-FPM, Apache mod_php, php-cgi, FrankenPHP and LiteSpeed. It singles out mod_php as the highest risk, with demonstrated unauthenticated exploitation before application code runs.</p>
+<p>That does not mean every server configuration exposes an identical exploit. The two advisories describe different failure paths, and some cases depend on application behavior, startup configuration or another request reaching the same worker. The responsible way to assess them is to identify the runtime and its execution model before applying conclusions from a different deployment.</p>
+
+<h2>Where PHP fits into a web request</h2>
+<p>PHP runs server-side code to produce a response, but the request lifecycle includes more than executing a script. A hosting interface connects the web server to PHP; configuration and extensions participate in startup; request data is prepared; the application executes; and shutdown releases request-owned resources.</p>
+<p>Many deployments reuse workers. Reuse is efficient because the process does not have to be created from scratch for each request. It also creates a strict engineering requirement: state that belongs to one request must not remain reachable after its backing memory is released.</p>
+<pre><code>Worker begins request A
+    → prepare input → execute application → clean up request A
+    → reset request-owned references
+Worker begins request B</code></pre>
+<p>An application vulnerability might allow SQL injection through an unsafe query. A runtime vulnerability instead breaks assumptions provided by the language engine. Input validation in an application remains useful, but it cannot reliably enforce invariants inside earlier parsing or later engine cleanup.</p>
+
+<h2>CVE-2026-109618: failure handling interrupts initialization</h2>
+<p><a href="https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w">PHP’s out-of-memory advisory</a> explains that an allocation failure can cause a nonlocal exit using <code>longjmp()</code>. If request memory has become reachable before initialization finishes, that exit can leave invalid state for shutdown to consume. Memory exhaustion is therefore not only an availability event: unsafe recovery can create a memory-corruption opportunity.</p>
+<p>Memory corruption means software reads or modifies memory contrary to the intended object layout or lifetime. Depending on the affected operation, corrupted values can influence data access or execution. Remote code execution, or RCE, is the outcome where a remote party causes code of its choice to execute. An out-of-memory error alone does not prove that outcome.</p>
+<p>The advisory validates complete RCE against mod_php. It distinguishes FPM’s behavior when request startup fails: the child exits, preventing that exact cleanup sequence. Other application-dependent paths remain relevant. Its patch changes how OOM is handled so that incomplete state does not reach unsafe shutdown processing. This distinction is a reason to read the advisory, not a reason to classify every FPM deployment as safe.</p>
+
+<h2>CVE-2026-109619: a later request encounters yesterday’s state</h2>
+<p>The <a href="https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp">stale-global-state advisory</a> describes a different lifetime failure: a worker retains a reference to request-owned memory after that memory has been freed. A later operation can consume the reference before normal initialization replaces it. This is a use-after-free, where the address survives but the object’s ownership does not.</p>
+<p>The advisory models a producing operation, an interruption or missed reset, and a later consuming operation in the same worker. It documents confirmed fatal-backtrace and session lifecycle cases, while treating other paths as conditional. Its validated FPM session path requires suitable application execution after successful startup. Worker reuse, configuration and reachable application behavior therefore matter to a precise finding.</p>
+<p>Turning off displayed errors should not be assumed to restore memory safety. The advisory explains that stale state can be accessed before PHP decides whether to display or log a diagnostic. A quieter error page is not evidence of a corrected lifecycle.</p>
+
+<h2>Authentication is not the first line of executed code</h2>
+<p>If a vulnerable operation happens before the application checks authentication, the login requirement cannot mediate it. That is why a protected dashboard and a strong password policy do not establish that the underlying runtime is protected.</p>
+<p>There is also evidence beyond laboratory demonstrations: <a href="https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/">Unit 42’s October 29 update</a> reports active exploitation against internet-exposed PAN-OS management interfaces and verification of an exploit chain involving a separate kernel privilege-escalation flaw. This is a vendor-specific observation; it should not be generalized into a claim that every PHP deployment has been compromised or that PHP execution automatically grants root.</p>
+
+<h2>Verify the web runtime, then verify the restart</h2>
+<p>Ask the owner for the PHP branch, package provenance, web-server integration, worker configuration and update history. A command-line <code>php -v</code> result is only supporting evidence: the CLI binary may differ from the runtime serving HTTP. Do not expose a public diagnostic page simply to make inventory easier.</p>
+<p>Compare vendor package advisories with the actual worker runtime. Distribution backports may preserve an older-looking version string. Check every pool, container image and management interface in scope rather than assuming that one updated binary covers the estate.</p>
+<p>Upgrade to a supported fixed or later release and restart or replace affected workers. PHP 8.1 and older are outside upstream security support; the PHP project notes vendor backports and limited source-backports, but these do not amount to renewed upstream support. An upgrade plan should address that maintenance risk as well as the immediate CVEs.</p>
+
+<h2>Investigation and temporary controls</h2>
+<p>Correlate unusual OOM events, worker exits, crashes and unexpected child processes with existing request logs. Look for changes to writable application directories and unauthorized access to service credentials. These are general investigation leads, not a complete detection rule for PHP2Shell. Preserve evidence before normal recycling or log rotation removes it.</p>
+<p>For systems awaiting a patch, use the current vendor’s deployment-specific guidance. Bound decoded input at the frontend and restrict unnecessary public access, but do not treat a WAF or a memory setting as a complete fix. PHP’s later October 23 notice adds a separate, unusually configured session-upload-progress caveat; staying current with that guidance matters even after an initial emergency upgrade.</p>
+
+<h2>A useful finding follows the lifecycle</h2>
+<p>The strongest assessment outcome is a verified runtime inventory, a clear account of applicable conditions and evidence that fixed workers are serving traffic. Avoid proving a production memory-corruption bug merely to make a report more dramatic.</p>
+<p>PHP2Shell illustrates a wider principle: secure applications depend on secure startup, cleanup and reuse inside their runtime. Keep testing application boundaries, but include the engine that makes those boundaries meaningful.</p>
+
+<h2>References</h2>
+<ol class="article-references">
+ <li><a href="https://www.php.net/archive/2026.php">PHP’s October 2026 announcements</a> — fixed releases, deployment scope and subsequent guidance.</li>
+ <li><a href="https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w">PHP advisory GHSA-w8hw-w9fx-j79w</a> — OOM corruption, SAPI differences and repair.</li>
+ <li><a href="https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp">PHP advisory GHSA-6wmf-4rv5-p3rp</a> — stale state, confirmed cases and conditional exposure.</li>
+ <li><a href="https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/">Unit 42’s updated threat brief</a> — attributed observations of exploitation against exposed management interfaces.</li>
+</ol>

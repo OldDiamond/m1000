@@ -34,7 +34,7 @@ export function resolvePages(configured,posts,now=new Date()){
   result.set(route,{
    route,slug:'post--'+route.slice(1).replaceAll('/','--'),templateSlug:template.slug,
    type:'article',contentKey:template.contentKey,components:template.components,
-   title:post.title+' | m1000z',description:post.description||post.excerpt,
+   title:post.seoTitle||post.title+' | m1000z',description:post.description||post.excerpt,
   });
  }
  return [...result.values()];

@@ -34,3 +34,7 @@
   #main .blog-search { flex: none; width: 100%; margin-top: 0; }
 }
 @media (prefers-reduced-motion: reduce) { #main .blog-search { transition: none; } }
+#main .blog-index #blog-results { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 28px; width: 100%; align-items: stretch; }
+#main .blog-index a.blog-preview-card h3 { font-size: clamp(24px,2.2vw,30px); letter-spacing: -.025em; }
+#main .blog-index a.blog-preview-card > [data-framer-name="Content"] { padding: clamp(22px,2.5vw,30px); gap: 16px; }
+@media (max-width: 699px) { #main .blog-index #blog-results { grid-template-columns: minmax(0,1fr); gap: 24px; } }

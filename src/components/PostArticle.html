@@ -3,8 +3,9 @@
   <article aria-labelledby="article-heading">
     <header>
       <h1 id="article-heading">{{postTitle}}</h1>
+      {{postSubtitle}}
       <div class="article-meta-row">
-        <p class="article-meta">{{postAuthor}} · <time datetime="{{postDate}}">{{postLongDate}}</time> · {{readingMinutes}} min read</p>
+        <p class="article-meta">{{postAuthor}} · <time datetime="{{postDate}}">{{postLongDate}}</time> · <span class="article-reading-time">{{readingMinutes}} min read</span></p>
         <div class="article-share" hidden>
           <button class="article-icon-button article-share-trigger" type="button" aria-label="Share article" title="Share article" aria-expanded="false" aria-controls="article-share-options">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V3m-5 5 5-5 5 5M5 12H3v9h18v-9h-2"/></svg>
@@ -22,8 +23,9 @@
       </div>
       <ul class="article-tags" aria-label="Tags">{{postTags}}</ul>
     </header>
+    {{postCover}}
     <div class="article-body">{{postBody}}</div>
-    <p class="article-source">Originally published on <a href="{{sourceUrl}}" target="_blank" rel="noopener noreferrer">Medium ↗</a>.</p>
+    {{postSource}}
   </article>
   <nav class="article-end" aria-label="Article navigation">
     <a href="/blog/">← All Blogs</a>

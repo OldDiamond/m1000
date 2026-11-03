@@ -11,7 +11,8 @@ if (listing) {
     .replace(/[^\p{Letter}\p{Number}]+/gu, ' ').trim();
   const cards = [...listing.querySelectorAll('.blog-preview-card')].map(card => ({
     element: card,
-    text: normalize([card.querySelector('h3')?.textContent, card.querySelector('.blog-card-excerpt')?.textContent].join(' ')),
+    text: normalize([card.querySelector('h3')?.textContent, card.querySelector('.blog-card-excerpt')?.textContent,
+      card.querySelector('.blog-card-category')?.textContent,card.querySelector('.blog-card-cves')?.textContent].join(' ')),
   }));
   let announceTimer;
   function filter(announce = true) {

@@ -1,0 +1,45 @@
+<p>A web server can reject a suspicious HTTP request only after the operating system has accepted enough network traffic to deliver it. That ordering matters. A weakness in TCP connection handling sits below the application, below its login page, and below most of the evidence an application tester normally collects.</p>
+<p>CVE-2026-98432 is a useful example of why a web assessment cannot stop at application code. It concerns the lifetime of memory used during IPv4 TCP connection establishment. The practical question is not simply whether a machine runs Linux, but whether its running kernel, exposed listeners and network path make the affected processing reachable.</p>
+
+<h2>The verified problem and its boundaries</h2>
+<p><a href="https://aws.amazon.com/security/security-bulletins/2026-160-aws/">AWS’s advisory</a> identifies a flaw affecting kernels from Linux 4.4 onward, involving IPv4 TCP handshakes with IP options. It describes possible crashes, kernel-memory disclosure and corruption. Its November 2 update reports a remote-code-execution demonstration against an MPTCP listener, while stating that AWS had no evidence of exploitation at that time. Those are separate findings: demonstrated exploitability is not evidence of an ongoing campaign.</p>
+<p>This article is an analysis of public disclosures, not a report of an exploit I developed or reproduced. For remediation decisions, use the current advisory for your distribution and package stream; upstream version numbers alone cannot establish whether a vendor has backported the fix.</p>
+
+<h2>What happens before an application receives a connection</h2>
+<p>In a simplified TCP handshake, a client sends SYN, the server answers SYN-ACK, and the client acknowledges. Linux needs temporary bookkeeping while a connection is incomplete. Once established, the connection gets the longer-lived state required to carry application data. These objects may be processed concurrently rather than by one uninterrupted thread.</p>
+<p>IPv4 options are optional fields in the IP header, not HTTP headers or TCP payload. They can require additional per-connection state. Their lifetime must remain correct even when packets arrive again, a connection is abandoned, or processing moves between execution contexts. A normal retransmission is not automatically malicious; resilient network stacks must accommodate it safely.</p>
+
+<h2>The race is about ownership, not just timing</h2>
+<p>A use-after-free occurs when code accesses memory after its owner has released it. The address may still exist, but its contents no longer belong to the old object. Another allocation can reuse the same space. Reading it can therefore produce misleading data; writing through it can damage an unrelated object.</p>
+<p><a href="https://www.akamai.com/blog/security-research/cve-2026-98432-remote-uaf-linux-kernels-tcp-stack">Akamai’s patch analysis</a> describes IPv4 option state moving from a request socket to the established child socket without a copy. Concurrent retransmission processing can still be reading that state when child-socket destruction releases it. The reader relies on read-copy-update, or RCU: a coordination mechanism whose memory-reclamation rules must be respected.</p>
+<p>The repair defers freeing until the relevant RCU readers finish. The analysis also identifies a related request-socket migration path. Conceptually, the broken lifetime looks like this; this diagram is explanatory, not an exploit sequence:</p>
+<pre><code>Reader:    obtain shared state ---- continue reading ---- finish
+Owner:                 release state
+Required:                              defer reclamation until readers finish</code></pre>
+<p>The broader engineering lesson is that ownership transfer does not prove exclusive access. A cleanup routine must account for readers that began under an earlier ownership arrangement. Local reasoning about the destructor is insufficient if another CPU can still reach the object.</p>
+
+<h2>What was demonstrated, and what remains conditional</h2>
+<p><a href="https://www.anthropic.com/research/discovering-vulnerabilities-with-claude">Anthropic’s original research disclosure</a> reports unauthenticated command execution as root against a server with a multipath TCP listener. Its account describes a memory-disclosure stage followed by control-flow manipulation. I attribute that demonstration to its researchers; it does not establish reliable exploitation against every kernel build, networking setup or ordinary listener.</p>
+<p>Remote code execution means an attacker can cause a remote system to execute attacker-selected code. In a kernel context, a successful compromise can be especially serious because the kernel enforces process isolation. A crash or unusual packet, however, is not proof that arbitrary code execution occurred.</p>
+<p>The demonstrated MPTCP prerequisite should guide prioritization, not become a reason to ignore other affected hosts. <a href="https://ubuntu.com/blog/fixes-available-in-proposed-pocket-for-cve-2026-98432">Ubuntu’s November 2 guidance</a> explicitly warns that the underlying flaw is not confined to MPTCP and recommends security updates rather than treating MPTCP changes as a complete solution.</p>
+
+<h2>How I would scope an authorized assessment</h2>
+<p>Start with evidence the owner can provide safely: the running kernel, distribution release, vendor advisory status, patch history and listener configuration. Ask where TCP terminates. A load balancer that terminates a connection and a device that forwards packets create different exposure boundaries. Neither arrangement should be assumed from a diagram or a public HTTP response.</p>
+<p>A read-only inventory check can establish the kernel currently in use:</p>
+<pre><code>uname -r</code></pre>
+<p>Record that result separately from the installed package inventory. A machine may have downloaded a fixed kernel while continuing to run the older one. Likewise, a container’s application package list does not establish the patch state of the host kernel it uses.</p>
+<p>I would not validate exposure by attempting to win a kernel race against a production listener. Such a test can affect availability and needs its own explicit authorization, isolation and recovery plan. For a normal engagement, configuration evidence and vendor package verification can support an actionable finding without a destructive demonstration.</p>
+
+<h2>Investigation, patching and verification</h2>
+<p>Investigate unexpected kernel faults, reboots and unusual connection-failure patterns alongside network telemetry already collected by the organization. These are investigation leads, not CVE-specific indicators. Ordinary operational failures can produce the same symptoms, and successful exploitation need not leave an application-level request log.</p>
+<p>Preserve relevant kernel logs, crash material and packet metadata before routine rotation removes them. Establish a timeline around exposure, package changes and restarts. If compromise is suspected, patching should accompany incident-response assessment; changing a package cannot retrospectively determine what happened.</p>
+<p>AWS documents fixed Amazon Linux kernel packages and instructs customers to update and reboot. Distribution rollout differs: Ubuntu’s November 2 notice distinguished proposed updates from generally released updates. Follow the applicable vendor’s current supported procedure rather than copying another distribution’s version or enabling a testing repository without operational review.</p>
+<p>Close the finding with evidence: advisory identifier, installed package, running kernel after restart, exposed service boundaries and the verification date. The practical lesson is simple: application security depends on the lifetime guarantees of the software underneath it, and patch verification must reach that layer.</p>
+
+<h2>References</h2>
+<ol class="article-references">
+ <li><a href="https://aws.amazon.com/security/security-bulletins/2026-160-aws/">AWS Security Bulletin 2026-160-AWS</a> — impact, demonstrated conditions and Amazon Linux remediation.</li>
+ <li><a href="https://www.akamai.com/blog/security-research/cve-2026-98432-remote-uaf-linux-kernels-tcp-stack">Akamai Security Intelligence Group’s analysis</a> — object lifetime, RCU and patch mechanics.</li>
+ <li><a href="https://www.anthropic.com/research/discovering-vulnerabilities-with-claude">Anthropic’s research disclosure</a> — attributed MPTCP exploitation demonstration.</li>
+ <li><a href="https://ubuntu.com/blog/fixes-available-in-proposed-pocket-for-cve-2026-98432">Ubuntu Security Team’s November 2 update</a> — distribution status and mitigation limitations.</li>
+</ol>

@@ -210,3 +210,13 @@ footer [data-brand-wordmark] p { --framer-text-color: #242b30 !important; }
   #main a.framer-6Ku2B,
   #main a.framer-6Ku2B > [data-framer-name="Content"]::before { transition: none; }
 }
+/* Article information extends the site's existing glass cards. */
+#main a.blog-preview-card .blog-card-category { margin: 0; color: var(--accent-hover); font: 500 11px/1.5 ui-monospace,Consolas,monospace; letter-spacing: .08em; text-transform: uppercase; }
+#main a.blog-preview-card [data-framer-name="Title & Date"] { gap: 12px; }
+#main a.blog-preview-card h3 { -webkit-line-clamp: 3; min-height: 3.6em; }
+#main a.blog-preview-card .blog-card-cves { display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0; list-style: none; }
+#main a.blog-preview-card .blog-card-cves li { color: var(--accent-hover); background: #08080966; border: 1px solid var(--accent-border); border-radius: 6px; padding: 4px 7px; font: 500 10px/1.4 ui-monospace,Consolas,monospace; letter-spacing: .01em; }
+#main a.blog-preview-card .blog-card-read { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--theme-line); color: var(--accent-hover); font: 500 14px/1.4 var(--portfolio-font); }
+#main a.blog-preview-card .blog-card-read > span { transition: translate .2s ease; }
+#main a.blog-preview-card:is(.is-hovered,:focus-visible) .blog-card-read > span { translate: 2px -2px; }
+@media (prefers-reduced-motion: reduce) { #main a.blog-preview-card .blog-card-read > span { transition: none; translate: none; } }

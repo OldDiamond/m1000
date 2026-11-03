@@ -4,10 +4,12 @@ import { assertPublicFiles } from './check-public-files.mjs';
 import { verifyFavicons } from './verify-favicons.mjs';
 import { resolvePages } from './site-pages.mjs';
 import { verifySeo } from './verify-seo.mjs';
+import { verifyBlog } from './verify-blog.mjs';
 const settings=JSON.parse(fs.readFileSync('content/settings.json'));
 assertPublicFiles('dist',{approvedDocuments:[settings.cvUrl || '']});
 verifyFavicons();
 verifySeo();
+verifyBlog();
 const pages=resolvePages(JSON.parse(fs.readFileSync('src/pages.json')),JSON.parse(fs.readFileSync('content/posts.json')));let checks=0;const failures=[];
 for(const page of pages){
  const file=path.join('dist',page.route,'index.html');const html=fs.readFileSync(file,'utf8');checks++;

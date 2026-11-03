@@ -7,7 +7,11 @@ import { canonicalUrl, isPublished, resolvePages, routePath } from './site-pages
 import { buildSitemap } from './build-sitemap.mjs';
 const publishedPosts=JSON.parse(fs.readFileSync('content/posts.json','utf8')).filter(post=>isPublished(post));
 const pages=resolvePages(JSON.parse(fs.readFileSync('src/pages.json','utf8')),publishedPosts);
-const posts=publishedPosts.filter(post=>pages.some(page=>page.type==='article'&&page.route===routePath(post.url)));
+const posts=publishedPosts.filter(post=>pages.some(page=>page.type==='article'&&page.route===routePath(post.url)))
+ .sort((a,b)=>new Date(b.publishedAt||b.date)-new Date(a.publishedAt||a.date));
+const postBodies=new Map(posts.map(post=>[post.url,fs.readFileSync(post.bodyFile,'utf8')]));
+const wordCount=body=>body.replace(/<[^>]*>/g,' ').trim().split(/\s+/).length;
+const readingMinutes=post=>Math.max(1,Math.ceil(wordCount(postBodies.get(post.url))/200));
 const siteHref=value=>{
  if(typeof value!=='string')return value;
  const match=/^(\/[^?#]*)(.*)$/.exec(value);
@@ -28,9 +32,10 @@ const renderBlogCard=post=>{
  const thumbnail=post.thumbnail;
  const fields={postUrl:siteHref(routePath(post.url)),postTitle:post.title,postImage:thumbnail?.src||post.image,imageAlt:thumbnail?.alt||post.imageAlt,
   imageWidth:thumbnail?.width||post.imageWidth,imageHeight:thumbnail?.height||post.imageHeight,
-  postImageFit:thumbnail?.fit==='contain'?'contain':'cover',postDate:post.date,
+  postImageFit:thumbnail?.fit==='contain'?'contain':'cover',postDate:post.date,readingMinutes:readingMinutes(post),postCategory:post.category||'Penetration Testing',
   postDisplayDate:new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'UTC'}).format(new Date(post.date)),postExcerpt:post.excerpt};
- return Object.entries(fields).reduce((html,[key,value])=>html.replaceAll('{{'+key+'}}',escape(value)),blogCard);
+ return Object.entries(fields).reduce((html,[key,value])=>html.replaceAll('{{'+key+'}}',escape(value)),blogCard)
+  .replaceAll('{{postCves}}',post.cves?.length?'<ul class="blog-card-cves" aria-label="CVE identifiers">'+post.cves.map(cve=>'<li>'+escape(cve)+'</li>').join('')+'</ul>':'');
 };
 const blogCards=posts.map(renderBlogCard).join('\n');
 // Recreate only the generated output so removed assets cannot survive a rebuild.
@@ -97,14 +102,17 @@ for(const page of pages){
  }).join('');
  html=html.replaceAll('<!--HEADER-->',fs.readFileSync('src/components/Header.html','utf8').replaceAll('{{displayName}}',escape(settings.displayName)).replaceAll('<!--NAVIGATION-->','<div class="portfolio-menu-links">'+navigation+'</div>'));
  page.components.forEach((name,i)=>{html=html.replace('<!--COMPONENT:'+i+'-->',fs.readFileSync('src/components/'+name+'.html','utf8'))});
- html=html.replaceAll('<!--BLOG-CARDS-->',blogCards);
+ html=html.replaceAll('<!--BLOG-CARDS-->',page.slug==='home'?posts.slice(0,3).map(renderBlogCard).join('\n'):blogCards);
  if(articlePost){
-  const body=fs.readFileSync(articlePost.bodyFile,'utf8');
+  const body=postBodies.get(articlePost.url);
   const fields={postTitle:articlePost.title,postAuthor:articlePost.author,postDate:articlePost.date,
    postLongDate:new Intl.DateTimeFormat('en-US',{month:'long',day:'numeric',year:'numeric',timeZone:'UTC'}).format(new Date(articlePost.date)),
-   readingMinutes:Math.max(1,Math.ceil(body.replace(/<[^>]*>/g,' ').trim().split(/\s+/).length/200)),sourceUrl:articlePost.sourceUrl};
+   readingMinutes:readingMinutes(articlePost)};
   for(const [key,value]of Object.entries(fields))html=html.replaceAll('{{'+key+'}}',escape(value));
-  html=html.replaceAll('{{postTags}}',articlePost.tags.map(tag=>'<li>'+escape(tag)+'</li>').join(''));
+  html=html.replaceAll('{{postTags}}',[...new Set([articlePost.category,...articlePost.tags,...(articlePost.cves||[])].filter(Boolean))].map(tag=>'<li>'+escape(tag)+'</li>').join(''));
+  html=html.replaceAll('{{postSubtitle}}',articlePost.subtitle?'<p class="article-subtitle">'+escape(articlePost.subtitle)+'</p>':'');
+  html=html.replaceAll('{{postCover}}',articlePost.cover?'<figure class="article-cover"><img src="'+escape(articlePost.image)+'" width="'+escape(articlePost.imageWidth)+'" height="'+escape(articlePost.imageHeight)+'" alt="'+escape(articlePost.imageAlt)+'" decoding="async" fetchpriority="high"><figcaption>Original conceptual illustration by m1000z.</figcaption></figure>':'');
+  html=html.replaceAll('{{postSource}}',articlePost.sourceUrl?'<p class="article-source">Originally published on <a href="'+escape(articlePost.sourceUrl)+'" target="_blank" rel="noopener noreferrer">Medium ↗</a>.</p>':'');
   html=html.replaceAll('{{postBody}}',body);
   const related=posts.filter(post=>routePath(post.url)!==page.route)
    .sort((a,b)=>new Date(b.date)-new Date(a.date)).slice(0,3);
@@ -174,20 +182,34 @@ for(const page of pages){
   '<meta name="twitter:image" content="https://www.m1000z.com/assets/brand/m1000z-logo.png">',
   '<meta name="twitter:image:alt" content="m1000z silver emblem">',
  ].join(''):'';
+ const articleStructuredData=articlePost?'<script type="application/ld+json">'+JSON.stringify({
+  '@context':'https://schema.org','@type':'BlogPosting',headline:articlePost.title,
+  description:articlePost.description||articlePost.excerpt,url:canonicalUrl(page.route),
+  mainEntityOfPage:{'@type':'WebPage','@id':canonicalUrl(page.route)},
+  image:new URL(articlePost.socialImage||articlePost.image,'https://www.m1000z.com').href,
+  author:{'@type':'Person',name:articlePost.author,url:'https://www.m1000z.com/about/'},
+  publisher:{'@type':'Person',name:settings.displayName,url:'https://www.m1000z.com/'},
+  datePublished:articlePost.publishedAt,...(articlePost.lastModified?{dateModified:articlePost.lastModified}:{}),
+  articleSection:articlePost.category||'Penetration Testing',keywords:[...articlePost.tags,...(articlePost.cves||[])].join(', '),
+  inLanguage:'en',isAccessibleForFree:true,wordCount:wordCount(postBodies.get(articlePost.url)),
+ }).replaceAll('<','\\u003c')+'</script>':'';
  const articleSeo=articlePost?[
   '<meta property="og:type" content="article">',
   '<meta property="og:title" content="'+escape(page.title)+'">',
   '<meta property="og:description" content="'+escape(page.description)+'">',
   '<meta property="og:url" content="https://www.m1000z.com'+escape(siteHref(page.route))+'">',
-  '<meta property="og:image" content="https://www.m1000z.com'+escape(articlePost.image)+'">',
+  '<meta property="og:image" content="https://www.m1000z.com'+escape(articlePost.socialImage||articlePost.image)+'">',
   '<meta property="og:image:alt" content="'+escape(articlePost.imageAlt)+'">',
+  '<meta property="og:image:width" content="'+escape(articlePost.imageWidth)+'">',
+  '<meta property="og:image:height" content="'+escape(articlePost.imageHeight)+'">',
   '<meta property="article:published_time" content="'+escape(articlePost.publishedAt)+'">',
   '<meta property="article:author" content="'+escape(articlePost.author)+'">',
+  ...(articlePost.category?['<meta property="article:section" content="'+escape(articlePost.category)+'">']:[]),
   '<meta name="twitter:card" content="summary_large_image">',
   '<meta name="twitter:title" content="'+escape(page.title)+'">',
   '<meta name="twitter:description" content="'+escape(page.description)+'">',
-  '<meta name="twitter:image" content="https://www.m1000z.com'+escape(articlePost.image)+'">',
- ].join(''):'';
+  '<meta name="twitter:image" content="https://www.m1000z.com'+escape(articlePost.socialImage||articlePost.image)+'">',
+ ].join('')+articleStructuredData:'';
  const doc=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080809"><style>html,body{background:#080809;color:#edf0ed}</style><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}">${fontPreloads}<link rel="stylesheet" href="/assets/${page.slug}.css"><link rel="stylesheet" href="/assets/custom.css"><link rel="stylesheet" href="/assets/theme.css"><link rel="stylesheet" href="/assets/responsive.css">${motionBoot}${embeddedSettings}<script type="module" src="/assets/interactions.js" blocking="render"></script></head><body>${opening}${icons}${html}</body></html>`;
  // Recolored images, styles and entry scripts bypass cached versions after deployment.
  const articleDoc=articlePost?doc.replace('/assets/'+page.slug+'.css','/assets/article.css').replace('</head>','<script type="module" src="/assets/article.js"></script></head>'):doc;

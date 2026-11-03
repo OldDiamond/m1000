@@ -3,10 +3,13 @@
     <img src="{{postImage}}" width="{{imageWidth}}" height="{{imageHeight}}" alt="{{imageAlt}}" style="object-fit:{{postImageFit}}" loading="lazy" decoding="async">
   </div>
   <div data-framer-name="Content">
+    <p class="blog-card-category">{{postCategory}}</p>
     <div data-framer-name="Title &amp; Date">
-      <p class="blog-card-date"><time datetime="{{postDate}}">{{postDisplayDate}}</time></p>
+      <p class="blog-card-date"><time datetime="{{postDate}}">{{postDisplayDate}}</time><span aria-hidden="true"> · </span><span>{{readingMinutes}} min read</span></p>
       <h3>{{postTitle}}</h3>
     </div>
     <p class="blog-card-excerpt">{{postExcerpt}}</p>
+    {{postCves}}
+    <span class="blog-card-read">Read article <span aria-hidden="true">↗</span></span>
   </div>
 </a>
