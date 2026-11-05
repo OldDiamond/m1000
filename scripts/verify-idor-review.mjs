@@ -9,21 +9,24 @@ import {canonicalUrl,routePath} from './site-pages.mjs';
 
 const catalog=JSON.parse(fs.readFileSync('content/posts.json'));
 const draft=catalog.find(post=>post.url==='/posts/hunting-idor-web-applications/');
-assert(draft?.draft,'Review verifier expects an unpublished IDOR draft');
+assert(draft,'Missing IDOR article');
+const reviewing=draft.draft===true;
 const html=fs.readFileSync(path.join('dist',routePath(draft.url),'index.html'),'utf8');
 const listing=fs.readFileSync('dist/blog/index.html','utf8');
 const home=fs.readFileSync('dist/index.html','utf8');
 const thoughts=home.match(/<section class="blog-preview"[\s\S]*?<\/section>/)?.[0];
 assert(thoughts&&thoughts.includes(draft.url)&&thoughts.includes('/posts/passing-htb-cwes/'),'Thoughts must contain both IDOR and CWES');
-assert(thoughts.includes('Unpublished draft'),'Homepage must not invent a publication date');
-assert(html.includes('content="noindex,follow"'));
-assert(html.replace(/<[^>]*>/g,'').includes('Unpublished draft'));
-assert(!html.includes('undefined')&&!html.includes('article:published_time'));
+assert.equal(thoughts.includes('Unpublished draft'),reviewing,'Homepage must reflect publication metadata');
+assert(html.includes('content="'+(reviewing?'noindex':'index')+',follow"'));
+assert.equal(html.replace(/<[^>]*>/g,'').includes('Unpublished draft'),reviewing);
+assert(!html.includes('undefined'));
+assert.equal(html.includes('article:published_time'),!reviewing);
 assert(!html.includes('{{'));
 assert.equal([...html.matchAll(/<h1\b/g)].length,1);
 const schema=JSON.parse(html.match(/<script type="application\/ld\+json">([^<]+)<\/script>/)[1]);
 assert.equal(schema.headline,draft.title);assert.equal(schema.url,canonicalUrl(draft.url));
-assert.equal(schema.datePublished,undefined);assert.equal(schema.dateModified,undefined);
+assert.equal(schema.datePublished,reviewing?undefined:draft.publishedAt);assert.equal(schema.dateModified,undefined);
+if(!reviewing){assert.equal(draft.date,draft.publishedAt.slice(0,10));assert(new Date(draft.publishedAt)<=new Date());}
 assert.equal(schema.image,new URL(draft.image,'https://www.m1000z.com').href);
 assert.equal(schema.author.name,'Yasin');
 assert.equal(draft.difficulty,'Easy lab');
@@ -112,7 +115,7 @@ for(const [,encoded]of body.matchAll(/<code class="language-http">([\s\S]*?)<\/c
 }
 assert(listing.includes('idor-card-shell')&&listing.includes('prefers-reduced-motion: reduce'));
 for(const asset of [draft.thumbnail.src,draft.thumbnail.animatedWebp,draft.thumbnail.poster])assert(listing.includes(asset));
-assert(!fs.readFileSync('dist/sitemap.xml','utf8').includes(draft.url),'Unpublished review must not be advertised to crawlers');
+assert.equal(fs.readFileSync('dist/sitemap.xml','utf8').includes(draft.url),!reviewing,'Sitemap must reflect publication status');
 const mediaHashes={
  'hunting-idor-075x.gif':'5f7799dd68d8d03f7534ace43f1d5b75dfce226d2acb9366a49c9ae840e594bd',
  'hunting-idor-075x.webp':'06c0d68fcee1809081a9eb081ae790e33e933e361ad60a91221b79627008e0ca',
@@ -130,7 +133,9 @@ const guide=fs.readFileSync('dist/labs/idor/setup/index.html','utf8');
 for(const other of [guide,fs.readFileSync('dist/posts/passing-htb-cwes/index.html','utf8')]){
  assert(!other.includes('class="article-difficulty"')&&!other.includes('class="article-header-actions"')&&!other.includes('/assets/article-header.css'),'Optional header UI must not appear without metadata');
 }
-assert(guide.includes('content="noindex,follow"')&&guide.includes('IDOR Lab Setup: Windows and Linux'));
+const guideMetadata=JSON.parse(fs.readFileSync('src/pages.json')).find(page=>page.route==='/labs/idor/setup');
+const guideReviewing=guideMetadata.draft===true;
+assert(guide.includes('content="'+(guideReviewing?'noindex':'index')+',follow"')&&guide.includes('IDOR Lab Setup: Windows and Linux'));
 assert(guide.includes('PowerShell')&&guide.includes('Terminal · bash'));
 for(const [id,title] of [['demo-credentials','Demo credentials'],['demo-records','Demo records'],['learning-guide','Learning guide']]){
  const heading=guide.match(new RegExp('<h2\\b[^>]*id="'+id+'"[^>]*>([\\s\\S]*?)<\\/h2>'));
@@ -145,9 +150,9 @@ assert(guideCommands.includes('Get-Command python, py -All -ErrorAction Silently
 assert(!guide.includes('python -3')&&guide.includes('python3 lab/app.py --port 8000'));
 assert(guide.includes('/assets/documents/hunting-idor-lab.zip')&&guide.includes('/posts/hunting-idor-web-applications/'));
 const guideSchema=JSON.parse(guide.match(/<script type="application\/ld\+json">([^<]+)<\/script>/)[1]);
-assert.equal(guideSchema['@type'],'TechArticle');assert.equal(guideSchema.datePublished,undefined);
+assert.equal(guideSchema['@type'],'TechArticle');assert.equal(guideSchema.datePublished,guideReviewing?undefined:guideMetadata.publishedAt);
 assert.equal(guideSchema.url,'https://www.m1000z.com/labs/idor/setup/');
-assert(!fs.readFileSync('dist/sitemap.xml','utf8').includes('/labs/idor/setup/'));
+assert.equal(fs.readFileSync('dist/sitemap.xml','utf8').includes('/labs/idor/setup/'),!guideReviewing);
 function walk(dir){for(const item of fs.readdirSync(dir,{withFileTypes:true})){const file=path.join(dir,item.name);if(item.isDirectory())walk(file);else if(file!==labArchive)assert(!/\.(py|md|zip)$|http-evidence\.json|media-audit\.json/i.test(file),'Unapproved lab or package source leaked into public output: '+file);}}
 walk('dist');
 for(const [,url]of html.matchAll(/(?:href|src)="(\/[^"\s]*)"/g)){
@@ -155,4 +160,4 @@ for(const [,url]of html.matchAll(/(?:href|src)="(\/[^"\s]*)"/g)){
 }
 verifySeo();verifyFavicons();
 const settings=JSON.parse(fs.readFileSync('content/settings.json'));assertPublicFiles('dist',{approvedDocuments:[settings.cvUrl]});
-console.log('IDOR review verified: draft-only route, approved 0.75x animation assets, no pause button, no invented dates, metadata, content disclosure, code/tables, links, sitemap exclusion and the approved static lab ZIP only. '+words+' words / '+Math.ceil(words/200)+' min.');
+console.log('IDOR '+(reviewing?'draft preview':'publication')+' verified: publication status, approved 0.75x animation assets, no pause button, recorded dates, metadata, content disclosure, code/tables, links, sitemap and the approved static lab ZIP only. '+words+' words / '+Math.ceil(words/200)+' min.');

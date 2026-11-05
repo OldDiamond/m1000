@@ -110,6 +110,7 @@ for(const page of pages){
  }
  const articlePost=page.type==='article'?posts.find(post=>routePath(post.url)===page.route):page.type==='guide'?{
   title:page.headline,url:canonicalUrl(page.route).replace('https://www.m1000z.com',''),author:'Yasin',
+  date:page.date,publishedAt:page.publishedAt,
   excerpt:page.description,category:'Lab Setup',tags:['Northline Billing','Windows','Linux'],publicationPackage:'idor',
   image:'/assets/blog/hunting-idor-cover.webp',imageWidth:1254,imageHeight:1254,imageAlt:'IDOR object-authorization illustration',
  }:null;

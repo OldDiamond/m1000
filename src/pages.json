@@ -76,13 +76,18 @@
     "slug": "lab--idor--setup",
     "templateSlug": "post--passing-htb-cwes",
     "type": "guide",
-    "draft": true,
+    "draft": false,
     "contentKey": "blog",
     "headline": "IDOR Lab Setup: Windows and Linux",
     "title": "IDOR Lab Setup: Windows and Linux | m1000z",
     "description": "Set up Northline Billing locally on Windows or Linux, sign in with demo accounts, run the IDOR exercise and verify corrected mode.",
     "bodyFile": "content/guides/idor-setup.html",
-    "components": ["PostArticle", "blog--1--phone"]
+    "components": [
+      "PostArticle",
+      "blog--1--phone"
+    ],
+    "publishedAt": "2026-11-06T03:45:04+05:00",
+    "date": "2026-11-06"
   },
   {
     "route": "/404",
