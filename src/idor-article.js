@@ -2,6 +2,15 @@
 const credentialsDialog=document.querySelector('#idor-credentials-dialog');
 const credentialsTrigger=document.querySelector('.idor-credentials-trigger');
 if(credentialsDialog&&credentialsTrigger){
+ // Keep the one existing credentials control available when the phone sidebar is hidden.
+ const resourcesNav=credentialsTrigger.parentElement;
+ const headerActions=document.querySelector('.article-header-actions');
+ const phone=matchMedia('(max-width:767px)');
+ const placeCredentials=()=>{
+  if(phone.matches&&headerActions){headerActions.append(credentialsTrigger);credentialsTrigger.classList.add('article-resource-button');}
+  else{resourcesNav.append(credentialsTrigger);credentialsTrigger.classList.remove('article-resource-button');}
+ };
+ phone.addEventListener('change',placeCredentials);placeCredentials();
  document.body.append(credentialsDialog);
  const closeButton=credentialsDialog.querySelector('.idor-credentials-close');
  const status=credentialsDialog.querySelector('.idor-credentials-status');
@@ -49,6 +58,20 @@ if(credentialsDialog&&credentialsTrigger){
    status.textContent='Copy unavailable. The value is selected; use your device’s Copy command.';
   }
  });
+}
+
+// Keep long, genuine screenshots readable without making the phone article several screens taller.
+for(const viewer of document.querySelectorAll('.idor-image-viewer')){
+ const image=viewer.querySelector('img');
+ const hint=document.getElementById(viewer.getAttribute('aria-describedby'));
+ const update=()=>{
+  const scrollable=viewer.scrollHeight>viewer.clientHeight+1||viewer.scrollWidth>viewer.clientWidth+1;
+  viewer.tabIndex=scrollable?0:-1;if(hint)hint.hidden=!scrollable;
+ };
+ image?.addEventListener('load',update);
+ if('ResizeObserver' in window){const observer=new ResizeObserver(update);observer.observe(viewer);if(image)observer.observe(image);}
+ else window.addEventListener('resize',update);
+ update();
 }
 
 // Header labels never enter copied article code.

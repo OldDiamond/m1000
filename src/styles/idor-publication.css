@@ -33,6 +33,14 @@
 .idor-article-content .idor-code-block pre:focus-visible { outline-offset: -3px; }
 .idor-article-content .idor-code-block code { user-select: text; }
 .idor-article-content .idor-lab-figure picture { display: block; }
+.idor-image-hint { display: none; }
+.article-page .idor-article-content .idor-image-hint[hidden] { display: none; }
+.idor-image-viewer:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 12px; }
+@media (max-width:767px) {
+  .idor-resources-track { display: none; }
+  .idor-article-content .idor-image-viewer { width: min(100%,350px); max-height: 65vh; max-height: min(480px,65svh); margin-inline: auto; overflow: auto; overscroll-behavior: contain; scrollbar-width: thin; border-radius: 12px; background: var(--theme-surface); }
+  .article-page .idor-article-content .idor-image-hint { display: block; width: min(100%,350px); margin: 8px auto 0; color: #c2cbd5; font-size: 12px; line-height: 1.6; }
+}
 .article-page .idor-article-content .idor-lab-figure figcaption { display: flex; align-items: baseline; justify-content: space-between; gap: 4px 20px; width: min(100%,760px); margin-inline: auto; color: #c2cbd5; font-size: 14px; line-height: 1.6; text-align: left; }
 .idor-lab-figure .idor-figure-caption-text { min-width: 0; }
 .article-page .idor-article-content .idor-lab-figure .idor-figure-fullsize { display: inline-flex; align-items: center; gap: 4px; flex: none; min-height: 24px; white-space: nowrap; }
@@ -109,7 +117,7 @@
   .article-page:has(.idor-article-content) .article-tags { gap: 7px; }
   .article-page:has(.idor-article-content) .article-tags li { font-size: 14px; line-height: 1.5; padding: 6px 10px; }
   .article-page:has(.idor-article-content) .article-header-actions { min-width: 0; gap: 8px; }
-  .article-page:has(.idor-article-content) a.article-resource-button { min-height: 44px; }
+  .article-page:has(.idor-article-content) :is(a,button).article-resource-button { min-height: 44px; }
   .article-page:has(.idor-article-content) .article-share-trigger { width: 44px; height: 44px; }
   .article-page .idor-article-content :is(p,li) { font-size: 16px; line-height: 1.65; }
   .article-page .idor-article-content h2 { font-size: 25px; line-height: 1.2; margin-top: 36px; }
