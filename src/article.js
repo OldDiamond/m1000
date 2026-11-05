@@ -19,7 +19,7 @@ if (article && body && tools) {
   const share = article.querySelector('.article-share');
   const shareTrigger = share.querySelector('.article-share-trigger');
   const shareOptions = share.querySelector('.article-share-options');
-  const headingElements = [...body.querySelectorAll('h2,h3')];
+  const headingElements = [...body.querySelectorAll('h2,h3')].filter(heading => !heading.hasAttribute('data-toc-exclude'));
   const usedIds = new Set([...document.querySelectorAll('[id]')]
     .filter(element => !headingElements.includes(element)).map(element => element.id));
 

@@ -1,0 +1,253 @@
+<!-- Converted from the supplied Markdown; title is rendered by the existing article template. -->
+<div class="idor-article-content">
+<p>An invoice page can look perfectly ordinary: a customer name, an amount, and a link to view the details. Behind that link, the browser sends a request for invoice <code>101</code>. The interesting question is what the server does when the same session requests invoice <code>102</code>.</p>
+
+<figure class="idor-lab-figure"><a href="/assets/blog/idor-lab-alice-101-sharp-v3.png" target="_blank" rel="noopener noreferrer" aria-label="View full-size screenshot: Alice’s invoice INV-101 (opens in a new tab)"><picture><source media="(max-width: 600px)" srcset="/assets/blog/idor-lab-alice-101-mobile-sharp-v3.png" width="700" height="3140"><img src="/assets/blog/idor-lab-alice-101-sharp-v3.png" width="1520" height="2176" alt="Northline Billing in vulnerable training mode: Signed in as Alice above her own invoice INV-101 from Northline Demo Services, for USD 125.00." loading="lazy" decoding="async"></picture></a><figcaption><span class="idor-figure-caption-text">Alice’s invoice INV-101 · USD 125.00</span><a class="idor-figure-fullsize" href="/assets/blog/idor-lab-alice-101-sharp-v3.png" target="_blank" rel="noopener noreferrer" aria-label="View full-size screenshot: Alice’s invoice INV-101 (opens in a new tab)">View full-size <span aria-hidden="true">↗</span></a></figcaption></figure>
+
+<p>Does it ask whether this user can read that invoice, or does it simply fetch whatever record matches the number?</p>
+
+<p>That difference is the investigation in this walkthrough. We will establish ownership with two accounts, change one object reference while keeping the session unchanged, inspect the response, and fix the database lookup that crossed the authorization boundary.</p>
+
+<p><strong>Evidence note:</strong> This is an original, deliberately vulnerable local teaching application with synthetic data. The supplied HTTP evidence was generated against both versions on November 5, 2026, using Python's HTTP client over loopback TCP. The Burp Suite procedure below reproduces those requests; it was not used to produce these captures. This article makes no claim of a vulnerability in a production service, including m1000z.com. The invoice-page screenshots are genuine browser captures of the updated loopback lab. Its API examples were reverified with Python, and both successful and denied page states were checked in the browser. Burp was unavailable for this revision, so no Burp screenshot is included.</p>
+
+<h2>An object reference is a selector, not permission</h2>
+
+<p>Insecure Direct Object Reference (IDOR) occurs when a client-controlled reference selects an object and the application fails to enforce the caller's permission to access it. The reference might be an invoice number, document filename, UUID, or value in a JSON body. A visible identifier alone is normal application behavior, not a finding. The finding is the unauthorized access that follows it. [1]</p>
+
+<p>For this API, that failure is broken object-level authorization (BOLA): the caller may use the invoice endpoint, but may not read every invoice it can address. Authentication establishes the caller; authorization must evaluate the requested action against the particular object. An operation reserved entirely for administrators would also require a function-level permission decision, a related but distinct boundary. [2]</p>
+
+<p>The policy in our lab is intentionally simple:</p>
+
+<blockquote><p>A signed-in user may read only invoices whose <code>owner_id</code> matches their server-side session identity.</p></blockquote>
+
+<p>The invoice ID and the user identity belong to different namespaces. Comparing <code>invoice_id</code> to a user ID would make no sense. The server must establish the relationship between the record and its permitted reader.</p>
+
+<h2>The lab: two customers, two private invoices</h2>
+
+<!--IDOR-LAB-RESOURCES-->
+
+<p>The accompanying <code>lab/app.py</code> implements Northline Billing, a local customer billing portal using Python 3.12 or newer, the standard library and an in-memory SQLite database. There are no external packages to install.</p>
+
+<div class="idor-table-scroll" tabindex="0" role="region" aria-label="Local lab accounts and owned invoices"><table><thead><tr><th scope="col">Account</th><th scope="col">Known owned invoice</th><th scope="col">Customer</th><th scope="col">Amount</th></tr></thead><tbody><tr><td>Alice</td><td>101</td><td>Alice Demo</td><td>USD 125.00</td></tr><tr><td>Bob</td><td>102</td><td>Bob Demo</td><td>USD 480.00</td></tr></tbody></table></div>
+
+<p>These are fabricated fixtures, not customer records. The dashboard, balances and invoice list are scoped to the signed-in account in both modes. The invoice detail page fetches the selected record from the JSON API using the current session.</p>
+
+<p>The email/password form validates salted PBKDF2 password hashes on the server, then rotates a random server-managed session. Sign out invalidates that session. Alice and Bob's public demo credentials are documented in the Lab Guide and setup guide. The server binds only to <code>127.0.0.1</code>, uses plain HTTP, and resets its database and sessions on restart. Keep it local; do not publish it or expose it through a tunnel.</p>
+
+<p>The commands below use a Linux terminal after the setup guide's Python 3.12+ and SQLite checks. On Windows, follow that guide's PowerShell steps and use the same verified <code>$LabPython</code> executable for both modes and verification.</p>
+
+<div class="idor-setup-start"><p>Choose how to run the lab:</p><nav class="idor-setup-actions" aria-label="Lab setup options"><a class="article-resource-button article-live-button" href="https://labs.m1000z.com/" target="_blank" rel="noopener noreferrer">Launch live lab <span aria-hidden="true">↗</span><span class="article-sr-only"> (opens in a new tab)</span></a><a class="article-resource-button idor-setup-button" href="/labs/idor/setup/"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 5c-2-1.3-4.5-1.5-7-1v11c2.5-.5 5-.3 7 1 2-1.3 4.5-1.5 7-1V4c-2.5-.5-5-.3-7 1Z"/><path d="M10 5v11"/></svg><span>Windows / Linux setup</span></a></nav></div>
+
+<p><a href="/assets/documents/hunting-idor-lab.zip" download><strong>Download the IDOR lab (.zip)</strong></a>. Extract the ZIP, then open a terminal in the extracted folder containing <code>lab/</code>.</p>
+
+<p class="idor-local-label"><strong>Run locally</strong></p>
+
+<pre tabindex="0" role="region" aria-label="bash code example"><code class="language-bash">python3 lab/app.py --port 8000</code></pre>
+
+<p>Open <code>http://127.0.0.1:8000/</code> in Burp's browser. Sign in with Alice's documented demo email and password, explore the dashboard, then choose Invoices and View invoice. Open <code>/invoices/101</code> as Alice: the detail page retrieves the record from <code>/api/invoices/101</code> using that session. The raw JSON endpoint remains available for Repeater.</p>
+
+<p>You can also reproduce the saved verification independently:</p>
+
+<pre tabindex="0" role="region" aria-label="bash code example"><code class="language-bash">python3 lab/verify.py</code></pre>
+
+<p>The verifier launches separate vulnerable and fixed processes, sends real HTTP requests to each, checks both allowed and denied access, and writes <code>evidence/http-evidence.json</code>. It does not send any requests to an external service.</p>
+
+<h2>Start with the request that the application already makes</h2>
+
+<p>Sign in as Alice and open invoice 101. In Burp, inspect <strong>Proxy → HTTP history</strong> and locate the request to <code>/api/invoices/101</code>. Send it to <strong>Repeater</strong>, where you can change and resend the message without navigating through the application again. [3]</p>
+
+<p>First send the request unchanged. This establishes that the session is valid and that the normal workflow succeeds.</p>
+
+<p>The following excerpts are normalized from the actual local exchanges. The verification run used an ephemeral loopback port, replaced below by the manual lab's port <code>8000</code>. Session values are redacted, dynamic <code>Date</code> and <code>Server</code> headers are omitted, and response status lines are reconstructed from the captured status codes. JSON bodies are unchanged.</p>
+
+<pre tabindex="0" role="region" aria-label="http code example"><code class="language-http">GET /api/invoices/101 HTTP/1.1
+Host: 127.0.0.1:8000
+Cookie: sid=&lt;alice-session&gt;</code></pre>
+
+<pre tabindex="0" role="region" aria-label="http code example"><code class="language-http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 785
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+X-Frame-Options: DENY
+Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'
+
+{&quot;id&quot;:101,&quot;owner_id&quot;:&quot;alice&quot;,&quot;customer&quot;:&quot;Alice Demo&quot;,&quot;total_cents&quot;:12500,&quot;currency&quot;:&quot;USD&quot;,&quot;invoice_number&quot;:&quot;INV-101&quot;,&quot;issue_date&quot;:&quot;2026-11-01&quot;,&quot;due_date&quot;:&quot;2026-11-15&quot;,&quot;payment_status&quot;:&quot;Unpaid&quot;,&quot;from&quot;:{&quot;name&quot;:&quot;Northline Demo Services&quot;,&quot;description&quot;:&quot;Design &amp; advisory&quot;,&quot;address&quot;:[&quot;18 Example Lane&quot;,&quot;Demo City, DC 10001&quot;],&quot;email&quot;:&quot;billing@northline.test&quot;},&quot;bill_to&quot;:{&quot;address&quot;:[&quot;101 Sample Street&quot;,&quot;Demo City, DC 10011&quot;],&quot;email&quot;:&quot;alice@northline.test&quot;},&quot;line_items&quot;:[{&quot;description&quot;:&quot;Design consultation&quot;,&quot;quantity&quot;:1,&quot;unit_price_cents&quot;:7500,&quot;amount_cents&quot;:7500},{&quot;description&quot;:&quot;Project preparation&quot;,&quot;quantity&quot;:1,&quot;unit_price_cents&quot;:5000,&quot;amount_cents&quot;:5000}],&quot;subtotal_cents&quot;:12500,&quot;payment_terms&quot;:&quot;Net 14 days from the issue date. Please quote the invoice number in any correspondence.&quot;}</code></pre>
+
+<!-- REVIEW: Supply a genuine Burp Repeater request/response screenshot for Alice reading /api/invoices/101 (200), with the session cookie redacted. Burp was unavailable; no substitute or fabricated capture is included. -->
+
+<p>The numeric path segment is a useful candidate for an authorization test. It is not yet evidence of a vulnerability. The server might already enforce ownership correctly.</p>
+
+<p>The next step is to learn a second, valid invoice ID through an account we control. That removes a major ambiguity: a failed request against a guessed number might simply target a record that does not exist.</p>
+
+<h2>Establish Bob's ownership before changing Alice's request</h2>
+
+<p>In a separate browser session, sign in as Bob and open invoice 102. If you use the same browser instead, save Alice's request in Repeater before switching accounts, then verify its cookie before sending it again.</p>
+
+<p>Bob's legitimate request returns invoice 102 with <code>owner_id</code> set to <code>bob</code>. The corresponding Alice baseline returns invoice 101 with <code>owner_id</code> set to <code>alice</code>. These controlled fixtures establish that the records exist and belong to different accounts under the owner-only policy.</p>
+
+<p>This is why two accounts are so useful: they let the test compare an access decision against a known relationship. Changing numbers without understanding that relationship produces much weaker evidence.</p>
+
+<p>Label the Repeater tabs with both principal and object, for example <code>Alice → 101</code>, <code>Bob → 102</code>, and <code>Alice → 102</code>. Check which credential is actually sent. A stale cookie or a session-handling rule that replaces credentials can turn an apparent cross-account success into an ordinary authorized request.</p>
+
+<h2>Change the object, preserve the caller</h2>
+
+<p>Return to Alice's saved request. Keep Alice's cookie unchanged and change only <code>101</code> to <code>102</code>:</p>
+
+<pre tabindex="0" role="region" aria-label="http code example"><code class="language-http">GET /api/invoices/102 HTTP/1.1
+Host: 127.0.0.1:8000
+Cookie: sid=&lt;alice-session&gt;</code></pre>
+
+<p>The vulnerable local application returns:</p>
+
+<pre tabindex="0" role="region" aria-label="http code example"><code class="language-http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 777
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+X-Frame-Options: DENY
+Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'
+
+{&quot;id&quot;:102,&quot;owner_id&quot;:&quot;bob&quot;,&quot;customer&quot;:&quot;Bob Demo&quot;,&quot;total_cents&quot;:48000,&quot;currency&quot;:&quot;USD&quot;,&quot;invoice_number&quot;:&quot;INV-102&quot;,&quot;issue_date&quot;:&quot;2026-11-01&quot;,&quot;due_date&quot;:&quot;2026-11-15&quot;,&quot;payment_status&quot;:&quot;Unpaid&quot;,&quot;from&quot;:{&quot;name&quot;:&quot;Northline Demo Services&quot;,&quot;description&quot;:&quot;Design &amp; advisory&quot;,&quot;address&quot;:[&quot;18 Example Lane&quot;,&quot;Demo City, DC 10001&quot;],&quot;email&quot;:&quot;billing@northline.test&quot;},&quot;bill_to&quot;:{&quot;address&quot;:[&quot;102 Sample Street&quot;,&quot;Demo City, DC 10011&quot;],&quot;email&quot;:&quot;bob@northline.test&quot;},&quot;line_items&quot;:[{&quot;description&quot;:&quot;Brand workshop&quot;,&quot;quantity&quot;:2,&quot;unit_price_cents&quot;:15000,&quot;amount_cents&quot;:30000},{&quot;description&quot;:&quot;Research &amp; planning&quot;,&quot;quantity&quot;:3,&quot;unit_price_cents&quot;:6000,&quot;amount_cents&quot;:18000}],&quot;subtotal_cents&quot;:48000,&quot;payment_terms&quot;:&quot;Net 14 days from the issue date. Please quote the invoice number in any correspondence.&quot;}</code></pre>
+
+<figure class="idor-lab-figure"><a href="/assets/blog/idor-lab-alice-102-sharp-v3.png" target="_blank" rel="noopener noreferrer" aria-label="View full-size screenshot: Alice reading Bob’s invoice INV-102 in vulnerable mode (opens in a new tab)"><picture><source media="(max-width: 600px)" srcset="/assets/blog/idor-lab-alice-102-mobile-sharp-v3.png" width="700" height="3140"><img src="/assets/blog/idor-lab-alice-102-sharp-v3.png" width="1520" height="2176" alt="Northline Billing in vulnerable training mode: Signed in as Alice in the application header while invoice INV-102 is billed to Bob Demo for USD 480.00." loading="lazy" decoding="async"></picture></a><figcaption><span class="idor-figure-caption-text">Alice reading Bob’s invoice INV-102 · Vulnerable mode</span><a class="idor-figure-fullsize" href="/assets/blog/idor-lab-alice-102-sharp-v3.png" target="_blank" rel="noopener noreferrer" aria-label="View full-size screenshot: Alice reading Bob’s invoice INV-102 in vulnerable mode (opens in a new tab)">View full-size <span aria-hidden="true">↗</span></a></figcaption></figure>
+
+<p>The important evidence is the body and the access policy together. Alice's authenticated request has received Bob's private invoice, including its customer name and amount. A <code>200</code> alone would not establish that: applications can return error objects, empty results, or public information with successful status codes.</p>
+
+<p>There is no need to enumerate the database to prove this issue. One controlled cross-account disclosure is enough for this lab. The saved verification also repeats the check in the opposite direction: Bob can read Alice's invoice in the vulnerable version.</p>
+
+<p>The unauthenticated request provides another useful control:</p>
+
+<pre tabindex="0" role="region" aria-label="http code example"><code class="language-http">GET /api/invoices/102 HTTP/1.1
+Host: 127.0.0.1:8000</code></pre>
+
+<pre tabindex="0" role="region" aria-label="http code example"><code class="language-http">HTTP/1.1 401 Unauthorized
+Content-Type: application/json
+Content-Length: 35
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+X-Frame-Options: DENY
+Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'
+
+{&quot;error&quot;:&quot;authentication_required&quot;}</code></pre>
+
+<p>Authentication is being enforced. The failure occurs after it, when the application decides which record an authenticated caller can read.</p>
+
+<h2>Follow the identifier into the database lookup</h2>
+
+<p>The vulnerable branch of the lab uses a parameterized query:</p>
+
+<pre tabindex="0" role="region" aria-label="python code example"><code class="language-python">invoice = db.execute(
+    &quot;SELECT * FROM invoices WHERE id = ?&quot;, (invoice_id,)
+).fetchone()</code></pre>
+
+<p>Before reaching it, the handler has already resolved the session and rejected anonymous callers. It also requires a short numeric invoice ID. Those checks work, but they answer different questions.</p>
+
+<p>The SQL lookup answers only: “Does this invoice exist?” There is no condition connecting that invoice to the authenticated principal. Once any user is signed in, the endpoint searches the entire invoice table on their behalf.</p>
+
+<p>Notice that this query is parameterized. SQL injection is not needed. Input validation and safe SQL binding cannot supply a missing authorization decision.</p>
+
+<p>The portal's list and dashboard queries are already restricted by owner, so Alice's account displays only invoice 101. That interface creates a convincing impression of isolation while leaving the detail endpoint exposed. An attacker can send the HTTP request directly; hiding a link does not restrict access to the resource behind it.</p>
+
+<p>The trust boundary is crossed when a client-controlled selector is used to retrieve a private record without evaluating the caller's relationship to it.</p>
+
+<h2>Fix the lookup, then test what it denies</h2>
+
+<p>For this owner-only policy, the fix is to scope the record lookup to the authenticated user:</p>
+
+<pre tabindex="0" role="region" aria-label="python code example"><code class="language-python"># owner_id is obtained from the server-side session map.
+invoice = db.execute(
+    &quot;SELECT * FROM invoices WHERE id = ? AND owner_id = ?&quot;,
+    (invoice_id, owner_id),
+).fetchone()
+
+if invoice is None:
+    self.respond(404, {&quot;error&quot;: &quot;not_found&quot;})
+    return
+
+payload = dict(invoice)
+payload.update(INVOICE_DETAILS[invoice_id])
+self.respond(200, payload)</code></pre>
+
+<p>The lab adds the selected invoice's fictional billing metadata only after this lookup succeeds; denied requests never receive that metadata. Corrected mode applies this owner-scoped lookup to both the HTML detail route and its JSON API. Both return 404 for a cross-account reference; lists and summaries remain scoped in either mode.</p>
+
+<p><code>owner_id</code> must come from the trusted authentication context. Taking it from a request parameter such as <code>?owner_id=alice</code> would let the client choose the security scope as well as the object. Scoping lookups to the caller's permitted dataset is an established IDOR prevention technique. [1]</p>
+
+<p>Stop the vulnerable process with <code>Ctrl+C</code>, then start the corrected version:</p>
+
+<pre tabindex="0" role="region" aria-label="bash code example"><code class="language-bash">python3 lab/app.py --secure --port 8000</code></pre>
+
+<p>Sign in again: restarting clears the session map. Repeat the two legitimate requests and both cross-account requests. Alice's attempt to read invoice 102 now returns:</p>
+
+<pre tabindex="0" role="region" aria-label="http code example"><code class="language-http">HTTP/1.1 404 Not Found
+Content-Type: application/json
+Content-Length: 21
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+X-Frame-Options: DENY
+Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'
+
+{&quot;error&quot;:&quot;not_found&quot;}</code></pre>
+
+<figure class="idor-lab-figure"><a href="/assets/blog/idor-lab-alice-102-denied-sharp-v3.png" target="_blank" rel="noopener noreferrer" aria-label="View full-size screenshot: Alice denied access to Bob’s invoice INV-102 in corrected mode (opens in a new tab)"><picture><source media="(max-width: 600px)" srcset="/assets/blog/idor-lab-alice-102-denied-mobile-sharp-v3.png" width="700" height="1218"><img src="/assets/blog/idor-lab-alice-102-denied-sharp-v3.png" width="1520" height="1050" alt="Northline Billing in corrected training mode: Signed in as Alice, with Invoice unavailable for invoice 102 and no billing details exposed." loading="lazy" decoding="async"></picture></a><figcaption><span class="idor-figure-caption-text">Cross-account access denied · Corrected mode</span><a class="idor-figure-fullsize" href="/assets/blog/idor-lab-alice-102-denied-sharp-v3.png" target="_blank" rel="noopener noreferrer" aria-label="View full-size screenshot: Alice denied access to Bob’s invoice INV-102 in corrected mode (opens in a new tab)">View full-size <span aria-hidden="true">↗</span></a></figcaption></figure>
+
+<p>The same public status and body are returned for a nonexistent invoice. This policy avoids explicitly telling an unauthorized caller whether a particular record exists. A <code>403</code> can also be appropriate where revealing existence is permitted; choosing a status code is separate from enforcing the access decision. Identical bodies do not establish resistance to timing or every other existence side channel.</p>
+
+<p>Here is the observed access matrix from the local verification:</p>
+
+<div class="idor-table-scroll" tabindex="0" role="region" aria-label="Observed local authorization access matrix"><table><thead><tr><th scope="col">Caller</th><th scope="col">Invoice</th><th scope="col">Vulnerable version</th><th scope="col">Fixed version</th></tr></thead><tbody><tr><td>Alice</td><td>101, Alice's</td><td>200; Alice's data</td><td>200; Alice's data</td></tr><tr><td>Alice</td><td>102, Bob's</td><td>200; Bob's data</td><td>404; no invoice data</td></tr><tr><td>Bob</td><td>102, Bob's</td><td>200; Bob's data</td><td>200; Bob's data</td></tr><tr><td>Bob</td><td>101, Alice's</td><td>200; Alice's data</td><td>404; no invoice data</td></tr><tr><td>Anonymous</td><td>102</td><td>401</td><td>401</td></tr><tr><td>Invalid session</td><td>102</td><td>401</td><td>401</td></tr><tr><td>Alice</td><td>999, absent</td><td>404</td><td>404</td></tr><tr><td>Alice</td><td><code>abc</code>, malformed</td><td>400</td><td>400</td></tr></tbody></table></div>
+
+<p>All 16 invoice API cases passed their expected assertions. Additional checks cover login validation, session rotation, logout, owner-scoped dashboards and lists, both HTML and JSON detail access paths, and empty states. The verifier also checks the returned owner and record ID on successful reads, the absence of invoice fields on denied reads, and equality of the fixed cross-account and missing-record error bodies.</p>
+
+<p>Those checks establish the behavior of this local training application. They do not validate an entire production authorization system. A real invoice platform might permit accounting staff, delegated users, or members of an organization to read the same object. Its policy must model those relationships explicitly, along with tenant membership and the requested action. A simple owner comparison is correct here because that is the lab's declared policy.</p>
+
+<h2>State the demonstrated impact precisely</h2>
+
+<p>The observed issue is authenticated, cross-account disclosure of invoice details. The response exposes a synthetic customer name, invoice ownership, amount, currency, fictional billing contacts, dates, and line items. In a real billing portal, equivalent records could reveal customer relationships or commercially sensitive transaction information.</p>
+
+<p>This fixture implements no invoice update, delete, export, or payment action. It therefore demonstrates no unauthorized modification, account takeover, or payment fraud. Those possibilities require separate affected endpoints and separate evidence.</p>
+
+<p>A useful finding description would be:</p>
+
+<blockquote><p>An authenticated customer can retrieve another customer's invoice by replacing the invoice ID in <code>GET /api/invoices/{id}</code>. The detail handler queries invoices by ID without restricting the lookup to the caller's authorized records. The local two-account reproduction confirms unauthorized disclosure; the owner-scoped correction blocks it while retaining legitimate reads.</p></blockquote>
+
+<p>Severity should follow the actual data, access prerequisites, exposure, and demonstrated actions. “IDOR” is a vulnerability class, not a severity score.</p>
+
+<h2>Extend the method beyond a sequential number</h2>
+
+<p>For a broader authorized assessment, build an access matrix before generating payloads. Record the actor, tenant or organization, object owner, action, expected decision, and observed result. Include deliberate positive cases so a patch that blocks everybody cannot pass as a fix.</p>
+
+<p>Start with normal traffic: detail views, attachments, downloads, exports, shared links, and background jobs. Object references can appear in paths, query strings, headers, JSON, form fields, and GraphQL variables. Use known objects from controlled accounts whenever possible. [2]</p>
+
+<p>For nested paths such as <code>/organizations/7/invoices/102</code>, verify that the invoice belongs to the referenced organization and that the caller has the required permission there. Validating only the outer organization does not establish authorization over every inner object.</p>
+
+<p>Treat each action as a separate decision. A correct <code>GET</code> does not establish a correct <code>PATCH</code>, <code>DELETE</code>, or export handler. For writes, use disposable records and verify the resulting state under the owner account; a status code alone does not prove that a change occurred. Cover bulk operations and asynchronous download results if they exist. These are extensions of the methodology, not additional findings from this lab.</p>
+
+<p>Watch for alternative explanations. Is the resource intentionally public? Has it been shared with the account? Does the response actually contain another account's data? Is the request using the intended session? Could a cache be serving the wrong representation? Resolve those questions before reporting a boundary failure.</p>
+
+<p>Finally, save enough evidence for someone else to reproduce the decision: known ownership, the baseline, the changed request, the relevant response, and a negative control. Redact credentials and unnecessary personal data. Avoid collecting additional private records merely to make the demonstration look larger.</p>
+
+<h2>Mitigations that address the failure</h2>
+
+<p>Apply an object-and-action authorization policy on the server before returning data or performing a side effect. For simple ownership models, scoped queries can make that policy explicit. More complex systems need policy decisions that also represent sharing, roles, and tenant boundaries.</p>
+
+<p>Use the authenticated server context to identify the caller. Validate input and parameterize SQL as separate controls. Keep private responses out of shared caches, and ensure any application cache respects the relevant authorization scope.</p>
+
+<p>Unpredictable identifiers can reduce guessing, but an identifier learned through an allowed workflow must still be subject to authorization. Replacing <code>102</code> with a UUID would not repair the missing relationship check. [1]</p>
+
+<p>Add regression cases for both allowed and forbidden principal/object combinations, including every affected action. Monitor authorization failures with useful actor and object context, while excluding session secrets and sensitive response bodies. Rate limits can constrain repeated attempts; they do not decide which records a caller may read.</p>
+
+<p>The changed number makes this bug easy to demonstrate. The more useful habit is to follow every reference through to the server's access decision. A convincing report shows who made the request, why the target object was private to someone else, what crossed the boundary, and why the corrected implementation prevents it.</p>
+
+<figure class="idor-conclusion-meme"><img src="/assets/blog/idor-sorry-bob.webp" width="600" height="601" alt="Jerry the cartoon mouse with a sheepish expression." loading="lazy" decoding="async"><figcaption>Sorry, Bob. I was supposed to read <em>my</em> invoice.</figcaption></figure>
+
+<h2>References</h2>
+
+<ol><li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html">OWASP — Insecure Direct Object Reference Prevention Cheat Sheet</a></li><li><a href="https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/">OWASP — API1:2023 Broken Object Level Authorization</a></li><li><a href="https://portswigger.net/burp/documentation/desktop/tools/repeater/http-messages">PortSwigger — Working with HTTP messages in Burp Repeater</a></li></ol>
+
+<p>The application, sample data, HTTP evidence, and explanatory narrative were prepared specifically for this walkthrough. References support the terminology, methodology, and tool instructions; their training content and screenshots are not reproduced here.</p>
+</div>

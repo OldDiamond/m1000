@@ -1,0 +1,129 @@
+/* Isolated to the new badge and article. Existing site styles stay untouched. */
+.idor-card-shell { position: relative; min-width: 0; display: flex; }
+.idor-card-shell:has(> a[hidden]) { display: none; }
+#main .idor-card-shell > a.blog-preview-card { height: 100% !important; }
+#main .idor-card-shell > a.blog-preview-card > [data-framer-name="Image"] { aspect-ratio: 1; }
+.idor-thumbnail { display: block; width: 100%; height: 100%; }
+#main :is(.idor-thumbnail,.idor-card-shell noscript) img { object-fit: contain; object-position: center; padding: 0; box-sizing: border-box; }
+.article-page:has(.idor-article-content) .article-cover img { width: min(439px,100%); max-width: 100%; height: auto; margin-inline: auto; }
+.idor-article-content .idor-table-scroll { max-width: 100%; overflow-x: auto; margin: 28px 0; border: 1px solid var(--theme-line); border-radius: 12px; }
+.idor-article-content table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.5; }
+.idor-article-content :is(th,td) { text-align: left; vertical-align: top; padding: 12px; border-bottom: 1px solid var(--theme-line); min-width: 115px; }
+.idor-article-content th { color: var(--accent-hover); background: #10151d; }
+.idor-article-content .idor-credentials-table table { min-width: 700px; }
+.idor-article-content .idor-credentials-table :is(th,td) { white-space: nowrap; }
+.idor-article-content tr:last-child td { border-bottom: 0; }
+.idor-article-content blockquote { margin: 24px 0; padding: 16px 20px; border-left: 3px solid var(--accent); background: var(--accent-soft); }
+.idor-article-content blockquote p:last-child { margin-bottom: 0; }
+.idor-article-content pre { white-space: pre; overflow-wrap: normal; }
+.idor-article-content pre code { white-space: inherit; overflow-wrap: inherit; }
+.idor-article-content :is(pre,.idor-table-scroll):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.idor-article-content .idor-code-block { min-width: 0; max-width: 100%; margin: 28px 0; border: 1px solid var(--theme-line); border-radius: 12px; background: #10151d; overflow: hidden; }
+.idor-article-content .idor-code-header { display: flex; align-items: center; gap: 12px; min-width: 0; padding: 6px 12px; border-bottom: 1px solid var(--theme-line); background: #111820; }
+.idor-article-content .idor-code-dots { display: inline-flex; align-items: center; gap: 5px; flex: none; }
+.idor-article-content .idor-code-dots i { width: 7px; height: 7px; border-radius: 50%; background: #e47b76; }
+.idor-article-content .idor-code-dots i:nth-child(2) { background: #dbb464; }
+.idor-article-content .idor-code-dots i:nth-child(3) { background: #7cb690; }
+.idor-article-content .idor-code-label { flex: 1; min-width: 0; color: var(--theme-muted); font: 400 12px/1.5 ui-monospace,Consolas,monospace; }
+.idor-article-content .idor-code-copy { min-width: 62px; min-height: 36px; padding: 6px 10px; border: 1px solid var(--theme-line); border-radius: 7px; background: transparent; color: var(--accent-hover); font: 500 12px/1.4 var(--portfolio-font); cursor: pointer; }
+.idor-article-content .idor-code-copy[hidden] { display: none; }
+.idor-article-content .idor-code-copy:hover { background: var(--accent-soft); border-color: var(--accent-border); }
+.idor-article-content .idor-code-copy:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.idor-article-content .idor-code-block pre { margin: 0; border: 0; border-radius: 0; }
+.idor-article-content .idor-code-block pre:focus-visible { outline-offset: -3px; }
+.idor-article-content .idor-code-block code { user-select: text; }
+.idor-article-content .idor-lab-figure picture { display: block; }
+.article-page .idor-article-content .idor-lab-figure figcaption { display: flex; align-items: baseline; justify-content: space-between; gap: 4px 20px; width: min(100%,760px); margin-inline: auto; color: #c2cbd5; font-size: 14px; line-height: 1.6; text-align: left; }
+.idor-lab-figure .idor-figure-caption-text { min-width: 0; }
+.article-page .idor-article-content .idor-lab-figure .idor-figure-fullsize { display: inline-flex; align-items: center; gap: 4px; flex: none; min-height: 24px; white-space: nowrap; }
+@media (max-width:600px) {
+  .article-page .idor-article-content .idor-lab-figure figcaption { flex-direction: column; align-items: flex-start; width: min(100%,350px); }
+  .article-page .idor-article-content .idor-lab-figure .idor-figure-fullsize { min-height: 32px; }
+}
+.article-page .idor-article-content .idor-conclusion-meme { width: min(300px,100%); margin: 24px auto; text-align: center; }
+.article-page .idor-conclusion-meme img { width: 100%; height: auto; }
+.idor-article-content .idor-lab-figure picture img { display: block; width: auto; max-width: min(100%,760px); height: auto; max-height: none; margin-inline: auto; }
+@media (max-width:600px) { .idor-article-content .idor-lab-figure picture img { max-width: min(100%,350px); } }
+.idor-article-content .idor-setup-start { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+.idor-article-content .idor-setup-start > p { min-width: 0; margin: 0; }
+.idor-article-content .idor-setup-actions { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 8px; max-width: 100%; }
+.idor-article-content .idor-setup-button { flex: none; gap: 7px; }
+.idor-article-content .idor-setup-button svg { display: block; width: 16px; height: 16px; flex: none; }
+.idor-article-content .idor-local-label { margin: 0 0 10px; }
+.idor-article-content .idor-local-label + :is(pre,.idor-code-block) { margin-top: 0; }
+/* A single resources card: inline at the lab introduction, in the unused margin when it fits. */
+.idor-article-content:has(> .idor-resources-track) { position: relative; }
+.idor-resources-track { width: min(100%,380px); margin: 24px 0; }
+.idor-lab-resources { padding: 18px; border: 1px solid var(--theme-line); border-radius: 14px; background: #14161af5; box-shadow: 0 8px 28px #0002, inset 0 1px #ffffff08; }
+.article-page .idor-article-content .idor-lab-resources h2 { margin: 0 0 16px; color: var(--theme-muted); font: 400 11px/1.5 "Article Mono",Consolas,monospace; letter-spacing: .08em; text-transform: uppercase; }
+.idor-resource-brand { display: flex; align-items: center; gap: 10px; }
+.article-page .idor-resource-brand img { width: 28px; height: 28px; flex: none; margin: 0; border-radius: 7px; }
+.article-page .idor-resource-brand p { margin: 0; font-size: 16px; line-height: 1.4; }
+.article-page .idor-lab-resources .idor-resource-difficulty { display: table; margin: 12px 0; padding: 3px 8px; border: 1px solid rgba(124,181,143,.38); border-radius: 6px; background: #132d1f; color: #bce2c9; font-size: 12px; line-height: 1.5; }
+.article-page .idor-lab-resources .idor-resource-description { margin: 12px 0 16px; color: #d1d7df; font-size: 14px; line-height: 1.6; }
+.idor-lab-resources nav { display: grid; gap: 2px; }
+.idor-lab-resources nav > a { display: flex; align-items: center; min-height: 40px; font-size: 14px; line-height: 1.5; text-decoration: none; }
+.idor-lab-resources nav > a:not(.article-resource-button):hover { text-decoration: underline; }
+.idor-lab-resources .idor-credentials-trigger { display: flex; align-items: center; min-height: 40px; padding: 0; border: 0; border-radius: 3px; background: transparent; color: var(--accent); font: 400 14px/1.5 var(--portfolio-font); text-align: left; cursor: pointer; }
+.idor-lab-resources .idor-credentials-trigger:hover { color: var(--accent-hover); text-decoration: underline; }
+.idor-lab-resources .idor-credentials-trigger:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.idor-lab-resources nav > .article-resource-button { margin-bottom: 8px; min-height: 44px; white-space: normal; }
+@media (min-width:1440px) and (min-height:640px) {
+  .idor-resources-track { position: absolute; right: calc(100% + 28px); top: 0; bottom: 0; width: 260px; margin: 0; }
+  .idor-lab-resources { position: sticky; top: 128px; }
+}
+@media (max-width:768px) { .idor-lab-resources nav > a, .idor-lab-resources .idor-credentials-trigger { min-height: 44px; } }
+/* The native dialog is moved to body; these styles apply only to this modal. */
+.idor-credentials-dialog { box-sizing: border-box; width: min(540px,calc(100% - 32px)); max-height: calc(100vh - 32px); max-height: calc(100dvh - 32px); margin: auto; padding: 22px; overflow: auto; overscroll-behavior: contain; border: 1px solid var(--theme-line); border-radius: 16px; background: var(--theme-surface); color: var(--theme-text); font: 400 14px/1.6 "Article Inter",Arial,sans-serif; box-shadow: 0 20px 80px #0008; }
+.idor-credentials-dialog::backdrop { background: #000b; backdrop-filter: blur(4px); }
+.idor-credentials-header { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--theme-surface); }
+.idor-credentials-dialog h2 { margin: 0; font: 700 22px/1.3 "Article Inter Tight","Article Inter",Arial,sans-serif; }
+.idor-credentials-dialog #idor-credentials-description { margin: 6px 0 18px; color: #c2cbd5; }
+.idor-credentials-dialog button { display: inline-flex; align-items: center; justify-content: center; flex: none; min-height: 36px; padding: 6px 10px; border: 1px solid var(--accent-border); border-radius: 7px; background: #0e1218; color: var(--accent-hover); font: 500 12px/1.4 "Article Inter",Arial,sans-serif; cursor: pointer; }
+.idor-credentials-dialog button:hover { border-color: var(--accent); background: var(--accent-soft); }
+.idor-credentials-dialog button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.idor-credentials-dialog .idor-credentials-close { width: 40px; height: 40px; padding: 8px; border-color: var(--theme-line); }
+.idor-credentials-accounts { display: grid; gap: 12px; }
+.idor-credentials-account { min-width: 0; padding: 14px; border: 1px solid var(--theme-line); border-radius: 10px; background: #10151d; }
+.idor-credentials-dialog h3 { margin: 0 0 12px; font: 600 16px/1.4 "Article Inter",Arial,sans-serif; }
+.idor-credentials-account dl { margin: 0; }
+.idor-credentials-account dl > div + div { margin-top: 10px; }
+.idor-credentials-account dt { color: var(--theme-muted); font-size: 12px; }
+.idor-credentials-account dd { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px 12px; margin: 2px 0 0; }
+.idor-credentials-account code { max-width: 100%; color: var(--theme-text); font: 400 14px/1.6 "Article Mono",Consolas,monospace; overflow-wrap: anywhere; user-select: text; }
+.idor-credentials-dialog .idor-credentials-status { min-height: 1.6em; margin: 12px 0 0; color: var(--accent-hover); font-size: 12px; }
+@media (max-width:600px) { .idor-credentials-dialog { padding: 18px; } .idor-credentials-dialog button { min-height: 44px; } .idor-credentials-dialog .idor-credentials-close { width: 44px; height: 44px; } }
+@media (max-width:699px) {
+  .idor-article-content .idor-setup-start { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .idor-article-content .idor-setup-actions { justify-content: flex-start; }
+}
+
+/* Publication-only mobile refinements; CWES and desktop styles are unchanged. */
+.article-page .idor-article-content .idor-scroll-hint { display: none; }
+.article-page .idor-article-content .idor-scroll-hint[hidden] { display: none; }
+@media (max-width:768px) {
+  .article-page:has(.idor-article-content) { width: calc(100% - 32px); padding-top: 128px; }
+  .article-page:has(.idor-article-content) h1 { font-size: clamp(28px,4vw,32px); line-height: 1.15; }
+  .article-page:has(.idor-article-content) .article-back { display: inline-flex; align-items: center; min-height: 44px; }
+  .article-page:has(.idor-article-content) .article-meta { font-size: 15px; line-height: 1.6; }
+  .article-page:has(.idor-article-content) .article-tags { gap: 7px; }
+  .article-page:has(.idor-article-content) .article-tags li { font-size: 14px; line-height: 1.5; padding: 6px 10px; }
+  .article-page:has(.idor-article-content) .article-header-actions { min-width: 0; gap: 8px; }
+  .article-page:has(.idor-article-content) a.article-resource-button { min-height: 44px; }
+  .article-page:has(.idor-article-content) .article-share-trigger { width: 44px; height: 44px; }
+  .article-page .idor-article-content :is(p,li) { font-size: 16px; line-height: 1.65; }
+  .article-page .idor-article-content h2 { font-size: 25px; line-height: 1.2; margin-top: 36px; }
+  .article-page .idor-article-content h3 { font-size: 21px; line-height: 1.25; }
+  .idor-article-content blockquote { padding: 14px 16px; }
+  .idor-article-content .idor-code-header { gap: 8px; flex-wrap: wrap; }
+  .idor-article-content .idor-code-label { min-width: 0; overflow-wrap: anywhere; }
+  .idor-article-content .idor-code-copy { min-height: 44px; min-width: 68px; }
+  .article-page .idor-article-content .idor-code-block pre { font-size: 14px; line-height: 1.65; padding: 16px; max-width: 100%; }
+  .article-page .idor-article-content .idor-scroll-hint { display: block; margin: 0 0 8px; color: var(--accent-hover); font-size: 12px; line-height: 1.6; }
+  .article-page .idor-article-content .idor-code-block .idor-scroll-hint { margin: 0; padding: 6px 12px 0; }
+  .idor-article-content :is(.idor-table-scroll,pre) { overscroll-behavior-inline: contain; scrollbar-width: thin; }
+  .article-page .idor-article-content figcaption { font-size: 14px; line-height: 1.6; overflow-wrap: anywhere; }
+  .article-page .idor-article-content figcaption a { display: inline-flex; min-height: 44px; align-items: center; }
+  body:has(.idor-article-content) .article-toc-header button { width: 44px; height: 44px; }
+  body:has(.idor-article-content) .article-toc-list a { min-height: 44px; font-size: 14px; line-height: 1.5; }
+}

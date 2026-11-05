@@ -1,0 +1,2 @@
+# Keep local-lab source bytes stable across Windows/Linux for evidence hashes and ZIPs.
+content/labs/hunting-idor/** -text

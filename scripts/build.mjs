@@ -3,13 +3,20 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { assertPublicFiles } from './check-public-files.mjs';
 import { buildNotFoundPage } from './build-not-found.mjs';
-import { canonicalUrl, isPublished, resolvePages, routePath } from './site-pages.mjs';
+import { canonicalUrl, resolvePages, routePath } from './site-pages.mjs';
 import { buildSitemap } from './build-sitemap.mjs';
-const publishedPosts=JSON.parse(fs.readFileSync('content/posts.json','utf8')).filter(post=>isPublished(post));
-const pages=resolvePages(JSON.parse(fs.readFileSync('src/pages.json','utf8')),publishedPosts);
+import {selectPosts,homepagePosts,relatedPosts,previewPages} from './post-selection.mjs';
+import {renderAnimatedCard} from './render-animated-card.mjs';
+import {renderIdorCodeBlocks} from './render-idor-code.mjs';
+const publishedPosts=selectPosts(JSON.parse(fs.readFileSync('content/posts.json','utf8')),{includeDrafts:process.argv.includes('--include-drafts')});
+for(const post of publishedPosts){
+ if(!post.reviewDraft&&(!post.publishedAt||!post.date||post.date!==post.publishedAt.slice(0,10)))throw new Error('An approved publication timestamp and matching date are required: '+post.url);
+}
+const pages=resolvePages(previewPages(JSON.parse(fs.readFileSync('src/pages.json','utf8')),{includeDrafts:process.argv.includes('--include-drafts')}),publishedPosts);
 const posts=publishedPosts.filter(post=>pages.some(page=>page.type==='article'&&page.route===routePath(post.url)))
  .sort((a,b)=>new Date(b.publishedAt||b.date)-new Date(a.publishedAt||a.date));
 const postBodies=new Map(posts.map(post=>[post.url,fs.readFileSync(post.bodyFile,'utf8')]));
+for(const page of pages.filter(page=>page.type==='guide'))postBodies.set(canonicalUrl(page.route).replace('https://www.m1000z.com',''),fs.readFileSync(page.bodyFile,'utf8'));
 const wordCount=body=>body.replace(/<[^>]*>/g,' ').trim().split(/\s+/).length;
 const readingMinutes=post=>Math.max(1,Math.ceil(wordCount(postBodies.get(post.url))/200));
 const siteHref=value=>{
@@ -30,12 +37,18 @@ const blogCard=fs.readFileSync('src/components/BlogCard.html','utf8');
 const renderBlogCard=post=>{
  if(new URL(post.url,'https://www.m1000z.com').protocol!=='https:')throw new Error('Blog links must use HTTPS');
  const thumbnail=post.thumbnail;
+ const difficulty=typeof post.difficulty==='string'?post.difficulty.trim():'';
+ const category='<p class="blog-card-category">'+escape(post.category||'Penetration Testing')+'</p>';
+ const categoryLine=difficulty?'<div class="blog-card-category-row">'+category+'<span class="blog-card-difficulty" title="Learning difficulty, not vulnerability severity">'+escape(difficulty)+'</span></div>':category;
  const fields={postUrl:siteHref(routePath(post.url)),postTitle:post.title,postImage:thumbnail?.src||post.image,imageAlt:thumbnail?.alt||post.imageAlt,
   imageWidth:thumbnail?.width||post.imageWidth,imageHeight:thumbnail?.height||post.imageHeight,
   postImageFit:thumbnail?.fit==='contain'?'contain':'cover',postDate:post.date,readingMinutes:readingMinutes(post),postCategory:post.category||'Penetration Testing',
-  postDisplayDate:new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'UTC'}).format(new Date(post.date)),postExcerpt:post.excerpt};
- return Object.entries(fields).reduce((html,[key,value])=>html.replaceAll('{{'+key+'}}',escape(value)),blogCard)
+  postDisplayDate:post.date?new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'UTC'}).format(new Date(post.date)):'Unpublished draft',postExcerpt:post.excerpt};
+ let card=Object.entries(fields).reduce((html,[key,value])=>html.replaceAll('{{'+key+'}}',escape(value)),blogCard)
+  .replaceAll('{{postCategoryLine}}',categoryLine)
   .replaceAll('{{postCves}}',post.cves?.length?'<ul class="blog-card-cves" aria-label="CVE identifiers">'+post.cves.map(cve=>'<li>'+escape(cve)+'</li>').join('')+'</ul>':'');
+ if(!post.date)card=card.replace(/<time datetime="undefined">([^<]+)<\/time>/,'<span>$1</span>');
+ return thumbnail?.animatedWebp?renderAnimatedCard(card,thumbnail,escape):card;
 };
 const blogCards=posts.map(renderBlogCard).join('\n');
 // Recreate only the generated output so removed assets cannot survive a rebuild.
@@ -56,6 +69,10 @@ fs.copyFileSync('src/opening-dots.js','dist/assets/opening-dots.js');
 fs.copyFileSync('src/article.js','dist/assets/article.js');
 fs.copyFileSync('src/blog-search.js','dist/assets/blog-search.js');
 fs.copyFileSync('src/styles/blog-search.css','dist/assets/blog-search.css');
+fs.copyFileSync('src/styles/blog-cards.css','dist/assets/blog-cards.css');
+fs.copyFileSync('src/styles/article-header.css','dist/assets/article-header.css');
+fs.copyFileSync('src/styles/idor-publication.css','dist/assets/idor-publication.css');
+fs.copyFileSync('src/idor-article.js','dist/assets/idor-article.js');
 const browserModules=new Map(['interactions','footer-hands','footer-mark','page-motion','opening-dots'].map(name=>[name+'.js',fs.readFileSync('dist/assets/'+name+'.js','utf8')]));
 for(const [name,source] of browserModules){
  const versioned=source.replace(/(["'])\.\/([\w-]+\.js)\1/g,(match,quote,dependency)=>{
@@ -91,7 +108,11 @@ for(const page of pages){
   buildNotFoundPage({outputRoot,page,displayName:settings.displayName,faviconLinks});
   continue;
  }
- const articlePost=page.type==='article'?posts.find(post=>routePath(post.url)===page.route):null;
+ const articlePost=page.type==='article'?posts.find(post=>routePath(post.url)===page.route):page.type==='guide'?{
+  title:page.headline,url:canonicalUrl(page.route).replace('https://www.m1000z.com',''),author:'Yasin',
+  excerpt:page.description,category:'Lab Setup',tags:['Northline Billing','Windows','Linux'],publicationPackage:'idor',
+  image:'/assets/blog/hunting-idor-cover.webp',imageWidth:1254,imageHeight:1254,imageAlt:'IDOR object-authorization illustration',
+ }:null;
  if(page.type==='article'&&!articlePost)throw new Error('Missing article data for '+page.route);
  let html=fs.readFileSync('src/pages/'+(page.templateSlug||page.slug)+'.html','utf8');
  const navigation=publicSettings.navigation.map((item,index)=>{
@@ -102,20 +123,54 @@ for(const page of pages){
  }).join('');
  html=html.replaceAll('<!--HEADER-->',fs.readFileSync('src/components/Header.html','utf8').replaceAll('{{displayName}}',escape(settings.displayName)).replaceAll('<!--NAVIGATION-->','<div class="portfolio-menu-links">'+navigation+'</div>'));
  page.components.forEach((name,i)=>{html=html.replace('<!--COMPONENT:'+i+'-->',fs.readFileSync('src/components/'+name+'.html','utf8'))});
- html=html.replaceAll('<!--BLOG-CARDS-->',page.slug==='home'?posts.slice(0,3).map(renderBlogCard).join('\n'):blogCards);
+ html=html.replaceAll('<!--BLOG-CARDS-->',page.slug==='home'?homepagePosts(posts).map(renderBlogCard).join('\n'):blogCards);
  if(articlePost){
   const body=postBodies.get(articlePost.url);
   const fields={postTitle:articlePost.title,postAuthor:articlePost.author,postDate:articlePost.date,
-   postLongDate:new Intl.DateTimeFormat('en-US',{month:'long',day:'numeric',year:'numeric',timeZone:'UTC'}).format(new Date(articlePost.date)),
+   postLongDate:articlePost.date?new Intl.DateTimeFormat('en-US',{month:'long',day:'numeric',year:'numeric',timeZone:'UTC'}).format(new Date(articlePost.date)):'Unpublished draft',
    readingMinutes:readingMinutes(articlePost)};
   for(const [key,value]of Object.entries(fields))html=html.replaceAll('{{'+key+'}}',escape(value));
+  if(!articlePost.date)html=html.replace(/<time datetime="undefined">([^<]+)<\/time>/,'<span>$1</span>');
   html=html.replaceAll('{{postTags}}',[...new Set([articlePost.category,...articlePost.tags,...(articlePost.cves||[])].filter(Boolean))].map(tag=>'<li>'+escape(tag)+'</li>').join(''));
   html=html.replaceAll('{{postSubtitle}}',articlePost.subtitle?'<p class="article-subtitle">'+escape(articlePost.subtitle)+'</p>':'');
-  html=html.replaceAll('{{postCover}}',articlePost.cover?'<figure class="article-cover"><img src="'+escape(articlePost.image)+'" width="'+escape(articlePost.imageWidth)+'" height="'+escape(articlePost.imageHeight)+'" alt="'+escape(articlePost.imageAlt)+'" decoding="async" fetchpriority="high"><figcaption>Original conceptual illustration by m1000z.</figcaption></figure>':'');
+  const difficulty=typeof articlePost.difficulty==='string'?articlePost.difficulty.trim():'';
+  html=html.replaceAll('{{postDifficulty}}',difficulty?'<p class="article-difficulty" title="Learning difficulty, not vulnerability severity"><span class="article-sr-only">Learning difficulty: </span>'+escape(difficulty)+'</p>\n      ':'');
+  if(articlePost.labLiveUrl&&new URL(articlePost.labLiveUrl).protocol!=='https:')throw new Error('Live lab links must use HTTPS');
+  const resourceLinks=[
+   articlePost.labDownloadUrl?'<a class="article-resource-button" href="'+escape(siteHref(articlePost.labDownloadUrl))+'" download>Download lab (.zip)</a>':'',
+   articlePost.labSetupUrl?'<a class="article-resource-button" href="'+escape(siteHref(articlePost.labSetupUrl))+'">Setup guide</a>':'',
+   articlePost.labLiveUrl?'<a class="article-resource-button article-live-button" href="'+escape(articlePost.labLiveUrl)+'" target="_blank" rel="noopener noreferrer">Launch live lab <span aria-hidden="true">↗</span><span class="article-sr-only"> (opens in a new tab)</span></a>':'',
+  ].filter(Boolean).join('');
+  html=html.replaceAll('{{postHeaderActions}}',resourceLinks?'<nav class="article-header-actions" aria-label="Lab resources">'+resourceLinks+'</nav>\n        ':'');
+  html=html.replaceAll('{{postCover}}',articlePost.cover?'<figure class="article-cover"><img src="'+escape(articlePost.image)+'" width="'+escape(articlePost.imageWidth)+'" height="'+escape(articlePost.imageHeight)+'" alt="'+escape(articlePost.imageAlt)+'" decoding="async" fetchpriority="high">'+(articlePost.coverCaption===''?'':'<figcaption>'+escape(articlePost.coverCaption||'Original conceptual illustration by m1000z.')+'</figcaption>')+'</figure>':'');
   html=html.replaceAll('{{postSource}}',articlePost.sourceUrl?'<p class="article-source">Originally published on <a href="'+escape(articlePost.sourceUrl)+'" target="_blank" rel="noopener noreferrer">Medium ↗</a>.</p>':'');
-  html=html.replaceAll('{{postBody}}',body);
-  const related=posts.filter(post=>routePath(post.url)!==page.route)
-   .sort((a,b)=>new Date(b.date)-new Date(a.date)).slice(0,3);
+  let renderedBody=body;
+  if(articlePost.url==='/posts/hunting-idor-web-applications/'){
+   const resources=fs.readFileSync('src/components/IdorLabResources.html','utf8');
+   const setup=siteHref(articlePost.labSetupUrl);
+   const resourceFields={resourceLiveUrl:articlePost.labLiveUrl,resourceDownloadUrl:siteHref(articlePost.labDownloadUrl),resourceSetupUrl:setup};
+   // The setup guide is the existing public documentation source; never execute the lab.
+   const guide=fs.readFileSync('content/guides/idor-setup.html','utf8');
+   const credentialTable=guide.match(/<div class="idor-table-scroll idor-credentials-table"[^>]*>([\s\S]*?)<\/div>/)?.[1]||'';
+   const demoAccounts=[...credentialTable.matchAll(/<tr><td>([^<]+)<\/td><td>([^<]+)<\/td><td>([^<]+)<\/td>/g)];
+   if(demoAccounts.length!==2||demoAccounts.map(match=>match[1]).join(',')!=='Alice,Bob')throw new Error('Expected the two documented public training accounts');
+   const accounts=demoAccounts.map(([,name,email,password],index)=>{
+    const heading='idor-demo-account-'+index;
+    const row=(label,value)=>{const id=heading+'-'+label;return '<div><dt>'+label[0].toUpperCase()+label.slice(1)+'</dt><dd><code id="'+id+'">'+escape(value)+'</code><button type="button" data-credential-copy="'+id+'" aria-label="Copy '+label+' for '+escape(name)+'">Copy '+label+'</button></dd></div>';};
+    return '<section class="idor-credentials-account" aria-labelledby="'+heading+'"><h3 id="'+heading+'" data-toc-exclude>'+escape(name)+'</h3><dl>'+row('email',email)+row('password',password)+'</dl></section>';
+   }).join('');
+   const dialog=fs.readFileSync('src/components/IdorCredentialsDialog.html','utf8').replace('{{demoAccounts}}',accounts);
+   const card=Object.entries(resourceFields).reduce((markup,[key,value])=>markup.replaceAll('{{'+key+'}}',escape(value)),resources)
+    .replaceAll('{{resourceDifficulty}}',difficulty?'<p class="idor-resource-difficulty" title="Learning difficulty, not vulnerability severity">'+escape(difficulty)+'</p>':'')
+    .replaceAll('{{resourceCredentialsDialog}}',dialog);
+   renderedBody=body.replace('<!--IDOR-LAB-RESOURCES-->',card);
+  }
+  html=html.replaceAll('{{postBody}}',articlePost.publicationPackage==='idor'?renderIdorCodeBlocks(renderedBody):renderedBody);
+  if(page.type==='guide'){
+   html=html.replace('<a class="article-back" href="/blog/">← All Blogs</a>','<a class="article-back" href="/posts/hunting-idor-web-applications/">← IDOR article</a>');
+   html=html.replace(/<section class="article-related"[\s\S]*?<\/section>/,'');
+  }
+  const related=relatedPosts(posts,articlePost.url);
   html=html.replaceAll('{{relatedPosts}}',related.length
    ?'<div class="article-related-grid">'+related.map(renderBlogCard).join('\n')+'</div>'
    :'<p class="article-related-empty">More articles will appear here as they’re published.</p>');
@@ -153,7 +208,7 @@ for(const page of pages){
  // Keep the original heading markup and line breaks; only words receive motion.
  let introPending=false;
  html=html.replace(/<(h[12]|p)\b([^>]*)>([\s\S]*?)<\/\1>/g,(match,tag,attrs,body,offset)=>{
-  if(html.lastIndexOf('<footer',offset)>html.lastIndexOf('</footer',offset)||body.includes('data-brand-wordmark')||/^\s*(?:©|&copy;)/.test(body))return match;
+  if(html.lastIndexOf('<footer',offset)>html.lastIndexOf('</footer',offset)||body.includes('data-brand-wordmark')||/\bdata-no-reveal\b/.test(attrs)||/^\s*(?:©|&copy;)/.test(body))return match;
   if(tag==='p'&&!introPending)return match;
   const intro=tag==='p';
   if(intro)introPending=false;
@@ -183,7 +238,7 @@ for(const page of pages){
   '<meta name="twitter:image:alt" content="m1000z silver emblem">',
  ].join(''):'';
  const articleStructuredData=articlePost?'<script type="application/ld+json">'+JSON.stringify({
-  '@context':'https://schema.org','@type':'BlogPosting',headline:articlePost.title,
+  '@context':'https://schema.org','@type':page.type==='guide'?'TechArticle':'BlogPosting',headline:articlePost.title,
   description:articlePost.description||articlePost.excerpt,url:canonicalUrl(page.route),
   mainEntityOfPage:{'@type':'WebPage','@id':canonicalUrl(page.route)},
   image:new URL(articlePost.socialImage||articlePost.image,'https://www.m1000z.com').href,
@@ -202,7 +257,7 @@ for(const page of pages){
   '<meta property="og:image:alt" content="'+escape(articlePost.imageAlt)+'">',
   '<meta property="og:image:width" content="'+escape(articlePost.imageWidth)+'">',
   '<meta property="og:image:height" content="'+escape(articlePost.imageHeight)+'">',
-  '<meta property="article:published_time" content="'+escape(articlePost.publishedAt)+'">',
+  ...(articlePost.publishedAt?['<meta property="article:published_time" content="'+escape(articlePost.publishedAt)+'">']:[]),
   '<meta property="article:author" content="'+escape(articlePost.author)+'">',
   ...(articlePost.category?['<meta property="article:section" content="'+escape(articlePost.category)+'">']:[]),
   '<meta name="twitter:card" content="summary_large_image">',
@@ -213,7 +268,12 @@ for(const page of pages){
  const doc=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080809"><style>html,body{background:#080809;color:#edf0ed}</style><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}">${fontPreloads}<link rel="stylesheet" href="/assets/${page.slug}.css"><link rel="stylesheet" href="/assets/custom.css"><link rel="stylesheet" href="/assets/theme.css"><link rel="stylesheet" href="/assets/responsive.css">${motionBoot}${embeddedSettings}<script type="module" src="/assets/interactions.js" blocking="render"></script></head><body>${opening}${icons}${html}</body></html>`;
  // Recolored images, styles and entry scripts bypass cached versions after deployment.
  const articleDoc=articlePost?doc.replace('/assets/'+page.slug+'.css','/assets/article.css').replace('</head>','<script type="module" src="/assets/article.js"></script></head>'):doc;
- const blogAssets=page.slug==='blog'?'<link rel="stylesheet" href="/assets/blog-search.css"><script type="module" src="/assets/blog-search.js"></script>':'';
+ const animatedCards=(page.slug==='blog'?posts:page.slug==='home'?homepagePosts(posts):[]).some(post=>post.thumbnail?.animatedWebp);
+ const blogAssets=(page.slug==='blog'?'<link rel="stylesheet" href="/assets/blog-search.css"><script type="module" src="/assets/blog-search.js"></script>':'')
+  +(animatedCards||articlePost?.publicationPackage==='idor'?'<link rel="stylesheet" href="/assets/idor-publication.css">':'')
+  +(articlePost?.publicationPackage==='idor'?'<script type="module" src="/assets/idor-article.js"></script>':'')
+  +(html.includes('blog-preview-card')?'<link rel="stylesheet" href="/assets/blog-cards.css">':'')
+  +(articlePost&&(articlePost.difficulty||articlePost.labDownloadUrl||articlePost.labSetupUrl||articlePost.labLiveUrl)?'<link rel="stylesheet" href="/assets/article-header.css">':'');
  const canonical=canonicalUrl(articlePost?.canonical||page.canonical||page.route);
  const indexingSeo='<link rel="canonical" href="'+escape(canonical)+'"><meta name="robots" content="'+(page.noindex||articlePost?.noindex?'noindex':'index')+',follow">';
  const noScriptNavigation='<noscript><style>.portfolio-toggle{display:none}.portfolio-menu-reveal{grid-template-rows:1fr}.portfolio-menu{visibility:visible}.portfolio-menu a{opacity:1;transform:none}</style></noscript>';

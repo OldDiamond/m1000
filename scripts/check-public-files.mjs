@@ -1,5 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import {createHash} from 'node:crypto';
+
+// The owner explicitly approved this reader-facing archive, not arbitrary ZIPs.
+const approvedArchiveHashes = new Map([
+  ['assets/documents/hunting-idor-lab.zip', '5bb0371f54fc0f093696afb30f571401c880ef7290a284e542281888655478a5'],
+]);
 
 const privateName = /(?:^|[-_.])(?:credentials?|secrets?|private[-_]?keys?|service[-_]?account)(?:[-_.]|$)/i;
 const privateExtension = /\.(?:pem|key|p12|pfx|keystore|sql|sqlite3?|db|bak|backup|map|zip|gz|7z|tar)$/i;
@@ -23,7 +29,9 @@ export function assertPublicFiles(root, { approvedDocuments = [] } = {}) {
       const file = path.join(directory, entry.name);
       const name = relative ? relative + '/' + entry.name : entry.name;
       if (entry.isSymbolicLink()) { failures.push(name + ': symbolic links are not public assets'); continue; }
-      if (entry.name.startsWith('.') || privateName.test(entry.name) || /^(?:private|backups?|node_modules|id_rsa|id_ed25519)$/i.test(entry.name) || privateExtension.test(entry.name)) {
+      const approvedArchive = entry.isFile() && approvedArchiveHashes.has(name)
+        && createHash('sha256').update(fs.readFileSync(file)).digest('hex') === approvedArchiveHashes.get(name);
+      if (entry.name.startsWith('.') || privateName.test(entry.name) || /^(?:private|backups?|node_modules|id_rsa|id_ed25519)$/i.test(entry.name) || (privateExtension.test(entry.name) && !approvedArchive)) {
         failures.push(name + ': private or unsupported public file'); continue;
       }
       if (entry.isDirectory()) { walk(file, name); continue; }

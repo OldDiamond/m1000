@@ -17,6 +17,7 @@ const fixtures = [
   ['assets/key.pem', 'example'],
   ['assets/source.js.map', '{}'],
   ['assets/backup.zip', 'example'],
+  ['assets/documents/hunting-idor-lab.zip', 'unapproved or modified archive bytes'],
   ['assets/personal.pdf', 'example'],
   ['assets/settings.json', JSON.stringify({ password: 'fixture-value-only' })],
   ['assets/app.js', 'const token="' + 'ghp_' + 'x'.repeat(36) + '";'],
@@ -32,9 +33,10 @@ try {
   const valid = path.join(fixtureRoot, 'valid');
   fs.mkdirSync(path.join(valid, 'assets/documents'), { recursive: true });
   fs.writeFileSync(path.join(valid, 'assets/documents/resume.pdf'), 'approved public document');
+  fs.copyFileSync('public/assets/documents/hunting-idor-lab.zip', path.join(valid, 'assets/documents/hunting-idor-lab.zip'));
   fs.writeFileSync(path.join(valid, 'assets/settings.json'), JSON.stringify({ contactEmail: 'owner@example.com' }));
-  assert.equal(assertPublicFiles(valid, options), 2);
-  console.log('Public-file guard passed 12 rejection cases and the approved-assets case.');
+  assert.equal(assertPublicFiles(valid, options), 3);
+  console.log('Public-file guard passed 13 rejection cases and the approved-assets case, including the checksum-pinned lab ZIP.');
 } finally {
   if (path.dirname(fixtureRoot) !== temporaryRoot || !path.basename(fixtureRoot).startsWith('portfolio-public-check-')) throw new Error('Unsafe fixture cleanup path');
   fs.rmSync(fixtureRoot, { recursive: true, force: true });

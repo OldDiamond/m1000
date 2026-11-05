@@ -3,12 +3,13 @@ import path from 'node:path';
 import assert from 'node:assert/strict';
 import {pathToFileURL} from 'node:url';
 import {canonicalUrl,isPublished,routePath} from './site-pages.mjs';
+import {relatedPosts} from './post-selection.mjs';
 
 export function verifyBlog(root='dist'){
  const posts=JSON.parse(fs.readFileSync('content/posts.json')).filter(post=>isPublished(post))
   .sort((a,b)=>new Date(b.publishedAt||b.date)-new Date(a.publishedAt||a.date));
  const listing=fs.readFileSync(path.join(root,'blog/index.html'),'utf8');
- const listingCards=[...listing.matchAll(/<a class="framer-6Ku2B blog-preview-card" href="([^"]+)"/g)].map(match=>match[1]);
+ const listingCards=[...listing.matchAll(/<a class="[^"]*\bblog-preview-card\b[^"]*" href="([^"]+)"/g)].map(match=>match[1]);
  assert.deepEqual(listingCards,posts.map(post=>new URL(canonicalUrl(post.url)).pathname),'Listing order or article routes incorrect');
  const titles=new Set();
  for(const post of posts){
@@ -24,7 +25,7 @@ export function verifyBlog(root='dist'){
   assert.equal(schema.datePublished,post.publishedAt);assert.equal(schema.author.name,post.author);
   assert.equal(schema.wordCount,words);assert.equal(schema.image,new URL(post.socialImage||post.image,'https://www.m1000z.com').href);
   assert(html.replace(/<[^>]*>/g,'').includes(Math.ceil(words/200)+' min read'),'Reading time mismatch');
-  assert.equal([...html.matchAll(/<a class="framer-6Ku2B blog-preview-card"/g)].length,Math.min(3,posts.length-1),'Related articles incorrect');
+  assert.equal([...html.matchAll(/<a class="[^"]*\bblog-preview-card\b[^"]*"/g)].length,relatedPosts(posts,post.url).length,'Related articles incorrect');
   if(post.originalAnalysis){
    assert(words>=900&&words<=1400,post.url+': article outside target length');
    assert(post.subtitle&&post.category&&post.cves?.length,'Missing research metadata');

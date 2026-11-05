@@ -24,5 +24,44 @@
       "Penetration Testing"
     ],
     "bodyFile": "content/articles/passing-htb-cwes.html"
+  },
+  {
+    "title": "One Changed ID. Another User's Data: Hunting IDOR in Web Applications",
+    "seoTitle": "Hunting IDOR in Web Applications: A Practical Lab | m1000z",
+    "url": "/posts/hunting-idor-web-applications/",
+    "draft": true,
+    "homepage": true,
+    "related": false,
+    "excerpt": "Trace an IDOR from a changed invoice ID to a missing authorization check, then reproduce and fix it in a two-account local lab.",
+    "author": "Yasin",
+    "category": "Penetration Testing",
+    "difficulty": "Easy lab",
+    "labDownloadUrl": "/assets/documents/hunting-idor-lab.zip",
+    "labSetupUrl": "/labs/idor/setup/",
+    "labLiveUrl": "https://labs.m1000z.com/",
+    "tags": [
+      "IDOR",
+      "API Security",
+      "Access Control",
+      "Burp Suite"
+    ],
+    "image": "/assets/blog/hunting-idor-cover.webp",
+    "imageWidth": 1254,
+    "imageHeight": 1254,
+    "imageAlt": "Ice-blue invoice documents 101 and 102 connected through a gap in a glass authorization boundary.",
+    "socialImage": "/assets/blog/hunting-idor-cover.webp",
+    "cover": true,
+    "coverCaption": "",
+    "publicationPackage": "idor",
+    "thumbnail": {
+      "src": "/assets/blog/hunting-idor-075x.gif",
+      "animatedWebp": "/assets/blog/hunting-idor-075x.webp",
+      "poster": "/assets/blog/hunting-idor-poster.png",
+      "alt": "Metallic access badge changes from 101 to 102 during a green scan, illustrating an object authorization bypass.",
+      "width": 439,
+      "height": 439,
+      "fit": "contain"
+    },
+    "bodyFile": "content/articles/hunting-idor-web-applications.html"
   }
 ]

@@ -14,8 +14,10 @@ browser-report.json
 icons.mjs
 dist/
 *.zip
+!public/assets/documents/hunting-idor-lab.zip
 *.tar.gz
 .openai/*.local.*
+content/labs/hunting-idor/**/__pycache__/
 
 # Private local files must never enter the source repository or public assets.
 .env

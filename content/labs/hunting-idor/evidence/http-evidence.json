@@ -1,0 +1,820 @@
+{
+  "tested_at_utc": "2026-11-05T21:51:42.017828+00:00",
+  "python": "3.13.17 (tags/v3.13.17:64e080d, Oct 21 2026, 14:08:53) [MSC v.1944 64 bit (AMD64)]",
+  "operating_system": "Windows-11-10.0.26300-SP0",
+  "transport": "Python http.client over loopback TCP; Burp Suite was not used",
+  "normalization": "Credentials, CSRF tokens and session values omitted or redacted; dynamic Date/Server response headers omitted.",
+  "app_sha256": "e1c7d035ed02cf4f919dff0f4b9cd84eb7ccac86fc6f9b74d80b0d47645bbc24",
+  "source_hashes": {
+    "lab/app.py": "e1c7d035ed02cf4f919dff0f4b9cd84eb7ccac86fc6f9b74d80b0d47645bbc24",
+    "lab/assets/app.css": "a0fb7402091a80248ec9f86968744058fd7519883abb44587e3b2834d766ee45",
+    "lab/assets/app.js": "c5236369c1b73966a515153fca87ac34b78a2537eac598f2c09a6b6792abfe45",
+    "lab/assets/northline-mark.svg": "2adc5fcad3021acb7ff257f76d368c6f74215ece5f3801f8696c4f2bf8811df2"
+  },
+  "checks": [
+    {
+      "mode": "vulnerable",
+      "principal": "alice",
+      "invoice": "101",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "principal": "alice",
+      "invoice": "102",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "principal": "bob",
+      "invoice": "102",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "principal": "bob",
+      "invoice": "101",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "principal": null,
+      "invoice": "102",
+      "status": 401,
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "principal": "alice",
+      "invoice": "999",
+      "status": 404,
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "principal": "alice",
+      "invoice": "abc",
+      "status": 400,
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "principal": "invalid",
+      "invoice": "102",
+      "status": 401,
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "principal": "alice",
+      "invoice": "101",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "principal": "alice",
+      "invoice": "102",
+      "status": 404,
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "principal": "bob",
+      "invoice": "102",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "principal": "bob",
+      "invoice": "101",
+      "status": 404,
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "principal": null,
+      "invoice": "102",
+      "status": 401,
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "principal": "alice",
+      "invoice": "999",
+      "status": 404,
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "principal": "alice",
+      "invoice": "abc",
+      "status": 400,
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "principal": "invalid",
+      "invoice": "102",
+      "status": 401,
+      "passed": true
+    }
+  ],
+  "page_checks": [
+    {
+      "mode": "vulnerable",
+      "principal": "alice",
+      "invoice": "101",
+      "path": "/invoices/101",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "principal": "alice",
+      "invoice": "101",
+      "path": "/invoices/101/",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "principal": "alice",
+      "invoice": "102",
+      "path": "/invoices/102",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "principal": "alice",
+      "invoice": "102",
+      "path": "/invoices/102/",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "principal": "bob",
+      "invoice": "102",
+      "path": "/invoices/102",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "principal": "bob",
+      "invoice": "102",
+      "path": "/invoices/102/",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "principal": null,
+      "invoice": "101",
+      "path": "/invoices/101",
+      "status": 303,
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "principal": null,
+      "invoice": "101",
+      "path": "/invoices/101/",
+      "status": 303,
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "principal": "alice",
+      "invoice": "101",
+      "path": "/invoices/101",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "principal": "alice",
+      "invoice": "101",
+      "path": "/invoices/101/",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "principal": "alice",
+      "invoice": "102",
+      "path": "/invoices/102",
+      "status": 404,
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "principal": "alice",
+      "invoice": "102",
+      "path": "/invoices/102/",
+      "status": 404,
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "principal": "bob",
+      "invoice": "102",
+      "path": "/invoices/102",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "principal": "bob",
+      "invoice": "102",
+      "path": "/invoices/102/",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "principal": null,
+      "invoice": "101",
+      "path": "/invoices/101",
+      "status": 303,
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "principal": null,
+      "invoice": "101",
+      "path": "/invoices/101/",
+      "status": 303,
+      "passed": true
+    }
+  ],
+  "auth_checks": [
+    {
+      "mode": "vulnerable",
+      "name": "protected pages require authentication",
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "name": "guide public, invoice data protected",
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "name": "asset allowlist and host validation",
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "name": "empty form rejected",
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "name": "wrong password rejected",
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "name": "unknown email rejected",
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "name": "old account selector rejected",
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "name": "missing CSRF rejected",
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "name": "malformed CSRF rejected",
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "name": "cross-origin login rejected",
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "name": "hashed fixture credentials and session rotation",
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "name": "logout invalidates session; GET and CSRF bypasses rejected",
+      "principal": "alice",
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "name": "logout invalidates session; GET and CSRF bypasses rejected",
+      "principal": "bob",
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "protected pages require authentication",
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "guide public, invoice data protected",
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "asset allowlist and host validation",
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "empty form rejected",
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "wrong password rejected",
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "unknown email rejected",
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "old account selector rejected",
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "missing CSRF rejected",
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "malformed CSRF rejected",
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "cross-origin login rejected",
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "hashed fixture credentials and session rotation",
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "logout invalidates session; GET and CSRF bypasses rejected",
+      "principal": "alice",
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "logout invalidates session; GET and CSRF bypasses rejected",
+      "principal": "bob",
+      "passed": true
+    }
+  ],
+  "scope_checks": [
+    {
+      "mode": "vulnerable",
+      "name": "/dashboard",
+      "principal": "alice",
+      "invoice": 101,
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "name": "/invoices",
+      "principal": "alice",
+      "invoice": 101,
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "name": "/api/invoices",
+      "principal": "alice",
+      "invoice": 101,
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "name": "/api/invoices?owner_id=bob",
+      "principal": "alice",
+      "invoice": 101,
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "name": "/dashboard",
+      "principal": "bob",
+      "invoice": 102,
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "name": "/invoices",
+      "principal": "bob",
+      "invoice": 102,
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "name": "/api/invoices",
+      "principal": "bob",
+      "invoice": 102,
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "name": "/api/invoices?owner_id=alice",
+      "principal": "bob",
+      "invoice": 102,
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "/dashboard",
+      "principal": "alice",
+      "invoice": 101,
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "/invoices",
+      "principal": "alice",
+      "invoice": 101,
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "/api/invoices",
+      "principal": "alice",
+      "invoice": 101,
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "/api/invoices?owner_id=bob",
+      "principal": "alice",
+      "invoice": 101,
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "/dashboard",
+      "principal": "bob",
+      "invoice": 102,
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "/invoices",
+      "principal": "bob",
+      "invoice": 102,
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "/api/invoices",
+      "principal": "bob",
+      "invoice": 102,
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "/api/invoices?owner_id=alice",
+      "principal": "bob",
+      "invoice": 102,
+      "passed": true
+    }
+  ],
+  "asset_checks": [
+    {
+      "mode": "vulnerable",
+      "name": "app.css",
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "name": "app.js",
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "name": "northline-mark.svg",
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "app.css",
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "app.js",
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "northline-mark.svg",
+      "passed": true
+    }
+  ],
+  "empty_checks": [
+    {
+      "mode": "vulnerable",
+      "name": "/dashboard",
+      "passed": true
+    },
+    {
+      "mode": "vulnerable",
+      "name": "/invoices",
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "/dashboard",
+      "passed": true
+    },
+    {
+      "mode": "fixed",
+      "name": "/invoices",
+      "passed": true
+    }
+  ],
+  "exchanges": [
+    {
+      "mode": "vulnerable",
+      "principal": "alice",
+      "request": "GET /api/invoices/101 HTTP/1.1\nHost: 127.0.0.1:61793\nCookie: sid=<alice-session>",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "785",
+        "Cache-Control": "no-store",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "same-origin",
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
+      },
+      "body": "{\"id\":101,\"owner_id\":\"alice\",\"customer\":\"Alice Demo\",\"total_cents\":12500,\"currency\":\"USD\",\"invoice_number\":\"INV-101\",\"issue_date\":\"2026-11-01\",\"due_date\":\"2026-11-15\",\"payment_status\":\"Unpaid\",\"from\":{\"name\":\"Northline Demo Services\",\"description\":\"Design & advisory\",\"address\":[\"18 Example Lane\",\"Demo City, DC 10001\"],\"email\":\"billing@northline.test\"},\"bill_to\":{\"address\":[\"101 Sample Street\",\"Demo City, DC 10011\"],\"email\":\"alice@northline.test\"},\"line_items\":[{\"description\":\"Design consultation\",\"quantity\":1,\"unit_price_cents\":7500,\"amount_cents\":7500},{\"description\":\"Project preparation\",\"quantity\":1,\"unit_price_cents\":5000,\"amount_cents\":5000}],\"subtotal_cents\":12500,\"payment_terms\":\"Net 14 days from the issue date. Please quote the invoice number in any correspondence.\"}"
+    },
+    {
+      "mode": "vulnerable",
+      "principal": "alice",
+      "request": "GET /api/invoices/102 HTTP/1.1\nHost: 127.0.0.1:61793\nCookie: sid=<alice-session>",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "777",
+        "Cache-Control": "no-store",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "same-origin",
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
+      },
+      "body": "{\"id\":102,\"owner_id\":\"bob\",\"customer\":\"Bob Demo\",\"total_cents\":48000,\"currency\":\"USD\",\"invoice_number\":\"INV-102\",\"issue_date\":\"2026-11-01\",\"due_date\":\"2026-11-15\",\"payment_status\":\"Unpaid\",\"from\":{\"name\":\"Northline Demo Services\",\"description\":\"Design & advisory\",\"address\":[\"18 Example Lane\",\"Demo City, DC 10001\"],\"email\":\"billing@northline.test\"},\"bill_to\":{\"address\":[\"102 Sample Street\",\"Demo City, DC 10011\"],\"email\":\"bob@northline.test\"},\"line_items\":[{\"description\":\"Brand workshop\",\"quantity\":2,\"unit_price_cents\":15000,\"amount_cents\":30000},{\"description\":\"Research & planning\",\"quantity\":3,\"unit_price_cents\":6000,\"amount_cents\":18000}],\"subtotal_cents\":48000,\"payment_terms\":\"Net 14 days from the issue date. Please quote the invoice number in any correspondence.\"}"
+    },
+    {
+      "mode": "vulnerable",
+      "principal": "bob",
+      "request": "GET /api/invoices/102 HTTP/1.1\nHost: 127.0.0.1:61793\nCookie: sid=<bob-session>",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "777",
+        "Cache-Control": "no-store",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "same-origin",
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
+      },
+      "body": "{\"id\":102,\"owner_id\":\"bob\",\"customer\":\"Bob Demo\",\"total_cents\":48000,\"currency\":\"USD\",\"invoice_number\":\"INV-102\",\"issue_date\":\"2026-11-01\",\"due_date\":\"2026-11-15\",\"payment_status\":\"Unpaid\",\"from\":{\"name\":\"Northline Demo Services\",\"description\":\"Design & advisory\",\"address\":[\"18 Example Lane\",\"Demo City, DC 10001\"],\"email\":\"billing@northline.test\"},\"bill_to\":{\"address\":[\"102 Sample Street\",\"Demo City, DC 10011\"],\"email\":\"bob@northline.test\"},\"line_items\":[{\"description\":\"Brand workshop\",\"quantity\":2,\"unit_price_cents\":15000,\"amount_cents\":30000},{\"description\":\"Research & planning\",\"quantity\":3,\"unit_price_cents\":6000,\"amount_cents\":18000}],\"subtotal_cents\":48000,\"payment_terms\":\"Net 14 days from the issue date. Please quote the invoice number in any correspondence.\"}"
+    },
+    {
+      "mode": "vulnerable",
+      "principal": "bob",
+      "request": "GET /api/invoices/101 HTTP/1.1\nHost: 127.0.0.1:61793\nCookie: sid=<bob-session>",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "785",
+        "Cache-Control": "no-store",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "same-origin",
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
+      },
+      "body": "{\"id\":101,\"owner_id\":\"alice\",\"customer\":\"Alice Demo\",\"total_cents\":12500,\"currency\":\"USD\",\"invoice_number\":\"INV-101\",\"issue_date\":\"2026-11-01\",\"due_date\":\"2026-11-15\",\"payment_status\":\"Unpaid\",\"from\":{\"name\":\"Northline Demo Services\",\"description\":\"Design & advisory\",\"address\":[\"18 Example Lane\",\"Demo City, DC 10001\"],\"email\":\"billing@northline.test\"},\"bill_to\":{\"address\":[\"101 Sample Street\",\"Demo City, DC 10011\"],\"email\":\"alice@northline.test\"},\"line_items\":[{\"description\":\"Design consultation\",\"quantity\":1,\"unit_price_cents\":7500,\"amount_cents\":7500},{\"description\":\"Project preparation\",\"quantity\":1,\"unit_price_cents\":5000,\"amount_cents\":5000}],\"subtotal_cents\":12500,\"payment_terms\":\"Net 14 days from the issue date. Please quote the invoice number in any correspondence.\"}"
+    },
+    {
+      "mode": "vulnerable",
+      "principal": null,
+      "request": "GET /api/invoices/102 HTTP/1.1\nHost: 127.0.0.1:61793",
+      "status": 401,
+      "response_headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "35",
+        "Cache-Control": "no-store",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "same-origin",
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
+      },
+      "body": "{\"error\":\"authentication_required\"}"
+    },
+    {
+      "mode": "vulnerable",
+      "principal": "alice",
+      "request": "GET /api/invoices/999 HTTP/1.1\nHost: 127.0.0.1:61793\nCookie: sid=<alice-session>",
+      "status": 404,
+      "response_headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "21",
+        "Cache-Control": "no-store",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "same-origin",
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
+      },
+      "body": "{\"error\":\"not_found\"}"
+    },
+    {
+      "mode": "vulnerable",
+      "principal": "alice",
+      "request": "GET /api/invoices/abc HTTP/1.1\nHost: 127.0.0.1:61793\nCookie: sid=<alice-session>",
+      "status": 400,
+      "response_headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "22",
+        "Cache-Control": "no-store",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "same-origin",
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
+      },
+      "body": "{\"error\":\"invalid_id\"}"
+    },
+    {
+      "mode": "vulnerable",
+      "principal": "invalid",
+      "request": "GET /api/invoices/102 HTTP/1.1\nHost: 127.0.0.1:61793\nCookie: sid=<invalid>",
+      "status": 401,
+      "response_headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "35",
+        "Cache-Control": "no-store",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "same-origin",
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
+      },
+      "body": "{\"error\":\"authentication_required\"}"
+    },
+    {
+      "mode": "fixed",
+      "principal": "alice",
+      "request": "GET /api/invoices/101 HTTP/1.1\nHost: 127.0.0.1:61863\nCookie: sid=<alice-session>",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "785",
+        "Cache-Control": "no-store",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "same-origin",
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
+      },
+      "body": "{\"id\":101,\"owner_id\":\"alice\",\"customer\":\"Alice Demo\",\"total_cents\":12500,\"currency\":\"USD\",\"invoice_number\":\"INV-101\",\"issue_date\":\"2026-11-01\",\"due_date\":\"2026-11-15\",\"payment_status\":\"Unpaid\",\"from\":{\"name\":\"Northline Demo Services\",\"description\":\"Design & advisory\",\"address\":[\"18 Example Lane\",\"Demo City, DC 10001\"],\"email\":\"billing@northline.test\"},\"bill_to\":{\"address\":[\"101 Sample Street\",\"Demo City, DC 10011\"],\"email\":\"alice@northline.test\"},\"line_items\":[{\"description\":\"Design consultation\",\"quantity\":1,\"unit_price_cents\":7500,\"amount_cents\":7500},{\"description\":\"Project preparation\",\"quantity\":1,\"unit_price_cents\":5000,\"amount_cents\":5000}],\"subtotal_cents\":12500,\"payment_terms\":\"Net 14 days from the issue date. Please quote the invoice number in any correspondence.\"}"
+    },
+    {
+      "mode": "fixed",
+      "principal": "alice",
+      "request": "GET /api/invoices/102 HTTP/1.1\nHost: 127.0.0.1:61863\nCookie: sid=<alice-session>",
+      "status": 404,
+      "response_headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "21",
+        "Cache-Control": "no-store",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "same-origin",
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
+      },
+      "body": "{\"error\":\"not_found\"}"
+    },
+    {
+      "mode": "fixed",
+      "principal": "bob",
+      "request": "GET /api/invoices/102 HTTP/1.1\nHost: 127.0.0.1:61863\nCookie: sid=<bob-session>",
+      "status": 200,
+      "response_headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "777",
+        "Cache-Control": "no-store",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "same-origin",
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
+      },
+      "body": "{\"id\":102,\"owner_id\":\"bob\",\"customer\":\"Bob Demo\",\"total_cents\":48000,\"currency\":\"USD\",\"invoice_number\":\"INV-102\",\"issue_date\":\"2026-11-01\",\"due_date\":\"2026-11-15\",\"payment_status\":\"Unpaid\",\"from\":{\"name\":\"Northline Demo Services\",\"description\":\"Design & advisory\",\"address\":[\"18 Example Lane\",\"Demo City, DC 10001\"],\"email\":\"billing@northline.test\"},\"bill_to\":{\"address\":[\"102 Sample Street\",\"Demo City, DC 10011\"],\"email\":\"bob@northline.test\"},\"line_items\":[{\"description\":\"Brand workshop\",\"quantity\":2,\"unit_price_cents\":15000,\"amount_cents\":30000},{\"description\":\"Research & planning\",\"quantity\":3,\"unit_price_cents\":6000,\"amount_cents\":18000}],\"subtotal_cents\":48000,\"payment_terms\":\"Net 14 days from the issue date. Please quote the invoice number in any correspondence.\"}"
+    },
+    {
+      "mode": "fixed",
+      "principal": "bob",
+      "request": "GET /api/invoices/101 HTTP/1.1\nHost: 127.0.0.1:61863\nCookie: sid=<bob-session>",
+      "status": 404,
+      "response_headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "21",
+        "Cache-Control": "no-store",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "same-origin",
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
+      },
+      "body": "{\"error\":\"not_found\"}"
+    },
+    {
+      "mode": "fixed",
+      "principal": null,
+      "request": "GET /api/invoices/102 HTTP/1.1\nHost: 127.0.0.1:61863",
+      "status": 401,
+      "response_headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "35",
+        "Cache-Control": "no-store",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "same-origin",
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
+      },
+      "body": "{\"error\":\"authentication_required\"}"
+    },
+    {
+      "mode": "fixed",
+      "principal": "alice",
+      "request": "GET /api/invoices/999 HTTP/1.1\nHost: 127.0.0.1:61863\nCookie: sid=<alice-session>",
+      "status": 404,
+      "response_headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "21",
+        "Cache-Control": "no-store",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "same-origin",
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
+      },
+      "body": "{\"error\":\"not_found\"}"
+    },
+    {
+      "mode": "fixed",
+      "principal": "alice",
+      "request": "GET /api/invoices/abc HTTP/1.1\nHost: 127.0.0.1:61863\nCookie: sid=<alice-session>",
+      "status": 400,
+      "response_headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "22",
+        "Cache-Control": "no-store",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "same-origin",
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
+      },
+      "body": "{\"error\":\"invalid_id\"}"
+    },
+    {
+      "mode": "fixed",
+      "principal": "invalid",
+      "request": "GET /api/invoices/102 HTTP/1.1\nHost: 127.0.0.1:61863\nCookie: sid=<invalid>",
+      "status": 401,
+      "response_headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "35",
+        "Cache-Control": "no-store",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "same-origin",
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
+      },
+      "body": "{\"error\":\"authentication_required\"}"
+    }
+  ]
+}

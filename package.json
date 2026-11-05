@@ -2,5 +2,5 @@
   "name": "editable-portfolio",
   "private": true,
   "type": "module",
-  "scripts": { "build": "node scripts/build.mjs", "dev": "node scripts/serve.mjs", "preview": "node scripts/serve.mjs", "verify": "node scripts/verify.mjs", "test": "node --test scripts/*.test.mjs" }
+  "scripts": { "build": "node scripts/build.mjs", "build:review": "node scripts/build.mjs --include-drafts", "dev": "node scripts/serve.mjs", "preview": "node scripts/serve.mjs", "verify": "node scripts/verify.mjs", "verify:review": "node scripts/verify-idor-review.mjs", "test": "node --test scripts/*.test.mjs" }
 }

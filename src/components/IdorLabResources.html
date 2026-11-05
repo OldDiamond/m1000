@@ -1,0 +1,15 @@
+<div class="idor-resources-track">
+  <aside class="idor-lab-resources" aria-labelledby="idor-resources-heading">
+    <h2 id="idor-resources-heading" data-toc-exclude>Lab resources</h2>
+    <div class="idor-resource-brand"><img src="/assets/brand/northline-mark.svg" width="28" height="28" alt="" loading="lazy" decoding="async"><p><strong>Northline Billing</strong></p></div>
+    {{resourceDifficulty}}
+    <p class="idor-resource-description">Explore the invoice portal alongside this walkthrough.</p>
+    <nav aria-label="Northline Billing resources">
+      <a class="article-resource-button article-live-button" href="{{resourceLiveUrl}}" target="_blank" rel="noopener noreferrer">Launch live lab <span aria-hidden="true">↗</span><span class="article-sr-only"> (opens in a new tab)</span></a>
+      <a href="{{resourceDownloadUrl}}" download>Download ZIP</a>
+      <a href="{{resourceSetupUrl}}">Windows / Linux setup</a>
+      <button class="idor-credentials-trigger" type="button" aria-haspopup="dialog" aria-controls="idor-credentials-dialog" aria-expanded="false">Demo credentials</button>
+    </nav>
+  </aside>
+</div>
+{{resourceCredentialsDialog}}

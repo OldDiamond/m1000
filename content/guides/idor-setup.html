@@ -1,0 +1,458 @@
+<div class="idor-article-content">
+
+<p>Northline Billing is a Client Billing Portal from the fictional Northline Demo Services. Training application by m1000z · Fictional data. Use Python 3.12 or newer with SQLite from the standard library. No pip packages or frontend build are needed.</p>
+
+<p>Run the server on this computer only. It binds to 127.0.0.1. Never deploy or tunnel the vulnerable application. The portfolio serves a static ZIP; it does not run Python.</p>
+
+<p><a href="/assets/documents/hunting-idor-lab.zip" download>Download the IDOR lab (.zip)</a>. <a href="/posts/hunting-idor-web-applications/">Read the article</a>. Follow the Windows or Linux section below; their shell syntax is different. Copy commands without a shell prompt. Stop at an error and use the matching troubleshooting entry before continuing.</p>
+
+<h2>Windows Step 1: Choose the installation route</h2>
+
+<p><strong>Already installed through WinGet? Start at Windows Step 2.</strong> Successful installation does not prove that a launcher is on PATH. Do not reinstall repeatedly or request administrator access just because py is missing.</p>
+
+<p><strong>Traditional installer:</strong> use the <a href="https://www.python.org/downloads/windows/" target="_blank" rel="noopener noreferrer">official Windows downloads</a> and select a full, supported Python runtime installer for your architecture. For the Python 3.13 installation in the failure case, follow the <a href="https://docs.python.org/3.13/using/windows.html#the-full-installer" target="_blank" rel="noopener noreferrer">3.13 full-installer instructions</a>. A per-user install is sufficient. Enable its PATH option; the legacy launcher is a separate optional component. If using WinGet instead, this is the traditional 3.13 runtime package, not the new Install Manager:</p>
+
+<pre tabindex="0" role="region" aria-label="PowerShell command"><code class="language-powershell">winget install --id Python.Python.3.13 --exact --source winget --scope user</code></pre>
+
+<p>Do not run that installation command again if the runtime is already installed. Inspect it without installing:</p>
+
+<pre tabindex="0" role="region" aria-label="PowerShell command"><code class="language-powershell">winget list --id Python.Python.3.13 --exact</code></pre>
+
+<p><strong>Legacy py launcher:</strong> the optional traditional-launcher component locates existing runtimes. It is not the interpreter and does not support Install Manager installation subcommands. If it is installed, this lists registered executable paths:</p>
+
+<pre tabindex="0" role="region" aria-label="PowerShell command"><code class="language-powershell">py -0p</code></pre>
+
+<p><strong>New Python Install Manager:</strong> this is a different product, available through the official Python downloads/Store. Follow its <a href="https://docs.python.org/3/using/windows.html#python-install-manager" target="_blank" rel="noopener noreferrer">current installation instructions</a>. Only if you deliberately installed this product and pymanager resolves, use its management commands:</p>
+
+<pre tabindex="0" role="region" aria-label="PowerShell command"><code class="language-powershell">Get-Command pymanager -All -ErrorAction SilentlyContinue
+pymanager list</code></pre>
+
+<p>If its list has no suitable installed runtime, install one with the manager, then list again:</p>
+
+<pre tabindex="0" role="region" aria-label="PowerShell command"><code class="language-powershell">pymanager install 3.13
+pymanager list</code></pre>
+
+<p>Do not send these commands to the legacy launcher. Use the unambiguous pymanager name when both products coexist; a bare py may resolve to the older launcher. A manager alias may run through WindowsApps legitimately. A traditional 3.13 installation does not need the manager merely to run this lab.</p>
+
+<h2>Windows Step 2: Restart the terminal, then diagnose</h2>
+
+<p>After installing Python or changing PATH/aliases, <strong>completely close all PowerShell windows and the entire Windows Terminal application</strong>, then start it again from Start. Opening another tab inside the old Terminal process can retain its old environment. Restart an IDE too if using its integrated terminal.</p>
+
+<p>Check these separately. One failing does not establish that the other works:</p>
+
+<pre tabindex="0" role="region" aria-label="PowerShell command"><code class="language-powershell">python --version</code></pre>
+
+<pre tabindex="0" role="region" aria-label="PowerShell command"><code class="language-powershell">py --version</code></pre>
+
+<p>Then inspect every matching command:</p>
+
+<pre tabindex="0" role="region" aria-label="PowerShell command"><code class="language-powershell">Get-Command python, py -All -ErrorAction SilentlyContinue</code></pre>
+
+<p><strong>How to read the results:</strong> a working entry prints an actual Python version. A command-not-found error means that name is unavailable. A WindowsApps path plus a Store-opening/“Python was not found” message identifies the placeholder in this failure case. The path alone is not proof: a real Store runtime or Install Manager also uses app aliases. Confirm by executing the version and SQLite checks, not by the filename alone. A PowerShell function or alias listed ahead of an Application can also shadow it.</p>
+
+<p>The <strong>-3 option belongs to the py launcher, not to the python interpreter</strong>. When switching to an interpreter executable, remove the launcher selector entirely. Do not append it to python or to a full python.exe path. These commands do not require an execution-policy change.</p>
+
+<h2>Windows Step 3: Recover the route you actually installed</h2>
+
+<h3>Traditional installer or the screenshot&#x27;s WinGet 3.13 runtime</h3>
+
+<ol>
+
+<li>Open Start → Manage app execution aliases. If the failing entries belong to <strong>App Installer</strong> and point to the Store placeholder, turn off only its python.exe/python3.exe shortcuts. Do not disable all WindowsApps entries or a working Python Install Manager alias.</li>
+
+<li>Open Installed apps → the Python runtime → Modify, or rerun its matching official installer. Enable <strong>Add Python to environment variables/PATH</strong> in the traditional installer&#x27;s options. A missing legacy launcher can be added there if wanted, but it is not needed for a direct executable launch.</li>
+
+<li>Alternatively, edit <strong>User</strong> environment variables → Path. Add the actual folder containing the verified python.exe, ahead of the Store-placeholder WindowsApps entry within User Path. Do not paste python.exe itself as a PATH directory, erase existing entries, or edit another application&#x27;s/system Python. Scripts/ is unnecessary for this dependency-free lab.</li>
+
+<li>Fully restart Terminal/PowerShell, repeat Windows Step 2, and compare sys.executable in Windows Step 4. If another earlier runtime still wins, keep using the exact verified executable instead of changing machine-wide settings.</li>
+
+</ol>
+
+<h3>Python Install Manager route only</h3>
+
+<ol>
+
+<li>Check Installed apps for Python Install Manager. In Manage app execution aliases enable/refresh its <strong>Python (default)</strong> and <strong>Python install manager</strong> aliases. Do not apply the traditional-installer advice of disabling these working manager aliases.</li>
+
+<li>Ensure User Path retains the actual WindowsApps folder, normally <code>$env:LOCALAPPDATA\Microsoft\WindowsApps</code>. Do not remove that folder globally. If a manager-generated runtime alias is missing, its documented refresh command is <code>pymanager install --refresh</code>; use this only with the manager.</li>
+
+<li>Fully restart Terminal/PowerShell. Check pymanager resolution and list installed runtimes. If old py shadows the manager, use pymanager explicitly; no legacy-launcher uninstall is required for this lab. Confirm the desired runtime using Windows Step 4.</li>
+
+</ol>
+
+<h3>Conditional direct executable — do not assume the folder exists</h3>
+
+<p>For the screenshot&#x27;s traditional <strong>per-user Python 3.13</strong> installation, test the candidate:</p>
+
+<pre tabindex="0" role="region" aria-label="PowerShell command"><code class="language-powershell">Test-Path &quot;$env:LOCALAPPDATA\Programs\Python\Python313\python.exe&quot;</code></pre>
+
+<p><strong>Only if the result is True</strong>, run:</p>
+
+<pre tabindex="0" role="region" aria-label="PowerShell command"><code class="language-powershell">&amp; &quot;$env:LOCALAPPDATA\Programs\Python\Python313\python.exe&quot; --version</code></pre>
+
+<p>If it prints a supported version, select that same executable:</p>
+
+<pre tabindex="0" role="region" aria-label="PowerShell command"><code class="language-powershell">$LabPython = &quot;$env:LOCALAPPDATA\Programs\Python\Python313\python.exe&quot;</code></pre>
+
+<p>The valid PowerShell environment prefix here is <code>$env:LOCALAPPDATA</code>. The folder varies by version, architecture and per-user/all-users installation scope. If Test-Path returns False, <strong>stop copying this path</strong>. Use a working launcher&#x27;s <code>py -0p</code>, the Install Manager&#x27;s <code>pymanager list</code>, or the installed Python Start-menu shortcut&#x27;s Open file location → Properties → Target to locate the actual interpreter, not IDLE/pythonw.exe. You can also inspect traditional runtime registrations read-only:</p>
+
+<pre tabindex="0" role="region" aria-label="PowerShell command"><code class="language-powershell">Get-ChildItem &#x27;HKCU:\Software\Python\PythonCore&#x27;, &#x27;HKLM:\Software\Python\PythonCore&#x27;, &#x27;HKLM:\Software\WOW6432Node\Python\PythonCore&#x27; -ErrorAction SilentlyContinue |
+    ForEach-Object {
+        $installKey = Get-Item -LiteralPath (Join-Path $_.PSPath &#x27;InstallPath&#x27;) -ErrorAction SilentlyContinue
+        if ($installKey) {
+            [PSCustomObject]@{
+                Version = $_.PSChildName
+                Executable = $installKey.GetValue(&#x27;ExecutablePath&#x27;)
+                Folder = $installKey.GetValue(&#x27;&#x27;)
+            }
+        }
+    }</code></pre>
+
+<p>Registrations may be absent for Store/manager/custom installs; no results do not establish a universal install location. After finding your executable, paste its real path at the prompt below, without surrounding quotes. Do not enter a made-up example path:</p>
+
+<pre tabindex="0" role="region" aria-label="PowerShell command"><code class="language-powershell">$LabPython = Read-Host &#x27;Full path to your actual python.exe, without surrounding quotes&#x27;
+Test-Path -LiteralPath $LabPython -PathType Leaf</code></pre>
+
+<p>Continue only if that returns True. A quoted executable path is invoked with <strong>&amp;</strong>, not by quoting it alone.</p>
+
+<h2>Windows Step 4: Pin and verify one interpreter</h2>
+
+<p><strong>Choose one selection method, not all of them.</strong> If the direct-path method above already set LabPython, skip these alternatives. Otherwise, if python --version succeeded with a supported runtime:</p>
+
+<pre tabindex="0" role="region" aria-label="PowerShell command"><code class="language-powershell">$LabPython = (python -c &quot;import sys; print(sys.executable)&quot;).Trim()</code></pre>
+
+<p>Or, only if py --version succeeded with the desired runtime:</p>
+
+<pre tabindex="0" role="region" aria-label="PowerShell command"><code class="language-powershell">$LabPython = (py -c &quot;import sys; print(sys.executable)&quot;).Trim()</code></pre>
+
+<p>For the <strong>Install Manager route only</strong>, after confirming 3.13 in its list, this selects its actual executable path without relying on which product owns py:</p>
+
+<pre tabindex="0" role="region" aria-label="PowerShell command"><code class="language-powershell">$LabPython = (pymanager list --one --format=exe 3.13).Trim()</code></pre>
+
+<p>Run the following with the selected path. If any command fails, stop and resolve it before launching the lab:</p>
+
+<pre tabindex="0" role="region" aria-label="PowerShell command"><code class="language-powershell">Test-Path -LiteralPath $LabPython -PathType Leaf
+&amp; $LabPython --version
+&amp; $LabPython -c &quot;import sys, sqlite3; assert sys.version_info &gt;= (3, 12), &#x27;Python 3.12+ required&#x27;; c=sqlite3.connect(&#x27;:memory:&#x27;); print(&#x27;Python&#x27;, sys.version.split()[0]); print(&#x27;Executable:&#x27;, sys.executable); print(&#x27;SQLite&#x27;, sqlite3.sqlite_version); print(&#x27;SQLite query:&#x27;, c.execute(&#x27;SELECT 1&#x27;).fetchone()[0]); c.close()&quot;</code></pre>
+
+<p><strong>Expected result — not a command:</strong> True; Python 3.12 or newer; the executable you selected; an SQLite version; and SQLite query: 1. Exact version numbers vary. Do not continue with a Store message, an older Python, or an import/DLL error.</p>
+
+<p>LabPython is a variable in this PowerShell session only. Keep this window open and use <strong>&amp; $LabPython</strong> for every remaining Windows command. In a new window, repeat interpreter selection/preflight and return to the extracted folder. Do not alternate among unverified command names.</p>
+
+<h2>Windows Step 5: Extract into the correct folder</h2>
+
+<p>Download the actual ZIP. These defaults apply only if it is in your Downloads folder; change LabZip to the real file path if you saved it elsewhere. Choose a new destination, not an existing lab folder. Variables and LiteralPath preserve spaces in paths.</p>
+
+<pre tabindex="0" role="region" aria-label="PowerShell command"><code class="language-powershell">$LabZip = Join-Path $env:USERPROFILE &#x27;Downloads\hunting-idor-lab.zip&#x27;
+$LabFolder = Join-Path $env:USERPROFILE &#x27;Downloads\Northline Billing Lab&#x27;
+if (-not (Test-Path -LiteralPath $LabZip -PathType Leaf)) { throw &#x27;ZIP missing: correct LabZip before continuing.&#x27; }
+if (Test-Path -LiteralPath $LabFolder) { throw &#x27;Choose a new LabFolder; do not overwrite an existing lab.&#x27; }
+Expand-Archive -LiteralPath $LabZip -DestinationPath $LabFolder
+Set-Location -LiteralPath $LabFolder
+Get-Location
+Get-ChildItem</code></pre>
+
+<p>Verify the six required files. Every line must return True:</p>
+
+<pre tabindex="0" role="region" aria-label="PowerShell command"><code class="language-powershell">Test-Path -LiteralPath &#x27;.\README.md&#x27; -PathType Leaf
+Test-Path -LiteralPath &#x27;.\lab\app.py&#x27; -PathType Leaf
+Test-Path -LiteralPath &#x27;.\lab\verify.py&#x27; -PathType Leaf
+Test-Path -LiteralPath &#x27;.\lab\assets\app.css&#x27; -PathType Leaf
+Test-Path -LiteralPath &#x27;.\lab\assets\app.js&#x27; -PathType Leaf
+Test-Path -LiteralPath &#x27;.\lab\assets\northline-mark.svg&#x27; -PathType Leaf</code></pre>
+
+<p><strong>Folder structure — illustrative, not a command:</strong></p>
+
+<pre tabindex="0" role="region" aria-label="Illustrative folder structure, not a command"><code class="language-text">README.md
+lab/
+  app.py
+  verify.py
+  assets/
+    app.css
+    app.js
+    northline-mark.svg</code></pre>
+
+<p>Do not work inside the ZIP viewer or inside lab/. If your extraction tool added a wrapper folder, enter the inner folder that directly contains README.md and lab/ and repeat all six checks.</p>
+
+<h2>Windows Step 6: Start, stop, correct and verify</h2>
+
+<p>From that checked folder, with the interpreter verified in Windows Step 4, start <strong>one</strong> vulnerable server:</p>
+
+<pre tabindex="0" role="region" aria-label="PowerShell command"><code class="language-powershell">&amp; $LabPython .\lab\app.py --port 8000</code></pre>
+
+<p>For the screenshot&#x27;s Python 3.13 installation, the equivalent direct-executable form below is an <strong>alternative</strong>, not a second server. Use it only if the earlier Test-Path was True and this exact executable passed version/SQLite checks:</p>
+
+<pre tabindex="0" role="region" aria-label="PowerShell command"><code class="language-powershell">&amp; &quot;$env:LOCALAPPDATA\Programs\Python\Python313\python.exe&quot; .\lab\app.py --port 8000</code></pre>
+
+<p><strong>Expected startup output — not a command:</strong> Northline Billing: http://127.0.0.1:8000 secure=False. Open that HTTP address on this computer. The server terminal stays running; no returned PowerShell prompt is normal.</p>
+
+<p>Press <strong>Ctrl+C</strong> in the server terminal and wait for the prompt to return. Stop the vulnerable server before reusing the same port. Start corrected mode with the <strong>same</strong> interpreter:</p>
+
+<pre tabindex="0" role="region" aria-label="PowerShell command"><code class="language-powershell">&amp; $LabPython .\lab\app.py --secure --port 8000</code></pre>
+
+<p><strong>Expected startup output — not a command:</strong> the same address with secure=True. Restarting resets the in-memory data and sessions. Sign in again and confirm the Training · Corrected badge. Your own invoice still works; the other customer&#x27;s invoice is denied on both detail routes.</p>
+
+<p>Stop again with Ctrl+C, then verify from the same folder and PowerShell session:</p>
+
+<pre tabindex="0" role="region" aria-label="PowerShell command"><code class="language-powershell">&amp; $LabPython .\lab\verify.py</code></pre>
+
+<p><strong>Expected result — not a command:</strong> PASS, with assertions for authentication, session handling, owner-scoped data, detail access and local assets. The verifier manages its own temporary loopback servers and writes redacted evidence/http-evidence.json. It does not require a manually running server or claim to be a Burp run.</p>
+
+<h2>Linux Step 1: Check distribution and install a supported runtime</h2>
+
+<p>Check your distribution first:</p>
+
+<pre tabindex="0" role="region" aria-label="Linux terminal command"><code class="language-bash">cat /etc/os-release</code></pre>
+
+<p>The apt commands below target <strong>Ubuntu 24.04 LTS</strong> (default Python 3.12) and <strong>Debian 13/trixie</strong> (default Python 3.13). Their <a href="https://packages.ubuntu.com/noble/python3" target="_blank" rel="noopener noreferrer">Ubuntu</a> and <a href="https://packages.debian.org/trixie/python3" target="_blank" rel="noopener noreferrer">Debian</a> package references identify these versions. If Python is missing or its full standard library is needed on those distributions:</p>
+
+<pre tabindex="0" role="region" aria-label="Linux terminal command"><code class="language-bash">sudo apt update
+sudo apt install python3-full</code></pre>
+
+<p>Package installation may require your distribution&#x27;s normal administrative authorization; running the lab does not. No pip installation is required.</p>
+
+<p><strong>Ubuntu 22.04&#x27;s default Python 3.10 and Debian 12&#x27;s default Python 3.11 do not meet this lab&#x27;s requirement.</strong> Installing their default python3-full does not make them 3.12+. Use a separately installed supported interpreter from your distributor or a supported isolated environment, following <a href="https://ubuntu.com/developers/docs/howto/python-setup/" target="_blank" rel="noopener noreferrer">Ubuntu&#x27;s Python guidance</a> or <a href="https://docs.python.org/3/using/unix.html" target="_blank" rel="noopener noreferrer">Python&#x27;s Unix installation guidance</a>. Other Linux distributions need their own package instructions. Do not replace/remove system Python, rewrite /usr/bin/python3, or add an unverified repository to make these commands work.</p>
+
+<h2>Linux Step 2: Verify the interpreter and SQLite</h2>
+
+<p>Use python3 consistently below only after these checks pass. If you intentionally selected a side-by-side executable instead, substitute that same verified executable in <strong>every</strong> Linux command, including extraction and verification:</p>
+
+<pre tabindex="0" role="region" aria-label="Linux terminal command"><code class="language-bash">python3 --version
+python3 -c &quot;import sys, sqlite3; assert sys.version_info &gt;= (3, 12), &#x27;Python 3.12+ required&#x27;; c=sqlite3.connect(&#x27;:memory:&#x27;); print(&#x27;Python&#x27;, sys.version.split()[0]); print(&#x27;Executable:&#x27;, sys.executable); print(&#x27;SQLite&#x27;, sqlite3.sqlite_version); print(&#x27;SQLite query:&#x27;, c.execute(&#x27;SELECT 1&#x27;).fetchone()[0]); c.close()&quot;</code></pre>
+
+<p><strong>Expected result — not a command:</strong> Python 3.12+, the selected executable path, an SQLite version and SQLite query: 1. An older runtime or an SQLite import error must be resolved first.</p>
+
+<h2>Linux Step 3: Extract, enter and check the package</h2>
+
+<p>Adjust the download path if needed. Choose a new destination. Python&#x27;s standard-library ZIP tool does not need a separate unzip package:</p>
+
+<pre tabindex="0" role="region" aria-label="Linux terminal command"><code class="language-bash">LAB_ZIP=&quot;$HOME/Downloads/hunting-idor-lab.zip&quot;
+LAB_DIR=&quot;$HOME/Downloads/Northline Billing Lab&quot;
+if [ ! -f &quot;$LAB_ZIP&quot; ]; then
+  printf &#x27;%s\n&#x27; &quot;ZIP missing: correct LAB_ZIP.&quot;
+elif [ -e &quot;$LAB_DIR&quot; ]; then
+  printf &#x27;%s\n&#x27; &quot;Choose an unused LAB_DIR.&quot;
+else
+  python3 -m zipfile -e &quot;$LAB_ZIP&quot; &quot;$LAB_DIR&quot; &amp;&amp;
+  cd &quot;$LAB_DIR&quot; &amp;&amp;
+  ls
+fi</code></pre>
+
+<p>If the command reported an error, stop; do not launch from the old folder. Confirm the working folder and all six files:</p>
+
+<pre tabindex="0" role="region" aria-label="Linux terminal command"><code class="language-bash">pwd
+ls -l README.md lab/app.py lab/verify.py lab/assets/app.css lab/assets/app.js lab/assets/northline-mark.svg</code></pre>
+
+<p>A wrapper directory added by a graphical extraction tool needs one more cd into the actual folder containing README.md and lab/. Do not cd into lab/ itself.</p>
+
+<h2>Linux Step 4: Run both modes and verification</h2>
+
+<p>Start one vulnerable server from the checked extracted folder:</p>
+
+<pre tabindex="0" role="region" aria-label="Linux terminal command"><code class="language-bash">python3 lab/app.py --port 8000</code></pre>
+
+<p>Open http://127.0.0.1:8000/ on this computer. The startup line must end in secure=False. Keep the terminal running. To correct it, <strong>Ctrl+C</strong>, wait for the prompt, then run:</p>
+
+<pre tabindex="0" role="region" aria-label="Linux terminal command"><code class="language-bash">python3 lab/app.py --secure --port 8000</code></pre>
+
+<p>The startup line must now end in secure=True. Sign in again after restart and confirm the corrected training badge. Stop with Ctrl+C when finished, then run:</p>
+
+<pre tabindex="0" role="region" aria-label="Linux terminal command"><code class="language-bash">python3 lab/verify.py</code></pre>
+
+<p>The expected result is PASS. If using another terminal, repeat the interpreter checks and cd into the same extracted folder first. The verifier creates redacted evidence/http-evidence.json and stops its own test servers.</p>
+
+<h2 id="demo-credentials">Demo credentials</h2>
+
+<div class="idor-table-scroll idor-credentials-table" tabindex="0" role="region" aria-labelledby="demo-credentials"><table><thead><tr><th scope="col">Account</th><th scope="col">Email</th><th scope="col">Public demo password</th><th scope="col">Own invoice</th><th scope="col">Total</th></tr></thead><tbody><tr><td>Alice</td><td>alice@northline.test</td><td>AliceDemo!2026</td><td>101</td><td>USD 125.00</td></tr><tr><td>Bob</td><td>bob@northline.test</td><td>BobDemo!2026</td><td>102</td><td>USD 480.00</td></tr></tbody></table></div>
+
+<p>These are public credentials for fictional local accounts. Password validation uses salted PBKDF2 hashes; login rotates a random server session and Sign out invalidates it. Restarting clears sessions and synthetic in-memory records. There is no registration, reset-password or payment feature.</p>
+
+<h2 id="demo-records">Demo records</h2>
+
+<p>Explore Dashboard → Invoices → View invoice. Use Sign out or separate private-browser sessions to switch accounts. Alice&#x27;s invoice has 1 × USD 75.00 and 1 × USD 50.00; Bob&#x27;s has 2 × USD 150.00 and 3 × USD 60.00. Totals use integer cents. Issue/due dates and Unpaid status are fictional fixture values, not publication dates.</p>
+
+<p>The application name is Northline Billing; the invoice sender is Northline Demo Services. The signed-in account remains outside the invoice. Lists/dashboard summaries are account-scoped in both modes; only vulnerable-mode detail access intentionally allows the cross-account disclosure. Corrected mode checks ownership on both HTML and JSON detail routes. Technical details shows the actual request/status without cookies or passwords.</p>
+
+<h2 id="learning-guide">Learning guide</h2>
+
+<p>Open the local <strong>Lab Guide</strong> for the scenario, Burp workflow, collapsed hints and separately revealed solution. Its launcher examples presume py is installed; on a machine without it, use the verified Windows commands in this setup instead. The article&#x27;s shell examples are Linux commands; Windows uses the verified LabPython executable here. Python verification sends actual local HTTP requests; it does not fabricate Burp evidence.</p>
+
+<h2>Troubleshooting — symptom, cause, fix and confirmation</h2>
+
+<h3>WinGet succeeded, but py is missing or python points to the Store</h3>
+
+<p><strong>Symptom:</strong> command not found or a Store message. <strong>Likely cause:</strong> stale terminal environment, omitted launcher, or an App Installer shortcut shadowing the runtime.</p>
+
+<ol>
+
+<li>Completely close/reopen Terminal and PowerShell, then run the two separate version checks and Get-Command from Windows Step 2.</li>
+
+<li>Follow only your installation route&#x27;s PATH/alias recovery in Windows Step 3. If the conditional 3.13 path is absent, locate your real installation instead.</li>
+
+<li>Select its exact executable and run the full Windows Step 4 preflight.</li>
+
+</ol>
+
+<p><strong>Confirmation:</strong> the selected path exists, the version is 3.12+, and the SQLite query returns 1. WinGet&#x27;s installed message alone is not this confirmation.</p>
+
+<h3>The command reports an unknown version-selection option</h3>
+
+<p><strong>Symptom:</strong> an interpreter rejects a launcher selector. <strong>Likely cause:</strong> a py-only option was carried over to an interpreter command.</p>
+
+<ol>
+
+<li>Remove the launcher selector when invoking python.exe or LabPython.</li>
+
+<li>Use the Windows Step 4 executable selection; do not substitute a launcher option into that path.</li>
+
+<li>Run version/SQLite checks before the Windows Step 6 commands.</li>
+
+</ol>
+
+<p><strong>Confirmation:</strong> the selected executable accepts --version and the preflight succeeds.</p>
+
+<h3>Python is older than 3.12</h3>
+
+<p><strong>Symptom:</strong> the preflight assertion or app&#x27;s version guard fails. <strong>Likely cause:</strong> another interpreter is earlier on PATH, or the distribution&#x27;s default is too old.</p>
+
+<ol>
+
+<li>Inspect the reported executable/version; do not assume the newest installed version was selected.</li>
+
+<li>Choose an installed supported runtime explicitly, or follow the correct installation route. On Linux keep the system runtime intact and use a supported side-by-side environment when needed.</li>
+
+<li>Repeat the version and SQLite checks using the same executable you will launch.</li>
+
+</ol>
+
+<p><strong>Confirmation:</strong> Python 3.12+ is reported and the SQL check passes.</p>
+
+<h3>SQLite cannot be imported or a DLL/_sqlite3 module is missing</h3>
+
+<p><strong>Symptom:</strong> ModuleNotFoundError, ImportError or DLL load failed during the SQLite check. <strong>Likely cause:</strong> incomplete standard library, damaged install, or a different executable than intended.</p>
+
+<ol>
+
+<li>Read sys.executable from the check and confirm that it is the selected runtime.</li>
+
+<li>Repair/reinstall that official Windows runtime&#x27;s standard library. On the supported apt distributions, install/repair python3-full for the matching distro runtime; for a custom Python use its distributor&#x27;s SQLite build instructions.</li>
+
+<li>Repeat the same SQLite connection/SELECT 1 check before launching.</li>
+
+</ol>
+
+<p><strong>Confirmation:</strong> the import succeeds and SQLite query: 1 appears. SQLite is a standard-library module; do not try to obtain it with pip.</p>
+
+<h3>Wrong folder, nested extraction or missing files</h3>
+
+<p><strong>Symptom:</strong> cannot open lab/app.py, FileNotFoundError for an asset, or False/missing files in the six-file check. <strong>Likely cause:</strong> ZIP viewer, lab/ as the working directory, an extra wrapper folder, or an incomplete/wrong archive.</p>
+
+<ol>
+
+<li>Inspect Get-Location/Get-ChildItem on Windows or pwd/ls on Linux. Enter the folder that directly contains README.md and lab/.</li>
+
+<li>Repeat all six file checks. If files are still absent, download the actual lab ZIP and extract the complete archive into a new folder; do not copy only app.py.</li>
+
+<li>Run the matching OS launch command from that root.</li>
+
+</ol>
+
+<p><strong>Confirmation:</strong> all six files are present and the server prints its loopback startup address.</p>
+
+<h3>LabPython is unset in a new PowerShell window</h3>
+
+<p><strong>Symptom:</strong> the call operator has no valid executable, or the variable is empty. <strong>Likely cause:</strong> interpreter selection belonged to another session.</p>
+
+<ol>
+
+<li>Repeat Windows Step 4 selection in this window; do not use a stale or guessed path.</li>
+
+<li>Run its preflight and Set-Location to the extracted root.</li>
+
+<li>Retry the launch/verification command with &amp; $LabPython.</li>
+
+</ol>
+
+<p><strong>Confirmation:</strong> the preflight and six-file checks pass in the same window.</p>
+
+<h3>Port 8000 is already occupied</h3>
+
+<p><strong>Symptom:</strong> address already in use / WinError 10048. <strong>Likely cause:</strong> an earlier lab server or another application owns that port.</p>
+
+<ol>
+
+<li>If you recognize your earlier lab terminal, stop it with Ctrl+C and wait for the prompt. Do not blindly terminate processes.</li>
+
+<li>If the port belongs to another application, leave it alone and use an unused port. For example, replace --port 8000 with --port 8001 in the same verified interpreter&#x27;s vulnerable or corrected command.</li>
+
+<li>Open http://127.0.0.1:8001/ and use that port consistently in the browser and Burp.</li>
+
+</ol>
+
+<p><strong>Confirmation:</strong> the startup line names 8001 and that same address responds. Stop the old lab before switching modes on a shared port.</p>
+
+<h3>Connection refused or the browser cannot connect</h3>
+
+<p><strong>Symptom:</strong> connection refused, timeout or no login page. <strong>Likely cause:</strong> server stopped/crashed, incorrect host/port/protocol, or a different computer/browser environment.</p>
+
+<ol>
+
+<li>Confirm the terminal is still running and read any startup error. Closing the terminal stops the server.</li>
+
+<li>Open exactly the printed HTTP loopback address on this computer, not HTTPS and not a VM/host loopback belonging to another machine.</li>
+
+<li>Compare with a normal browser without an interception proxy, then correct the matching host/port. Do not tunnel/expose the lab or disable the firewall globally.</li>
+
+</ol>
+
+<p><strong>Confirmation:</strong> the normal browser displays the Northline Billing login page at the printed address.</p>
+
+<h3>Burp leaves a page or login request waiting</h3>
+
+<p><strong>Symptom:</strong> the normal browser works but Burp&#x27;s browser spins, or Repeater never receives a response. <strong>Likely cause:</strong> Intercept is holding a request, a paused request was dropped, or the request targets a different port/host.</p>
+
+<ol>
+
+<li>Inspect Proxy → Intercept. Forward the held request or turn Intercept off for ordinary navigation; capture traffic in HTTP history.</li>
+
+<li>Confirm Burp and the browser use the same local HTTP host/port as the server. Keep 127.0.0.1 consistent through login and testing.</li>
+
+<li>Reload the login form, sign in again, then resend the baseline request with the current session. Do not publish or tunnel the app to solve proxy routing.</li>
+
+</ol>
+
+<p><strong>Confirmation:</strong> the baseline API read returns Alice&#x27;s invoice 101 under Alice&#x27;s current session; genuine Repeater evidence must be captured separately.</p>
+
+<h3>Session expired, login fails, or a form cannot be verified</h3>
+
+<p><strong>Symptom:</strong> redirected to login, API 401, or Request not verified. <strong>Likely cause:</strong> restart/expired session, mixed localhost/127.0.0.1 cookies, stale CSRF form or incorrect public demo credentials.</p>
+
+<ol>
+
+<li>Keep the host consistent and reload the login form after a restart.</li>
+
+<li>Enter the exact documented email/password with its capitalization. Use Sign out or a separate private session to change account.</li>
+
+<li>Sign in again before reusing a saved API request; replace/redact its old cookie appropriately.</li>
+
+</ol>
+
+<p><strong>Confirmation:</strong> the header identifies the intended signed-in customer and that customer&#x27;s own invoice opens.</p>
+
+<h3>Vulnerable and corrected results seem reversed</h3>
+
+<p><strong>Symptom:</strong> cross-account access still works after a supposed fix, or it is denied during the intended vulnerable exercise. <strong>Likely cause:</strong> old process/port, wrong startup flag, different session/account or a different invoice reference.</p>
+
+<ol>
+
+<li>Stop your running lab with Ctrl+C before starting the requested mode on the same port.</li>
+
+<li>Use the same verified interpreter and extracted app. Check secure=False/True in the actual startup line and the matching training badge, then sign in again.</li>
+
+<li>Confirm Alice owns 101 and Bob owns 102; keep Alice&#x27;s session when testing 102. Expand Technical details to inspect the actual path/status, without exposing cookies.</li>
+
+</ol>
+
+<p><strong>Confirmation:</strong> Alice → 101 works in both modes; Alice → 102 returns Bob&#x27;s fictional record only in vulnerable mode and a denied/not-found 404 in corrected mode. Run verification to check both modes independently.</p>
+
+</div>
