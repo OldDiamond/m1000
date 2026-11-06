@@ -1,0 +1,22 @@
+[
+  {
+    "id": "northline-billing",
+    "name": "Northline Billing",
+    "published": true,
+    "topic": "Broken Access Control / IDOR",
+    "difficulty": "Easy lab",
+    "description": "Investigate invoice access controls in a fictional billing portal, reproduce the vulnerability locally, and compare the corrected implementation.",
+    "thumbnail": {
+      "src": "/assets/blog/hunting-idor-075x.gif",
+      "animatedWebp": "/assets/blog/hunting-idor-075x.webp",
+      "poster": "/assets/blog/hunting-idor-poster.png",
+      "alt": "IDOR access badge illustrating broken object authorization.",
+      "width": 439,
+      "height": 439
+    },
+    "liveUrl": "https://labs.m1000z.com/",
+    "walkthroughUrl": "/posts/hunting-idor-web-applications/",
+    "setupUrl": "/labs/idor/setup/",
+    "note": "The hosted demo uses corrected access controls. The downloadable local lab includes vulnerable and corrected modes."
+  }
+]

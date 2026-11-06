@@ -5,6 +5,7 @@ import {pathToFileURL} from 'node:url';
 import {SITE_ORIGIN,canonicalUrl,isIndexable,resolvePages,routePath,lastModified} from './site-pages.mjs';
 
 export function verifySeo(root='dist'){
+ const navigation=JSON.parse(fs.readFileSync('content/settings.json')).navigation;
  const posts=JSON.parse(fs.readFileSync('content/posts.json'));
  const pages=resolvePages(JSON.parse(fs.readFileSync('src/pages.json')),posts);
  const indexable=pages.filter(page=>isIndexable(page,posts.find(post=>routePath(post.url)===page.route)));
@@ -30,7 +31,12 @@ export function verifySeo(root='dist'){
   links.set(canonicalUrl(page.route),anchors);
   const menu=html.match(/<div class="portfolio-menu-links">([\s\S]*?)<\/div>/)?.[1];
   assert(menu,page.route+': no static navigation');
-  assert.equal([...menu.matchAll(/<a\b/g)].length,5,page.route+': incorrect static navigation count');
+  assert.equal([...menu.matchAll(/<a\b/g)].length,navigation.length,page.route+': incorrect static navigation count');
+  for(const item of navigation){
+   const href=new URL(item.href,SITE_ORIGIN);
+   const normalized=canonicalUrl(href.pathname).replace(SITE_ORIGIN,'')+href.hash;
+   assert(menu.includes('href="'+normalized+'"'),page.route+': missing navigation link '+item.label);
+  }
  }
  const reachable=new Set([canonicalUrl('/')]);const queue=[canonicalUrl('/')];
  while(queue.length){for(const next of links.get(queue.shift())||[]){if(!reachable.has(next)){reachable.add(next);queue.push(next);}}}

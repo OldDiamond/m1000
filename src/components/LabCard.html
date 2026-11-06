@@ -1,0 +1,22 @@
+<article class="lab-card" aria-labelledby="lab-{{id}}">
+  <div class="lab-card-media">
+    <picture>
+      {{thumbnailSources}}
+      <img src="{{thumbnailSrc}}" width="{{thumbnailWidth}}" height="{{thumbnailHeight}}" alt="{{thumbnailAlt}}" decoding="async">
+    </picture>
+  </div>
+  <div class="lab-card-content">
+    <div class="lab-card-meta">
+      <p class="lab-card-topic">{{topic}}</p>
+      <span class="lab-card-difficulty" title="Learning difficulty, not vulnerability severity">{{difficulty}}</span>
+    </div>
+    <h2 id="lab-{{id}}">{{name}}</h2>
+    <p class="lab-card-description">{{description}}</p>
+    <div class="lab-card-actions">
+      <a class="lab-button lab-button-primary" href="{{liveUrl}}">Launch live lab <span aria-hidden="true">↗</span></a>
+      <a class="lab-button" href="{{walkthroughUrl}}">Read walkthrough</a>
+      <a class="lab-button" href="{{setupUrl}}">Local setup</a>
+    </div>
+    <p class="lab-card-note">{{note}}</p>
+  </div>
+</article>

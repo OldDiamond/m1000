@@ -72,6 +72,16 @@
     ]
   },
   {
+    "route": "/labs",
+    "slug": "labs",
+    "templateSlug": "blog",
+    "styleSlug": "blog",
+    "contentKey": "blog",
+    "title": "Security Labs | m1000z",
+    "description": "Hands-on web security labs. Explore the application, follow the walkthrough, and understand the fix.",
+    "components": ["LabsCatalogue", "blog--1--phone"]
+  },
+  {
     "route": "/labs/idor/setup",
     "slug": "lab--idor--setup",
     "templateSlug": "post--passing-htb-cwes",

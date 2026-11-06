@@ -51,6 +51,18 @@ const renderBlogCard=post=>{
  return thumbnail?.animatedWebp?renderAnimatedCard(card,thumbnail,escape):card;
 };
 const blogCards=posts.map(renderBlogCard).join('\n');
+const labs=JSON.parse(fs.readFileSync('content/labs.json','utf8')).filter(lab=>lab.published===true);
+const labCard=fs.readFileSync('src/components/LabCard.html','utf8');
+const labCards=labs.map(lab=>{
+ if(new URL(lab.liveUrl).protocol!=='https:')throw new Error('Live lab links must use HTTPS');
+ const fields={...lab,thumbnailSrc:lab.thumbnail.src,thumbnailAlt:lab.thumbnail.alt,
+  thumbnailWidth:lab.thumbnail.width,thumbnailHeight:lab.thumbnail.height,
+  walkthroughUrl:siteHref(lab.walkthroughUrl),setupUrl:siteHref(lab.setupUrl)};
+ const thumbnailSources=lab.thumbnail.animatedWebp
+  ?'<source media="(prefers-reduced-motion: reduce)" srcset="'+escape(lab.thumbnail.poster||lab.thumbnail.src)+'"><source type="image/webp" srcset="'+escape(lab.thumbnail.animatedWebp)+'">':'';
+ return Object.entries(fields).reduce((html,[key,value])=>html.replaceAll('{{'+key+'}}',escape(value)),labCard)
+  .replaceAll('{{thumbnailSources}}',thumbnailSources);
+}).join('\n');
 // Recreate only the generated output so removed assets cannot survive a rebuild.
 const projectRoot=fs.realpathSync('.');
 const outputRoot=path.join(projectRoot,'dist');
@@ -70,6 +82,7 @@ fs.copyFileSync('src/article.js','dist/assets/article.js');
 fs.copyFileSync('src/blog-search.js','dist/assets/blog-search.js');
 fs.copyFileSync('src/styles/blog-search.css','dist/assets/blog-search.css');
 fs.copyFileSync('src/styles/blog-cards.css','dist/assets/blog-cards.css');
+fs.copyFileSync('src/styles/labs.css','dist/assets/labs.css');
 fs.copyFileSync('src/styles/article-header.css','dist/assets/article-header.css');
 fs.copyFileSync('src/styles/idor-publication.css','dist/assets/idor-publication.css');
 fs.copyFileSync('src/idor-article.js','dist/assets/idor-article.js');
@@ -125,6 +138,7 @@ for(const page of pages){
  html=html.replaceAll('<!--HEADER-->',fs.readFileSync('src/components/Header.html','utf8').replaceAll('{{displayName}}',escape(settings.displayName)).replaceAll('<!--NAVIGATION-->','<div class="portfolio-menu-links">'+navigation+'</div>'));
  page.components.forEach((name,i)=>{html=html.replace('<!--COMPONENT:'+i+'-->',fs.readFileSync('src/components/'+name+'.html','utf8'))});
  html=html.replaceAll('<!--BLOG-CARDS-->',page.slug==='home'?homepagePosts(posts).map(renderBlogCard).join('\n'):blogCards);
+ html=html.replaceAll('<!--LAB-CARDS-->',labCards);
  if(articlePost){
   const body=postBodies.get(articlePost.url);
   const fields={postTitle:articlePost.title,postAuthor:articlePost.author,postDate:articlePost.date,
@@ -184,7 +198,7 @@ for(const page of pages){
  html=html.replaceAll('{{cvAttributes}}',settings.cvUrl?'href="'+escape(settings.cvUrl)+'" download':'role="link" aria-disabled="true" tabindex="0" title="CV will be available soon"');
  html=html.replaceAll('{{cvViewAttributes}}',settings.cvUrl?'href="'+escape(settings.cvUrl)+'"':'role="link" aria-disabled="true" tabindex="0" title="CV will be available soon"');
  html=html.replaceAll('{{contactFormAction}}',escape((settings.contactEndpoint||'').replace('https://formsubmit.co/ajax/','https://formsubmit.co/')));
- const stylesheet=articlePost?'article':page.slug;
+ const stylesheet=articlePost?'article':page.styleSlug||page.slug;
  fs.writeFileSync('dist/assets/'+stylesheet+'.css',localize(fs.readFileSync('src/styles/'+stylesheet+'.css','utf8')));
  html=localize(html);
  // Give long brand names a usable static fit; the browser refines it with the loaded font.
@@ -196,6 +210,7 @@ for(const page of pages){
   return open+body+'</svg>';
  });
  html=html.replace(/(<footer\b[^>]*>)/g, '$1'+fs.readFileSync('src/components/FooterHands.html','utf8'));
+ html=html.replace(/(<div\b[^>]*data-framer-name="Quick Links"[^>]*>[\s\S]*?<div\b[^>]*data-framer-name="Links"[^>]*>)/g,'$1'+fs.readFileSync('src/components/FooterLabsLink.html','utf8'));
  if(settings.footerMark?.enabled!==false)html=html.replace(/(<div\b[^>]*data-framer-name="Quick Links"[^>]*>)/g,(_,open)=>open+fs.readFileSync('src/components/FooterMark.html','utf8').replaceAll('{{footerMarkColor}}',escape(settings.footerMark?.color||'var(--accent)')));
  html=html.replaceAll('href="./','href="/');
  html=html.replace(/href="(\/[^"#]+)(#[^"]*)?"/g,(match,target,hash='')=>{if(pages.some(p=>p.route===target))return match;const found=pages.find(p=>p.route.split('/').at(-1)===target.slice(1));return found?'href="'+found.route+hash+'"':match});
@@ -266,11 +281,12 @@ for(const page of pages){
   '<meta name="twitter:description" content="'+escape(page.description)+'">',
   '<meta name="twitter:image" content="https://www.m1000z.com'+escape(articlePost.socialImage||articlePost.image)+'">',
  ].join('')+articleStructuredData:'';
- const doc=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080809"><style>html,body{background:#080809;color:#edf0ed}</style><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}">${fontPreloads}<link rel="stylesheet" href="/assets/${page.slug}.css"><link rel="stylesheet" href="/assets/custom.css"><link rel="stylesheet" href="/assets/theme.css"><link rel="stylesheet" href="/assets/responsive.css">${motionBoot}${embeddedSettings}<script type="module" src="/assets/interactions.js" blocking="render"></script></head><body>${opening}${icons}${html}</body></html>`;
+ const doc=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080809"><style>html,body{background:#080809;color:#edf0ed}</style><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}">${fontPreloads}<link rel="stylesheet" href="/assets/${stylesheet}.css"><link rel="stylesheet" href="/assets/custom.css"><link rel="stylesheet" href="/assets/theme.css"><link rel="stylesheet" href="/assets/responsive.css">${motionBoot}${embeddedSettings}<script type="module" src="/assets/interactions.js" blocking="render"></script></head><body>${opening}${icons}${html}</body></html>`;
  // Recolored images, styles and entry scripts bypass cached versions after deployment.
- const articleDoc=articlePost?doc.replace('/assets/'+page.slug+'.css','/assets/article.css').replace('</head>','<script type="module" src="/assets/article.js"></script></head>'):doc;
+ const articleDoc=articlePost?doc.replace('</head>','<script type="module" src="/assets/article.js"></script></head>'):doc;
  const animatedCards=(page.slug==='blog'?posts:page.slug==='home'?homepagePosts(posts):[]).some(post=>post.thumbnail?.animatedWebp);
- const blogAssets=(page.slug==='blog'?'<link rel="stylesheet" href="/assets/blog-search.css"><script type="module" src="/assets/blog-search.js"></script>':'')
+ const blogAssets=(page.slug==='labs'?'<link rel="stylesheet" href="/assets/labs.css">':'')
+  +(page.slug==='blog'?'<link rel="stylesheet" href="/assets/blog-search.css"><script type="module" src="/assets/blog-search.js"></script>':'')
   +(animatedCards||articlePost?.publicationPackage==='idor'?'<link rel="stylesheet" href="/assets/idor-publication.css">':'')
   +(articlePost?.publicationPackage==='idor'?'<script type="module" src="/assets/idor-article.js"></script>':'')
   +(html.includes('blog-preview-card')?'<link rel="stylesheet" href="/assets/blog-cards.css">':'')
